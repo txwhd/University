@@ -1,12 +1,13 @@
-﻿<?php
+<?php
 
 class AccessAction extends CommonAction {
 
     /**
       +----------------------------------------------------------
-     * 管理员列表
+     * 管理员列表 马鹏盛测试成功
       +----------------------------------------------------------
      */
+	
     public function index() {
         $this->assign("list", D("Access")->adminList());
         $this->display();
