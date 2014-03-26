@@ -18,13 +18,87 @@
                 <div id="Right">
                     <div class="Item hr">
                         <div class="current">网站注册会员管理</div>
+                       <!--  <ul class="toolBar">
+				<li><a class="add" href="__URL__/add" target="navTab"><span>新增</span></a></li>
+				<li><a class="edit" href="__URL__/showEdit/id/{sid_reward}" mask="true" target="navTab" warn="请选择一条记录"><span>编辑</span></a></li>
+				<li><a class="delete" href="__URL__/showDel/id/{sid_reward}/navTabId/__MODULE__" target="navTabTodo" title="你确定要删除吗？" warn="请选择一条记录"><span>删除</span></a></li>
+			</ul> -->
+                         <span class="fr">当前共有{$count}个会员，今天注册{$newCount}个会员</span>
                     </div>
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
-                    </table>
+                    <form>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
+                            <thead>
+                                <tr>
+                                    <td width="90"><label><input name="" class="chooseAll" type="checkbox"/> 全选</label> <label><input name="" class="unsetAll" type="checkbox"/> 反选</label></td>
+                                    <td>姓名</td>
+                                    <td>性别</td>
+                                    <td>民族</td>
+                                    <td>择偶信息</td>
+                                    <td>登录时间</td>
+                                    <td>查看详细</td>
+                                    <td>账户状态</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <volist name="list" id="tab">
+                                    <tr align="center">
+                                        <td><input type="checkbox" name="table[]" value="{$tab.Name}"/></td>
+                                        <td align="left">{$tab.username}</td>
+                                        <td>{$tab.gender}</td>
+                                        <td>{$tab.nationName}</td>
+                                        <td><a href="">点击查看</a></td>
+                                        <td>{$tab.last_login_time|date="Y-m-d H:i:s",###}</td>
+                                        <td><a href="">点击查看</a></td>
+                                        <td>
+                                        	<if condition="$tab.isLock eq 2 ">已经开启
+   											 <else /> 禁用
+											</if>
+                                        </td>
+                                    </tr>
+                                </volist>
+                            </tbody>
+                            <tfoot align="center">
+                                <tr>
+                                    <td width="90"><label><input name="" class="chooseAll" type="checkbox"/> 全选</label> <label><input name="" class="unsetAll" type="checkbox"/> 反选</label></td>
+                                     <td>姓名</td>
+                                    <td>性别</td>
+                                    <td>民族</td>
+                                    <td>择偶信息</td>
+                                    <td>登录时间</td>
+                                    <td>查看详细</td>
+                                    <td>账户状态</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </form>
+                    <div class="commonBtnArea" >
+                        <button class="btn submit">全部信息导出excel格式</button>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="clear"></div>
         <include file="Common:foot" />
+         <script type="text/javascript">
+            $(function(){
+                clickCheckbox();
+                $(".submit").click(function(){
+                    if($("tbody input[type='checkbox']:checked").size()==0){
+                        popup.alert("请先选择你要备份的数据库表吧");
+                        return false;
+                    }
+                    if($(this).attr("disabledSubmit")){
+                        popup.alert("已提交，系统在处理中...");
+                    }else{
+                        $(this).attr("disabledSubmit",true).html("提交处理中...");
+                        commonAjaxSubmit("__URL__/backup");
+//                        popup.alert("系统处理中，如果数据库中数据较多可能需要较长时间，请稍候....");
+                        setTimeout(function(){
+                            popup.close("asyncbox_alert");
+                        },2000);
+                    }
+                });
+            });
+        </script>
     </body>
 </html>

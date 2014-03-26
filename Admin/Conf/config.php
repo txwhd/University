@@ -6,11 +6,13 @@ $config_arr2 = array(
     'admin_big_menu' => array(
         'Index' => '首页',
         'Member' => '会员管理',
-        'News' => '资讯管理',//换成文章的即可
+        'News' => '资讯管理',
+        //换成文章的即可
         'Notice' => '公告管理',
         'Gift' => '礼品管理',
         'Article' => '文章管理',
-        'link' => '友情链接',
+        'Link' => '友情链接',
+        'Menu' => '首页菜单',
         'Advertisement' => '广告管理',
         'Payment' => '支付管理',
         'Business' => '商家入赘管理',
@@ -38,6 +40,40 @@ $config_arr2 = array(
             'index' => '新闻列表',
             'category' => '新闻分类管理',
             'add' => '发布新闻',
+        ),
+        'Payment' => array(
+            'index' => '支付方式列表',
+            'add' => '增加支付方式',
+        ),
+        'Notice' => array(
+            'index' => '公告列表',
+            'add' => '发布公告',
+        ),
+        'Link' => array(
+            'index' => '链接列表',
+            'add' => '发布链接',
+        ),
+        'Menu' => array(
+            'index' => '首页菜单列表',
+            'add' => '增加首页菜单',
+        ),
+        'Gift' => array(
+            'index' => '礼品列表',
+            'add' => '发布礼品',
+        ),
+        'Business' => array(
+            'index' => '商家列表',
+        ),
+        'Article' => array(
+            'index' => '文章列表 ',
+            'category' => '文章分类管理',
+            'add' => '发布文章',
+            'discuss' => '评论文章管理',
+        ),
+        'Advertisement' => array(
+            'index' => '广告列表',
+            'category' => '广告分类管理',
+            'add' => '增加广告',
         ),
         'SysData' => array(
             'index' => '数据库备份',
