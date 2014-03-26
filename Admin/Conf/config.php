@@ -39,6 +39,12 @@ $config_arr2 = array(
             'category' => '新闻分类管理',
             'add' => '发布新闻',
         ),
+        'Article' => array(
+            'index' => '文章列表',
+            'category' => '文章分类管理',
+            'add' => '发布文章',
+            'discuss' => '评论文章管理',
+        ),
         'SysData' => array(
             'index' => '数据库备份',
             'restore' => '数据库导入',
