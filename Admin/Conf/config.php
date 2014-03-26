@@ -3,24 +3,18 @@
 $config_arr1 = include_once WEB_ROOT . 'Common/config.php';
 $DB_PREFIX = $config_arr1['DB_PREFIX'];
 $config_arr2 = array(
-			//'配置项'=>'配置值'
-		'DB_TYPE'		=>	'mysql',// 数据库类型
-		'DB_HOST'		=>	'localhost',// 数据库服务器地址
-		'DB_NAME'		=>	'mxczhang_forlove',// 数据库名称
-		'DB_USER'		=>	'root',// 数据库用户名
-		'DB_PWD'		=>	'mxc',// 数据库密码
-		'DB_PREFIX'		=>	'mxczhyk_',// 数据表前缀
-		'DB_CHARSET'	=>	'utf8',// 网站编码
-		'DB_PORT'		=>	'3306',// 数据库端口
-		'APP_DEBUG'     =>  TRUE,// 开启调试模式
-		'SHOW_PAGE_TRACE'=>true,//显示页面trace信息
-		'URL_CASE_INSENSMVE'=>true,//显示url访问不再区分大小写
-		
     'admin_big_menu' => array(
         'Index' => '首页',
-        'Member' => '用户管理',
+        'Member' => '会员管理',
         'News' => '资讯管理',
-//        'Webinfo'=>'系统设置',
+        'Notice' => '公告管理',
+        'Gift' => '礼品管理',
+        'Article' => '文章管理',
+        'link' => '友情链接',
+        'Advertisement' => '广告管理',
+        'Payment' => '支付管理',
+        'Business' => '商家入赘管理',
+	     'Webinfo'=>'系统设置',
         'SysData' => '数据管理',
         'Access' => '权限管理',
     ),
@@ -37,6 +31,7 @@ $config_arr2 = array(
         ),
         'Member' => array(
             'index' => '注册用户列表',
+            'vip' => '会员升级权限管理',
         ),
         'News' => array(
             'index' => '新闻列表',

@@ -16,7 +16,7 @@ class CommonAction extends Action {
         $systemConfig = include WEB_ROOT . 'Common/systemConfig.php';
         if (empty($systemConfig['TOKEN']['admin_marked'])) {
             $systemConfig['TOKEN']['admin_marked'] = "QQ群：102577846";
-            $systemConfig['TOKEN']['admin_timeout'] = 3600;
+           // $systemConfig['TOKEN']['admin_timeout'] = 3600;设置不操作时间推出
             $systemConfig['TOKEN']['member_marked'] = "http://blog.51edm.org";
             $systemConfig['TOKEN']['member_timeout'] = 3600;
             F("systemConfig", $systemConfig, WEB_ROOT . "Common/");
