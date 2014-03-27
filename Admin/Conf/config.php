@@ -3,6 +3,7 @@
 $config_arr1 = include_once WEB_ROOT . 'Common/config.php';
 $DB_PREFIX = $config_arr1['DB_PREFIX'];
 $config_arr2 = array(
+<<<<<<< HEAD
 			//'配置项'=>'配置值'
 		'DB_TYPE'		=>	'mysql',// 数据库类型
 		'DB_HOST'		=>	'localhost',// 数据库服务器地址
@@ -16,11 +17,22 @@ $config_arr2 = array(
 		'SHOW_PAGE_TRACE'=>true,//显示页面trace信息
 		'URL_CASE_INSENSMVE'=>true,//显示url访问不再区分大小写
 		
+=======
+>>>>>>> 8c4fe4a61e21d5de66eb2df0e780c8de0af0ebd8
     'admin_big_menu' => array(
         'Index' => '首页',
-        'Member' => '用户管理',
+        'Member' => '会员管理',
         'News' => '资讯管理',
-//        'Webinfo'=>'系统设置',
+        //换成文章的即可
+        'Notice' => '公告管理',
+        'Gift' => '礼品管理',
+        'Article' => '文章管理',
+        'Link' => '友情链接',
+        'Menu' => '首页菜单',
+        'Advertisement' => '广告管理',
+        'Payment' => '支付管理',
+        'Business' => '商家入赘管理',
+	     'Webinfo'=>'系统设置',
         'SysData' => '数据管理',
         'Access' => '权限管理',
     ),
@@ -33,15 +45,51 @@ $config_arr2 = array(
         'Webinfo' => array(
             'index' => '站点配置',
             'setEmailConfig' => '邮箱配置',
-            'setSafeConfig' => '安全配置'
+            'setSafeConfig' => '安全配置',
+            'file' => '文件管理'
         ),
         'Member' => array(
             'index' => '注册用户列表',
+            'vip' => '会员升级权限管理',
         ),
         'News' => array(
             'index' => '新闻列表',
             'category' => '新闻分类管理',
             'add' => '发布新闻',
+        ),
+        'Payment' => array(
+            'index' => '支付方式列表',
+            'add' => '增加支付方式',
+        ),
+        'Notice' => array(
+            'index' => '公告列表',
+            'add' => '发布公告',
+        ),
+        'Link' => array(
+            'index' => '链接列表',
+            'add' => '发布链接',
+        ),
+        'Menu' => array(
+            'index' => '首页菜单列表',
+            'add' => '增加首页菜单',
+        ),
+        'Gift' => array(
+            'index' => '礼品列表',
+            'add' => '发布礼品',
+        ),
+        'Business' => array(
+            'index' => '商家列表',
+        ),
+        'Article' => array(
+            'index' => '文章列表 ',
+            'category' => '文章分类管理',
+            'add' => '发布文章',
+            'discuss' => '评论文章管理',
+        ),
+        'Advertisement' => array(
+            'index' => '广告列表',
+            'category' => '广告分类管理',
+            'add' => '增加广告',
         ),
         'SysData' => array(
             'index' => '数据库备份',
