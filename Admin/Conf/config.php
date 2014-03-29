@@ -4,9 +4,10 @@ $config_arr1 = include_once WEB_ROOT . 'Common/config.php';
 $DB_PREFIX = $config_arr1['DB_PREFIX'];
 $config_arr2 = array(
     'admin_big_menu' => array(
+    		//15个菜单
         'Index' => '首页',
         'Member' => '会员管理',
-        'News' => '资讯管理',
+        //'News' => '资讯管理',
         //换成文章的即可
         'Notice' => '公告管理',
         'Gift' => '礼品管理',
@@ -15,7 +16,8 @@ $config_arr2 = array(
         'Menu' => '首页菜单',
         'Advertisement' => '广告管理',
         'Payment' => '支付管理',
-        'Business' => '商家入赘管理',
+    		'File' => '文件管理',
+        'Business' => '商家入赘',
 	     'Webinfo'=>'系统设置',
         'SysData' => '数据管理',
         'Access' => '权限管理',

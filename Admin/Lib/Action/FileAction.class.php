@@ -3,7 +3,7 @@
 class FileAction extends CommonAction {
 	//文件列表
 	public function index(){
-		import("ORG.Io.Dir");
+		import("ORG.Io.Dir");//类在扩展库
 		//路径构造
 		if((!$_GET['path'] && !$_GET['up'] && !$_SESSION['path'])||$_GET['root']) $_SESSION['path'] = $_SERVER['DOCUMENT_ROOT'];
 		if($_GET['path']) $_SESSION['path'] = $_SESSION['path'].'/'.$_GET['path'];
@@ -85,7 +85,7 @@ class FileAction extends CommonAction {
 						$filename = 'unknow';			
 				}
 			}
-			$fileimg = '<img src="__PUBLIC__/Theme/Admin/Dwz/themes/default/images/file/'.$filename.'.gif" />';
+			$fileimg = '<img src="__IMG__/file/'.$filename.'.gif" />';
 			return $fileimg;
 		}
 	}

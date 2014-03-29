@@ -20,17 +20,17 @@ class CommonAction extends Action {
             $systemConfig['TOKEN']['member_marked'] = "http://blog.51edm.org";
             $systemConfig['TOKEN']['member_timeout'] = 3600;
             F("systemConfig", $systemConfig, WEB_ROOT . "Common/");
-            if (is_dir(WEB_ROOT . "install/")) {
+            /* if (is_dir(WEB_ROOT . "install/")) {
                 delDirAndFile(WEB_ROOT . "install/", TRUE);
-            }
+            }  成功安装后删除安装文件*/
+           
+            
         }
 		
         $this->loginMarked = md5($systemConfig['TOKEN']['admin_marked']);
         $this->checkLogin();
-		
 
 	   // 用户权限检查
-
         if (C('USER_AUTH_ON') && !in_array(MODULE_NAME, explode(',', C('NOT_AUTH_MODULE')))) {
             import('ORG.Util.RBAC');
             if (!RBAC::AccessDecision()) {

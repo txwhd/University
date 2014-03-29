@@ -6,6 +6,13 @@
 			'WEB_ROOT' => 'http://localhost/University/', 'AUTH_CODE' => 'Dvo8LA', 
 			'ADMIN_AUTH_KEY' => 'admin@qq.com', 
 			
+			'TMPL_PARSE_STRING'=>array(
+			//'__CSS__'=>__ROOT__.'/Public/Css',
+			//'__JS__'=>__ROOT__.'/Public/Js',
+			//'__IMAGES__'=>__ROOT__.'/Public/Images',
+			'__IMG__'=>__ROOT__.'/Public/Img',			
+	),
+			
 			
 			//'配置项'=>'配置值'
 			'DB_TYPE'		=>	'mysql',// 数据库类型
