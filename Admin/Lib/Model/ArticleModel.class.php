@@ -1,7 +1,7 @@
 <?php
 // 文章模型
 class ArticleModel extends Model {
-public function listNews($firstRow = 0, $listRows = 20) {
+	public function listNews($firstRow = 0, $listRows = 20) {
         $M = M("News");
         $list = $M->field("`id`,`title`,`status`,`published`,`cid`,`aid`")->order("`published` DESC")->limit("$firstRow , $listRows")->select();
         $statusArr = array("审核状态", "已发布状态");

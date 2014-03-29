@@ -10,8 +10,8 @@ class PublicModel extends Model {
         $M = M("Admin");
         if ($M->where("`email`='" . $datas['email'] . "'")->count() >= 1) {
             $info = $M->where("`email`='" . $datas["email"] . "'")->find();
-            if ($info['status'] == 0) {
-                return array('status' => 0, 'info' => "你的账号被禁用，有疑问联系管理员吧");
+            if ($info['status'] == 2) {
+                return array('status' => 2, 'info' => "你的账号被禁用，有疑问联系管理员吧");
             }
             if ($datas['op_type'] == 2) {
                 $rc = randCode(5);
