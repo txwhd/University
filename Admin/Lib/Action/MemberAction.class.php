@@ -15,19 +15,9 @@ class MemberAction extends CommonAction {
         $today_end = $today_start + ( 24*60*60 ); //加上24小时，得出今晚00:00的时间戳
         $where['reg_time']  = array('between','$today_start,$today_end');
         $countToday=$M->where($where)->select();
-        $this->assign("list", $tabs);//分配列出具体值
-        $this->assign("count", count($tabs));//合计总会员数
+        $this->assign("list", D("Member")->listNews($page->firstRow, $page->listRows));//分配列出具体值
+        $this->assign("count",$count);//合计总会员数
         $this->assign("newCount", count($countToday));//当日合计总会员数
         $this->display();
-        
-       /*  $M = M("Article");
-        $count = $M->count();
-       
-        $showPage = $page->show();
-        $this->assign("page", $showPage);
-        $this->assign("list", D("Article")->listNews($page->firstRow, $page->listRows));
-        $this->display(); */
     }
-
-
 }
