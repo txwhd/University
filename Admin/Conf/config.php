@@ -13,10 +13,10 @@ $config_arr2 = array(
         'Gift' => '礼品管理',
         'Article' => '文章管理',
         'Link' => '友情链接',
-        'Menu' => '首页菜单',
+       // 'Menu' => '首页菜单',二期做
         'Advertisement' => '广告管理',
         'Payment' => '支付管理',
-    		'File' => '文件管理',
+    	'File' => '文件管理',
         'Business' => '商家入赘',
 	     'Webinfo'=>'系统设置',
         'SysData' => '数据管理',
@@ -54,6 +54,9 @@ $config_arr2 = array(
         'Link' => array(
             'index' => '链接列表',
             'add' => '发布链接',
+        ),
+        'File' => array(
+            'index' => '文件列表',
         ),
         'Menu' => array(
             'index' => '首页菜单列表',
