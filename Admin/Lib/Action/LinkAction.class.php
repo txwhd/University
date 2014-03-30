@@ -21,9 +21,9 @@ class LinkAction extends CommonAction {
 		//增加
 		if (IS_POST) {
 			$this->checkToken();
-			echo json_encode(D("Article")->addArticle());
+			echo json_encode(D("Link")->addArticle());
 		} else {
-			$this->assign("list", D("Article")->category());
+			$this->assign("list", D("Link")->category());
 			$this->display();
 		}
 	}
@@ -32,24 +32,24 @@ class LinkAction extends CommonAction {
 	
 	public function edit() {
 		//编辑
-		$M = M("Article");
+		$M = M("link");
 		if (IS_POST) {
 			$this->checkToken();
-			echo json_encode(D("Article")->edit());
+			echo json_encode(D("link")->edit());
 		} else {
 			$info = $M->where("id=" . (int) $_GET['id'])->find();
 			if ($info['id'] == '') {
 				$this->error("不存在该记录");
 			}
 			$this->assign("info", $info);
-			$this->assign("list", D("Article")->category());
+			$this->assign("list", D("link")->category());
 			$this->display("add");
 		}
 	}
 	
 	public function del() {
 		//删除
-		if (M("Article")->where("id=" . (int) $_GET['id'])->delete()) {
+		if (M("Link")->where("id=" . (int) $_GET['id'])->delete()) {
 			$this->success("成功删除");
 			//            echo json_encode(array("status"=>1,"info"=>""));
 		} else {
