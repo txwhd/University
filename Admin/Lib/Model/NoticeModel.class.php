@@ -1,8 +1,7 @@
 <?php
 
-class NoticeModel extends Model {
-
-    public function listNews($firstRow = 0, $listRows = 20) {
+class NoticeModel extends CommonModel {
+   /*  public function listNews($firstRow = 0, $listRows = 20) {
         $M = M("Notice");
         $list = $M->field("`id`,`title`,`status`,`published`,`cid`,`aid`")->order("`published` DESC")->limit("$firstRow , $listRows")->select();
         $statusArr = array("审核状态", "已发布状态");
@@ -80,7 +79,7 @@ class NoticeModel extends Model {
         } else {
             return array('status' => 0, 'info' => "更新失败，请刷新页面尝试操作");
         }
-    }
+    } */
 
 }
 

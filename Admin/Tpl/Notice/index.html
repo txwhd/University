@@ -22,22 +22,20 @@
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
                         <thead>
                             <tr>
-                                <td>新闻标题</td>
-                                <td>所在分类</td>
+                                <td>公告名称</td>
+                                <td>发布者</td>
                                 <td>状态</td>
                                 <td>发布时间</td>
-                                <td>发布人</td>
                                 <td width="150">操作</td>
                             </tr>
                         </thead>
                         <volist name="list" id="vo">
                             <tr align="center" id="{$vo.id}">
-                                <td align="left">{$vo.title}</td>
-                                <td>{$vo.cidName}</td>
+                                <td align="left">{$vo.notice_name}</td>
+                                <td>{$vo.uploadedby}</td>
                                 <td>{$vo.status}</td>
-                                <td>{$vo.published|date="Y-m-d H:i:s",###}</td>
-                                <td>{$vo.aidName}</td>
-                                <td>[ <a href="__URL__/edit?id={$vo.id}">编辑 </a> ] [ <a link="{:U('News/del/',array('id'=>$vo['id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
+                                <td>{$vo.uploadtime|date="Y-m-d H:i:s",###}</td>
+                                <td>[ <a href="__URL__/edit?id={$vo.id}">编辑 </a> ] [ <a link="{:U('Notice/del/',array('id'=>$vo['id']))}" href="javascript:void(0)" name="{$vo.notice_name}" class="del">删除 </a> ]</td>
                             </tr>
                         </volist>
                     </table>

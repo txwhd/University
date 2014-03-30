@@ -2,7 +2,7 @@
 
 class NoticeAction extends CommonAction {
 
-    public function index() {
+   /*  public function index() {
 //            die(".............");
         $M = M("Notice");
 //        die(".............");
@@ -50,7 +50,7 @@ class NoticeAction extends CommonAction {
     public function edit() {
         $M = M("Notice");
         if (IS_POST) {
-            $this->checkToken();
+            //$this->checkToken();
             echo json_encode(D("Notice")->edit());
         } else {
             $info = $M->where("id=" . (int) $_GET['id'])->find();
@@ -58,7 +58,7 @@ class NoticeAction extends CommonAction {
                 $this->error("不存在该记录");
             }
             $this->assign("info", $info);
-            $this->assign("list", D("Notice")->category());
+        //  $this->assign("list", D("Notice")->category());   公告不需要分类
             $this->display("add");
         }
     }
@@ -66,10 +66,10 @@ class NoticeAction extends CommonAction {
     public function del() {
         if (M("Notice")->where("id=" . (int) $_GET['id'])->delete()) {
             $this->success("成功删除");
-//            echo json_encode(array("status"=>1,"info"=>""));
+            echo json_encode(array("status"=>1,"info"=>""));
         } else {
             $this->error("删除失败，可能是不存在该ID的记录");
         }
     }
-
+ */
 }
