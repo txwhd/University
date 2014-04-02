@@ -24,6 +24,7 @@
                             <tr>
                                 <td>链接名称</td>
                                 <td>链接地址</td>
+                                <td>链接图标</td>
                                 <td>备注</td>
                                 <td width="150">操作</td>
                             </tr>
@@ -36,6 +37,16 @@
                                 <td>[ <a href="__URL__/edit?id={$vo.link_id}">编辑 </a> ] [ <a link="{:U('News/del/',array('id'=>$vo['id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
                             </tr>
                         </volist>
+                        </tbody>
+                            <tfoot align="center">
+                                <tr>
+                                <td>链接名称</td>
+                                <td>链接地址</td>
+                                <td>链接图标</td>
+                                <td>备注</td>
+                                <td width="150">操作</td>
+                                </tr>
+                            </tfoot>  
                     </table>
                 </div>
             </div>
