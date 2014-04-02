@@ -2,7 +2,7 @@
 
 class NoticeAction extends CommonAction {
 
-    public function index() {
+   /*  public function index() {
 //            die(".............");
         $M = M("Notice");
 //        die(".............");
@@ -14,7 +14,7 @@ class NoticeAction extends CommonAction {
         $this->assign("list", D("Notice")->listNews($page->firstRow, $page->listRows));
         $this->display();
     }
-
+    
     public function category() {
         if (IS_POST) {
             echo json_encode(D("Notice")->category());
@@ -35,7 +35,7 @@ class NoticeAction extends CommonAction {
     }
 
     public function checkNewsTitle() {
-        $M = M("News");
+        $M = M("Notice");
         $where = "title='" . $this->_get('title') . "'";
         if (!empty($_GET['id'])) {
             $where.=" And id !=" . (int) $_GET['id'];
@@ -48,28 +48,28 @@ class NoticeAction extends CommonAction {
     }
 
     public function edit() {
-        $M = M("News");
+        $M = M("Notice");
         if (IS_POST) {
-            $this->checkToken();
-            echo json_encode(D("News")->edit());
+            //$this->checkToken();
+            echo json_encode(D("Notice")->edit());
         } else {
             $info = $M->where("id=" . (int) $_GET['id'])->find();
             if ($info['id'] == '') {
                 $this->error("不存在该记录");
             }
             $this->assign("info", $info);
-            $this->assign("list", D("News")->category());
+        //  $this->assign("list", D("Notice")->category());   公告不需要分类
             $this->display("add");
         }
     }
 
     public function del() {
-        if (M("News")->where("id=" . (int) $_GET['id'])->delete()) {
+        if (M("Notice")->where("id=" . (int) $_GET['id'])->delete()) {
             $this->success("成功删除");
-//            echo json_encode(array("status"=>1,"info"=>""));
+            echo json_encode(array("status"=>1,"info"=>""));
         } else {
             $this->error("删除失败，可能是不存在该ID的记录");
         }
     }
-
+ */
 }

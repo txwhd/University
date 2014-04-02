@@ -3,7 +3,7 @@
 class ArticleAction extends CommonAction {
 	
 
-	public function index() {
+	/* public function index() {
 		$M = M("Article");
 		$count = $M->count();
 		import("ORG.Util.Page");       //载入分页类
@@ -70,5 +70,5 @@ class ArticleAction extends CommonAction {
 			$this->error("删除失败，可能是不存在该ID的记录");
 		}
 	}
-	
+	 */
 }

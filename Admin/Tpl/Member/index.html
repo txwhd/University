@@ -18,11 +18,21 @@
                 <div id="Right">
                     <div class="Item hr">
                         <div class="current">网站注册会员管理</div>
-                       <!--  <ul class="toolBar">
-				<li><a class="add" href="__URL__/add" target="navTab"><span>新增</span></a></li>
-				<li><a class="edit" href="__URL__/showEdit/id/{sid_reward}" mask="true" target="navTab" warn="请选择一条记录"><span>编辑</span></a></li>
-				<li><a class="delete" href="__URL__/showDel/id/{sid_reward}/navTabId/__MODULE__" target="navTabTodo" title="你确定要删除吗？" warn="请选择一条记录"><span>删除</span></a></li>
-			</ul> -->
+                        <!--查询搜索  -->
+							<!-- 	<form action="__URL__" method="post">
+								 <span class="fr">
+                      						  <label>标题：</label>
+											<input type="text" name="title" value="{$_REQUEST.title}"/> </span>
+											<span class="fr"><label>分类：</label>
+											<SELECT name="tid">
+											<option value="">选择分类</option>
+											<volist name="types" id="vo">
+												<option value="{$vo.id}" <eq name="vo.id" value="$_REQUEST.tid">selected</eq>>{$vo.title}</option>
+											</volist>
+											</SELECT></span>
+											<span class="fr"><button type="submit">查询</button></span>
+								</form> -->
+							</div>
                          <span class="fr">当前共有{$count}个会员，今天注册{$newCount}个会员</span>
                     </div>
                     <form>
@@ -37,6 +47,7 @@
                                     <td>登录时间</td>
                                     <td>查看详细</td>
                                     <td>账户状态</td>
+                                    <td width="150">操作</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -54,7 +65,8 @@
    											 <else /> 禁用
 											</if>
                                         </td>
-                                    </tr>
+                                    <td>[ <a href="__URL__/edit?id={$vo.id}">编辑 </a> ] [ <a link="{:U('News/del/',array('id'=>$vo['id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
+                           	 </tr>
                                 </volist>
                             </tbody>
                             <tfoot align="center">
