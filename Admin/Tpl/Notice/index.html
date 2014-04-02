@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>资讯管理-{$site.SITE_INFO.name}</title>
+        <title>公告管理-{$site.SITE_INFO.name}</title>
         <php>
             $addCss="";
             $addJs="";
-            $currentNav ='资讯管理 > 资讯列表';
+            $currentNav ='公告管理 > 公告列表';
         </php>
         <include file="Common:intoHead" />
     </head>
@@ -17,27 +17,45 @@
                 <include file="Common:left" />
                 <div id="Right">
                     <div class="Item hr">
-                        <div class="current">资讯列表</div>
+                        <div class="current">公告列表</div>
                     </div>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
                         <thead>
                             <tr>
+                                <td>资料ID</td>
                                 <td>公告名称</td>
-                                <td>发布者</td>
-                                <td>状态</td>
+                                <td>公告内容</td>
                                 <td>发布时间</td>
+                                <td>权限判断</td>
+                                <td>发布者</td>
+                                <td>发布时间</td>
+                                <td>是否锁定</td>
                                 <td width="150">操作</td>
                             </tr>
                         </thead>
                         <volist name="list" id="vo">
                             <tr align="center" id="{$vo.id}">
-                                <td align="left">{$vo.notice_name}</td>
-                                <td>{$vo.uploadedby}</td>
+                                <td align="left">{$vo.title}</td>
+                                <td>{$vo.cidName}</td>
                                 <td>{$vo.status}</td>
-                                <td>{$vo.uploadtime|date="Y-m-d H:i:s",###}</td>
-                                <td>[ <a href="__URL__/edit?id={$vo.id}">编辑 </a> ] [ <a link="{:U('Notice/del/',array('id'=>$vo['id']))}" href="javascript:void(0)" name="{$vo.notice_name}" class="del">删除 </a> ]</td>
+                                <td>{$vo.published|date="Y-m-d H:i:s",###}</td>
+                                <td>{$vo.aidName}</td>
+                                <td>[ <a href="__URL__/edit?id={$vo.id}">编辑 </a> ] [ <a link="{:U('News/del/',array('id'=>$vo['id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
                             </tr>
                         </volist>
+                        <tfoot align="center">
+                             <tr>
+                                <td>资料ID</td>
+                                <td>公告名称</td>
+                                <td>公告内容</td>
+                                <td>发布时间</td>
+                                <td>权限判断</td>
+                                <td>发布者</td>
+                                <td>发布时间</td>
+                                <td>是否锁定</td>
+                                <td width="150">操作</td>
+                            </tr>
+                            </tfoot>   
                     </table>
                 </div>
             </div>
