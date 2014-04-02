@@ -25,12 +25,12 @@ class CommonModel extends Model {
 	}
 	
 	public function category() {
+		$name=$this->getModelName();
+		$M = M($name.'_class');
 		if (IS_POST) {
 			$act = $_POST[act];
 			$data = $_POST['data'];
 			$data['name'] = addslashes($data['name']);
-			$name=$this->getModelName();
-			$M = M($name.'_class');
 			if ($act == "add") { //添加分类
 				unset($data[cid]);
 				if ($M->where($data)->count() == 0) {
@@ -51,10 +51,12 @@ class CommonModel extends Model {
 				return ($M->where($data)->delete()) ? array('status' => 1, 'info' => '分类 ' . $data['name'] . ' 已经成功删除', 'url' => U($name.'/category', array('time' => time()))) : array('status' => 0, 'info' => '分类 ' . $data['name'] . ' 删除失败');
 			}
 		} else {
-			import("Category");
+		 	$result=$M->select();
+			return $result; 
+/* 		    import("Category");
 			$cat = new Category('Category', array('cid', 'pid', 'name', 'fullname'));
-			return $cat->getList();               //获取分类结构
-		}
+			return $cat->getList();             //获取分类结构
+ */		}
 	}
 	
 	public function addNews() {
