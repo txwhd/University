@@ -10,7 +10,13 @@
         <else />老早了
     </if>
  */
-
+/*
+ * 
+ *   $link = mysql_connect('hostname','dbuser','dbpassword'); 
+if (!$link) { 
+	die('Could not connect to MySQL: ' . mysql_error()); 
+} 
+echo 'Connection OK'; mysql_close($link); */
 
 /* 2012-03-23 09:54
 PHP时间戳与时间相互转换(精确到毫秒)*/

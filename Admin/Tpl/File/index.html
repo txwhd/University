@@ -1,7 +1,6 @@
-	<!-- 复制本站点代码作为修改 -->
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>资讯管理-{$site.SITE_INFO.name}</title>
+        <title>文件管理-{$site.SITE_INFO.name}</title>
         <php>
             $addCss="";
             $addJs="";
@@ -16,10 +15,10 @@
                 <include file="Common:left" />
                 <div id="Right">
                     <div class="Item hr">
-			                <li><a class="edit" href="__URL__/index/root/1" target="navTab" rel="__MODULE__" title="文件列表"><span>返回根目录</span></a></li>
-							<li><a class="delete" href="__URL__/index/up/1" target="navTab" rel="__MODULE__" title="文件列表"><span>上层目录</span></a></li>
-							<li><a class="add" href="__URL__/upload/" target="dialog" height="150"><span>上传到当前目录</span></a></li>
-                         <div class="current">资讯列表</div>
+			               <div class="current"><a class="edit" href="__URL__/index/root/1" ><span>返回根目录</span></a>
+							<a class="delete" href="__URL__/index/up/1" ><span>上层目录</span></a>
+							<a class="add" href="__URL__/upload/" target="dialog" height="150"><span>上传到当前目录</span></a> </div> 
+                         <div class="current">文件列表</div>
                     </div>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
                         <thead>
@@ -44,7 +43,7 @@
 										<td>{$vo['ctime']|date='Y-m-d H:i:s',###}</td>
 										<td>
 											<a href="__URL__/rename/filename/{$vo['filename']}" target="dialog" width="400" height="180">【重命名】</a>
-											<a href="__URL__/foreverdelete/filename/{$vo['filename']}/filetype/{$vo['type']}" target="navTabTodo" calback="navTabAjaxMenu" title="你确定要删除吗？" warn="请选择一条记录">【删除】</a>
+											<a link="__URL__/foreverdelete/filename/{$vo['filename']}/filetype/{$vo['type']}" href="javascript:void(0)" name="{$vo.title}" class="del">【删除】</a>
 											<a href="__URL__/move/filename/{$vo['filename']}" target="dialog" width="560" height="180">【移动】</a>
 											<in name="vo.ext" value="htm,html,php,css,xml,txt,js">
 											<a href="__URL__/edit/filename/{$vo['filename']}" target="navTab" width="560">【编辑】</a>
