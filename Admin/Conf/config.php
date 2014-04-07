@@ -65,6 +65,7 @@ $config_arr2 = array(
         'Gift' => array(
             'index' => '礼品列表',
             'add' => '发布礼品',
+        	'category' => '分类管理',
         ),
         'Business' => array(
             'index' => '商家列表',

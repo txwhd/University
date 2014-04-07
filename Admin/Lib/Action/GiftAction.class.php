@@ -4,4 +4,7 @@
  */
 class GiftAction extends CommonAction {
 	
+	public function index(){
+		
+	}
 }

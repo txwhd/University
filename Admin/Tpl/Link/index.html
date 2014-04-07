@@ -24,15 +24,16 @@
                             <tr>
                                 <td>链接名称</td>
                                 <td>链接地址</td>
-                                <td>链接图标</td>
+                                <td>链接logo</td>
                                 <td>备注</td>
                                 <td width="150">操作</td>
                             </tr>
                         </thead>
                         <volist name="list" id="vo">
                             <tr align="center" id="{$vo.link_id}">
-                                <td align="left">{$vo.name}</td>
+                                <td>{$vo.name}</td>
                                 <td>{$vo.url}</td>
+                                <td>{$vo.logo}</td>
                                 <td>{$vo.rank}</td>
                                 <td>[ <a href="__URL__/edit?id={$vo.link_id}">编辑 </a> ] [ <a link="{:U('News/del/',array('id'=>$vo['id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
                             </tr>
@@ -42,7 +43,7 @@
                                 <tr>
                                 <td>链接名称</td>
                                 <td>链接地址</td>
-                                <td>链接图标</td>
+                                <td>链接logo</td>
                                 <td>备注</td>
                                 <td width="150">操作</td>
                                 </tr>
