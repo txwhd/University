@@ -1,8 +1,8 @@
 <?php
 // 链接模型
-class LinkModel extends Model {
+class AdvertisementModel extends Model {
 	public function listNews($firstRow = 0, $listRows = 10) {
-		$M = M("advertisement");
+		$M = M("Advertisement");
 		$list = $M->limit("$firstRow , $listRows")->select();
 		//$statusArr = array("审核状态", "已发布状态");
 		//$aidArr = M("Admin")->field("`aid`,`email`,`nickname`")->select();
