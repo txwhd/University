@@ -5,7 +5,7 @@
  */
 class MemberAction extends CommonAction {
 
-  /*   public function index() {
+  public function index() {
       	 $M = M('Member');//这里用关联
         $count = $M->count();
         import("ORG.Util.Page");       //载入分页类
@@ -19,5 +19,5 @@ class MemberAction extends CommonAction {
         $this->assign("count",$count);//合计总会员数
         $this->assign("newCount", count($countToday));//当日合计总会员数
         $this->display();
-    } */
+    } 
 }

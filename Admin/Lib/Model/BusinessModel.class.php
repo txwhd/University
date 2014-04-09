@@ -2,6 +2,6 @@
 /*
  * 商家入赘管理
  */
-class BusinessModel extends Model {
+class BusinessModel extends CommonModel {
 	
 }

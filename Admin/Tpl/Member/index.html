@@ -9,6 +9,29 @@
             $currentNav ='网站注册会员管理 > 会员列表';
         </php>
         <include file="Common:intoHead" />
+        <style type="text/css">
+			/*会员管理中的搜索框美化  */
+			.searchinput{
+				border-right-width: 0px;
+				padding-left: 3px;
+				width: 168px;
+				font-family: arial;
+				float: left;
+				border-top-width: 0px;
+				border-bottom-width: 0px;
+				color: #636365;
+				margin-left: 4px;
+				font-size: 8pt;
+				vertical-align: middle;
+				border-left-width: 0px;
+				margin-right: 3px;
+				border-bottom: #cccccc 1px solid;
+				border-left: #cccccc 1px solid;
+				height: 25px;
+				border-top: #cccccc 1px solid;
+				border-right: #cccccc 1px solid;
+			}
+		</style>
     </head>
     <body>
         <div class="wrap">
@@ -17,24 +40,23 @@
                 <include file="Common:left" />
                 <div id="Right">
                     <div class="Item hr">
-                        <div class="current">网站注册会员管理</div>
-                        <!--查询搜索  -->
-							<!-- 	<form action="__URL__" method="post">
-								 <span class="fr">
-                      						  <label>标题：</label>
-											<input type="text" name="title" value="{$_REQUEST.title}"/> </span>
-											<span class="fr"><label>分类：</label>
-											<SELECT name="tid">
-											<option value="">选择分类</option>
-											<volist name="types" id="vo">
-												<option value="{$vo.id}" <eq name="vo.id" value="$_REQUEST.tid">selected</eq>>{$vo.title}</option>
-											</volist>
-											</SELECT></span>
-											<span class="fr"><button type="submit">查询</button></span>
-								</form> -->
-							</div>
-                         <span class="fr">当前共有{$count}个会员，今天注册{$newCount}个会员</span>
-                    </div>
+                        <div class="current">网站会员管理</div>
+                         <!--查询搜索  -->
+                          <div class="current">
+                            <form action="__URL__" method="post">
+								 <input type="text" name="q" title="Search" class="searchinput" id="searchinput" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- 请输入昵称 -';" onfocus="if(this.value=='- 请输入昵称 -')value='';" value="- 请输入昵称 -" size="10"/>
+									<span>
+										性别
+										<SELECT name="gender">
+											<option value="1">男</option>
+											<option value="2">女</option>
+										</SELECT>
+									</span>
+									<span><button type="submit">查询</button></span>
+							</form>
+                          </div>
+					</div>
+                    <span class="fr">当前共有{$count}个会员，今天注册{$newCount}个会员</span>
                     <form>
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
                             <thead>

@@ -72,4 +72,15 @@ class NoticeAction extends CommonAction {
         }
     }
  */
+	Public function show() {
+	//在首页显示管理员站内公告列表
+        $M = M("Notice");
+        $count = $M->count();
+        import("ORG.Util.Page");       //载入分页类
+        $page = new Page($count, 20);
+        $showPage = $page->show();
+        $this->assign("page", $showPage);
+        $this->assign("list", D("Notice")->listNews($page->firstRow, $page->listRows));
+        $this->display();
+	}
 }

@@ -15,7 +15,7 @@ $config_arr2 = array(
         'Link' => '友情链接',
        // 'Menu' => '首页菜单',二期做
         'Advertisement' => '广告管理',
-        'Payment' => '支付管理',
+       // 'Payment' => '支付管理', 二期做
     	'File' => '文件管理',
         'Business' => '商家入赘',
 	     'Webinfo'=>'系统设置',
@@ -26,7 +26,8 @@ $config_arr2 = array(
         'Common' => array(
             'Index/myInfo' => '修改密码',
             'Index/cache' => '缓存清理',
-            'News/add' => '新闻发布'
+            'News/add' => '新闻发布',
+            'Notice/show' => '站内公告'//管理员站内公告
         ),
         'Webinfo' => array(
             'index' => '站点配置',
@@ -43,10 +44,12 @@ $config_arr2 = array(
             'category' => '新闻分类管理',
             'add' => '发布新闻',
         ),
-        'Payment' => array(
+       /*  'Payment' => array(
             'index' => '支付方式列表',
             'add' => '增加支付方式',
-        ),
+        ), 
+        二期做
+        */
         'Notice' => array(
             'index' => '公告列表',
             'add' => '发布公告',
