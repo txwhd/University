@@ -1,5 +1,5 @@
 <?php
-// 图片模块
+// 相册管理
 class PhotoAction extends CommonAction {
 	//列出图片可用分类
 	public function _before_add() {

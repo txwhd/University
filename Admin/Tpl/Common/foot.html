@@ -1,4 +1,11 @@
-<div id="Bottom">© 2014 本后台由 <a href="#" target="_blank">中北飞软工作室_</a> 所写，博客：<a href="blog.51edm.org" target="_blank" >blog.51edm.org</a> {$site.SITE_INFO.name} {$site.WEB_ROOT} All rights reserved 联系我们 {$site.SITE_INFO.icp}</div>
+<div id="Bottom">
+	<span id="footRights">© 2014 本后台由
+	 <a href="#" target="_blank">中北飞软工作室</a> 
+	所写:
+	 <a href="#" target="_blank" ></a> 
+	 {$site.SITE_INFO.name} {$site.WEB_ROOT} All rights reserved 联系我们 {$site.SITE_INFO.icp}
+	 </span>
+</div>
 <script type="text/javascript">
     $(window).resize(autoSize);
     $(function(){
@@ -10,10 +17,9 @@
             });
             return false;
         });
-
         var time=self.setInterval(function(){$("#today").html(date("Y-m-d H:i:s"));},1000);
-
-
     });
-
+    $(document).ready(function(){
+    	$("#footRights").css({"color":"blue"});
+	});		
 </script>
