@@ -23,11 +23,14 @@ class MemberAction extends CommonAction {
     public function member_excel(){
     	//导出全部信息
     	import('ORG.Util.php-excel');
-    	$arr[0]=array('学生名','生源地','单位名称','单位所在地','单位性质','档案机要地址');
+    	$arr[0]=array('姓名','邮箱','手机','民族名称','学校名称','学院','留学生','信仰','性别','国籍','省份','城市','生日','血型','用户爱好','qq','MSN','交友目的','个性签名','星座名称');
     	$num= M()->table("y_dispatsh this0")->join("y_student this1 on this0.student_id=this1.student_id")->where(' this0.corporate_name!=""')->count();
     	$list = M()->table("y_dispatsh this0")->join("y_student this1 on this0.student_id=this1.student_id")->where(' this0.corporate_name!=""')->select();
     	for($i=0;$i<$num;$i++){
-    		$arr[$i+1]=array($list[$i]['real_name'],$list[$i]['origin_of_student'],$list[$i]['corporate_name'],$list[$i]['corporate_address'],$list[$i]['corporate_property'],$list[$i]['archives_address']);
+    		$arr[$i+1]=array($list[$i]['username'],$list[$i]['email'],$list[$i]['Mobile'],$list[$i]['nationName'],$list[$i]['schoolName'],$list[$i]['academy'],$list[$i]['schoolName'],
+    				$list[$i]['if_overseas'],$list[$i]['if_belif'],$list[$i]['gender'],$list[$i]['nationality'],$list[$i]['province'],$list[$i]['city'],
+    				$list[$i]['birthday'],$list[$i]['blood'],$list[$i]['UserFan'],$list[$i]['qq'],$list[$i]['msn'],$list[$i]['goal'],
+    				$list[$i]['sightml'],$list[$i]['constellation']);
     	}
     	$data =$arr;
     	$xls = new Excel_XML('UTF-8', false, 'My Test Sheet');
@@ -37,16 +40,35 @@ class MemberAction extends CommonAction {
     }
     public function forbidden(){
     	//禁止会员状态
+    	$where['member_id']=$_GET['id'];
+    	$model=M("Member");
+    	$data['isLock'] = '1';
+    	$result=$model->where($where)->save($data);
+    	if($result){
+    		$this->success('已经禁用该会员！');
+    	}else{
+    		$this->error("禁用失败！");
+    	}
     }
     public function checkPass(){
     	//通过会员审核
+    	$where['member_id']=$_GET['id'];
+    	$model=M("Member");
+    	$data['isLock'] = '2';
+    	$result=$model->where($where)->save($data);
+    	if($result){
+    		$this->success('已经开启该会员！');
+    	}else{
+    		$this->error("开启失败！");
+    	}
     }
     public function showMarriage(){
     	//查看择偶信息
+    	$this->display();
     }
     public function show(){
     	//查看会员的全部信息
-    	
+    	$this->display();
     }
     public function search(){
     	//搜索会员信息

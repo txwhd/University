@@ -1,10 +1,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>文件管理-{$site.SITE_INFO.name}</title>
+        <title>系统设置-{$site.SITE_INFO.name}</title>
         <php>
             $addCss="";
             $addJs="";
-            $currentNav ='文件管理 >文件列表';
+            $currentNav ='系统设置>文件管理 >文件列表';
         </php>
         <include file="Common:intoHead" />
     </head>
@@ -15,12 +15,12 @@
                 <include file="Common:left" />
                 <div id="Right">
                     <div class="Item hr">
-			               <div class="current">
-				               <a class="edit" href="__URL__/index/root/1" ><span>返回根目录</span></a>
-								<a class="delete" href="__URL__/index/up/1" ><span>上层目录</span></a>
+                         <div class="current">文件列表</div>
+                          <div class="current">
+				               <a href="__URL__/index/root/1" ><span>返回根目录</span></a>
+								<a  href="__URL__/index/up/1" ><span>上层目录</span></a>
 								<a class="add" href="__URL__/upload/" height="150"><span>上传到当前目录</span></a> 
 							</div> 
-                         <div class="current">文件列表</div>
                     </div>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
                         <thead>
@@ -36,7 +36,7 @@
 									<tr target="sid_node" rel="{$vo['id']}">
 										<td>
 											<eq name="vo.type" value="dir">
-											<a href="__URL__/index/path/{$vo['filename']}/" target="navTab" rel="__MODULE__">{$vo['fileimg']} {$vo['filename']}</a>
+											<a href="__URL__/index/path/{$vo['filename']}/">{$vo['fileimg']} {$vo['filename']}</a>
 											<else/>
 											{$vo['fileimg']} {$vo['filename']}
 											</eq>
@@ -45,10 +45,11 @@
 										<td>{$vo['ctime']|date='Y-m-d H:i:s',###}</td>
 										<td>
 											<a href="__URL__/rename/filename/{$vo['filename']}" target="dialog" width="400" height="180">【重命名】</a>
-											<a link="__URL__/foreverdelete/filename/{$vo['filename']}/filetype/{$vo['type']}" href="javascript:void(0)" name="{$vo.title}" class="del">【删除】</a>
+											<a link="__URL__/foreverdelete/filename/{$vo['filename']}/filetype/{$vo['type']}" href="javascript:void(0)" name="{$vo.filename}" class="del">【删除】</a>
+											<!-- <a link="{:U('News/del/',array('id'=>$vo['id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td> -->
 											<a href="__URL__/move/filename/{$vo['filename']}" target="dialog" width="560" height="180">【移动】</a>
 											<in name="vo.ext" value="htm,html,php,css,xml,txt,js">
-											<a href="__URL__/edit/filename/{$vo['filename']}" target="navTab" width="560">【编辑】</a>
+											<a href="__URL__/edit/filename/{$vo['filename']}" width="560">【编辑】</a>
 											</in>						
 										</td>
 									</tr>
@@ -64,8 +65,10 @@
             $(function(){
                 $(".del").click(function(){
                     var delLink=$(this).attr("link");
+                    alert(delLink);
                     popup.confirm('你真的打算删除【<b>'+$(this).attr("name")+'</b>】吗?','温馨提示',function(action){
                         if(action == 'ok'){
+                        	alert('ok');
                             top.window.location.href=delLink;
                         }
                     });

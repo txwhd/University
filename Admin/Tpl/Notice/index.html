@@ -22,7 +22,6 @@
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
                         <thead>
                             <tr>
-                                <td>资料ID</td>
                                 <td>公告名称</td>
                                 <td>公告内容</td>
                                 <td>发布时间</td>
@@ -34,18 +33,17 @@
                             </tr>
                         </thead>
                         <volist name="list" id="vo">
-                            <tr align="center" id="{$vo.id}">
+                            <tr align="center" id="{$vo.notice_id}">
                                 <td align="left">{$vo.title}</td>
                                 <td>{$vo.cidName}</td>
                                 <td>{$vo.status}</td>
                                 <td>{$vo.published|date="Y-m-d H:i:s",###}</td>
                                 <td>{$vo.aidName}</td>
-                                <td>[ <a href="__URL__/edit?id={$vo.id}">编辑 </a> ] [ <a link="{:U('News/del/',array('id'=>$vo['id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
+                                <td>[ <a href="__URL__/edit?id={$vo.notice_id}">编辑 </a> ] [ <a link="{:U('News/del/',array('id'=>$vo['notice_id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
                             </tr>
                         </volist>
                         <tfoot align="center">
                              <tr>
-                                <td>资料ID</td>
                                 <td>公告名称</td>
                                 <td>公告内容</td>
                                 <td>发布时间</td>

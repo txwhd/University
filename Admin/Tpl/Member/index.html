@@ -44,15 +44,11 @@
                          <!--查询搜索  -->
                           <div class="current">
                             <form action="__URL__/search" method="post">
-								 <input type="text" name="q" title="Search" class="searchinput" id="searchinput" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- 请输入昵称 -';" onfocus="if(this.value=='- 请输入昵称 -')value='';" value="- 请输入昵称 -" size="10"/>
-									<span>
-										性别
-										<SELECT name="gender">
-											<option value="1">男</option>
-											<option value="2">女</option>
-										</SELECT>
-									</span>
-									<span><button type="submit">查询</button></span>
+								 <input type="text" name="q" title="Search" class="searchinput" id="searchinput" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- 请输入大学名称 -';" onfocus="if(this.value=='- 请输入大学名称 -')value='';" value="- 请输入大学名称 -" size="10"/>
+								男<input name="gender" type="radio" />
+								女<input name="gender" type="radio" />
+								是少数民族<input name="ifNation" type="radio" />
+								<span><button type="submit">查询</button></span>
 							</form>
                           </div>
                           <span class="fr">当前共有{$count}个会员，今天注册{$newCount}个会员</span>

@@ -18,7 +18,6 @@ $config_arr2 = array(
        // 'Payment' => '支付管理', 二期做
         'Business' => '商家入赘',
     		//超级管理员
-    	'File' => '文件管理',
 	     'Webinfo'=>'系统设置',
         'SysData' => '数据管理',
         'Access' => '权限管理',
@@ -34,7 +33,10 @@ $config_arr2 = array(
             'index' => '站点配置',
             'setEmailConfig' => '邮箱配置',
             'setSafeConfig' => '安全配置',
-            'file' => '文件管理'
+            'File/index' => '文件管理'
+        ),
+        'File' => array(
+            'index' => '文件列表'
         ),
         'Member' => array(
             'index' => '注册用户列表',
@@ -58,9 +60,6 @@ $config_arr2 = array(
         'Link' => array(
             'index' => '链接列表',
             'add' => '发布链接',
-        ),
-        'File' => array(
-            'index' => '文件列表',
         ),
         'Menu' => array(
             'index' => '首页菜单列表',
