@@ -161,10 +161,8 @@ class CommonAction extends Action {
     
     
     public function index() {
-    	//            die(".............");
     	$name=$this->getActionName();
     	$M = M($name);
-    	//        die(".............");
     	$count = $M->count();
     	import("ORG.Util.Page");       //载入分页类
     	$page = new Page($count, 20);

@@ -20,4 +20,36 @@ class MemberAction extends CommonAction {
         $this->assign("newCount", count($countToday));//当日合计总会员数
         $this->display();
     } 
+    public function member_excel(){
+    	//导出全部信息
+    	import('ORG.Util.php-excel');
+    	$arr[0]=array('学生名','生源地','单位名称','单位所在地','单位性质','档案机要地址');
+    	$num= M()->table("y_dispatsh this0")->join("y_student this1 on this0.student_id=this1.student_id")->where(' this0.corporate_name!=""')->count();
+    	$list = M()->table("y_dispatsh this0")->join("y_student this1 on this0.student_id=this1.student_id")->where(' this0.corporate_name!=""')->select();
+    	for($i=0;$i<$num;$i++){
+    		$arr[$i+1]=array($list[$i]['real_name'],$list[$i]['origin_of_student'],$list[$i]['corporate_name'],$list[$i]['corporate_address'],$list[$i]['corporate_property'],$list[$i]['archives_address']);
+    	}
+    	$data =$arr;
+    	$xls = new Excel_XML('UTF-8', false, 'My Test Sheet');
+    	$xls->addArray($data);
+    	$xls->generateXML('new');
+    
+    }
+    public function forbidden(){
+    	//禁止会员状态
+    }
+    public function checkPass(){
+    	//通过会员审核
+    }
+    public function showMarriage(){
+    	//查看择偶信息
+    }
+    public function show(){
+    	//查看会员的全部信息
+    	
+    }
+    public function search(){
+    	//搜索会员信息
+    }
+    
 }

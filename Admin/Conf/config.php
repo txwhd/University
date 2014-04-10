@@ -16,8 +16,9 @@ $config_arr2 = array(
        // 'Menu' => '首页菜单',二期做
         'Advertisement' => '广告管理',
        // 'Payment' => '支付管理', 二期做
-    	'File' => '文件管理',
         'Business' => '商家入赘',
+    		//超级管理员
+    	'File' => '文件管理',
 	     'Webinfo'=>'系统设置',
         'SysData' => '数据管理',
         'Access' => '权限管理',
