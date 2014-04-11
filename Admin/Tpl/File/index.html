@@ -10,8 +10,6 @@
         <!-- 弹出层引入文件 -->
         <script src="http://res.xiami.net/pc/lay/lib.js"></script>
 		<script src="__JS__/layer/layer.min.js"></script>
-		<!-- <script src="__APP__/Admin/Public/Js/iframe.js"></script> -->
-		
     </head>
     <body>
         <div class="wrap">
@@ -49,9 +47,8 @@
 										<td><php>echo number_format($vo['size']/1024,2);</php> KB</td>
 										<td>{$vo['ctime']|date='Y-m-d H:i:s',###}</td>
 										<td>
-											<a href="__URL__/rename/filename/{$vo['filename']}" target="dialog" width="400" height="180">【重命名】</a>
+										<a href="__URL__/rename/filename/{$vo['filename']}" id="rename" width="400" height="180">【重命名】</a> 
 											<a link="__URL__/foreverdelete/filename/{$vo['filename']}/filetype/{$vo['type']}" href="javascript:void(0)" name="{$vo.filename}" class="del">【删除】</a>
-											<!-- <a link="{:U('News/del/',array('id'=>$vo['id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td> -->
 											<a href="__URL__/move/filename/{$vo['filename']}" target="dialog" width="560" height="180">【移动】</a>
 											<in name="vo.ext" value="htm,html,php,css,xml,txt,js">
 											<a href="__URL__/edit/filename/{$vo['filename']}" width="560">【编辑】</a>
@@ -67,19 +64,7 @@
         <div class="clear"></div>
         <include file="Common:foot" />
         <script type="text/javascript">
-            $(function(){
-                $(".del").click(function(){
-                    var delLink=$(this).attr("link");
-                    alert(delLink);
-                    popup.confirm('你真的打算删除【<b>'+$(this).attr("name")+'</b>】吗?','温馨提示',function(action){
-                        if(action == 'ok'){
-                        	alert('ok');
-                            top.window.location.href=delLink;
-                        }
-                    });
-                    return false;
-                });
-            });
+            //弹出上传文件的层
             $('#uploadIframe').on('click', function(){
                 $.layer({
                     type: 2,//0：信息框（默认），1：页面层，2：iframe层，3：加载层，4：tips层。
@@ -90,6 +75,59 @@
                     iframe: {src: '__URL__/upload'}
                 });
             });
-        </script>
-    </body>
+            //重命名文件层
+           /*  $('#rename').on('click', function(){
+                $.layer({
+                    type: 2,//0：信息框（默认），1：页面层，2：iframe层，3：加载层，4：tips层。
+                    title: '重命名',
+                    shadeClose: true, //开启点击遮罩关闭层
+                    area : ['600px' , '460px'],
+                    offset : ['100px', ''],
+                    iframe: {src: '__URL__/rename/filename/{$vo['filename']}'}
+                });
+            }); */
+          //询问框
+            $(function(){
+                $(".del").click(function(){
+                	 $.layer({
+                         shade : [0], //不显示遮罩
+                         area : ['auto','auto'],
+                         dialog : {
+                             msg:'你真的打算删除吗？',
+                             btns : 2, 
+                             type : 4,
+                             btn : ['删除','取消'],
+                             yes : function(){
+                                 layer.msg('您已经删除了！',2,1);
+                                 //执行删除
+                                 var delLink=$(this).attr("link");
+                                 var delLink=$(this).attr("link");
+                                 top.window.location.href=delLink;
+                             },
+                             no : function(){
+                                 layer.msg('已经取消！',2,4);
+                             }
+                         }
+                     });
+                });
+            });
+            /* 
+            dialog: {
+      btns : 1,
+      btn : ['确定', '取消'],
+      type : 3,
+      msg : '',
+      yes : function(index){ },
+      no : function(index){ }
+  }
+              信息框层模式提供的私有参数。使用时，按需配置即可
+              btns : 按钮的个数。提供了0-2的选择
+              btn : [按钮一的文本值 , 按钮二的文本值]
+              type : 图标类型，提供了0-16的选择，也许有你喜欢的。 设置-1不显示图标（1.6.0）
+              msg : 信息框内容，重要参数
+              yes : 按钮一的回调函数
+              no : 按钮二的回调函数
+              */
+            </script>
+            </body>
 	

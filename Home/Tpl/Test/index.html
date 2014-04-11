@@ -1,140 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-	<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>适友注册</title>
-	<link rel="stylesheet" type="text/css" href="____/css/login.css">
-	</head>
-	<script language="javascript" src="__TEST__/js/jquery-1.7.1.js"></script>
-	<script language="javascript" src="__TEST__/js/jquery-ui-1.8.18.custom.min.js"></script>
-	<script language="javascript" src="__TEST__/js/ajaxfileupload.js"></script>
-	<script>
-	// increase the default animation speed to exaggerate the effect
-	var $j = jQuery.noConflict();
-	var old_width='';
-	$j(function() {
-		//配置dialog弹出框
-		$j( "#uploader" ).dialog({
-			autoOpen: false,
-			dialogClass: "my-dialog",
-			// show: "blind",
-			// hide: "explode",
-			width: 750,
-			minWidth: 400,
-			position: [420,185],    // 弹出时，出现的地方
-			draggable:true
-		});
-	
-			//打开dialog
-	
-			$j( ".up_photo" ).click(function() {
-				$j( "#uploader" ).dialog( "open" );
-				return false;
-			});
-			$j( ".cl_photo" ).click(function() {
-				$j( "#uploader" ).dialog( "close" );
-				return false;
-			});
-	
-				$j( "#next" ).click(function() {
-					$j.ajaxFileUpload ({
-						url:'../../Home/photoupload',  //文件上传的到这来
-						secureuri:false,
-						fileElementId:'pic',  //要和input file那个id名字相同
-						dataType: 'json',
-						success: function (data, status) {
-							if(data){
-								if(data==10101){
-									alert("您已经上传5张照片了");
-									window.top.location.reload();
-								}else{
-									$j('#up_content').css('display','none');
-									$j('#ima').css('display','');
-									$j('.tailor').attr('src',data);
-									$j('#uploader_step').text("2");
-									$j('#ima_hidden').attr("value",data);
-									tail_photo();
-									$j.post('../../Home/ima_hei',{url_image:data},function (data){
-										var old_width=data;
-										$j("#old_width0").attr("value",old_width);
-									});
-								}
-							}
-						},
-						error: function (data, status, e){
-							alert(e);
-						}
-					})
-				});
-	
-	})
-	
-	</script>
-	
-	<body>
-	
-	<ul class="profile_links">
-	<li class="upload_photo" id="leftbar_upload_photo"><a href="#" class="up_photo"><img src="__TEST__/_img/bg/小2.png" width="29" height="22">&nbsp;&nbsp;上传一张头像</a></li>
-	</ul>
-	
-	<div id="uploader" class="shadowbox">
-	<div class="container">
-	<a class="cl_photo" href="#" id="cl_photo">x</a>
-	<h3 class="title">上传照片: 步骤 <span id="uploader_step">1</span> 共 3</h3>
-	<div id="uploader_loader" style="display: none;"><div class="beaker"></div></div>
-	<div id="up_content" >
-	
-	<input id="pic" type="file" name="pic" accept="image/jpeg, image/png, image/jpg, image/gif" />
-	
-	<p id="uploader_next" class="btn small refer " style="margin-top:10px;"><a href="#" id="next"></a></p>
-	<p id="uploader_startover_button" class="btn small cancel " style="margin-left:135px; margin-top:-30px; margin-bottom:10px" ><a href="#" id="" class="cl_photo" style=""  target="" tabindex=""></a></p>
-	
-	
-	</div>
-	
-	<div id="ima" style="display:none">
-	<div style="width:395px;"> <img id='tailor' class="tailor" src="/public/image/20120904/nishishui/1346756269.jpg" style="width:410px"></div>
-	<form id="form2" action="__APP__/Home/up_photo" method="post">
-	<input type="hidden" id="x" name="x" />
-	<input type="hidden" id="y" name="y" />
-	<input type="hidden" id="w" name="w" />
-	<input type="hidden" id="h" name="h" />
-	<input type="hidden" id="ima_hidden" name="ima_hidden" value="" />
-	<p id="uploader_finished" class="btn small refer " style=" margin-top:10px;"><a href="#" id="" class="" style=""  target="" tabindex="" onclick="sub_upload1();return false;"></a></p>
-	<p id="uploader_startover_button" class="btn small cancel " style="margin-left:135px; margin-top:-30px; margin-bottom:10px" ><a href="#" id="" class="cl_photo" style=""  target="" tabindex=""></a></p>
-	</form>
-	
-	</div>
-	<div id="aa0" style="display:none">
-	<div id="up_content" >
-	<span>您已成功上传图片</span>
-	<br />
-	<p class="btn small checkphoto " id="look_photo" style="float:left; margin-right:-25px"><a href="javascript:void(0)" id="" class="" style=""  target="" tabindex=""></a></p>
-	<p id="quit_photo" class="btn small finishi " style="float:left; margin-right:-25px" ><a href="#" id="" class="" style=""  target="" tabindex=""></a></p>
-	<p id="title_photo" class="btn small mainphoto " ><a href="#" id="" class="" style=""  target="" tabindex=""></a></p>
-	
-	
-	</div>
-	
-	
-	
-	</div>
-	<div id="aa1" style="display:none">设置头像成功
-	<br />
-	<p id="quit_photo" class="btn small cancel " ><a href="#" id="" class="" style=""  target="" tabindex="">取消</a></p>
-	</div>
-	<div id="aa2" style="display:none">设置头像失败
-	<br />
-	<p id="quit_photo" class="btn small cancel " ><a href="#" id="" class="" style=""  target="" tabindex="">取消</a></p>
-	</div>
-	<div id="uploader_sr_text" class="sr_message  " >
-	<p>
-	<em>照片里必须有你本人</em> 如果你放裸照，局部照，宠物，车，风景，艺术作品等，你的照片或账户将被删除
-	<span class="signature">&mdash; 适友提示</span>
-	</p>
-	</div>
-	</div></div>
-	
-	</body>
-	
-	</html>
+			<!DOCTYPE script PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+			<html>
+				/* echo '<script type="text/javascript">
+					var response = {
+						"statusCode":"1",
+						"message":"上传成功！",
+						"navTabId":"File",
+						"forwardUrl":"'.__URL__ .'/index",
+						"callbackType":"closeCurrent"
+					};
+					if(window.parent.donecallback) {
+						 window.parent.donecallback(response);
+					}
+			    </script>'; */
+			    </html>

@@ -4,7 +4,6 @@
  * aothor：马晓成
  */
 class MemberAction extends CommonAction {
-
   public function index() {
       	 $M = M('Member');//这里用关联
         $count = $M->count();
@@ -72,6 +71,10 @@ class MemberAction extends CommonAction {
     }
     public function search(){
     	//搜索会员信息
+    }
+    public function category(){
+    	//会员类别显示
+    	$this->display();
     }
     
 }

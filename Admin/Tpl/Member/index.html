@@ -9,29 +9,6 @@
             $currentNav ='网站注册会员管理 > 会员列表';
         </php>
         <include file="Common:intoHead" />
-        <style type="text/css">
-			/*会员管理中的搜索框美化  */
-			.searchinput{
-				border-right-width: 0px;
-				padding-left: 3px;
-				width: 168px;
-				font-family: arial;
-				float: left;
-				border-top-width: 0px;
-				border-bottom-width: 0px;
-				color: #636365;
-				margin-left: 4px;
-				font-size: 8pt;
-				vertical-align: middle;
-				border-left-width: 0px;
-				margin-right: 3px;
-				border-bottom: #cccccc 1px solid;
-				border-left: #cccccc 1px solid;
-				height: 25px;
-				border-top: #cccccc 1px solid;
-				border-right: #cccccc 1px solid;
-			}
-		</style>
     </head>
     <body>
         <div class="wrap">
@@ -48,6 +25,10 @@
 								男<input name="gender" type="radio" />
 								女<input name="gender" type="radio" />
 								是少数民族<input name="ifNation" type="radio" />
+								会员级别<select name="">
+											<option value="">类别1</option>
+											<option value="">类别2</option>
+										</select>
 								<span><button type="submit">查询</button></span>
 							</form>
                           </div>
@@ -64,6 +45,7 @@
                                     <td>择偶信息</td>
                                     <td>登录时间</td>
                                     <td>查看详细</td>
+                                    <td>会员级别</td>
                                     <td>账户状态</td>
                                     <td width="150">操作</td>
                                 </tr>
@@ -75,9 +57,14 @@
                                         <td align="left">{$tab.username}</td>
                                         <td>{$tab.gender}</td>
                                         <td>{$tab.nationName}</td>
-                                        <td><a href="__URL__/showMarriage?id={$tab.member_id}">点击查看</a></td>
+                                        <td><a href="__URL__/showMarriage?id={$tab.member_id}" id="showMarriage">点击查看</a></td>
                                         <td>{$tab.last_login_time|date="Y-m-d H:i:s",###}</td>
                                         <td><a href="__URL__/show?id={$tab.member_id}">点击查看</a></td>
+                                        <td>
+                                        	<if condition="$tab.isLock eq 2 ">类别1|<a href="__URL__/forbidden?id={$tab.member_id}">禁用</a>
+   											 <else /> 类别2|<a href="__URL__/checkPass?id={$tab.member_id}">请审核</a>
+											</if>
+                                        </td>
                                         <td>
                                         	<if condition="$tab.isLock eq 2 ">已经开启|<a href="__URL__/forbidden?id={$tab.member_id}">禁用</a>
    											 <else /> 禁用|<a href="__URL__/checkPass?id={$tab.member_id}">请审核</a>
@@ -96,6 +83,7 @@
                                     <td>择偶信息</td>
                                     <td>登录时间</td>
                                     <td>查看详细</td>
+                                     <td>会员级别</td>
                                     <td>账户状态</td>
                                     <td>操作</td>
                                 </tr>
@@ -130,6 +118,17 @@
                     }
                 });
             });
+          /* //弹出上传文件的层
+            $('#showMarriage').on('click', function(){
+                $.layer({
+                    type: 2,//0：信息框（默认），1：页面层，2：iframe层，3：加载层，4：tips层。
+                    title: '上传文件',
+                    shadeClose: true, //开启点击遮罩关闭层
+                    area : ['600px' , '460px'],
+                    offset : ['100px', ''],
+                    iframe: {src: '__URL__/showMarriage'}
+                });
+            }); */
         </script>
     </body>
 </html>

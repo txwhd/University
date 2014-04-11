@@ -145,18 +145,7 @@ class FileAction extends CommonAction {
 			if(!$upload->upload()) { 
 				$this->error('上传失败！');
 			}else{
-				echo '<script type="text/javascript">
-					var response = {
-						"statusCode":"1",
-						"message":"上传成功！",
-						"navTabId":"File",
-						"forwardUrl":"'.__URL__ .'/index",
-						"callbackType":"closeCurrent"
-					};
-					if(window.parent.donecallback) {
-						 window.parent.donecallback(response);
-					}
-			    </script>';
+				$this->success('上传成功！');
 			}
 		}else{
 			$this->display();

@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>会员管理-权限分配-后台管理-{$site.SITE_INFO.name}</title>
+        <php>
+            $addCss="";
+            $addJs="";
+            $currentNav ='会员管理 > 权限分配';
+        </php>
+        <include file="Common:intoHead" />
+    </head>
+    <body>
+        <div class="wrap">
+            <include file="Common:head" />
+            <div class="mainBody">
+                <include file="Common:left" />
+                <form>
+	                <div id="Right">
+	                    <div class="Item hr">
+	                        <div class="current">权限分配</div>
+	                    </div>
+	                    <p>你正在为用户组：<b>会员类别1</b> 分配权限 。项目和版块有全选和取消全选功能</p>
+	                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
+	                                <tr id="level1">
+	                                    <td style="font-size: 14px;">
+	                                    	<label><b>会员类别</b> 会员类别1	</label>
+	                                  	</td>
+	                                </tr>
+	                                 <tr>
+	                                     <td style="padding-left: 50px;" id="level3">
+	                                             <label><input name="data[]" level="3" type="checkbox" obj="node_{$level1.id}_{$level2.id}_{$level3.id}" value="{$level3.id}:3:{$level3.pid}"/> 限制回复</label> &nbsp;&nbsp;&nbsp;
+	                                     </td>
+	                                 </tr>
+	                        </table>
+	                        <input type="hidden" name="id" value="{$info.id}"/>
+	                    <div class="commonBtnArea" >
+	                        <button class="btn submit">提交</button>
+	                        <button class="btn reset">重置</button>
+	                    </div>
+	                </div>
+                  </form>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <include file="Common:foot" />
+    </body>
+</html>

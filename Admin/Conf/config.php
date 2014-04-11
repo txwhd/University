@@ -40,7 +40,8 @@ $config_arr2 = array(
         ),
         'Member' => array(
             'index' => '注册用户列表',
-            'vip' => '会员升级权限管理',
+            'category' => '会员分类管理',
+            'vipPrivilege' => '会员权限分配管理',
             'Photo/index' => '相册管理',
         ),
         'News' => array(

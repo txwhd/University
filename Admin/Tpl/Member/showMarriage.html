@@ -70,23 +70,5 @@
         </div>
         <div class="clear"></div>
         <include file="Common:foot" />
-        <js href="__PUBLIC__/kindeditor/kindeditor.js,__PUBLIC__/kindeditor/lang/zh_CN.js"/>
-        <script type="text/javascript">
-            $(function(){var  content ;
-                KindEditor.ready(function(K) {
-                    content = K.create('#content');
-                });
-                $("#checkNewsTitle").click(function(){
-                    $.getJSON("__URL__/checkNewsTitle", { title:$("#title").val(),id:"{$info.id}"}, function(json){
-                        $("#checkNewsTitle").css("color",json.status==1?"#0f0":"#f00").html(json.info);
-                    });
-                });
-                $(".submit").click(function(){
-                    content.sync();
-                    commonAjaxSubmit();
-                    return false;
-                });
-            });
-        </script>
     </body>
 </html>
