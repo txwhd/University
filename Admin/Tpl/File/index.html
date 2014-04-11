@@ -7,6 +7,11 @@
             $currentNav ='系统设置>文件管理 >文件列表';
         </php>
         <include file="Common:intoHead" />
+        <!-- 弹出层引入文件 -->
+        <script src="http://res.xiami.net/pc/lay/lib.js"></script>
+		<script src="__JS__/layer/layer.min.js"></script>
+		<!-- <script src="__APP__/Admin/Public/Js/iframe.js"></script> -->
+		
     </head>
     <body>
         <div class="wrap">
@@ -19,7 +24,7 @@
                           <div class="current">
 				               <a href="__URL__/index/root/1" ><span>返回根目录</span></a>
 								<a  href="__URL__/index/up/1" ><span>上层目录</span></a>
-								<a class="add" href="__URL__/upload/" height="150"><span>上传到当前目录</span></a> 
+								<span id="uploadIframe">上传到当前目录</span>
 							</div> 
                     </div>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
@@ -73,6 +78,16 @@
                         }
                     });
                     return false;
+                });
+            });
+            $('#uploadIframe').on('click', function(){
+                $.layer({
+                    type: 2,//0：信息框（默认），1：页面层，2：iframe层，3：加载层，4：tips层。
+                    title: '上传文件',
+                    shadeClose: true, //开启点击遮罩关闭层
+                    area : ['600px' , '460px'],
+                    offset : ['100px', ''],
+                    iframe: {src: '__URL__/upload'}
                 });
             });
         </script>

@@ -7,8 +7,8 @@
 			'ADMIN_AUTH_KEY' => 'admin@qq.com', 
 			//定义固定的文件夹目录
 			'TMPL_PARSE_STRING'=>array(
-			//'__CSS__'=>__ROOT__.'/Public/Css',
-			//'__JS__'=>__ROOT__.'/Public/Js',
+			'__CSS__'=>__ROOT__.'/Public/Css',
+			'__JS__'=>__ROOT__.'/Public/Js',
 			//'__IMAGES__'=>__ROOT__.'/Public/Images',
 			'__IMG__'=>__ROOT__.'/Public/Img',			
 	),
