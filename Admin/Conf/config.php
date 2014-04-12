@@ -8,15 +8,14 @@ $config_arr2 = array(
         'Index' => '首页',
         'Member' => '会员管理',
         //'News' => '资讯管理',
-        //换成文章的即可
         'Notice' => '公告管理',
         'Gift' => '礼品管理',
         'Article' => '文章管理',
         'Link' => '友情链接',
-       // 'Menu' => '首页菜单',二期做
         'Advertisement' => '广告管理',
-       // 'Payment' => '支付管理', 二期做
+       'Payment' => '支付管理', //二期做
         'Business' => '商家入赘',
+        'Activity' => '活动管理',
     		//超级管理员
 	     'Webinfo'=>'系统设置',
         'SysData' => '数据管理',
@@ -33,28 +32,34 @@ $config_arr2 = array(
             'index' => '站点配置',
             'setEmailConfig' => '邮箱配置',
             'setSafeConfig' => '安全配置',
-            'File/index' => '文件管理'
+            'File/index' => '文件管理',
+        	'Menu/index' => '首页菜单',//二期做
+        	'Menu/add' => '增加首页菜单',//二期做
         ),
         'File' => array(
             'index' => '文件列表'
+        ),
+        'Activity' => array(
+            'index' => '活动列表',
+            'add' => '发布活动'
         ),
         'Member' => array(
             'index' => '注册用户列表',
             'category' => '会员分类管理',
             'vipPrivilege' => '会员权限分配管理',
+            'renzheng' => '认证管理',
             'Photo/index' => '相册管理',
+            'Mood/index' => '发表心情管理',
         ),
         'News' => array(
             'index' => '新闻列表',
             'category' => '新闻分类管理',
             'add' => '发布新闻',
         ),
-       /*  'Payment' => array(
+    	 'Payment' => array(
             'index' => '支付方式列表',
             'add' => '增加支付方式',
         ), 
-        二期做
-        */
         'Notice' => array(
             'index' => '公告列表',
             'add' => '发布公告',

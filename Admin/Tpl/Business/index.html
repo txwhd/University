@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>资讯管理-{$site.SITE_INFO.name}</title>
+        <title>商业入赘管理-{$site.SITE_INFO.name}</title>
         <php>
             $addCss="";
             $addJs="";
-            $currentNav ='文章管理 > 文章列表';
+            $currentNav ='商业入赘管理 > 商业入赘列表';
         </php>
         <include file="Common:intoHead" />
     </head>
@@ -17,38 +17,47 @@
                 <include file="Common:left" />
                 <div id="Right">
                     <div class="Item hr">
-                        <div class="current">文章列表</div>
+                        <div class="current">商业入赘列表</div>
                     </div>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
                         <thead>
                             <tr>
-                                <td>文章标题</td>
-                                <td>所属分类</td>
-                                <td>状态</td>
-                                <td>发布时间</td>
-                                <td>发布人</td>
+                                <td>企业名称</td>
+                                <td>公司企业地址</td>
+                                <td>合作内容</td>
+                                <td>邮政编码</td>
+                                <td>工作电话</td>
+                                <td>qq</td>
+                                <td>增加时间</td>
+                                <td>备注</td>
                                 <td width="150">操作</td>
                             </tr>
                         </thead>
                         <tbody>
                         <volist name="list" id="vo">
-                            <tr align="center" id="{$vo.id}">
-                                <td >{$vo.title}</td>
-                                <td>{$vo.cidName}</td>
-                                <td>{$vo.status}</td>
-                                <td>{$vo.published|date="Y-m-d H:i:s",###}</td>
-                                <td>{$vo.aidName}</td>
+                            <tr align="center" id="{$vo.business_id}">
+                                <td >{$vo.business_name}</td>
+                                <td>{$vo.address}</td>
+                                <td><a href="">查看详细</a></td><!-- 100个汉字至多 {$vo.content}-->
+                                <td>{$vo.postcode}</td>
+                                <td>{$vo.workTel}</td>
+                                <td>{$vo.qq}</td>
+                                <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+                                 <td>{$vo.remark}</td><!-- 25个汉字至多 -->
                                 <td>[ <a href="__URL__/edit?id={$vo.id}">编辑 </a> ] [ <a link="{:U('News/del/',array('id'=>$vo['id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
                             </tr>
                         </volist>
                         </tbody>
                             <tfoot align="center">
                                 <tr>
-                                <td>文章标题</td>
-                                <td>所属分类</td>
-                                <td>状态</td>
-                                <td>发布时间</td>
-                                <td>发布人</td>
+                                <td>企业名称</td>
+                                <td>公司企业地址</td>
+                                <td>合作内容</td>
+                                <td>邮政编码</td>
+                                <td>工作电话</td>
+                                <td>qq</td>
+                                <td>增加时间</td>
+                                <td>备注</td>
                                 <td width="150">操作</td>
                                 </tr>
                             </tfoot>     
