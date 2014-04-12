@@ -14,29 +14,34 @@
             <include file="Common:head" />
             <div class="mainBody">
                 <include file="Common:left" />
-                <form>
+                <form action="__URL__/dealVipPrivilege" method="post">
 	                <div id="Right">
 	                    <div class="Item hr">
 	                        <div class="current">权限分配</div>
 	                    </div>
-	                    <p>你正在为用户组：<b>会员类别1</b> 分配权限 。项目和版块有全选和取消全选功能</p>
 	                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
 	                                <tr id="level1">
 	                                    <td style="font-size: 14px;">
-	                                    	<label><b>会员类别</b> 会员类别1	</label>
+	                                    	<label>
+	                                    		<b>会员类别</b>
+		                                    	 <select name="data[pid]">
+							                            <option value="0">顶级分类</option>
+							                            <volist name="list" id="vo">
+							                                <option value="{$vo.vip_type_id}">{$vo.vip_name}</option>
+							                            </volist>
+					                       		 </select>
+					                        </label>
 	                                  	</td>
 	                                </tr>
 	                                 <tr>
 	                                     <td style="padding-left: 50px;" id="level3">
-	                                             <label><input name="limit_reply" level="3" type="checkbox" obj="" value=""/> 限制回复</label> 
-	                                             <label><input name="limit_say" level="3" type="checkbox" obj="" value=""/>限制发言</label> 
-	                                             <label><input name="limit_attention" level="3" type="checkbox" obj="" value=""/>限制关注</label> 
-	                                             <label><input name="limit_say" level="3" type="checkbox" obj="" value=""/>限制发言</label> 
-	                                             <label><input name="limit_say" level="3" type="checkbox" obj="" value=""/>限制发言</label> 
+	                                             <label><input name="limit_reply" level="3" type="checkbox" obj="" value="2"/> 限制回复</label> 
+	                                             <label><input name="limit_say" level="3" type="checkbox" obj="" value="2"/>限制发言</label> 
+	                                             <label><input name="limit_attention" level="3" type="checkbox" obj="" value="2"/>限制关注</label> 
 	                                     </td>
 	                                 </tr>
 	                        </table>
-	                        <input type="hidden" name="id" value="{$info.id}"/>
+	                        <input type="hidden" name="id" value="{$list.vip_type_id}"/>
 	                    <div class="commonBtnArea" >
 	                        <button class="btn submit">提交</button>
 	                        <button class="btn reset">重置</button>

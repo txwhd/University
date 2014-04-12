@@ -74,6 +74,23 @@ class MemberAction extends CommonAction {
     }
     public function category(){
     	//会员类别显示
+    	$m=M('Viptype');
+    	$list=$m->select();
+    	$this->assign('list',$list);
+    	$this->display();
+    }
+    public function vipPrivilege(){
+    	//会员类别权限显示
+    	$m=M('Viptype');
+    	$list=$m->select();
+    	$this->assign('list',$list);
+    	$this->display();
+    }
+    public function dealVipPrivilege(){
+    	//处理会员类别权限（未写）
+    	$m=M('Viptype');
+    	$list=$m->select();
+    	$this->assign('list',$list);
     	$this->display();
     }
     
