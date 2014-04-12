@@ -70,7 +70,7 @@
    											 <else /> 禁用|<a href="__URL__/checkPass?id={$tab.member_id}">请审核</a>
 											</if>
                                         </td>
-                                    <td>[ <a href="__URL__/edit?id={$tab.member_id}">编辑 </a> ] [ <a link="{:U('Member/del/',array('id'=>$tab['member_id']))}" href="javascript:void(0)" name="{$tab.username}" class="del">删除 </a> ]</td>
+                                    <td><a href="__URL__/edit?id={$tab.member_id}">编辑 </a><a link="{:U('Member/del/',array('id'=>$tab['member_id']))}" href="javascript:void(0)" name="{$tab.username}" class="del">删除 </a><a href="__URL__/changeRole?id={$vo.id}" class="edit">权限分配</a></td>
                            			 </tr>
                                 </volist>
                             </tbody>
