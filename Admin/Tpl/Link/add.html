@@ -23,44 +23,24 @@
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
                             <tr>
                                 <th width="100">链接名称：</th>
-                                <td><input id="title" type="text" class="input" size="60" name="info[title]" value="{$info.title}"/> <a href="javascript:void(0)" id="checkNewsTitle">检测是否重复</a></td>
+                                <td><input id="name" type="text" class="input" size="60" name="name" value="{$info.name}"/> <a href="javascript:void(0)" id="checkNewsTitle">检测是否重复</a></td>
                             </tr>
-
-                            <tr>
-                                <th width="100">链接发布状态：</th>
-                                <td><label><input type="radio" name="info[status]" value="0" <if condition="$info.status eq 0"> checked="checked"</if> /> 链接审核状态</label> &nbsp; <label><input type="radio" name="info[status]" value="1" <if condition="$info.status eq 1"> checked="checked"</if> /> 链接已发布状态</label> </td>
+                             <tr>
+                                <th width="100">连接地址：</th>
+                                <td><input id="name" type="text" class="input" size="60" name="url" value="{$info.url}"/></td>
                             </tr>
-                            <tr>
-                                <th>链接所属分类：</th>
-                                <td>
-                                    <select name="info[cid]">
-                                        <volist name="list" id="vo">
-                                            <if condition="$vo[cid] eq $info[cid]">
-                                                <option value="{$vo.cid}" selected="selected">{$vo.fullname}</option>
-                                                <else/>
-                                                <option value="{$vo.cid}">{$vo.fullname}</option>
-                                            </if>
-                                        </volist>
-                                    </select></td>
+                             <tr>
+                                <th width="100">上传logo：</th>
+                                <td><input id="logo" type="file" size="30" class="input" size="60" name="logo" value="{$info.logo}"/></td>
                             </tr>
                             <tr>
-                                <th>链接关键词：</th>
-                                <td><input type="text" class="input" size="60" name="info[keywords]" value="{$info.keywords}"/> 多关键词间用半角逗号（,）分开，可用于做链接关联阅读条件</td>
+                                <th>备注：</th>
+                                <td><textarea class="input"  name="rank">{$info.rank}</textarea></td>
                             </tr>
-                            <tr>
-                                <th>链接描述：</th>
-                                <td><textarea class="input" style="height: 60px; width: 600px;" name="info[description]">{$info.description}</textarea> 用于SEO的description</td>
-                            </tr>
-                            <tr>
-                                <th>链接摘要：</th>
-                                <td><textarea class="input" style="height: 60px; width: 600px;" name="info[summary]">{$info.summary}</textarea> 如果不填写则系统自动截取链接前200个字符</td>
-                            </tr>
-                            <tr>
-                                <th>链接内容：</th>
-                                <td><textarea id="content" class="input" style="height: 300px; width: 100%;" name="info[content]">{$info.content}</textarea></td>
-                            </tr>
+                            
+                           
                         </table>
-                        <input type="hidden" name="info[id]" value="{$info.id}" />
+                        <input type="hidden" name="link_id" value="{$info.link_id}" />
                     </form>
                     <div class="commonBtnArea" >
                         <button class="btn submit">提交</button>
