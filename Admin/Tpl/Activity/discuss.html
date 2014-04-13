@@ -1,0 +1,121 @@
+<div id="box">
+<h3>评论列表</h3>
+<form method="post" action="">
+
+<table id="commentlist" class="list" cellpadding="0" cellspacing="0" >
+<thead>
+<tr>
+	<th width="8"><input type="checkbox" class="checkbox" id="check" onclick="CheckAll('commentlist')"></th>
+	<th width="65%">内容</th><th>时间</th><th width="15%">操作</th>
+</tr>
+</thead>
+<tbody>
+<volist name="commentList" id="comment">
+<tr>
+	<td><input type="checkbox" class="checkbox" name="comment_IDs[]" value="{$comment.comment_ID}"></td>
+	<td style="line-height: 20px"><a href="{:url('edit','Comment','',APP_NAME,array('ID'=>$comment['comment_ID']))}">{$comment.comment_author|Input::forShow}</a><br />url: {$comment.comment_author_url|Input::forShow} | email: {$comment.comment_author_email|Input::forShow} | IP: {$comment.comment_author_IP}<br />{$comment.comment_content|Input::forShow}<br />所在日志: <a href="{$options.siteurl}/index.php?m=Blog&a={$comment.comment_post_ID}">{$comment.post_title|Input::forShow}</a> 发表日期: {$comment.post_date}</td>
+	<td>{$comment.comment_date}</td>
+	<td>
+	<if condition="$comment['comment_approved'] eq '0'">
+	<a href="{:url('approve','Comment','',APP_NAME,array('ID'=>$comment['comment_ID'],'value'=>'1'))}">审核</a>
+	<else />
+	<a href="{:url('approve','Comment','',APP_NAME,array('ID'=>$comment['comment_ID'],'value'=>'0'))}">不审核</a>
+	</if>
+	 <a href="admin.php?m=Comment&a=del&ID={$comment.comment_ID}" onclick="return confirm('真的要删除这条评论吗？');">删除</a>
+	</td>
+</tr>
+</volist>
+</tbody>
+</table>
+<div>
+	<div id="pager">
+		{$navigation}
+	</div>
+	<div style="float:right; margin: 5px; 10px; 5px; 5px;"><input type="submit" value="删除所选" class="btn" onclick="return confirm('真的要删除这些评论吗？');"></div>
+</div>
+</form>
+<div class="clearfix"></div>
+</div>
+//////////
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>文章管理-{$site.SITE_INFO.name}</title>
+        <php>
+            $addCss="";
+            $addJs="";
+            $currentNav ='文章管理 > 评论列表';
+        </php>
+        <include file="Common:intoHead" />
+    </head>
+    <body>
+        <div class="wrap">
+            <include file="Common:head" />
+            <div class="mainBody">
+                <include file="Common:left" />
+                <div id="Right">
+                    <div class="Item hr">
+                        <div class="current">评论列表</div>
+                      	  过滤条件 <form action="__URL__/search" method="post">
+								 <input type="text" name="q" title="Search" class="searchinput" id="searchinput" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- 请输入大学名称 -';" onfocus="if(this.value=='- 请输入大学名称 -')value='';" value="- 请输入大学名称 -" size="10"/>
+								男<input name="gender" type="radio" />
+								女<input name="gender" type="radio" />
+								是少数民族<input name="ifNation" type="radio" />
+								<span><button type="submit">查询</button></span>
+							</form>
+							  </div>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
+                        <thead>
+                            <tr>
+                                <td>文章标题</td>
+                                <td>所属分类</td>
+                                <td>状态</td>
+                                <td>发布时间</td>
+                                <td>发布人</td>
+                                <td width="150">操作</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <volist name="list" id="vo">
+                            <tr align="center" id="{$vo.id}">
+                                <td >{$vo.title}</td>
+                                <td>{$vo.cidName}</td>
+                                <td>{$vo.status}</td>
+                                <td>{$vo.published|date="Y-m-d H:i:s",###}</td>
+                                <td>{$vo.aidName}</td>
+                                <td>[ <a href="__URL__/edit?id={$vo.id}">编辑 </a> ] [ <a link="{:U('News/del/',array('id'=>$vo['id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
+                            </tr>
+                        </volist>
+                        </tbody>
+                            <tfoot align="center">
+                                <tr>
+                                <td>文章标题</td>
+                                <td>所属分类</td>
+                                <td>状态</td>
+                                <td>发布时间</td>
+                                <td>发布人</td>
+                                <td width="150">操作</td>
+                                </tr>
+                            </tfoot>     
+                    </table>                
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <include file="Common:foot" />
+        <script type="text/javascript">
+            $(function(){
+                $(".del").click(function(){
+                    var delLink=$(this).attr("link");
+                    popup.confirm('你真的打算删除【<b>'+$(this).attr("name")+'</b>】吗?','温馨提示',function(action){
+                        if(action == 'ok'){
+                            top.window.location.href=delLink;
+                        }
+                    });
+                    return false;
+                });
+            });
+        </script>
+    </body>
+</html>

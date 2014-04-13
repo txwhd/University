@@ -1,0 +1,12 @@
+<tagLib name="cx,html" />
+<div id="box">
+<h3>修改评论</h3>
+<form method="post" id="commentForm" action="{:url('edit','Comment')}">
+	<p>名称 <input type="text" name="comment_author" id="author" value="{$comment.comment_author|Input::forTag}" class="txt" tabindex="1" /></p>
+	<p>邮箱 <input type="text" name="comment_author_email" id="email" value="{$comment.comment_author_email|Input::forTag}" class="txt" tabindex="2" /></p>
+	<p>网址 <input type="text" name="comment_author_url" id="url" value="{$comment.comment_author_url|Input::forTag}" class="txt" tabindex="3" /></p>
+	<p>时间 <input type="text" name="comment_date" id="url" value="{$comment.comment_date|Input::forTag}" class="txt" tabindex="3" /></p>
+	<p><textarea name="comment_content" id="comment" cols="50" rows="10" tabindex="4">{$comment.comment_content|Input::forTarea}</textarea></p>
+	<p><input type="hidden" name="comment_ID" value="{$comment.comment_ID}"><input name="submit" type="submit" class="btn" id="submit" tabindex="5" value="保存修改" />
+</form>
+</div>
