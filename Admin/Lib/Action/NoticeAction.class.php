@@ -17,4 +17,9 @@ class NoticeAction extends CommonAction {
 		$this->assign("vo", $list);
 		$this->display("add");
 	}
+	public function _before_add(){
+		//得到ip
+		$ip = get_client_ip();
+		
+	}
 }
