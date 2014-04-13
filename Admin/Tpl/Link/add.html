@@ -31,7 +31,7 @@
                             </tr>
                              <tr>
                                 <th width="100">上传logo：</th>
-                                <td><input id="logo" type="file" size="30" class="input" size="60" name="logo" value="{$info.logo}"/></td>
+                                <td><input id="logo" type="file"  name="logo" value="{$info.logo}"/></td>
                             </tr>
                             <tr>
                                 <th>备注：</th>
@@ -50,12 +50,7 @@
         </div>
         <div class="clear"></div>
         <include file="Common:foot" />
-        <js href="__PUBLIC__/kindeditor/kindeditor.js,__PUBLIC__/kindeditor/lang/zh_CN.js"/>
         <script type="text/javascript">
-            $(function(){var  content ;
-                KindEditor.ready(function(K) {
-                    content = K.create('#content');
-                });
                 $("#checkNewsTitle").click(function(){
                     $.getJSON("__URL__/checkNewsTitle", { title:$("#title").val(),id:"{$info.id}"}, function(json){
                         $("#checkNewsTitle").css("color",json.status==1?"#0f0":"#f00").html(json.info);

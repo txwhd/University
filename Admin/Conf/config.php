@@ -39,6 +39,9 @@ $config_arr2 = array(
         'File' => array(
             'index' => '文件列表'
         ),
+        'Mood' => array(
+            'index' => '发表心情列表'
+        ),
         'Activity' => array(
             'index' => '活动列表',
             'add' => '发布活动'
