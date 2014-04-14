@@ -5,8 +5,11 @@
  */
 class MemberAction extends CommonAction {
   public function index() {
-      	 $M = M('Member');//这里用关联
-        $count = $M->count();
+      	 $M = D('Member');
+      	 //这里用关联
+      	 $list   =  $M->relation(true)->count();
+      	// $marriage  =  $M->relation('Marriage_term')->select();
+        $count =$M->count();
         import("ORG.Util.Page");       //载入分页类
         $page = new Page($count, 20);
       //计算今天注册人数
@@ -21,10 +24,15 @@ class MemberAction extends CommonAction {
     } 
     public function member_excel(){
     	//导出全部信息
+    	$M = D('Member');
+    	//这里用关联
+    	$list   =  $M->relation(true)->count();
     	import('ORG.Util.php-excel');
     	$arr[0]=array('姓名','邮箱','手机','民族名称','学校名称','学院','留学生','信仰','性别','国籍','省份','城市','生日','血型','用户爱好','qq','MSN','交友目的','个性签名','星座名称');
-    	$num= M()->table("y_dispatsh this0")->join("y_student this1 on this0.student_id=this1.student_id")->where(' this0.corporate_name!=""')->count();
-    	$list = M()->table("y_dispatsh this0")->join("y_student this1 on this0.student_id=this1.student_id")->where(' this0.corporate_name!=""')->select();
+    	//$num= M()->table("y_dispatsh this0")->join("y_student this1 on this0.student_id=this1.student_id")->where(' this0.corporate_name!=""')->count();
+    	$num= $M->relation(true)->count();
+    	//$list = M()->table("y_dispatsh this0")->join("y_student this1 on this0.student_id=this1.student_id")->where(' this0.corporate_name!=""')->select();
+    	$list = $M->relation(true)->select();
     	for($i=0;$i<$num;$i++){
     		$arr[$i+1]=array($list[$i]['username'],$list[$i]['email'],$list[$i]['Mobile'],$list[$i]['nationName'],$list[$i]['schoolName'],$list[$i]['academy'],$list[$i]['schoolName'],
     				$list[$i]['if_overseas'],$list[$i]['if_belif'],$list[$i]['gender'],$list[$i]['nationality'],$list[$i]['province'],$list[$i]['city'],
@@ -34,7 +42,7 @@ class MemberAction extends CommonAction {
     	$data =$arr;
     	$xls = new Excel_XML('UTF-8', false, 'My Test Sheet');
     	$xls->addArray($data);
-    	$xls->generateXML('new');
+    	$xls->generateXML('memberDetail');
     
     }
     public function forbidden(){
@@ -63,10 +71,18 @@ class MemberAction extends CommonAction {
     }
     public function showMarriage(){
     	//查看择偶信息
+    	$M = M('Member');
+    	$where['member_id']=(int)$_GET['id'];
+    	$list   =  $M->where($where)->select();
+    	$this->assign('list',$list);
     	$this->display();
     }
     public function show(){
     	//查看会员的全部信息
+    	$M = D('Member');
+    	$where['member_id']=(int)$_GET['id'];
+    	$list   =  $M->relation(true)->where($where)->count();
+    	$this->assign('list',$list);
     	$this->display();
     }
     public function search(){
