@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>添加、编辑新闻-后台管理-{$site.SITE_INFO.name}</title>
+        <title>礼品管理> 发布礼品-{$site.SITE_INFO.name}</title>
         <php>
             $addCss="";
             $addJs="";
-            $currentNav ='资讯管理 > 添加编辑新闻';
+            $currentNav ='礼品管理> 发布礼品';
         </php>
         <include file="Common:intoHead" />
     </head>
@@ -17,48 +17,48 @@
                 <include file="Common:left" />
                 <div id="Right">
                     <div class="Item hr">
-                        <div class="current">添加编辑新闻</div>
+                        <div class="current">添加编辑链接</div>
                     </div>
                     <form>
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
                             <tr>
-                                <th width="100">文章标题：</th>
-                                <td><input id="title" type="text" class="input" size="60" name="info[title]" value="{$info.title}"/> <a href="javascript:void(0)" id="checkNewsTitle">检测是否重复</a></td>
-                            </tr>
-
-                            <tr>
-                                <th width="100">文章发布状态：</th>
-                                <td><label><input type="radio" name="info[status]" value="0" <if condition="$info.status eq 0"> checked="checked"</if> /> 文章审核状态</label> &nbsp; <label><input type="radio" name="info[status]" value="1" <if condition="$info.status eq 1"> checked="checked"</if> /> 文章已发布状态</label> </td>
+                                <th width="100">礼品名称：</th>
+                                <td><input id="gift_name" type="text" class="input" size="60" name="gift_name" value="{$info.gift_name}"/> <a href="javascript:void(0)" id="checkNewsTitle">检测是否重复</a></td>
                             </tr>
                             <tr>
-                                <th>文章所属分类：</th>
-                                <td>
-                                    <select name="info[cid]">
-                                        <volist name="list" id="vo">
-                                            <if condition="$vo[cid] eq $info[cid]">
-                                                <option value="{$vo.cid}" selected="selected">{$vo.fullname}</option>
-                                                <else/>
-                                                <option value="{$vo.cid}">{$vo.fullname}</option>
-                                            </if>
-                                        </volist>
-                                    </select></td>
+                                <th width="100">得到的分数：</th>
+                                <td><input id="points" type="text" class="input" size="60" name="points" value="{$info.points}"/> </td>
                             </tr>
                             <tr>
-                                <th>文章关键词：</th>
-                                <td><input type="text" class="input" size="60" name="info[keywords]" value="{$info.keywords}"/> 多关键词间用半角逗号（,）分开，可用于做文章关联阅读条件</td>
+                                <th width="100">是否置顶：</th>
+                                <td><label><input type="radio" name="istop" value="1" <if condition="$info.status eq 1"> checked="checked"</if> /> 置顶</label> &nbsp; 
+                                    <label><input type="radio" name="istop" value="2" <if condition="$info.status eq 2"> checked="checked"</if> /> 不置顶</label> </td>
                             </tr>
                             <tr>
-                                <th>文章描述：</th>
-                                <td><textarea class="input" style="height: 60px; width: 600px;" name="info[description]">{$info.description}</textarea> 用于SEO的description</td>
+                                <th width="100">是否标志：</th>
+                                <td><label><input type="radio" name="flag" value="1" <if condition="$info.status eq 1"> checked="checked"</if> /> 标志</label> &nbsp; 
+                                    <label><input type="radio" name="flag" value="2" <if condition="$info.status eq 2"> checked="checked"</if> /> 不标志</label> </td>
                             </tr>
                             <tr>
-                                <th>文章摘要：</th>
-                                <td><textarea class="input" style="height: 60px; width: 600px;" name="info[summary]">{$info.summary}</textarea> 如果不填写则系统自动截取文章前200个字符</td>
+                                <th width="100">是否精华：</th>
+                                <td><label><input type="radio" name="elite" value="1" <if condition="$info.status eq 1"> checked="checked"</if> />精华</label> &nbsp; 
+                                    <label><input type="radio" name="elite" value="2" <if condition="$info.status eq 2"> checked="checked"</if> /> 普通</label> </td>
                             </tr>
-                            <tr>
-                                <th>文章内容：</th>
-                                <td><textarea id="content" class="input" style="height: 300px; width: 100%;" name="info[content]">{$info.content}</textarea></td>
+                           <tr>
+                                <th width="100">创建时间：</th>
+                                <td><input id="create_time" type="text" class="input" size="60" name="create_time" value="不会用时间函数"{$vo.create_time|date="Y-m-d H:i:s",###}/> </td>
                             </tr>
+                          
+                                
+                           
+                           <tr>
+                                <th width="100">上传图片：</th>
+                                <td><input id="imgurl" type="file" size="30" class="input" size="60" name="imgurl" value="{$info.imgurl}"/></td>
+                            </tr>
+                                <th>详细介绍：</th>
+                                <td><textarea id="intro" class="input" style="height: 300px; width: 700px;" name="intro">{$info.intro}</textarea></td>
+                            </tr>
+                            
                         </table>
                         <input type="hidden" name="info[id]" value="{$info.id}" />
                     </form>
@@ -74,7 +74,7 @@
         <script type="text/javascript">
             $(function(){var  content ;
                 KindEditor.ready(function(K) {
-                    content = K.create('#content');
+                    content = K.create('#intro');
                 });
                 $("#checkNewsTitle").click(function(){
                     $.getJSON("__URL__/checkNewsTitle", { title:$("#title").val(),id:"{$info.id}"}, function(json){

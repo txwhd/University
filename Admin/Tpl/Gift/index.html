@@ -33,9 +33,13 @@
                         <volist name="list" id="vo">
                             <tr align="center" id="{$vo.id}">
                                 <td align="left">{$vo.title}</td>
-                                <td>{$vo.cidName}</td>
-                                <td>{$vo.status}</td>
-                                <td>{$vo.published|date="Y-m-d H:i:s",###}</td>
+                                <td>{$vo.gift_name}</td>
+                               <td>
+                               		<if condition="$vo.available eq 1 ">已经开启|<a href="__URL__/forbidden?id={$vo.gift_id}">禁用</a>
+									 <else /> 锁定|<a href="__URL__/checkPass?id={$vo.gift_id}">请审核开启</a>
+									</if>
+                                </td>
+                                <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
                                 <td>{$vo.aidName}</td>
                                 <td>[ <a href="__URL__/edit?id={$vo.id}">编辑 </a> ] [ <a link="{:U('News/del/',array('id'=>$vo['id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
                             </tr>
