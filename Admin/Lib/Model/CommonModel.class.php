@@ -41,8 +41,33 @@ class CommonModel extends Model {
 			return $cat->getList();             //获取分类结构
  */		}
 	}
-	
-	public function addNews() {
+	public function upload(){
+		$names=$this->getModelName();
+		$M = M($names);
+		import('ORG.Net.UploadFile');
+		$upload = new UploadFile();// 实例化上传类
+		$upload->maxSize = 32922000;//设置上传文件大小
+		$upload->allowExts  = array('pdf','txt', 'doc', 'xls','rar','zip','ppt','docx','xlsx','pptx','jpg', 'gif', 'png', 'jpeg','bmp','tiff','svg');// 设置附件上传类型
+		$upload->saveRule= time();  //上传文件的文件名保存规则(以时间戳为文件名)
+		//$upload_time = date('Y-m-d');
+		$savePath='./Public/Uploads/'.$names.'/';// 设置附件上传目录
+		$upload->savePath =$savePath;
+		$upload->uploadReplace = true;//存在同名文件是否是覆盖
+		$result1=$upload->upload();//保存上传文件，获取上传信息
+		if($result1){
+			$uploadList=$upload->getUploadFileInfo();//获取上传文件成功后的结果
+			//修改上传文件信息
+			//$data['upload_name']=$_POST['upload_name'];//附件名称
+			//$data['attachment_customname']=$uploadList[0]['savename'];//附件系统名称
+			$data['upload']=$savePath.'/'.$uploadList[0]['savename'];//附件名称
+		}
+		return $data;
+	}
+	/* public function foreverdel(){
+		$filename=
+		unlink($filename);
+	} */
+	public function addNews($data) {
 		$name=$this->getModelName();
 		$M = M($name);
 		if (false === $M->create ()) {
@@ -50,7 +75,12 @@ class CommonModel extends Model {
 		}
 		$M->create ();
 		//保存当前数据对象
-		$list=$M->add ();
+		if($data!==NULL){
+			$M->upload=$data['upload'];
+			$list=$M->add ();
+		}else{
+			$list=$M->add ();
+		}
 		if ($list) {
 			return array('status' => 1, 'info' => "已经发布", 'url' => U($name.'/index'));
 		} else {
@@ -58,14 +88,20 @@ class CommonModel extends Model {
 		}
 	}
 	
-	public function edit() {
+	public function edit($data) {
 		$name=$this->getModelName();
 		$M = M($name);
 		if (false === $M->create ()) {
 			$this->error ( $M->getError () );
 		}
 		$data=$M->create ();
-		$list=$M->save();
+		if($data!==NULL){
+			$M->upload=$data['upload'];
+			$list=$M->save();
+		}else{
+			$list=$M->save();
+		}
+		
 		if ($list) {
 			return array('status' => 1, 'info' => "已经更新", 'url' => U($name.'/index'));
 		} else {

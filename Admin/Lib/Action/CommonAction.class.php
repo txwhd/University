@@ -186,7 +186,8 @@ class CommonAction extends Action {
     	$name=$this->getActionName();
     	if (IS_POST) {
     		//$this->checkToken();
-    		echo json_encode(D($name)->addNews());
+    		$data=D($name)->upload();
+    		echo json_encode(D($name)->addNews($data));
     	} else {
     		$this->assign("list", D($name)->category());
     		$this->display();
@@ -212,21 +213,23 @@ class CommonAction extends Action {
     	$M = M($name);
     	if (IS_POST) {
     		//$this->checkToken();
-    		echo json_encode(D($name)->edit());
+    		$data=D($name)->upload();
+    		echo json_encode(D($name)->edit($data));
     	} else {
     		$info = $M->where("id=" . (int) $_GET['id'])->find();
     		if ($info['id'] == '') {
     			$this->error("不存在该记录");
     		}
     		$this->assign("info", $info);
-    		//  $this->assign("list", D("Notice")->category());   公告不需要分类
+    	    $this->assign("list", D($name)->category());
     		$this->display("add");
     	}
     }
     
     public function del() {
     	$name=$this->getActionName();
-    	if (M($name)->where("id=" . (int) $_GET['id'])->delete()) {
+    	if (M($name)->where("id=".(int) $_GET['id'])->delete()) {
+    		//D($name)->foreverdel();
     		$this->success("成功删除");
     		echo json_encode(array("status"=>1,"info"=>""));
     	} else {
