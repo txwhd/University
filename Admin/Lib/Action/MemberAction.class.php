@@ -71,17 +71,17 @@ class MemberAction extends CommonAction {
     }
     public function showMarriage(){
     	//查看择偶信息
-    	$M = M('Member');
     	$where['member_id']=(int)$_GET['id'];
-    	$list   =  $M->where($where)->select();
-    	$this->assign('list',$list);
+    	$M=D('Marriage_term');
+    	$marriage  =  $M->where($where)->select();
+    	$this->assign('info',$marriage);
     	$this->display();
     }
     public function show(){
     	//查看会员的全部信息
     	$M = D('Member');
     	$where['member_id']=(int)$_GET['id'];
-    	$list   =  $M->relation(true)->where($where)->count();
+    	$list   =  $M->relation(true)->where($where)->select();
     	$this->assign('list',$list);
     	$this->display();
     }

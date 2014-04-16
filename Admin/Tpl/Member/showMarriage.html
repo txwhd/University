@@ -22,43 +22,43 @@
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
                             <tr>
                                 <th width="100">城市要求：</th>
-                                <td><input id="city" type="text" class="input" size="60" name="city" value="{$info.city}"/></td>
+                                <td><input id="city" type="text" class="input" size="60" name="city" value="{$info[0]['city']}"/></td>
                             </tr>
                             <tr>
                                 <th width="100">省份要求：</th>
-                                <td><input id="province" type="text" class="input" size="60" name="province" value="{$info.province}"/></td>
+                                <td><input id="province" type="text" class="input" size="60" name="province" value="{$info[0]['province']}"/></td>
                             </tr>
                             <tr>
                                 <th width="100">年龄范围：</th>
-                                <td><input id="old" type="text" class="input" size="60" name="old" value="{$info.old}"/></td>
+                                <td><input id="old" type="text" class="input" size="60" name="old" value="{$info[0]['old']}"/></td>
                             </tr>
                             <tr>
                                 <th width="100">身高范围：</th>
-                                <td><input id="high" type="text" class="input" size="60" name="high" value="{$info.high}"/></td>
+                                <td><input id="high" type="text" class="input" size="60" name="high" value="{$info[0]['high']}"/></td>
                             </tr>
                             <tr>
                                 <th width="100">性格要求：</th>
-                                <td><input id="character" type="text" class="input" size="60" name="character" value="{$info.character}"/></td>
+                                <td><input id="character" type="text" class="input" size="60" name="character" value="{$info[0]['character']}"/></td>
                             </tr>
                             <tr>
                                 <th width="100">用户爱好：</th>
-                                <td><input id="objectFan" type="text" class="input" size="60" name="objectFan" value="{$info.objectFan}"/></td>
+                                <td><input id="objectFan" type="text" class="input" size="60" name="objectFan" value="{$info[0]['objectFan']}"/></td>
                             </tr>
                             <tr>
                                 <th width="100">民族要求：</th>
-                                <td><input id="Nation" type="text" class="input" size="60" name="Nation" value="{$info.Nation}"/></td>
+                                <td><input id="Nation" type="text" class="input" size="60" name="Nation" value="{$info[0]['Nation']}"/></td>
                             </tr>
                             <tr>
                                 <th width="100">学历要求：</th>
-                                <td><input id="academy" type="text" class="input" size="60" name="academy" value="{$info.academy}"/></td>
+                                <td><input id="academy" type="text" class="input" size="60" name="academy" value="{$info[0]['academy']}"/></td>
                             </tr>
                             <tr>
                                 <th width="100">国籍：</th>
-                                <td><input id="nationality" type="text" class="input" size="60" name="nationality" value="{$info.nationality}"/></td>
+                                <td><input id="nationality" type="text" class="input" size="60" name="nationality" value="{$info[0]['nationality']}"/></td>
                             </tr>
                             <tr>
                                 <th width="100">创建时间：</th>
-                                <td><input id="create_time" type="text" class="input" size="60" name="create_time" value="{$info.create_time|date="Y-m-d H:i:s",###}"/></td>
+                                <td><input id="create_time" type="text" class="input" size="60" name="create_time" value="{$info[0]['create_time']|date="Y-m-d H:i:s",###}"/></td>
                             </tr>
                         </table>
                 </div>
