@@ -18,6 +18,20 @@
                 <div id="Right">
                     <div class="Item hr">
                         <div class="current">礼品列表</div>
+                        <!--查询搜索  -->
+                          <div class="current">
+                            <form action="__URL__/search" method="post">
+								 <input type="text" name="schoolName" title="Search" class="searchinput" id="searchinput" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- 请输入大学名称 -';" onfocus="if(this.value=='- 请输入大学名称 -')value='';" value="- 请输入大学名称 -" size="10"/>
+								男<input name="gender" value="1" type="radio" />
+								女<input name="gender"  value="2" type="radio" />
+								是少数民族<input name="ifNation" type="radio" />
+								会员级别<select name="">
+											<option value="">类别1</option>
+											<option value="">类别2</option>
+										</select>
+								<span><button type="submit">查询</button></span>
+							</form>
+                          </div>
                     </div>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
                         <thead>

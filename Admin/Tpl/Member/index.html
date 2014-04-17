@@ -21,18 +21,25 @@
                          <!--查询搜索  -->
                           <div class="current">
                             <form action="__URL__/search" method="post">
-								 <input type="text" name="q" title="Search" class="searchinput" id="searchinput" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- 请输入大学名称 -';" onfocus="if(this.value=='- 请输入大学名称 -')value='';" value="- 请输入大学名称 -" size="10"/>
-								男<input name="gender" type="radio" />
-								女<input name="gender" type="radio" />
-								是少数民族<input name="ifNation" type="radio" />
-								会员级别<select name="">
-											<option value="">类别1</option>
+								 <input type="text" name="schoolName" title="Search" class="searchinput" id="searchinput" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- 请输入大学名称 -';" onfocus="if(this.value=='- 请输入大学名称 -')value='';" value="- 请输入大学名称 -" size="10"/>
+								男<input name="gender" value="1" type="radio" />
+								女<input name="gender"  value="2" type="radio" />
+								少数民族	<select name="ifNation">
+											<option value="2">是</option>
+											<option value="1">否</option>
+										</select>
+								留学生<select name="if_overseas">
+											<option value="2">是</option>
+											<option value="1">否</option>
+										</select>
+								会员级别<select name="vip_type_id">
+											<option value="vip_type_id">类别1</option>
 											<option value="">类别2</option>
 										</select>
 								<span><button type="submit">查询</button></span>
 							</form>
                           </div>
-                          <span class="fr">当前共有{$count}个会员，{$Think.server.REMOTE_ADDR}今天注册{$newCount}个会员</span>
+                          <span class="fr">当前共有{$count}个会员，今天注册{$newCount}个会员</span>
 					</div>
                     <form>
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
@@ -44,22 +51,22 @@
                                     <td>民族</td>
                                     <td>择偶信息</td>
                                     <td>登录时间</td>
-                                    <td>查看详细</td>
-                                    <td>会员级别</td>
+                                    <td>大学名称</td>
+                                     <td>会员级别</td>
                                     <td>账户状态</td>
-                                    <td width="150">操作</td>
+                                    <td>操作</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <volist name="list" id="tab">
                                     <tr align="center">
                                         <td><input type="checkbox" name="table[]" value="{$tab.Name}"/></td>
-                                        <td align="left">{$tab.username}</td>
+                                        <td align="left"><a href="__URL__/show?id={$tab.member_id}">{$tab.username}</a></td>
                                         <td>{$tab.gender}</td>
                                         <td>{$tab.nationName}</td>
                                         <td><a href="__URL__/showMarriage?id={$tab.member_id}" id="showMarriage">点击查看</a></td>
                                         <td>{$tab.last_login_time|date="Y-m-d H:i:s",###}</td>
-                                        <td><a href="__URL__/show?id={$tab.member_id}">点击查看</a></td>
+                                        <td>{$tab.schoolName}</td>
                                         <td>
                                         	<if condition="$tab.isLock eq 2 ">类别1|<a href="__URL__/forbidden?id={$tab.member_id}">禁用</a>
    											 <else /> 类别2|<a href="__URL__/checkPass?id={$tab.member_id}">请审核</a>
@@ -82,7 +89,7 @@
                                     <td>民族</td>
                                     <td>择偶信息</td>
                                     <td>登录时间</td>
-                                    <td>查看详细</td>
+                                    <td>大学名称</td>
                                      <td>会员级别</td>
                                     <td>账户状态</td>
                                     <td>操作</td>
@@ -90,9 +97,6 @@
                             </tfoot>
                         </table>
                     </form>
-                    <div class="commonBtnArea" >
-                       <a href="__URL__/member_excel" class="btn">全部信息导出excel格式</a>
-                    </div>
                 </div>
             </div>
         </div>

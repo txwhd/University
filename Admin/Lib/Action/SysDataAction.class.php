@@ -455,5 +455,28 @@ class SysDataAction extends CommonAction {
             $this->display();
         }
     }
+    public function member_excel(){
+    	//导出全部会员信息
+    	$M = D('Member');
+    	//这里用关联
+    	$list   =  $M->relation(true)->count();
+    	import('ORG.Util.php-excel');
+    	$arr[0]=array('姓名','邮箱','手机','民族名称','学校名称','学院','留学生','信仰','性别','国籍','省份','城市','生日','血型','用户爱好','qq','MSN','交友目的','个性签名','星座名称');
+    	//$num= M()->table("y_dispatsh this0")->join("y_student this1 on this0.student_id=this1.student_id")->where(' this0.corporate_name!=""')->count();
+    	$num= $M->relation(true)->count();
+    	//$list = M()->table("y_dispatsh this0")->join("y_student this1 on this0.student_id=this1.student_id")->where(' this0.corporate_name!=""')->select();
+    	$list = $M->relation(true)->select();
+    	for($i=0;$i<$num;$i++){
+    		$arr[$i+1]=array($list[$i]['username'],$list[$i]['email'],$list[$i]['Mobile'],$list[$i]['nationName'],$list[$i]['schoolName'],$list[$i]['academy'],$list[$i]['schoolName'],
+    				$list[$i]['if_overseas'],$list[$i]['if_belif'],$list[$i]['gender'],$list[$i]['nationality'],$list[$i]['province'],$list[$i]['city'],
+    				$list[$i]['birthday'],$list[$i]['blood'],$list[$i]['UserFan'],$list[$i]['qq'],$list[$i]['msn'],$list[$i]['goal'],
+    				$list[$i]['sightml'],$list[$i]['constellation']);
+    	}
+    	$data =$arr;
+    	$xls = new Excel_XML('UTF-8', false, 'My Test Sheet');
+    	$xls->addArray($data);
+    	$xls->generateXML('memberDetail');
+    
+    }
 
 }
