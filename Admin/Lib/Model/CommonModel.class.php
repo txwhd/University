@@ -1,10 +1,10 @@
 <?php
 class CommonModel extends Model {
 
-	public function listNews($firstRow = 0, $listRows = 20) {
+	public function listNews($firstRow = 0, $listRows = 20,$where) {
 		$name=$this->getModelName();
 		$M = M($name);
-		$list = $M->limit("$firstRow , $listRows")->select();
+		$list = $M->where($where)->limit("$firstRow , $listRows")->select();
 		return $list;
 	}
 	public function category() {
