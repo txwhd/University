@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>网站注册会员管理-后台管理首页-{$site.SITE_INFO.name}</title>
+        <php>
+            $addCss="";
+            $addJs="";
+            $currentNav ='网站注册会员管理 > 相册列表';
+        </php>
+        <include file="Common:intoHead" />
+    </head>
+    <body>
+        <div class="wrap">
+            <include file="Common:head" />
+            <div class="mainBody">
+                <include file="Common:left" />
+                <div id="Right">
+                    <div class="Item hr">
+                        <div class="current">相册管理</div>
+                         <!--查询搜索  -->
+                          <div class="current">
+                            <form action="__URL__/search" method="post">
+								 <input type="text" name="q" title="Search" class="searchinput" id="searchinput" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- 请输入大学名称 -';" onfocus="if(this.value=='- 请输入大学名称 -')value='';" value="- 请输入大学名称 -" size="10"/>
+								男<input name="gender" type="radio" />
+								女<input name="gender" type="radio" />
+								是少数民族<input name="ifNation" type="radio" />
+								会员级别<select name="">
+											<option value="">类别1</option>
+											<option value="">类别2</option>
+										</select>
+								<span><button type="submit">查询</button></span>
+							</form>
+                          </div>
+                          <span class="fr">当前共有{$count}个会员，{$Think.server.REMOTE_ADDR}今天注册{$newCount}个会员</span>
+					</div>
+                    <form>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
+                            <thead>
+                                <tr>
+                                    <td width="90"><label><input name="" class="chooseAll" type="checkbox"/> 全选</label> <label><input name="" class="unsetAll" type="checkbox"/> 反选</label></td>
+                                    <td>相册名</td>
+                                    <td>查看详细</td>
+                                    <td>相册封面</td>
+                                    <td>相册描述</td>
+                                    <td>相册状态</td>
+                                    <td width="150">操作</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    <tr align="center">
+                                        <td><input type="checkbox" name="table[]" value="{$tab.Name}"/></td>
+                                        <td align="left">{$tab.username}</td>
+                                        <td><a href="__URL__/photo_detail">点击查看</></td>
+                                        <td><img width="120" height="80" src="__PUBLIC__/Upload/Photo/1.png"/></td>
+                                        <td>{$tab.nationName}</td>
+                                        <td>
+                                        	<if condition="$tab.isLock eq 2 ">已经开启|<a href="__URL__/forbidden?id={$tab.member_id}">禁用</a>
+   											 <else /> 禁用|<a href="__URL__/checkPass?id={$tab.member_id}">请审核</a>
+											</if>
+                                        </td>
+                                    	<td><a href="__URL__/edit?id={$tab.member_id}">编辑 </a><a link="{:U('Member/del/',array('id'=>$tab['member_id']))}" href="javascript:void(0)" name="{$tab.username}" class="del">删除 </a><a href="__URL__/changeRole?id={$vo.id}" class="edit">权限分配</a></td>
+                           			 </tr>
+                            </tbody>
+                            <tfoot align="center">
+                                <tr>
+                                    <td width="90"><label><input name="" class="chooseAll" type="checkbox"/> 全选</label> <label><input name="" class="unsetAll" type="checkbox"/> 反选</label></td>
+                                    <td>相册名</td>
+                                    <td>查看详细</td>
+                                    <td>相册封面</td>
+                                    <td>相册描述</td>
+                                    <td>相册状态</td>
+                                    <td width="150">操作</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </form>
+                  
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <include file="Common:foot" />
+         <script type="text/javascript">
+            $(function(){
+                clickCheckbox();
+                $(".submit").click(function(){
+                    if($("tbody input[type='checkbox']:checked").size()==0){
+                        popup.alert("请先选择你要备份的数据库表吧");
+                        return false;
+                    }
+                    if($(this).attr("disabledSubmit")){
+                        popup.alert("已提交，系统在处理中...");
+                    }else{
+                        $(this).attr("disabledSubmit",true).html("提交处理中...");
+                        commonAjaxSubmit("__URL__/backup");
+//                        popup.alert("系统处理中，如果数据库中数据较多可能需要较长时间，请稍候....");
+                        setTimeout(function(){
+                            popup.close("asyncbox_alert");
+                        },2000);
+                    }
+                });
+            });
+          /* //弹出上传文件的层
+            $('#showMarriage').on('click', function(){
+                $.layer({
+                    type: 2,//0：信息框（默认），1：页面层，2：iframe层，3：加载层，4：tips层。
+                    title: '上传文件',
+                    shadeClose: true, //开启点击遮罩关闭层
+                    area : ['600px' , '460px'],
+                    offset : ['100px', ''],
+                    iframe: {src: '__URL__/showMarriage'}
+                });
+            }); */
+        </script>
+    </body>
+</html>
