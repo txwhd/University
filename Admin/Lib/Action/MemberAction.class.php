@@ -75,11 +75,11 @@ class MemberAction extends CommonAction {
     	$M = D('Member');
     	// 构造查询条件
   		$condition = array();
-    	$condition['schoolName'] = !empty($_GET['schoolName']) ?  trim($_GET['schoolName']) : '';
-    	$condition['gender'] = isset($_GET['gender']) ?   $_GET['gender'] : 1;
-    	$condition['vip_type_id'] = isset($_GET['vip_type_id']) ?   $_GET['vip_type_id'] : 1;
-    	$condition['ifNation'] = !isset($_GET['ifNation']) ?  trim($_GET['ifNation']) : 1;
-    	$condition['if_overseas'] = isset($_GET['if_overseas']) ?   $_GET['if_overseas'] : 1;
+    	$condition['schoolName'] = !empty($_POST['schoolName']) ?  trim($_POST['schoolName']) : '';
+    	$condition['gender'] = isset($_POST['gender']) ?   $_POST['gender'] : 1;
+    	$condition['vip_type_id'] = isset($_POST['type']) ?   $_POST['type'] : '';
+    	$condition['ifNation'] = !isset($_POST['ifNation']) ?  trim($_POST['ifNation']) : '';
+    	$condition['if_overseas'] = isset($_POST['if_overseas']) ?   $_POST['if_overseas'] : '';
 		//组合条件
     	$wherelist = array();
     	if(!empty($condition['schoolName'])){
@@ -102,7 +102,8 @@ class MemberAction extends CommonAction {
     		$where = " where ".implode(' AND ' , $wherelist);
     	}
     	$where = isset($where) ? $where : '';
-    	//echo $where;
+    	echo $where;
+    	exit();
     	//$result = $mysqli->query("SELECT * FROM `hotel_basic` {$where}");
     	$total = $result->num_rows;
     	$page = new page($total,10);
