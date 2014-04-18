@@ -13,7 +13,7 @@ $config_arr2 = array(
         'Article' => '文章管理',
         'Link' => '友情链接',
         'Advertisement' => '广告管理',
-       //'Payment' => '支付管理', //二期做
+       'Payment' => '支付管理', //二期做
         'Business' => '商家入赘',
         'Activity' => '活动管理',
     		//超级管理员
@@ -54,6 +54,9 @@ $config_arr2 = array(
             'Photo/index' => '相册管理',
             'Mood/index' => '发表心情管理',
         ),
+    	'Photo' => array(
+    				'index' => '相册列表',
+    		),
         'News' => array(
             'index' => '新闻列表',
             'category' => '新闻分类管理',
@@ -98,8 +101,7 @@ $config_arr2 = array(
             'index' => '数据库备份',
             'restore' => '数据库导入',
             'zipList' => '数据库压缩包',
-            'repair' => '数据库优化修复',
-            'member_excel' => '会员信息导出'
+            'repair' => '数据库优化修复'
         ),
         'Access' => array(
             'index' => '后台用户',
