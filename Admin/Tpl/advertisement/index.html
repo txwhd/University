@@ -18,6 +18,17 @@
                 <div id="Right">
                     <div class="Item hr">
                         <div class="current">广告列表</div>
+                        <!--查询搜索  -->
+                          <div class="current">
+                            <form action="__URL__/search" method="post">
+								 <input type="text" name="title" title="Search" class="searchinput" id="searchinput" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- 请输入广告名称名称 -';" onfocus="if(this.value=='- 请输入广告名称名称 -')value='';" value="- 请输入广告名称名称 -" size="30"/>
+								广告种类<select name="">
+											<option value="">类别1</option>
+											<option value="">类别2</option>
+										</select>
+								<span><button type="submit">查询</button></span>
+							</form>
+                          </div>
                     </div>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
                         <thead>

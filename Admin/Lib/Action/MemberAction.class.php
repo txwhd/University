@@ -5,6 +5,14 @@
  */
 class MemberAction extends CommonAction {
   public function index() {
+  /* 	if (function_exists('ob_gzhandler')){
+  		echo "ok";
+  	}else {
+  		echo'faled';
+  		
+  	} 
+  		exit();*/
+  
       	 $M = D('Member');
       	 //这里用关联
       	 $list   =  $M->relation(true)->count();
@@ -22,29 +30,6 @@ class MemberAction extends CommonAction {
         $this->assign("newCount", count($countToday));//当日合计总会员数
         $this->display();
     } 
-    public function member_excel(){
-    	//导出全部信息
-    	$M = D('Member');
-    	//这里用关联
-    	$list   =  $M->relation(true)->count();
-    	import('ORG.Util.php-excel');
-    	$arr[0]=array('姓名','邮箱','手机','民族名称','学校名称','学院','留学生','信仰','性别','国籍','省份','城市','生日','血型','用户爱好','qq','MSN','交友目的','个性签名','星座名称');
-    	//$num= M()->table("y_dispatsh this0")->join("y_student this1 on this0.student_id=this1.student_id")->where(' this0.corporate_name!=""')->count();
-    	$num= $M->relation(true)->count();
-    	//$list = M()->table("y_dispatsh this0")->join("y_student this1 on this0.student_id=this1.student_id")->where(' this0.corporate_name!=""')->select();
-    	$list = $M->relation(true)->select();
-    	for($i=0;$i<$num;$i++){
-    		$arr[$i+1]=array($list[$i]['username'],$list[$i]['email'],$list[$i]['Mobile'],$list[$i]['nationName'],$list[$i]['schoolName'],$list[$i]['academy'],$list[$i]['schoolName'],
-    				$list[$i]['if_overseas'],$list[$i]['if_belif'],$list[$i]['gender'],$list[$i]['nationality'],$list[$i]['province'],$list[$i]['city'],
-    				$list[$i]['birthday'],$list[$i]['blood'],$list[$i]['UserFan'],$list[$i]['qq'],$list[$i]['msn'],$list[$i]['goal'],
-    				$list[$i]['sightml'],$list[$i]['constellation']);
-    	}
-    	$data =$arr;
-    	$xls = new Excel_XML('UTF-8', false, 'My Test Sheet');
-    	$xls->addArray($data);
-    	$xls->generateXML('memberDetail');
-    
-    }
     public function forbidden(){
     	//禁止会员状态
     	$where['member_id']=$_GET['id'];
@@ -87,6 +72,82 @@ class MemberAction extends CommonAction {
     }
     public function search(){
     	//搜索会员信息
+    	$M = D('Member');
+    	// 构造查询条件
+  		$condition = array();
+    	$condition['schoolName'] = !empty($_POST['schoolName']) ?  trim($_POST['schoolName']) : '';
+    	$condition['gender'] = isset($_POST['gender']) ?   $_POST['gender'] : 1;
+    	$condition['vip_type_id'] = isset($_POST['type']) ?   $_POST['type'] : '';
+    	$condition['ifNation'] = !isset($_POST['ifNation']) ?  trim($_POST['ifNation']) : '';
+    	$condition['if_overseas'] = isset($_POST['if_overseas']) ?   $_POST['if_overseas'] : '';
+		//组合条件
+    	$wherelist = array();
+    	if(!empty($condition['schoolName'])){
+    		$wherelist[] = "schoolName like '%{$condition['schoolName']}%'";
+    	}
+    	if(($condition['gender'])!=''){
+    		$wherelist[] = "gender = '{$condition['gender']}'";
+    	}
+    	if(!$condition['vip_type_id']){
+    		$wherelist[] = "vip_type_id = '{$condition['vip_type_id']}'";
+    	}
+    	if(!$condition['ifNation']){
+    		$wherelist[] = "ifNation = '{$condition['ifNation']}'";
+    	}
+    	if($condition['if_overseas'] != ''){
+    		$wherelist[] = "if_overseas = '{$condition['if_overseas']}'";
+    	}
+    	//组装存在的查询条件
+    	if(count($wherelist) > 0){
+    		$where = " where ".implode(' AND ' , $wherelist);
+    	}
+    	$where = isset($where) ? $where : '';
+    	echo $where;
+    	exit();
+    	//$result = $mysqli->query("SELECT * FROM `hotel_basic` {$where}");
+    	$total = $result->num_rows;
+    	$page = new page($total,10);
+    	//传入控制条件变量
+    	if(!empty($condition)){
+    		foreach($condition as $key=>$val) {
+    			$page->parameter .= "$key=".urlencode($val)."&";
+    		}
+    	}
+    	//$limit = 'limit ('{$page->firstRow}','{$page->listRows}' ) ';
+    	//注意limit的写法
+    	$limit = "limit ".$page->firstRow.",{$page->listRows}";
+    	//$result = $mysqli->query("SELECT * FROM `hotel_basic` {$where} ORDER BY id {$limit}");
+    	// echo $limit;
+    	
+    	//dierge
+    	$count = $M->where($condition)->count();
+    	// 导入分页类
+    	import("ORG.Util.Page");
+    	// 实例化分页类
+    	$p = new Page($count, 10);
+    	// 获取查询参数
+    	$map['status'] = $_GET['status'];
+    	$map['email'] = $_GET['email'];
+    	foreach($map as $key=>$val) {
+    		$p->parameter .= "$key=".urlencode($val)."&";
+    	}
+    	// 分页显示输出
+    	$page = $p->show();
+    	
+    	// 当前页数据查询
+    	$list = $M->where($condition)->order('uid ASC')->limit($p->firstRow.','.$p->listRows)->select();
+    	
+    	// 赋值赋值
+    	$this->assign('page', $page);
+    	$this->assign('list', $list);
+    	
+    	$this->display();
+    	/*  
+    	 * 
+ * $condition['email'] = array('like',"%".$_GET['email']."%");
+
+*/
+    	
     }
     public function category(){
     	//会员类别显示

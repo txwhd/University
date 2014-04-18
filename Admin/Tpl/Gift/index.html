@@ -18,11 +18,22 @@
                 <div id="Right">
                     <div class="Item hr">
                         <div class="current">礼品列表</div>
+                        <!--查询搜索  -->
+                          <div class="current">
+                            <form action="__URL__/search" method="post">
+								 <input type="text" name="gift_name" title="Search" class="searchinput" id="searchinput" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- 请输入礼品名称 -';" onfocus="if(this.value=='- 请输入礼品名称 -')value='';" value="- 请输入礼品名称 -" size="30"/>
+								礼品种类<select name="gift_type_id">
+											<option value="">类别1</option>
+											<option value="">类别2</option>
+										</select>
+								<span><button type="submit">查询</button></span>
+							</form>
+                          </div>
                     </div>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
                         <thead>
                             <tr>
-                                <td>礼品标题</td>
+                                <td>礼品名称</td>
                                 <td>所在分类</td>
                                 <td>状态</td>
                                 <td>发布时间</td>
@@ -32,8 +43,8 @@
                         </thead>
                         <volist name="list" id="vo">
                             <tr align="center" id="{$vo.id}">
-                                <td align="left">{$vo.title}</td>
                                 <td>{$vo.gift_name}</td>
+                                <td>{$vo.gift_type_id}</td>
                                <td>
                                		<if condition="$vo.available eq 1 ">已经开启|<a href="__URL__/forbidden?id={$vo.gift_id}">禁用</a>
 									 <else /> 锁定|<a href="__URL__/checkPass?id={$vo.gift_id}">请审核开启</a>
@@ -41,7 +52,7 @@
                                 </td>
                                 <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
                                 <td>{$vo.aidName}</td>
-                                <td>[ <a href="__URL__/edit?id={$vo.id}">编辑 </a> ] [ <a link="{:U('News/del/',array('id'=>$vo['id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
+                                <td>[ <a href="__URL__/edit?id={$vo.id}">编辑 </a> ] [ <a link="{:U('Gift/del/',array('id'=>$vo['id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
                             </tr>
                         </volist>
                     </table>

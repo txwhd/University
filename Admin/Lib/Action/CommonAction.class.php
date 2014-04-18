@@ -171,7 +171,131 @@ class CommonAction extends Action {
     	$this->assign("list", D($name)->listNews($page->firstRow, $page->listRows));
     	$this->display();
     }
+    public function search(){
+    	//搜索会员信息
+    	$M = D('Member');
+    	// 构造查询条件
+    	$condition['schoolName'] = $_POST['schoolName'];
+    	$condition['gender'] = $_POST['gender'];
+    	 
+    	$condition['schoolName'] = $_POST['schoolName'];
+    	$condition['schoolName'] = $_POST['schoolName'];
+    	 
+    	 
+    	 
+    	 
+    	 
+    	 
+    	 
+    	 
     
+    	 
+    	 
+    	/*
+    	 * $Dao = M("User");
+    
+    	// 计算总数
+    	* $condition['email'] = array('like',"%".$_GET['email']."%");
+    	$count = $Dao->where($condition)->count();
+    	// 导入分页类
+    	import("ORG.Util.Page");
+    	// 实例化分页类
+    	$p = new Page($count, 10);
+    	// 获取查询参数
+    	$map['status'] = $_GET['status'];
+    	$map['email'] = $_GET['email'];
+    	foreach($map as $key=>$val) {
+    	$p->parameter .= "$key=".urlencode($val)."&";
+    	}
+    	// 分页显示输出
+    	$page = $p->show();
+    
+    	// 当前页数据查询
+    	$list = $Dao->where($condition)->order('uid ASC')->limit($p->firstRow.','.$p->listRows)->select();
+    
+    	// 赋值赋值
+    	$this->assign('page', $page);
+    	$this->assign('list', $list);
+    
+    	$this->display(); */
+    	$condition = array();
+    	 
+    	$condition['name'] = !empty($_GET['name']) ?  trim($_GET['name']) : '';
+    	 
+    	$condition['star'] = isset($_GET['star']) ?   $_GET['star'] : 0;
+    	 
+    	$condition['address'] = !empty($_GET['address']) ?  trim($_GET['address']) : '';
+    	 
+    	$condition['is_recomm'] = isset($_GET['is_recomm']) ?   $_GET['is_recomm'] : 0;
+    	 
+    	//组合条件
+    	 
+    	$wherelist = array();
+    	 
+    	if(!empty($condition['name'])){
+    		 
+    		$wherelist[] = "name like '%{$condition['name']}%'";
+    		 
+    	}
+    	 
+    	if(($condition['star'])!=''){
+    		 
+    		$wherelist[] = "star = '{$condition['star']}'";
+    		 
+    	}
+    	 
+    	if(!empty($condition['address'])){
+    		 
+    		$wherelist[] = "content like '%{$condition['address']}%'";
+    		 
+    	}
+    	 
+    	if($condition['is_recomm'] != ''){
+    		 
+    		$wherelist[] = "is_recomm = '{$condition['is_recomm']}'";
+    		 
+    	}
+    	 
+    	//组装存在的查询条件
+    	 
+    	if(count($wherelist) > 0){
+    		 
+    		$where = " where ".implode(' AND ' , $wherelist);
+    		 
+    	}
+    	 
+    	$where = isset($where) ? $where : '';
+    	 
+    	//echo $where;
+    	 
+    	$result = $mysqli->query("SELECT * FROM `hotel_basic` {$where}");
+    	 
+    	$total = $result->num_rows;
+    	 
+    	$page = new page($total,10);
+    	 
+    	//传入控制条件变量
+    	 
+    	if(!empty($condition)){
+    		 
+    		foreach($condition as $key=>$val) {
+    			 
+    			$page->parameter .= "$key=".urlencode($val)."&";
+    			 
+    		}
+    		 
+    	}
+    	 
+    	//$limit = 'limit ('{$page->firstRow}','{$page->listRows}' ) ';
+    	 
+    	//注意limit的写法
+    	 
+    	$limit = "limit ".$page->firstRow.",{$page->listRows}";
+    	 
+    	$result = $mysqli->query("SELECT * FROM `hotel_basic` {$where} ORDER BY id {$limit}");
+    	 
+    	// echo $limit;
+    }
     public function category() {
     	$name=$this->getActionName();
     	if (IS_POST) {
