@@ -21,13 +21,11 @@
                          <!--查询搜索  -->
                           <div class="current">
                             <form action="__URL__/search" method="post">
-								 <input type="text" name="q" title="Search" class="searchinput" id="searchinput" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- 请输入大学名称 -';" onfocus="if(this.value=='- 请输入大学名称 -')value='';" value="- 请输入大学名称 -" size="10"/>
-								男<input name="gender" type="radio" />
-								女<input name="gender" type="radio" />
-								是少数民族<input name="ifNation" type="radio" />
-								会员级别<select name="">
-											<option value="">类别1</option>
-											<option value="">类别2</option>
+								 <input type="text" name="data[title]" title="Search" class="searchinput" id="searchinput" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- 请输入相册名称 -';" onfocus="if(this.value=='- 请输入相册名称 -')value='';" value="- 请输入相册名称 -" size="30"/>
+								 状态<select name="data[status]">
+											<option value="0">无限制</option>
+											<option value="1">开启</option>
+											<option value="2">禁止</option>
 										</select>
 								<span><button type="submit">查询</button></span>
 							</form>

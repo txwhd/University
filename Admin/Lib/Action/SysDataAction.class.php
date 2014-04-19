@@ -53,8 +53,8 @@ class SysDataAction extends CommonAction {
             $path = DatabaseBackDir . "/CUSTOM_" . date("Ymd") . "_" . randCode(5);
         }
         $pre = "# -----------------------------------------------------------\n" .
-                "# PHP-Amateur database backup files\n" .
-                "# Blog: http://blog.51edm.org\n" .
+                "# 邀99大学恋爱网管理数据库\n" .
+                "# Blog: http://www.feiruan.net\n" .
                 "# Type: {$type}\n";
 
         $bdTable = D("SysData")->bakupTable($tables); //取得表结构信息

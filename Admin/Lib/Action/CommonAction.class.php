@@ -158,8 +158,6 @@ class CommonAction extends Action {
             return $sub_menu[] = array('url' => '#', 'title' => "该菜单组不存在");
         }
     }
-    
-    
     public function index() {
     	$name=$this->getActionName();
     	$M = M($name);
@@ -189,13 +187,6 @@ class CommonAction extends Action {
     	$this->assign("page", $showPage);
     	$this->assign("list", D($name)->listNews($page->firstRow, $page->listRows,$condition));
     	$this->display('index');
-    	
-  /* 
-    	if(!empty($condition['name'])){
-    		 
-    		$wherelist[] = "name like '%{$condition['name']}%'";
-    		 
-    	} */
     }
     public function category() {
     	$name=$this->getActionName();
@@ -218,7 +209,6 @@ class CommonAction extends Action {
     		$this->display();
     	}
     }
-    
     public function checkNewsTitle() {
     	$name=$this->getActionName();
     	$M = M($name);

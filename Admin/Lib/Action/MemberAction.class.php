@@ -78,7 +78,7 @@ class MemberAction extends CommonAction {
     	$condition['schoolName'] = !empty($_POST['schoolName']) ?  trim($_POST['schoolName']) : '';
     	$condition['gender'] = isset($_POST['gender']) ?   $_POST['gender'] : 1;
     	$condition['vip_type_id'] = isset($_POST['type']) ?   $_POST['type'] : '';
-    	$condition['ifNation'] = !isset($_POST['ifNation']) ?  trim($_POST['ifNation']) : '';
+    	$condition['ifNation'] = isset($_POST['ifNation']) ? $_POST['ifNation'] : '';
     	$condition['if_overseas'] = isset($_POST['if_overseas']) ?   $_POST['if_overseas'] : '';
 		//组合条件
     	$wherelist = array();
