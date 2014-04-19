@@ -17,19 +17,15 @@ class CommonAction extends Action {
         if (empty($systemConfig['TOKEN']['admin_marked'])) {
             $systemConfig['TOKEN']['admin_marked'] = "QQ群：102577846";
            // $systemConfig['TOKEN']['admin_timeout'] = 3600;设置不操作时间推出
-            $systemConfig['TOKEN']['member_marked'] = "http://blog.51edm.org";
+            $systemConfig['TOKEN']['member_marked'] = "http://www.yao99.cn";
             $systemConfig['TOKEN']['member_timeout'] = 3600;
             F("systemConfig", $systemConfig, WEB_ROOT . "Common/");
             /* if (is_dir(WEB_ROOT . "install/")) {
                 delDirAndFile(WEB_ROOT . "install/", TRUE);
             }  成功安装后删除安装文件*/
-           
-            
         }
-		
         $this->loginMarked = md5($systemConfig['TOKEN']['admin_marked']);
         $this->checkLogin();
-
 	   // 用户权限检查
         if (C('USER_AUTH_ON') && !in_array(MODULE_NAME, explode(',', C('NOT_AUTH_MODULE')))) {
             import('ORG.Util.RBAC');
@@ -54,15 +50,12 @@ class CommonAction extends Action {
                 }
             }
         }
-		
         $this->assign("menu", $this->show_menu());
         $this->assign("sub_menu", $this->show_sub_menu());
         $this->assign("my_info", $_SESSION['my_info']);
         $this->assign("site", $systemConfig);
-
        // $this->getQRCode(); 
     }
-	
     /* protected function getQRCode($url = NULL) {
         if (IS_POST) {
             $this->assign("QRcodeUrl", "");

@@ -5,14 +5,6 @@
  */
 class MemberAction extends CommonAction {
   public function index() {
-  /* 	if (function_exists('ob_gzhandler')){
-  		echo "ok";
-  	}else {
-  		echo'faled';
-  		
-  	} 
-  		exit();*/
-  
       	 $M = D('Member');
       	 //这里用关联
       	 $list   =  $M->relation(true)->count();
@@ -70,84 +62,41 @@ class MemberAction extends CommonAction {
     	$this->assign('list',$list);
     	$this->display();
     }
-    public function search(){
+    public function _before_search(){
     	//搜索会员信息
     	$M = D('Member');
     	// 构造查询条件
   		$condition = array();
     	$condition['schoolName'] = !empty($_POST['schoolName']) ?  trim($_POST['schoolName']) : '';
-    	$condition['gender'] = isset($_POST['gender']) ?   $_POST['gender'] : 1;
-    	$condition['vip_type_id'] = isset($_POST['type']) ?   $_POST['type'] : '';
-    	$condition['ifNation'] = isset($_POST['ifNation']) ? $_POST['ifNation'] : '';
-    	$condition['if_overseas'] = isset($_POST['if_overseas']) ?   $_POST['if_overseas'] : '';
+    	$condition['gender'] =! empty($_POST['gender']) ?   $_POST['gender'] : '';
+    	$condition['vip_type_id'] = !empty($_POST['type']) ?   $_POST['type'] : '';
+    	$condition['ifNation'] =! empty($_POST['ifNation']) ? $_POST['ifNation'] : '';
+    	$condition['if_overseas'] = !empty($_POST['if_overseas']) ? $_POST['if_overseas'] : '';
 		//组合条件
     	$wherelist = array();
-    	if(!empty($condition['schoolName'])){
-    		$wherelist[] = "schoolName like '%{$condition['schoolName']}%'";
-    	}
-    	if(($condition['gender'])!=''){
-    		$wherelist[] = "gender = '{$condition['gender']}'";
-    	}
-    	if(!$condition['vip_type_id']){
-    		$wherelist[] = "vip_type_id = '{$condition['vip_type_id']}'";
-    	}
-    	if(!$condition['ifNation']){
-    		$wherelist[] = "ifNation = '{$condition['ifNation']}'";
-    	}
-    	if($condition['if_overseas'] != ''){
-    		$wherelist[] = "if_overseas = '{$condition['if_overseas']}'";
-    	}
+    	$wherelist[] = "schoolName like '%{$condition['schoolName']}%'";
+    	$wherelist[] = "gender = '{$condition['gender']}'";
+    	$wherelist[] = "vip_type_id = '{$condition['vip_type_id']}'";
+    	$wherelist[] = "ifNation = '{$condition['ifNation']}'";
+    	$wherelist[] = "if_overseas = '{$condition['if_overseas']}'";
     	//组装存在的查询条件
     	if(count($wherelist) > 0){
     		$where = " where ".implode(' AND ' , $wherelist);
     	}
     	$where = isset($where) ? $where : '';
-    	echo $where;
-    	exit();
-    	//$result = $mysqli->query("SELECT * FROM `hotel_basic` {$where}");
-    	$total = $result->num_rows;
-    	$page = new page($total,10);
-    	//传入控制条件变量
-    	if(!empty($condition)){
-    		foreach($condition as $key=>$val) {
-    			$page->parameter .= "$key=".urlencode($val)."&";
-    		}
-    	}
-    	//$limit = 'limit ('{$page->firstRow}','{$page->listRows}' ) ';
-    	//注意limit的写法
-    	$limit = "limit ".$page->firstRow.",{$page->listRows}";
-    	//$result = $mysqli->query("SELECT * FROM `hotel_basic` {$where} ORDER BY id {$limit}");
-    	// echo $limit;
-    	
-    	//dierge
-    	$count = $M->where($condition)->count();
+    	$count = $M->where($where)->count();
     	// 导入分页类
     	import("ORG.Util.Page");
     	// 实例化分页类
-    	$p = new Page($count, 10);
+    	$page = new Page($count, 10);
     	// 获取查询参数
-    	$map['status'] = $_GET['status'];
-    	$map['email'] = $_GET['email'];
-    	foreach($map as $key=>$val) {
-    		$p->parameter .= "$key=".urlencode($val)."&";
+    	foreach($condition as $key=>$val) {
+    		$page->parameter .= "$key=".urlencode($val)."&";
     	}
     	// 分页显示输出
-    	$page = $p->show();
-    	
+    	$showPage = $page->show();
     	// 当前页数据查询
-    	$list = $M->where($condition)->order('uid ASC')->limit($p->firstRow.','.$p->listRows)->select();
-    	
-    	// 赋值赋值
-    	$this->assign('page', $page);
-    	$this->assign('list', $list);
-    	
-    	$this->display();
-    	/*  
-    	 * 
- * $condition['email'] = array('like',"%".$_GET['email']."%");
-
-*/
-    	
+    	$list = $M->where($where)->limit($p->firstRow.','.$p->listRows)->select();
     }
     public function category(){
     	//会员类别显示

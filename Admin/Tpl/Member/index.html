@@ -21,7 +21,7 @@
                          <!--查询搜索  -->
                           <div class="current">
                             <form action="__URL__/search" method="post">
-								 <input type="text" name="schoolName" title="Search" class="searchinput" id="searchinput" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- 请输入大学名称 -';" onfocus="if(this.value=='- 请输入大学名称 -')value='';" value="- 请输入大学名称 -" size="10"/>
+								大学名称 <input type="text" name="schoolName" value="" size="20"/>
 								&nbsp;&nbsp;性别	<select name="gender">
 											<option value="" >无限制</option>
 											<option value="1" >是</option>
@@ -37,12 +37,12 @@
 											<option value="2">是</option>
 											<option value="1">否</option>
 										</select>
-								&nbsp;&nbsp;会员级别<select name="type">
+								会员级别<select name="type">
 											<option value="">无限制</option>
 											<option value="1">类别1</option>
 											<option value="2">类别2</option>
 										</select>
-								<span><button type="submit">查询</button></span>
+								&nbsp;&nbsp;<span><button type="submit">查询</button></span>
 							</form>
                           </div>
                           <span class="fr">当前共有{$count}个会员，今天注册{$newCount}个会员</span>

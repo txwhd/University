@@ -30,7 +30,6 @@
 								<span><button type="submit">查询</button></span>
 							</form>
                           </div>
-                          <span class="fr">当前共有{$count}个会员，{$Think.server.REMOTE_ADDR}今天注册{$newCount}个会员</span>
 					</div>
                     <form>
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
@@ -49,7 +48,7 @@
                                     <tr align="center">
                                         <td><input type="checkbox" name="table[]" value="{$tab.Name}"/></td>
                                         <td align="left">{$tab.username}</td>
-                                        <td><a href="__URL__/photo_detail">点击查看</></td>
+                                        <td><a href="__URL__/photo_detail">点击照片</></td>
                                         <td><img width="120" height="80" src="__PUBLIC__/Upload/Photo/1.png"/></td>
                                         <td>{$tab.nationName}</td>
                                         <td>
