@@ -240,7 +240,6 @@ class CommonAction extends Action {
     		$this->display("add");
     	}
     }
-    
     public function del() {
     	$name=$this->getActionName();
     	if (M($name)->where("id=".(int) $_GET['id'])->delete()) {

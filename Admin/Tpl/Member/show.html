@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>添加、编辑链接-后台管理-{$site.SITE_INFO.name}</title>
+        <title>会员详细信息-后台管理-{$site.SITE_INFO.name}</title>
         <php>
             $addCss="";
             $addJs="";
-            $currentNav ='资讯管理 > 添加编辑链接';
+            $currentNav ='会员注册管理 > 详细信息';
         </php>
         <include file="Common:intoHead" />
     </head>
@@ -17,76 +17,54 @@
                 <include file="Common:left" />
                 <div id="Right">
                     <div class="Item hr">
-                        <div class="current">添加编辑链接</div>
+                        <div class="current">全部信息</div>
                     </div>
-                    <form>
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
                             <tr>
-                                <th width="100">链接名称：</th>
-                                <td><input id="title" type="text" class="input" size="60" name="info[title]" value="{$info.title}"/> <a href="javascript:void(0)" id="checkNewsTitle">检测是否重复</a></td>
-                            </tr>
-
-                            <tr>
-                                <th width="100">链接发布状态：</th>
-                                <td><label><input type="radio" name="info[status]" value="0" <if condition="$info.status eq 0"> checked="checked"</if> /> 链接审核状态</label> &nbsp; <label><input type="radio" name="info[status]" value="1" <if condition="$info.status eq 1"> checked="checked"</if> /> 链接已发布状态</label> </td>
+                                <th width="100">城市要求：</th>
+                                <td><input id="city" type="text" class="input" size="60" name="city" value="{$info[0]['city']}"/></td>
                             </tr>
                             <tr>
-                                <th>链接所属分类：</th>
-                                <td>
-                                    <select name="info[cid]">
-                                        <volist name="list" id="vo">
-                                            <if condition="$vo[cid] eq $info[cid]">
-                                                <option value="{$vo.cid}" selected="selected">{$vo.fullname}</option>
-                                                <else/>
-                                                <option value="{$vo.cid}">{$vo.fullname}</option>
-                                            </if>
-                                        </volist>
-                                    </select></td>
+                                <th width="100">省份要求：</th>
+                                <td><input id="province" type="text" class="input" size="60" name="province" value="{$info[0]['province']}"/></td>
                             </tr>
                             <tr>
-                                <th>链接关键词：</th>
-                                <td><input type="text" class="input" size="60" name="info[keywords]" value="{$info.keywords}"/> 多关键词间用半角逗号（,）分开，可用于做链接关联阅读条件</td>
+                                <th width="100">年龄范围：</th>
+                                <td><input id="old" type="text" class="input" size="60" name="old" value="{$info[0]['old']}"/></td>
                             </tr>
                             <tr>
-                                <th>链接描述：</th>
-                                <td><textarea class="input" style="height: 60px; width: 600px;" name="info[description]">{$info.description}</textarea> 用于SEO的description</td>
+                                <th width="100">身高范围：</th>
+                                <td><input id="high" type="text" class="input" size="60" name="high" value="{$info[0]['high']}"/></td>
                             </tr>
                             <tr>
-                                <th>链接摘要：</th>
-                                <td><textarea class="input" style="height: 60px; width: 600px;" name="info[summary]">{$info.summary}</textarea> 如果不填写则系统自动截取链接前200个字符</td>
+                                <th width="100">性格要求：</th>
+                                <td><input id="character" type="text" class="input" size="60" name="character" value="{$info[0]['character']}"/></td>
                             </tr>
                             <tr>
-                                <th>链接内容：</th>
-                                <td><textarea id="content" class="input" style="height: 300px; width: 100%;" name="info[content]">{$info.content}</textarea></td>
+                                <th width="100">用户爱好：</th>
+                                <td><input id="objectFan" type="text" class="input" size="60" name="objectFan" value="{$info[0]['objectFan']}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="100">民族要求：</th>
+                                <td><input id="Nation" type="text" class="input" size="60" name="Nation" value="{$info[0]['Nation']}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="100">学历要求：</th>
+                                <td><input id="academy" type="text" class="input" size="60" name="academy" value="{$info[0]['academy']}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="100">国籍：</th>
+                                <td><input id="nationality" type="text" class="input" size="60" name="nationality" value="{$info[0]['nationality']}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="100">创建时间：</th>
+                                <td><input id="create_time" type="text" class="input" size="60" name="create_time" value="{$info[0]['create_time']|date="Y-m-d H:i:s",###}"/></td>
                             </tr>
                         </table>
-                        <input type="hidden" name="info[id]" value="{$info.id}" />
-                    </form>
-                    <div class="commonBtnArea" >
-                        <button class="btn submit">提交</button>
-                    </div>
                 </div>
             </div>
         </div>
         <div class="clear"></div>
         <include file="Common:foot" />
-        <js href="__PUBLIC__/kindeditor/kindeditor.js,__PUBLIC__/kindeditor/lang/zh_CN.js"/>
-        <script type="text/javascript">
-            $(function(){var  content ;
-                KindEditor.ready(function(K) {
-                    content = K.create('#content');
-                });
-                $("#checkNewsTitle").click(function(){
-                    $.getJSON("__URL__/checkNewsTitle", { title:$("#title").val(),id:"{$info.id}"}, function(json){
-                        $("#checkNewsTitle").css("color",json.status==1?"#0f0":"#f00").html(json.info);
-                    });
-                });
-                $(".submit").click(function(){
-                    content.sync();
-                    commonAjaxSubmit();
-                    return false;
-                });
-            });
-        </script>
     </body>
 </html>

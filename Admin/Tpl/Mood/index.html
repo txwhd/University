@@ -6,7 +6,7 @@
         <php>
             $addCss="";
             $addJs="";
-            $currentNav ='网站注册会员管理 > 会员列表';
+            $currentNav ='网站注册会员发表心情管理 >心情列表';
         </php>
         <include file="Common:intoHead" />
     </head>
@@ -17,82 +17,57 @@
                 <include file="Common:left" />
                 <div id="Right">
                     <div class="Item hr">
-                        <div class="current">网站会员管理</div>
+                        <div class="current">心情列表管理</div>
                          <!--查询搜索  -->
                           <div class="current">
                             <form action="__URL__/search" method="post">
-								 <input type="text" name="q" title="Search" class="searchinput" id="searchinput" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- 请输入大学名称 -';" onfocus="if(this.value=='- 请输入大学名称 -')value='';" value="- 请输入大学名称 -" size="10"/>
-								男<input name="gender" type="radio" />
-								女<input name="gender" type="radio" />
-								是少数民族<input name="ifNation" type="radio" />
-								会员级别<select name="">
-											<option value="">类别1</option>
-											<option value="">类别2</option>
+								<input type="text" name="data[username]" title="Search" class="searchinput" id="searchinput" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- 请输入姓名 -';" onfocus="if(this.value=='- 请输入姓名 -')value='';" value="- 请输入姓名 -" size="30"/>
+								&nbsp;&nbsp;状态<select name="data[status]">
+											<option value="">无限制</option>
+											<option value="1">开启</option>
+											<option value="2">禁止</option>
 										</select>
 								<span><button type="submit">查询</button></span>
 							</form>
                           </div>
-                          <span class="fr">当前共有{$count}个会员，{$Think.server.REMOTE_ADDR}今天注册{$newCount}个会员</span>
 					</div>
                     <form>
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
                             <thead>
                                 <tr>
-                                    <td width="90"><label><input name="" class="chooseAll" type="checkbox"/> 全选</label> <label><input name="" class="unsetAll" type="checkbox"/> 反选</label></td>
                                     <td>姓名</td>
-                                    <td>性别</td>
-                                    <td>民族</td>
-                                    <td>择偶信息</td>
                                     <td>登录时间</td>
-                                    <td>查看详细</td>
-                                    <td>会员级别</td>
-                                    <td>账户状态</td>
+                                    <td>内容</td>
+                                    <td>评论状态</td>
                                     <td width="150">操作</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <volist name="list" id="tab">
                                     <tr align="center">
-                                        <td><input type="checkbox" name="table[]" value="{$tab.Name}"/></td>
-                                        <td align="left">{$tab.username}</td>
-                                        <td>{$tab.gender}</td>
-                                        <td>{$tab.nationName}</td>
-                                        <td><a href="__URL__/showMarriage?id={$tab.member_id}" id="showMarriage">点击查看</a></td>
-                                        <td>{$tab.last_login_time|date="Y-m-d H:i:s",###}</td>
-                                        <td><a href="__URL__/show?id={$tab.member_id}">点击查看</a></td>
+                                        <td >{$tab[0][username]}</td>
+                                        <td>{$tab.create_time|date="Y-m-d H:i:s",###}</td>
+                                        <td><a href="__URL__/show?id={$tab.mood_id}">点击查看</a></td>
                                         <td>
-                                        	<if condition="$tab.isLock eq 2 ">类别1|<a href="__URL__/forbidden?id={$tab.member_id}">禁用</a>
-   											 <else /> 类别2|<a href="__URL__/checkPass?id={$tab.member_id}">请审核</a>
+                                        	<if condition="$tab.status eq 1 ">开启|<a href="__URL__/forbidden?id={$tab.mood_id}">禁用</a>
+   											 <else /> 禁止|<a href="__URL__/checkPass?id={$tab.mood_id}">请开启</a>
 											</if>
                                         </td>
-                                        <td>
-                                        	<if condition="$tab.isLock eq 2 ">已经开启|<a href="__URL__/forbidden?id={$tab.member_id}">禁用</a>
-   											 <else /> 禁用|<a href="__URL__/checkPass?id={$tab.member_id}">请审核</a>
-											</if>
-                                        </td>
-                                    <td><a href="__URL__/edit?id={$tab.member_id}">编辑 </a><a link="{:U('Member/del/',array('id'=>$tab['member_id']))}" href="javascript:void(0)" name="{$tab.username}" class="del">删除 </a><a href="__URL__/changeRole?id={$vo.id}" class="edit">权限分配</a></td>
+                                    <td><a href="__URL__/edit?id={$tab.mood_id}">编辑 </a><a link="{:U('Mood/del/',array('id'=>$tab['mood_id']))}" href="javascript:void(0)" name="{$tab.username}" class="del">删除 </a></td>
                            			 </tr>
                                 </volist>
                             </tbody>
                             <tfoot align="center">
                                 <tr>
-                                    <td width="90"><label><input name="" class="chooseAll" type="checkbox"/> 全选</label> <label><input name="" class="unsetAll" type="checkbox"/> 反选</label></td>
                                      <td>姓名</td>
-                                    <td>性别</td>
-                                    <td>民族</td>
-                                    <td>择偶信息</td>
                                     <td>登录时间</td>
-                                    <td>查看详细</td>
-                                     <td>会员级别</td>
-                                    <td>账户状态</td>
-                                    <td>操作</td>
+                                    <td>内容</td>
+                                    <td>评论状态</td>
+                                    <td width="150">操作</td>
                                 </tr>
                             </tfoot>
                         </table>
                     </form>
-                    <div class="commonBtnArea" >
-                       <a href="__URL__/member_excel" class="btn">全部信息导出excel格式</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -101,34 +76,6 @@
          <script type="text/javascript">
             $(function(){
                 clickCheckbox();
-                $(".submit").click(function(){
-                    if($("tbody input[type='checkbox']:checked").size()==0){
-                        popup.alert("请先选择你要备份的数据库表吧");
-                        return false;
-                    }
-                    if($(this).attr("disabledSubmit")){
-                        popup.alert("已提交，系统在处理中...");
-                    }else{
-                        $(this).attr("disabledSubmit",true).html("提交处理中...");
-                        commonAjaxSubmit("__URL__/backup");
-//                        popup.alert("系统处理中，如果数据库中数据较多可能需要较长时间，请稍候....");
-                        setTimeout(function(){
-                            popup.close("asyncbox_alert");
-                        },2000);
-                    }
-                });
-            });
-          /* //弹出上传文件的层
-            $('#showMarriage').on('click', function(){
-                $.layer({
-                    type: 2,//0：信息框（默认），1：页面层，2：iframe层，3：加载层，4：tips层。
-                    title: '上传文件',
-                    shadeClose: true, //开启点击遮罩关闭层
-                    area : ['600px' , '460px'],
-                    offset : ['100px', ''],
-                    iframe: {src: '__URL__/showMarriage'}
-                });
-            }); */
         </script>
     </body>
 </html>
