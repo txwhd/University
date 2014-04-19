@@ -21,7 +21,7 @@
                          <!--查询搜索  -->
                           <div class="current">
                             <form action="__URL__/search" method="post">
-								 <input type="text" name="data[title]" title="Search" class="searchinput" id="searchinput" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- 请输入相册名称 -';" onfocus="if(this.value=='- 请输入相册名称 -')value='';" value="- 请输入相册名称 -" size="30"/>
+								 相册名称<input type="text" name="data[title]"  size="30"/>
 								 状态<select name="data[status]">
 											<option value="0">无限制</option>
 											<option value="1">开启</option>
@@ -56,7 +56,7 @@
    											 <else /> 禁用|<a href="__URL__/checkPass?id={$tab.member_id}">请审核</a>
 											</if>
                                         </td>
-                                    	<td><a href="__URL__/edit?id={$tab.member_id}">编辑 </a><a link="{:U('Member/del/',array('id'=>$tab['member_id']))}" href="javascript:void(0)" name="{$tab.username}" class="del">删除 </a><a href="__URL__/changeRole?id={$vo.id}" class="edit">权限分配</a></td>
+                                    	<td><a href="__URL__/edit?id={$tab.member_id}">编辑 </a><a link="{:U('Member/del/',array('id'=>$tab['member_id']))}" href="javascript:void(0)" name="{$tab.username}" class="del">删除 </a></td>
                            			 </tr>
                             </tbody>
                             <tfoot align="center">

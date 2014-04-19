@@ -4,7 +4,7 @@
  * aothor：马晓成
  */
 class MemberAction extends CommonAction {
-  public function index() {
+  public function _before_index() {
       	 $M = D('Member');
       	 //这里用关联
       	 $list   =  $M->relation(true)->count();
