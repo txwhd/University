@@ -20,46 +20,333 @@
                         <div class="current">全部信息</div>
                     </div>
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
+                        
                             <tr>
-                                <th width="100">会员姓名：</th>
-                                <td><input id="username" type="text" class="input" size="60" name="username" value="{$info[0]['username']}"/></td>
+                                <th width="70">用户名：</th>
+                                <td><input id="username" type="text" class="input" size="50" name="username" value="{$info[0]['username']}"/></td>
                             </tr>
                             <tr>
-                                <th width="100">省份要求：</th>
-                                <td><input id="province" type="text" class="input" size="60" name="province" value="{$info[0]['province']}"/></td>
+                                <th width="70">真实姓名：</th>
+                                <td><input id="realName" type="text" class="input" size="50" name="realName" value="{$info[0]['realName']}"/></td>
                             </tr>
                             <tr>
-                                <th width="100">年龄范围：</th>
-                                <td><input id="old" type="text" class="input" size="60" name="old" value="{$info[0]['old']}"/></td>
+                                <th width="70">英文名称：</th>
+                                <td><input id="english_name" type="text" class="input" size="50" name="english_name" value="{$info[0]['english_name']}"/></td>
+                            </tr>
+                             <tr>
+                                <th width="100">头像地址：</th>
+                                <td><input id="avatar" type="file" size="30" class="input" size="60" name="avatar" value="{$info.avatar}"/></td>
+                            </tr>
+                            
+                            <tr>
+                                <th width="70">头像宽度：</th>
+                                <td><input id="avatarwidth" type="text" class="input" size="50" name="avatarwidth" value="{$info[0]['avatarwidth']}"/></td>
                             </tr>
                             <tr>
-                                <th width="100">身高范围：</th>
-                                <td><input id="high" type="text" class="input" size="60" name="high" value="{$info[0]['high']}"/></td>
+                                <th width="70">头像高度：</th>
+                                <td><input id="avatarheight" type="text" class="input" size="50" name="avatarheight" value="{$info[0]['avatarheight']}"/></td>
                             </tr>
                             <tr>
-                                <th width="100">性格要求：</th>
-                                <td><input id="character" type="text" class="input" size="60" name="character" value="{$info[0]['character']}"/></td>
+                                <th width="70">性别：</th>
+                                <td><input id="gender" type="text" class="input" size="50" name="gender" value="{$info[0]['gender']}"/></td>
                             </tr>
                             <tr>
-                                <th width="100">用户爱好：</th>
-                                <td><input id="objectFan" type="text" class="input" size="60" name="objectFan" value="{$info[0]['objectFan']}"/></td>
+                                <th width="70">名族：</th>
+                                <td><input id="nationName" type="text" class="input" size="50" name="nationName" value="{$info[0]['nationName']}"/></td>
                             </tr>
                             <tr>
-                                <th width="100">民族要求：</th>
-                                <td><input id="Nation" type="text" class="input" size="60" name="Nation" value="{$info[0]['Nation']}"/></td>
+                                <th width="70">省份：</th>
+                                <td><input id="province" type="text" class="input" size="50" name="province" value="{$info[0]['province']}"/></td>
                             </tr>
                             <tr>
-                                <th width="100">学历要求：</th>
-                                <td><input id="academy" type="text" class="input" size="60" name="academy" value="{$info[0]['academy']}"/></td>
+                                <th width="70">城市：</th>
+                                <td><input id="city" type="text" class="input" size="50" name="city" value="{$info[0]['city']}"/></td>
                             </tr>
                             <tr>
-                                <th width="100">国籍：</th>
-                                <td><input id="nationality" type="text" class="input" size="60" name="nationality" value="{$info[0]['nationality']}"/></td>
+                                <th width="70">生日：</th>
+                                <td><input id="birthday" type="text" class="input" size="50" name="birthday" value="{$info[0]['birthday']}"/></td>
                             </tr>
                             <tr>
-                                <th width="100">创建时间：</th>
-                                <td><input id="create_time" type="text" class="input" size="60" name="create_time" value="{$info[0]['create_time']|date="Y-m-d H:i:s",###}"/></td>
+                                <th width="70">年龄：</th>
+                                <td><input id="age" type="text" class="input" size="50" name="age" value="{$info[0]['age']}"/></td>
                             </tr>
+                            <tr>
+                                <th width="70">身高：</th>
+                                <td><input id="height" type="text" class="input" size="50" name="height" value="{$info[0]['height']}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="70">喜欢明星：</th>
+                                <td><input id="star" type="text" class="input" size="50" name="star" value="{$info[0]['star']}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="100">是否抽烟：</th>
+                                <td><label><input type="radio" name="smoke" value="1" <if condition="$info.status eq 1"> checked="checked"</if> /> 是</label> &nbsp; 
+                                    <label><input type="radio" name="smoke" value="2" <if condition="$info.status eq 2"> checked="checked"</if> /> 否</label> </td>
+                            </tr>
+                            <tr>
+                                <th width="100">是否喝酒：</th>
+                                <td><label><input type="radio" name="drinking" value="1" <if condition="$info.status eq 1"> checked="checked"</if> /> 是</label> &nbsp; 
+                                    <label><input type="radio" name="drinking" value="2" <if condition="$info.status eq 2"> checked="checked"</if> /> 否</label> </td>
+                            </tr>
+                            <tr>
+                                <th width="100">有无房子：</th>
+                                <td><label><input type="radio" name="house" value="1" <if condition="$info.status eq 1"> checked="checked"</if> /> 有</label> &nbsp; 
+                                    <label><input type="radio" name="house" value="2" <if condition="$info.status eq 2"> checked="checked"</if> /> 无</label> </td>
+                            </tr>
+                            <tr>
+                                <th width="100">婚姻状况：</th>
+                                <td><label><input type="radio" name="marry" value="1" <if condition="$info.status eq 1"> checked="checked"</if> />单身</label> &nbsp; 
+                                    <label><input type="radio" name="marry" value="2" <if condition="$info.status eq 2"> checked="checked"</if> /> 已婚</label> </td>
+                            </tr>
+                            <tr>
+                                <th width="70">爱好：</th>
+                                <td><input id="UserFan" type="text" class="input" size="50" name="UserFan" value="{$info[0]['UserFan']}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="70">星座：</th>
+                                <td><input id="constellation" type="text" class="input" size="50" name="constellation" value="{$info[0]['constellation']}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="100">血型：</th>
+                                <td><label><input type="radio" name="belif_name" value="1" <if condition="$info.status eq 1"> checked="checked"</if> />AB</label> &nbsp; 
+                                    <label><input type="radio" name="belif_name" value="2" <if condition="$info.status eq 2"> checked="checked"</if> />A</label> &nbsp;
+                                    <label><input type="radio" name="belif_name" value="3" <if condition="$info.status eq 1"> checked="checked"</if> /> B</label> &nbsp; 
+                                    <label><input type="radio" name="belif_name" value="4" <if condition="$info.status eq 2"> checked="checked"</if> />0</label> </td>
+                            </tr>
+                            <tr>
+                                <th width="70">学校：</th>
+                                <td><input id="schoolName" type="text" class="input" size="50" name="schoolName" value="{$info[0]['schoolName']}"/></td>
+                            </tr>
+                                <th width="70">学院：</th>
+                                <td><input id="academy" type="text" class="input" size="50" name="academy" value="{$info[0]['academy']}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="70">学历：</th>
+                                <td><input id="academic" type="text" class="input" size="50" name="academic" value="{$info[0]['academic']}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="70">入学时间：</th>
+                                <td><input id="in_school" type="text" class="input" size="50" name="in_school" value="{$info[0]['in_school']}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="70">毕业时间：</th>
+                                <td><input id="graduate_time" type="text" class="input" size="50" name="graduate_time" value="{$info[0]['graduate_time']}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="70">工作：</th>
+                                <td><input id="job" type="text" class="input" size="50" name="job" value="{$info[0]['job']}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="70">收入：</th>
+                                <td><input id="income" type="text" class="input" size="50" name="income" value="{$info[0]['income']}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="70">学历：</th>
+                                <td><input id="academic" type="text" class="input" size="50" name="academic" value="{$info[0]['academic']}"/></td>
+                            </tr>
+                             <tr>
+                                <th width="100">是否单身：</th>
+                                <td><label><input type="radio" name="ifsingel" value="1" <if condition="$info.status eq 1"> checked="checked"</if> /> 是</label> &nbsp; 
+                                    <label><input type="radio" name="ifsingel" value="2" <if condition="$info.status eq 2"> checked="checked"</if> /> 否</label> </td>
+                            </tr>
+                            <tr>
+                                <th width="100">Email：</th>
+                                <td><input id="email" type="text" class="input" size="50" name="email" value="{$info[0]['email']}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="100">邮件验证码：</th>
+                                <td><input id="Emailcode" type="text" class="input" size="50" name="Emailcode" value="{$info[0]['Emailcode']}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="100">QQ：</th>
+                                <td><input id="qq" type="text" class="input" size="50" name="qq" value="{$info[0]['qq']}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="100">MSN：</th>
+                                <td><input id="msn" type="text" class="input" size="50" name="msn" value="{$info[0]['msn']}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="100">角色名称：</th>
+                                <td><input id="role_name" type="text" class="input" size="50" name="role_name" value="{$info[0]['role_name']}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="100">注册时间：</th>
+                                <td><input id="reg_time" type="text" class="input" size="50" name="reg_time" value="{$info[0]['reg_time']}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="100">最后登录时间：</th>
+                                <td><input id="last_login_time" type="text" class="input" size="50" name="last_login_time" value="{$info[0]['last_login_time']}"/></td>
+                            </tr>
+                            
+                            <tr>
+                                <th width="100">是否为留学生：</th>
+                                <td><label><input type="radio" name="if_overseas" value="1" <if condition="$info.status eq 1"> checked="checked"</if> /> 是</label> &nbsp; 
+                                    <label><input type="radio" name="if_overseas" value="2" <if condition="$info.status eq 2"> checked="checked"</if> /> 否</label> </td>
+                            </tr>
+                             <tr>
+                                <th width="100">留学国家：</th>
+                                <td><input id="nationality" type="text" class="input" size="50" name="nationality" value="{$info[0]['nationality']}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="100">对象信仰要求：</th>
+                                <td><label><input type="radio" name="if_overseas" value="1" <if condition="$info.status eq 1"> checked="checked"</if> /> 有</label> &nbsp; 
+                                    <label><input type="radio" name="if_overseas" value="2" <if condition="$info.status eq 2"> checked="checked"</if> /> 无</label> </td>
+                            </tr>
+                            <tr>
+                                <th width="100">是否有信仰：</th>
+                                <td><label><input type="radio" name="if_belif_object" value="1" <if condition="$info.status eq 1"> checked="checked"</if> /> 有</label> &nbsp; 
+                                    <label><input type="radio" name="if_belif_object" value="2" <if condition="$info.status eq 2"> checked="checked"</if> /> 无</label> </td>
+                            </tr>
+                            <tr>
+                                <th width="100">信仰：</th>
+                                <td><label><input type="radio" name="belif_name" value="1" <if condition="$info.status eq 1"> checked="checked"</if> />伊斯兰教</label> &nbsp; 
+                                    <label><input type="radio" name="belif_name" value="2" <if condition="$info.status eq 2"> checked="checked"</if> />佛教</label> &nbsp;
+                                    <label><input type="radio" name="belif_name" value="3" <if condition="$info.status eq 1"> checked="checked"</if> /> 道教</label> &nbsp; 
+                                    <label><input type="radio" name="belif_name" value="4" <if condition="$info.status eq 2"> checked="checked"</if> /> 基督教</label> </td>
+                            </tr>
+                             <tr>
+                                <th width="100">信仰内容：</th>
+                                <td><input id="belif_state" type="text" class="input" size="50" name="belif_state" value="{$info[0]['belif_state']}"/></td>
+                            </tr>
+                             <tr>
+                                <th width="100">禁止个人账户：</th>
+                                <td><label><input type="radio" name="isLock" value="1" <if condition="$info.status eq 1"> checked="checked"</if> /> 禁止</label> &nbsp; 
+                                    <label><input type="radio" name="isLock" value="2" <if condition="$info.status eq 2"> checked="checked"</if> /> 不禁止</label> </td>
+                            </tr>
+                             <tr>
+                                <th width="100">内心独白：</th>
+                                <td><input id="monologue" type="text" class="input" size="50" name="monologue" value="{$info[0]['monologue']}"/></td>
+                            </tr>
+                             <tr>
+                                <th width="100">相貌自评：</th>
+                                <td><input id="look_grade" type="text" class="input" size="50" name="look_grade" value="{$info[0]['look_grade']}"/></td>
+                            </tr>
+                             <tr>
+                                <th width="100">积分：</th>
+                                <td><input id="iPoint" type="text" class="input" size="50" name="iPoint" value="{$info[0]['iPoint']}"/></td>
+                            </tr>
+                             <tr>
+                                <th width="100">人气值：</th>
+                                <td><input id="ePoint" type="text" class="input" size="50" name="ePoint" value="{$info[0]['ePoint']}"/></td>
+                            </tr>
+                             <tr>
+                                <th width="100">魅力值：</th>
+                                <td><input id="cPoint" type="text" class="input" size="50" name="cPoint" value="{$info[0]['cPoint']}"/></td>
+                            </tr>
+                             <tr>
+                                <th width="100">活跃值：</th>
+                                <td><input id="aPoint" type="text" class="input" size="50" name="aPoint" value="{$info[0]['aPoint']}"/></td>
+                            </tr>
+                             <tr>
+                                <th width="100">交友目的：</th>
+                                <td><input id="goal" type="text" class="input" size="50" name="goal" value="{$info[0]['goal']}"/></td>
+                            </tr>
+                             <tr>
+                                <th width="100">登录次数：</th>
+                                <td><input id="loginCount" type="text" class="input" size="50" name="loginCount" value="{$info[0]['loginCount']}"/></td>
+                            </tr>
+                             <tr>
+                                <th width="100">上次登录IP：</th>
+                                <td><input id="LastIP" type="text" class="input" size="50" name="LastIP" value="{$info[0]['LastIP']}"/></td>
+                            </tr>
+                             <tr>
+                                <th width="100">期望多久可以找到对象：</th>
+                                <td><input id="love_time" type="text" class="input" size="50" name="love_time" value="{$info[0]['love_time']}"/></td>
+                            </tr>
+                             <tr>
+                                <th width="100">关注人：</th>
+                                <td><input id="attention_id" type="text" class="input" size="50" name="attention_id" value="{$info[0]['attention_id']}"/></td>
+                            </tr>
+                             <tr>
+                                <th width="100">个性签名：</th>
+                                <td><input id="sightml" type="text" class="input" size="50" name="sightml" value="{$info[0]['sightml']}"/></td>
+                            </tr>
+                           
+                             <tr>
+                                <th width="100">会员类型：</th>
+                                <td>
+                                    <label>{$info[0]['vip_name']}</label> </td>
+                            </tr>
+                             <tr>
+                                <th width="100">会员有效期：</th>
+                                <td>
+                                    <label>{$info[0]['groupterms']}</label> </td>
+                            </tr>
+                             <tr>
+                                <th width="100">用户激活码：</th>
+                                <td>
+                                    <label>{$info[0]['authstr']}</label> </td>
+                            </tr>
+                             <tr>
+                                <th width="100">是否为管理员：</th>
+                                <td>
+                                    <label>{$info[0]['ifadmin']}</label> </td>
+                            </tr>
+                           <tr>
+                                <th width="100">限制关注：</th>
+                                <td><label><input type="radio" name="limit_attention" value="1" <if condition="$info.status eq 1"> checked="checked"</if> /> 否</label> &nbsp; 
+                                    <label><input type="radio" name="limit_attention" value="2" <if condition="$info.status eq 2"> checked="checked"</if> /> 限制</label> </td>
+                            </tr>
+                           <tr>
+                                <th width="100">限制发言：</th>
+                                <td><label><input type="radio" name="limit_say" value="1" <if condition="$info.status eq 1"> checked="checked"</if> /> 否</label> &nbsp; 
+                                    <label><input type="radio" name="limit_say" value="2" <if condition="$info.status eq 2"> checked="checked"</if> /> 限制</label> </td>
+                            </tr>
+                             <tr>
+                                <th width="100">是否为手机登录：</th>
+                                <td>
+                                    <label>{$info[0]['Mobile']}</label> </td>
+                                   
+                            </tr>
+                             <tr>
+                                <th width="100">系统默认分组：</th>
+                                <td><label><input type="radio" name="FriendClass" value="1" <if condition="$info.status eq 1"> checked="checked"</if> /> 我的好友</label> &nbsp; 
+                                    <label><input type="radio" name="FriendClass" value="2" <if condition="$info.status eq 2"> checked="checked"</if> />陌生人</label> </td>
+                                    <label><input type="radio" name="FriendClass" value="2" <if condition="$info.status eq 3"> checked="checked"</if> />黑名单</label> </td>
+                            </tr>
+                             <tr>
+                                <th width="100">添加好友验证：</th>
+                                <td><label><input type="radio" name="Addfriendbs" value="1" <if condition="$info.status eq 0"> checked="checked"</if> /> 拒绝所有人</label> &nbsp; 
+                                    <label><input type="radio" name="Addfriendbs" value="2" <if condition="$info.status eq 1"> checked="checked"</if> />验证</label> </td>
+                                    <label><input type="radio" name="Addfriendbs" value="2" <if condition="$info.status eq 2"> checked="checked"</if> />允许所有人</label> </td>
+                            </tr>
+                          
+                             <tr>
+                                <th width="100">开放：</th>
+                                <td><label><input type="radio" name="isOpen" value="1" <if condition="$info.status eq 1"> checked="checked"</if> /> 不开放</label> &nbsp; 
+                                    <label><input type="radio" name="isOpen" value="2" <if condition="$info.status eq 2"> checked="checked"</if> />开放</label> </td>
+                                    
+                            </tr>
+                             <tr>
+                                <th width="100">用户在线状态：</th>
+                                <td><label><input type="radio" name="OnlineTF" value="1" <if condition="$info.status eq 0"> checked="checked"</if> /> 不在线</label> &nbsp; 
+                                    <label><input type="radio" name="OnlineTF" value="2" <if condition="$info.status eq 1"> checked="checked"</if> />在线</label> </td>
+                                    
+                            </tr>
+                             <tr>
+                                <th width="100">是否手机验证：</th>
+                                <td><label><input type="radio" name="Ismobile" value="1" <if condition="$info.status eq 2"> checked="checked"</if> /> 否</label> &nbsp; 
+                                    <label><input type="radio" name="Ismobile" value="2" <if condition="$info.status eq 1"> checked="checked"</if> />是</label> </td>
+                                    
+                            </tr>
+                             <tr>
+                                <th width="100">是否绑定手机：</th>
+                                <td><label><input type="radio" name="BindTF" value="1" <if condition="$info.status eq 2"> checked="checked"</if> /> 否</label> &nbsp; 
+                                    <label><input type="radio" name="BindTF" value="2" <if condition="$info.status eq 1"> checked="checked"</if> />是</label> </td>
+                                    
+                            </tr>
+                             <tr>
+                                <th width="100">通过实名认证：</th>
+                                <td><label><input type="radio" name="isIDcard" value="1" <if condition="$info.status eq 1"> checked="checked"</if> /> 否</label> &nbsp; 
+                                    <label><input type="radio" name="isIDcard" value="2" <if condition="$info.status eq 2"> checked="checked"</if> />是</label> </td>
+                                    
+                            </tr>
+                            <tr>
+                                <th width="100">实名附件地址：</th>
+                                <td><input id="IdcardFiles" type="file" size="30" class="input" size="60" name="IdcardFiles" value="{$info.IdcardFiles}"/></td>
+                            </tr>
+                           
+                           
                         </table>
                 </div>
             </div>
