@@ -59,7 +59,7 @@ class MemberAction extends CommonAction {
     	$M = D('Member');
     	$where['member_id']=(int)$_GET['id'];
     	$list   =  $M->relation(true)->where($where)->select();
-    	$this->assign('list',$list);
+    	$this->assign('info',$list);
     	$this->display();
     }
     public function _before_search(){

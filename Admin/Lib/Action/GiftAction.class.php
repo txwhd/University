@@ -3,6 +3,12 @@
  * 礼品管理
  */
 class GiftAction extends CommonAction {
+	public function _before_index(){
+		$M=M('GiftType');
+		$result=$M->select();
+		$this->assign('type',$result);
+		$this->display();
+	}
 	public function forbidden(){
 		//禁止会员状态
 		$where['ad_id']=$_GET['id'];
