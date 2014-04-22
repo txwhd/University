@@ -21,7 +21,7 @@
                          <!--查询搜索  -->
                           <div class="current">
                             <form action="__URL__/search" method="post">
-								 相册名称<input type="text" name="data[title]"  size="30"/>
+								 <input type="text" name="data[title]" title="Search" class="searchinput" id="searchinput" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- 请输入相册名称 -';" onfocus="if(this.value=='- 请输入相册名称 -')value='';" value="- 请输入相册名称 -" size="30"/>
 								 状态<select name="data[status]">
 											<option value="0">无限制</option>
 											<option value="1">开启</option>
@@ -37,6 +37,7 @@
                                 <tr>
                                     <td width="90"><label><input name="" class="chooseAll" type="checkbox"/> 全选</label> <label><input name="" class="unsetAll" type="checkbox"/> 反选</label></td>
                                     <td>相册名</td>
+                                    <td>作者</td>
                                     <td>查看详细</td>
                                     <td>相册封面</td>
                                     <td>相册描述</td>
@@ -45,24 +46,28 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            	<volist name="list" id="tab">
                                     <tr align="center">
                                         <td><input type="checkbox" name="table[]" value="{$tab.Name}"/></td>
-                                        <td align="left">{$tab.username}</td>
-                                        <td><a href="__URL__/photo_detail">点击照片</></td>
+                                        <td align="left">{$tab.title}</td>
+                                        <td align="left">{$tab.member_id}</td>
+                                        <td><a href="__URL__/photo_detail?id={$tab.id}">查看照片</></td>
                                         <td><img width="120" height="80" src="__PUBLIC__/Upload/Photo/1.png"/></td>
-                                        <td>{$tab.nationName}</td>
+                                        <td>{$tab.intro|substr=0,20}</td>
                                         <td>
                                         	<if condition="$tab.isLock eq 2 ">已经开启|<a href="__URL__/forbidden?id={$tab.member_id}">禁用</a>
    											 <else /> 禁用|<a href="__URL__/checkPass?id={$tab.member_id}">请审核</a>
 											</if>
                                         </td>
-                                    	<td><a href="__URL__/edit?id={$tab.member_id}">编辑 </a><a link="{:U('Member/del/',array('id'=>$tab['member_id']))}" href="javascript:void(0)" name="{$tab.username}" class="del">删除 </a></td>
+                                    	<td><a link="{:U('Photo/del/',array('id'=>$tab['member_id']))}" href="javascript:void(0)" name="{$tab.username}" class="del">删除 </a></td>
                            			 </tr>
+                           		</volist>
                             </tbody>
                             <tfoot align="center">
                                 <tr>
                                     <td width="90"><label><input name="" class="chooseAll" type="checkbox"/> 全选</label> <label><input name="" class="unsetAll" type="checkbox"/> 反选</label></td>
                                     <td>相册名</td>
+                                    <td>作者</td>
                                     <td>查看详细</td>
                                     <td>相册封面</td>
                                     <td>相册描述</td>
@@ -81,22 +86,6 @@
          <script type="text/javascript">
             $(function(){
                 clickCheckbox();
-                $(".submit").click(function(){
-                    if($("tbody input[type='checkbox']:checked").size()==0){
-                        popup.alert("请先选择你要备份的数据库表吧");
-                        return false;
-                    }
-                    if($(this).attr("disabledSubmit")){
-                        popup.alert("已提交，系统在处理中...");
-                    }else{
-                        $(this).attr("disabledSubmit",true).html("提交处理中...");
-                        commonAjaxSubmit("__URL__/backup");
-//                        popup.alert("系统处理中，如果数据库中数据较多可能需要较长时间，请稍候....");
-                        setTimeout(function(){
-                            popup.close("asyncbox_alert");
-                        },2000);
-                    }
-                });
             });
           /* //弹出上传文件的层
             $('#showMarriage').on('click', function(){

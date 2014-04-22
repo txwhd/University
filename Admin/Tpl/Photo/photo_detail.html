@@ -24,7 +24,8 @@
                             <thead>
                                 <tr>
                                      <td width="150"><label><input name="" class="chooseAll" type="checkbox"/> 全选</label> <label><input name="" class="unsetAll" type="checkbox"/> 反选</label></td>
-                                     <td width="150"><a href="__URL__/del" class="btn">删除所选</a></td>
+                                     <td width="150">
+                                     	<!-- <a href="__URL__/photo_detail" class="btn" id="del">删除所选</a></td> -->
                                      <td width="150"></td>
                                      <td width="150"></td>
                                      <td width="150"></td>
@@ -32,32 +33,19 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            	<volist name="list" id="tab1">
                                     <tr align="center">
-                                        <td>
-                                        	<input type="checkbox" name="table[]" value="{$tab.Name}"/>
+                                    	<volist name="tab1" id="tab2">
+                                    	 <td>
+                                    	 	<volist name="tab2" id="tab3">
+                                        	<input type="checkbox" name="data[]" value="{$tab3.id}"/>
+                                        		{$tab3.id}
                                         	<img width="120" height="80" src="__PUBLIC__/Upload/Photo/1.png"/>
-                                        </td>
-                                        <td>
-                                        	<input type="checkbox" name="table[]" value="{$tab.Name}"/>
-                                        	<img width="120" height="80" src="__PUBLIC__/Upload/Photo/1.png"/>
-                                        </td>
-                                        <td>
-                                        	<input type="checkbox" name="table[]" value="{$tab.Name}"/>
-                                        	<img width="120" height="80" src="__PUBLIC__/Upload/Photo/1.png"/>
-                                        </td>
-                                         <td>
-                                        	<input type="checkbox" name="table[]" value="{$tab.Name}"/>
-                                        	<img width="120" height="80" src="__PUBLIC__/Upload/Photo/1.png"/>
-                                        </td>
-                                        <td>
-                                        	<input type="checkbox" name="table[]" value="{$tab.Name}"/>
-                                        	<img width="120" height="80" src="__PUBLIC__/Upload/Photo/1.png"/>
-                                        </td>
-                                         <td>
-                                        	<input type="checkbox" name="table[]" value="{$tab.Name}"/>
-                                        	<img width="120" height="80" src="__PUBLIC__/Upload/Photo/1.png"/>
-                                        </td>
+                                        	</volist>
+                                       	 </td>
+                                    	</volist>
                            			 </tr>
+                           	     </volist>
                             </tbody>
                             <tfoot align="center">
                                 <tr>
@@ -70,12 +58,25 @@
                                 </tr>
                             </tfoot>
                         </table>
+                       
                     </form>
-                  
+                  	 <div class="commonBtnArea" >
+                        <button class="btn submit">删除所选</button>
+                        <button class="btn reset">重置</button>
+                        <button class="btn empty">清空</button>
+                   	 </div>
                 </div>
             </div>
         </div>
         <div class="clear"></div>
         <include file="Common:foot" />
+         <script type="text/javascript">
+            $(function(){
+                clickCheckbox();
+                 $(".submit").click(function(){
+                    commonAjaxSubmit();
+                }); 
+            });
+          </script>
     </body>
 </html>

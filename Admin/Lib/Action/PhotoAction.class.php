@@ -1,6 +1,35 @@
 <?php
 // 相册管理
 class PhotoAction extends CommonAction {
+	public function _before_index(){
+		load('extend');//截取文章标题
+	}
+	public function photo_detail(){
+		if (IS_POST) {
+			//$this->checkToken();
+			echo json_encode(D("Photo")->photo_detail());
+		} else {
+		$id=$_GET['id'];
+		$m=M('photo_detail');
+		$list=$m->where('photo_id='.$id)->select();
+		$count=count($list);
+		$i=0;
+		$j=0;
+		foreach ($list as $k => $v){
+			if($k%6!==0||$k==0){
+				$data[$j][$i++]['list']=$list[$k];
+			}else {
+				$j++;
+				$i=0;
+				$data[$j][$i++]['list']=$list[$k];
+			}
+		}
+	   /*  dump($data);
+		exit();   */
+		$this->assign('list',$data);
+		$this->display();
+		}
+	}
 	//列出图片可用分类
 	public function _before_add() {
 		$model	=	M("Category");

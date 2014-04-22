@@ -20,9 +20,9 @@ class CommonAction extends Action {
             $systemConfig['TOKEN']['member_marked'] = "http://www.yao99.cn";
             $systemConfig['TOKEN']['member_timeout'] = 3600;
             F("systemConfig", $systemConfig, WEB_ROOT . "Common/");
-            /* if (is_dir(WEB_ROOT . "install/")) {
-                delDirAndFile(WEB_ROOT . "install/", TRUE);
-            }  成功安装后删除安装文件*/
+            // if (is_dir(WEB_ROOT . "install/")) {
+            //    delDirAndFile(WEB_ROOT . "install/", TRUE);
+            //}  成功安装后删除安装文件
         }
         $this->loginMarked = md5($systemConfig['TOKEN']['admin_marked']);
         $this->checkLogin();
