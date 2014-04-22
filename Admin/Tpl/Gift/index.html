@@ -36,26 +36,24 @@
                             <tr>
                                 <td>礼品名称</td>
                                 <td>所在分类</td>
-                                <td>状态</td>
+                                <td>置顶</td>
                                 <td>发布时间</td>
-                                <td>发布人</td>
                                 <td width="150">操作</td>
                             </tr>
                         </thead>
                         <volist name="list" id="vo">
-                            <tr align="center" id="{$vo.id}">
+                            <tr align="center" id="{$vo.gift_id}">
                                 <td>{$vo.gift_name}</td>
                                 <td>
                                 	{$vo.gift_type_id}
                                 </td>
                                <td>
-                               		<if condition="$vo.available eq 1 ">已经开启|<a href="__URL__/forbidden?id={$vo.gift_id}">禁用</a>
-									 <else /> 锁定|<a href="__URL__/checkPass?id={$vo.gift_id}">请审核开启</a>
+                               		<if condition="$vo.istop eq 1 ">没有置顶|<a href="__URL__/top?id={$vo.gift_id}">置顶</a>
+									 <else /> 已经置顶|<a href="__URL__/cancelTop?id={$vo.gift_id}">取消</a>
 									</if>
                                 </td>
                                 <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
-                                <td>{$vo.aidName}</td>
-                                <td>[ <a href="__URL__/edit?id={$vo.id}">编辑 </a> ] [ <a link="{:U('Gift/del/',array('id'=>$vo['id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
+                                <td>[ <a href="__URL__/edit?id={$vo.gift_id}">编辑 </a> ] [ <a link="{:U('Gift/del/',array('id'=>$vo['gift_id']))}" href="javascript:void(0)" name="{$vo.gift_name}" class="del">删除 </a> ]</td>
                             </tr>
                         </volist>
                     </table>

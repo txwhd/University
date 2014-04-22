@@ -37,13 +37,13 @@ class MemberModel extends RelationModel{
 		  				'foreign_key' => 'member_id',
 		  				'as_fields'=>'id,english_name,realName,nationName,schoolName,academy,academic,if_overseas,if_belif_object,belif_state,belif_name,if_belief,gender,nationality,province,city,birthday,age,height,star,blood,UserFan,drinking,smoke,job,income,house,marry,monologue,qq,msn,look_grade,goal,love_time,graduate_time,in_school,iPoint,ePoint,cPoint,aPoint,loginCount,OnlineTF,FriendClass,LastIP,isOpen,isIDcard,IdcardFiles,Addfriendbs,Emailcode,Ismobile,BindTF,attention_id,avatar,avatarwidth,avatarheight,sightml,groupterms,authstr,ifNation,limit_reply,limit_attention,limit_say,constellation'
 		  		),
-		  		/* 'marriage_term'=>array(
+		  		 'marriage_term'=>array(
 		  				'mapping_type'=> HAS_ONE,
 		  				'mapping_name'=> 'marriage_term',
 		  				'class_name' => 'marriage_term',
 		  				'foreign_key' => 'member_id',
 		  				'as_fields'=>',english_name,realName,nationName'
-		  		), */
+		  		), 
 		  		'viptype'=>array(
 		  				'mapping_type'=> BELONGS_TO,
 		  				'mapping_name'=> 'viptype',

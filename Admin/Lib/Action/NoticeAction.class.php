@@ -9,11 +9,4 @@ class NoticeAction extends CommonAction {
         $this->assign("vo", $list);
         $this->display();
 	}
-	public function edit(){
-		//编辑页面
-		
-		
-	}
-	public function _before_add(){
-	}
 }
