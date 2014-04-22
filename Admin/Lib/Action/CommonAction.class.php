@@ -218,13 +218,16 @@ class CommonAction extends Action {
     
     public function edit() {
     	$name=$this->getActionName();
+    	$str = lcfirst($name)._.id; // 将表的名字首字符小写
+    	$where["$str"]=(int) $_GET['id'];
+    	print_r($where);
     	$M = M($name);
     	if (IS_POST) {
     		//$this->checkToken();
     		$data=D($name)->upload();
     		echo json_encode(D($name)->edit($data));
     	} else {
-    		$info = $M->where("id=" . (int) $_GET['id'])->find();
+    		$info = $M->where($where)->find();
     		if ($info['id'] == '') {
     			$this->error("不存在该记录");
     		}
@@ -235,8 +238,9 @@ class CommonAction extends Action {
     }
     public function del() {
     	$name=$this->getActionName();
-    	if (M($name)->where("id=".(int) $_GET['id'])->delete()) {
-    		//D($name)->foreverdel();
+    	$str = lcfirst($name)._.id; // 将表的名字首字符小写
+    	$where["$str"]=(int) $_GET['id'];
+    	if (M($name)->where($where)->delete()) {
     		$this->success("成功删除");
     		echo json_encode(array("status"=>1,"info"=>""));
     	} else {

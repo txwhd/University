@@ -9,17 +9,4 @@ class NoticeAction extends CommonAction {
         $this->assign("vo", $list);
         $this->display();
 	}
-	public function edit(){
-		//编辑页面
-		$M = M("Notice");
-		$where['notice_id']=$_GET['id'];
-		$list=$M->where($where)->select();
-		$this->assign("vo", $list);
-		$this->display("add");
-	}
-	public function _before_add(){
-		//得到ip
-		$ip = get_client_ip();
-		
-	}
 }

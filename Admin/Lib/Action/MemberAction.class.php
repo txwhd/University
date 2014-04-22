@@ -59,7 +59,7 @@ class MemberAction extends CommonAction {
     	$M = D('Member');
     	$where['member_id']=(int)$_GET['id'];
     	$list   =  $M->relation(true)->where($where)->select();
-    	$this->assign('list',$list);
+    	$this->assign('info',$list);
     	$this->display();
     }
     public function _before_search(){
@@ -119,5 +119,24 @@ class MemberAction extends CommonAction {
     	$this->assign('list',$list);
     	$this->display();
     }
-    
+    public function _before_del(){
+    	//删除多个表操作
+    	/* DELETE
+FROM tabe1,table2,table3
+WHERE tabe1.userid=1782
+AND tabe2.userid=tabe1.userid
+AND tabe3.userid=tabe1.userid */
+    	/* $member_id=$_GET['id'];
+    	$sql="DELETE FROM mxczhyk_member_detail,mxczhyk_marriage_term,mxczhyk_member WHERE tabe1.userid=$member_id AND tabe2.userid=tabe1.userid AND tabe3.userid=tabe1.userid ";
+    	$Model = new Model();
+    	$Model->query($sql); */
+    	$M = D('Member');
+    	$where['member_id']=(int)$_GET['id'];
+    	$list   =  $M->relation(true)->where($where)->delete();
+	    if($list){
+	    		$this->success('已经从择偶信息表，会员总表和会员详细信息表中删除该记录！');
+	    	}else{
+	    		$this->error("删除失败！");
+	    	}
+    }
 }

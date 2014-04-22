@@ -3,31 +3,38 @@
  * 礼品管理
  */
 class GiftAction extends CommonAction {
-	public function forbidden(){
-		//禁止会员状态
-		$where['ad_id']=$_GET['id'];
+	public function _before_index(){
+		$type=M('GiftType');
+		$result=$type->select();
+		$this->assign('type',$result);
+		$m=M('Gift');
+		$list=$m->select();
+		$this->assign('list',$list);
+	}
+	public function top(){
+		//置顶操作
+		$where['gift_id']=$_GET['id'];
 		$model=M("gift");
-		$data['available'] = '2';//数据库中没有静止字段
+		$data['istop'] = '2';
 		$result=$model->where($where)->save($data);
 		if($result){
-			$this->success('已经禁用该广告！');
+			$this->success('置顶成功！');
 		}else{
-			$this->error("禁用失败！");
+			$this->error("置顶失败！");
 		}
 	}
-	public function checkPass(){
-		//通过会员审核
-		$where['ad_id']=$_GET['id'];
-		$model=M("Advertisement");
-		$data['available'] = '1';
+	public function cancelTop(){
+		//取消置顶操作
+		$where['gift_id']=$_GET['id'];
+		$model=M("gift");
+		$data['istop'] = '1';
 		$result=$model->where($where)->save($data);
 		if($result){
-			$this->success('已经开启该广告！');
+			$this->success('取消置顶成功！');
 		}else{
-			$this->error("开启失败！");
+			$this->error("取消置顶失败！");
 		}
 	}
-	
 	
 	
 }

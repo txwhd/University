@@ -22,7 +22,7 @@
                           <div class="current">
                             <form action="__URL__/search" method="post">
 								活动名称 <input type="text" name="data[title]" size="30"/>
-								<span><button type="submit">查询</button></span>
+								<button type="button" class="btn btn-primary btn-xs">查询<tton>
 							</form>
                           </div>
                     </div>
@@ -57,7 +57,8 @@
                                 <td>{$vo.cost}</td>
                                 <td>{$vo.starttimefrom}</td>
                                 <td>{$vo.starttimeto}</td>
-                                <td><a  href="__URL__/show?id={$vo.activity_id}">查看详细</a></td>
+                                <td><a  href="#"  data-toggle="modal" data-target="#myModal">查看详细</a>
+                                </td>
                                 <td>
                                 	<if condition="$vo.isLock eq 2 ">已经开启|<a href="__URL__/forbidden?id={$vo.activity_id}">禁用</a>
 									 <else /> 锁定|<a href="__URL__/checkPass?id={$vo.activity_id}">请审核</a>
@@ -101,6 +102,27 @@
                     return false;
                 });
             });
+           /*  
+                                 <!--弹出框  -->
+                         <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<ul class="nav nav-tabs" id="myTab">
+				  <li class="active"><a href="#home" data-toggle="tab">查看活动内容</a></li>
+				</ul>
+      </div>
+      <div class="modal-body">
+      {$vo['content']}
+      </div><!-- /.modal-body-->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div>
+</div><!-- /.modal-dialog --> */
         </script>
     </body>
 </html>

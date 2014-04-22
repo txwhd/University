@@ -1,5 +1,4 @@
 <?php
-
 /*
  * 通用配置文件
  * Author：leo.li（281978297@qq.com）
