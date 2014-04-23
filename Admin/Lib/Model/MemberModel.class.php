@@ -7,7 +7,7 @@ class MemberModel extends RelationModel{
 	
 		public function listNews($firstRow = 0, $listRows = 20) {
 		        $M = D("Member");
-		        $list = $M->relation(true)->limit("$firstRow , $listRows")->select();
+		         $list = M()->table("mxczhyk_member r")->join("mxczhyk_member_detail s on r.member_id=s.member_id")->select();
 		       /*  print_r($list);
 		        exit(); */
 		        return $list;

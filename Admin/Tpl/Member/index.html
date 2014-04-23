@@ -22,17 +22,17 @@
                           <div class="current">
                             <form action="__URL__/search" method="post">
 								大学名称 <input type="text" name="schoolName" value="" size="20"/>
-								&nbsp;&nbsp;性别	<select name="gender">
+								性别	<select name="gender">
 											<option value="" >无限制</option>
 											<option value="1" >是</option>
 											<option value="2">否</option>
 										</select>
-								&nbsp;&nbsp;少数民族	<select name="ifNation">
+								少数民族	<select name="ifNation">
 											<option value="" >无限制</option>
 											<option value="2" >是</option>
 											<option value="1">否</option>
 										</select>
-								&nbsp;&nbsp;留学生<select name="if_overseas">
+							留学生<select name="if_overseas">
 											<option value="">无限制</option>
 											<option value="2">是</option>
 											<option value="1">否</option>
@@ -107,6 +107,9 @@
                             </tfoot>
                         </table>
                     </form>
+                     <div class="commonBtnArea" >
+                        <button class="">{$page}</button>
+                    </div>   
                 </div>
             </div>
         </div>

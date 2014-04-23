@@ -45,13 +45,13 @@
                             <tr align="center" id="{$vo.business_id}">
                                 <td >{$vo.business_name}</td>
                                 <td>{$vo.address}</td>
-                                <td><a href="">查看详细</a></td><!-- 100个汉字至多 {$vo.content}-->
+                                <td><a href="__URL__/show?id={$vo.business_id}">查看详细</a></td><!-- 100个汉字至多 {$vo.content}-->
                                 <td>{$vo.postcode}</td>
                                 <td>{$vo.workTel}</td>
                                 <td>{$vo.qq}</td>
                                 <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
                                  <td>{$vo.remark}</td><!-- 25个汉字至多 -->
-                                <td>[ <a href="__URL__/edit?id={$vo.id}">编辑 </a> ] [ <a link="{:U('News/del/',array('id'=>$vo['id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
+                                <td>[ <a href="__URL__/edit?id={$vo.business_id}">编辑 </a> ] [ <a link="{:U('Business/del/',array('id'=>$vo['business_id']))}" href="javascript:void(0)" name="{$vo.business_name}" class="del">删除 </a> ]</td>
                             </tr>
                         </volist>
                         </tbody>
@@ -68,7 +68,10 @@
                                 <td width="150">操作</td>
                                 </tr>
                             </tfoot>     
-                    </table>                
+                    </table> 
+                     <div class="commonBtnArea" >
+                        <button class="">{$page}</button>
+                    </div>                  
                 </div>
             </div>
         </div>

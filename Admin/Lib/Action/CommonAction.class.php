@@ -218,15 +218,15 @@ class CommonAction extends Action {
     
     public function edit() {
     	$name=$this->getActionName();
-    	$str = lcfirst($name)._.id; // 将表的名字首字符小写
-    	$where["$str"]=(int) $_GET['id'];
-    	print_r($where);
     	$M = M($name);
     	if (IS_POST) {
     		//$this->checkToken();
     		$data=D($name)->upload();
     		echo json_encode(D($name)->edit($data));
     	} else {
+    		$str = lcfirst($name)._.id; // 将表的名字首字符小写
+    		$where["$str"]=(int) $_GET['id'];
+    		print_r($where);
     		$info = $M->where($where)->find();
     		if ($info['id'] == '') {
     			$this->error("不存在该记录");
