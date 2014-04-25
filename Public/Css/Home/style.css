@@ -1,0 +1,240 @@
+/*-------------------------------全局控制--------------------------------*/
+*{
+	margin: 0;
+	padding:0;
+}
+body {
+	margin: 0;
+	padding:0;
+}
+
+
+/*------------------------------头和尾--------------------------------*/
+header#header{
+height:58px;
+background:#393939;
+position:relative;
+}
+header#header nav.navbar{
+border:0;
+margin:0;
+height:58px;
+-webkit-box-shadow:inset 0 1px 0 rgba(255,255,255,0.15),0 1px 5px rgba(57,57,57,0.075);
+box-shadow:inset 0 1px 0 rgba(255,255,255,0.15),0 1px 5px rgba(57,57,57,0.075);
+background:#393939;
+margin:0 auto;
+height:58px;
+}
+header#header nav.navbar:before,header#header nav.navbar:after{
+content:" ";
+display:table
+}
+header#header nav.navbar:after{
+clear:both
+}
+header#header nav.navbar:before,header#header nav.navbar:after{
+content:" ";display:table
+}
+header#header nav.navbar:after{clear:both}
+header#header nav.navbar#header_outer ul#header_menu{margin-left:200px}
+header#header nav.navbar#header_outer ul#header_menu>li{margin-right:5px}
+header#header nav.navbar#header_outer ul#header_menu>li.divider-vertical{border-left-color:#111;border-right-color:#363636}
+header#header nav.navbar#header_outer ul#header_menu>li>a{line-height:35px;height:35px;padding:0 20px;margin-top:12px;border-radius:3px;color:#aaa}header#header nav.navbar#header_outer ul#header_menu>li>a:hover{color:#fff}
+header#header nav.navbar#header_outer ul#header_menu>li.active>a{color:#fff;background:#555;box-shadow:none}
+header#header nav.navbar#header_outer div#header_me{height:58px}header#header nav.navbar#header_outer div#header_me ul.nav{margin-right:0}
+header#header nav.navbar#header_outer div#header_me ul.nav li a{padding-right:0;color:#aaa}
+header#header nav.navbar#header_inner .navbar-header a#header_logo:hover{background-position:left -58px}
+header#header nav.navbar#header_inner #header_search{height:58px;margin-left:220px}
+header#header nav.navbar#header_inner #header_search .navbar-form{margin-top:13px;padding:0;padding-right:10px}
+header#header nav.navbar#header_inner #header_search .navbar-form input.typeahead{font-size:12px;color:#555;background:rgba(255,255,255,0.75) url("/img/header/icon-search.png") 5px 50% no-repeat;width:305px;height:32px;padding:5px 5px 5px 25px;margin:0;border:solid 1px #555;border-radius:3px;vertical-align:middle;float:left;outline:none}
+header#header nav.navbar#header_inner #header_search .navbar-form input.typeahead::-webkit-input-placeholder{color:#666}
+header#header nav.navbar#header_inner #header_search .navbar-form input.typeahead:-moz-placeholder{color:#666}
+header#header nav.navbar#header_inner #header_search .navbar-form input.typeahead:focus{-webkit-transition:background 150ms linear;transition:background 150ms linear;background-color:#fff}
+header#header nav.navbar#header_inner div#header_menu ul.nav>li>a{line-height:58px;padding:0 25px;color:#aaa}header#header nav.navbar#header_inner div#header_menu ul.nav>li>a:hover{color:#d14836;background:rgba(255,255,255,0.05)}
+header#header nav.navbar#header_inner div#header_menu ul.nav>li .icon-plus,header#header nav.navbar#header_inner div#header_menu ul.nav>li .icon-bell-alt{font-size:16px}
+header#header nav.navbar#header_inner div#header_menu ul.nav>li .notice-menu{white-space:nowrap}
+header#header nav.navbar#header_inner div#header_menu ul.nav>li .notice-menu .label{font-size:12px !important;font-weight:300;text-align:center;height:14px;padding:2px 6px;border-radius:2px !important;text-shadow:none !important}
+header#header nav.navbar#header_inner div#header_menu ul.nav>li .notice-menu .label.label-default{color:#777;background-color:#aaa}
+header#header nav.navbar#header_inner div#header_menu ul.nav>li .notice-menu .label.label-danger{color:#fff;background-color:#d84c31}
+header#header nav.navbar#header_inner ul#header_me a{display:block;padding-right:15px !important}
+header#header nav.navbar#header_inner ul#header_me a:hover,header#header nav.navbar#header_inner ul#header_me a.openpop{background:rgba(255,255,255,0.05)}
+header#header nav.navbar .navbar-header a#header_logo{position:absolute;left:0;bottom:0;border:0;display:block;padding:0;width:220px;height:58px;overflow:hidden;line-height:100em;text-indent:200em;background:url('/img/logo.png') left top no-repeat}
+header#header nav.navbar .navbar-header a#header_logo:hover{background-position:left bottom}
+@media (max-width:768px){header#header nav.navbar .navbar-collapse{background:#393939 !important;margin:0 -2% 0 -2%}}
+header#header nav.navbar .navbar-right:last-child{margin-right:0}
+header#header ul.nav>li{
+line-height:58px
+}
+header#header ul.nav>li>a{
+height:58px;
+line-height:58px;
+padding-top:0;
+padding-bottom:0
+}
+header#header ul.nav>li>a:hover{
+color:#fff;
+background:none
+}
+header#header ul.nav>li>a:focus{
+background:none
+}
+header#header ul.nav>li.divider-vertical{
+border-style:solid;
+border-width:1px;
+opacity:.5;
+height:58px;
+border-left-color:#111415;
+border-right-color:#646668
+}
+#header_me{
+margin-right:10px;
+}
+/*尾*/
+footer{
+width:100%;
+float:left;
+background:#000000;
+}
+
+/*------------------------------首页--------------------------------*/
+#yao-wrap{
+width:1000px;
+margin:0 auto;
+border:1px solid red;
+}
+#ad-news{
+width:1000px;
+height:210px;
+}
+#carousell img{
+width:600px;
+height:205px;
+}
+.ad{
+width:600px;
+height:205px;
+float:left;
+}
+.news{
+width:380px;
+height:205px;
+margin-left:18px;
+float:left;
+}
+/*店长推荐*/
+#choose{
+margin-top:5px;
+}
+.choose-people{
+margin-left:5px;
+float:left;
+}
+/*成功案例+留学生*/
+#success-international{
+
+}
+#success{
+width:600px;
+float:left;
+}
+.success-people{
+float:left;
+}
+.success-people img{
+width:132px;
+height:132px;
+}
+#international{
+width:380px;
+float:left;
+margin-left:16px;
+}
+/*会员+心情*/
+
+#vip-feel{
+
+width:1000px;
+}
+#vip{
+width:680px;
+float:left;
+}
+
+#feel{
+width:300px;
+float:left;
+}
+/*友情链接*/
+#friend{
+width:1000px;
+float:left;
+}
+.friend-logo{
+float:left;
+}
+.friend-logo img{
+width:136px;
+height:136px;
+
+margin-left:20px;
+}
+/*------------------------------首页完--------------------------------*/
+/*------------------------------search--------------------------------*/
+hr,panel{
+	margin: 0;
+	padding:0;
+}
+.condition{
+width:100px;
+margin-left:7px; 
+float:left;
+}
+.search-all{
+width:1000px;
+float:left;
+}
+#search-select{
+width:100px;
+float:center-left;
+
+}
+
+
+
+
+
+
+/*------------------------------search完--------------------------------*/
+.story-border img{
+
+}
+.container{
+padding: 0 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

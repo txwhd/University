@@ -1,25 +1,86 @@
-<div id="Bottom">
-	<span id="footRights">© 2014 本后台由
-	 <a href="#" target="_blank">中北飞软工作室</a> 
-	所写:
-	 <a href="#" target="_blank" ></a> 
-	 {$site.SITE_INFO.name} {$site.WEB_ROOT} All rights reserved 联系我们 {$site.SITE_INFO.icp}
-	 </span>
+<!--友情链接-->
+<div  id="friend">
+<div class="panel panel-success">
+		 <div class="panel-heading">友情链接</div>
+			<div class="panel-body">
+					<div class="friend-logo">
+					<img src="Images/baidu.gif"/>
+					<p>百度</p>
+					</div>
+					<div class="friend-logo">
+					<img src="Images/baidu.gif"/>
+					<p>百度</p>
+					</div>
+					<div class="friend-logo">
+					<img src="Images/baidu.gif"/>
+					<p>百度</p>
+					</div>
+					<div class="friend-logo">
+					<img src="Images/baidu.gif"/>
+					<p>百度</p>
+					</div>
+					<div class="friend-logo">
+					<img src="Images/baidu.gif"/>
+					<p>百度</p>
+					</div>
+					<div class="friend-logo">
+					<img src="Images/baidu.gif"/>
+					<p>百度</p>
+					</div>
+			</div>
 </div>
-<script type="text/javascript">
-    $(window).resize(autoSize);
-    $(function(){
-        autoSize();
-        $(".loginOut").click(function(){
-            var url=$(this).attr("href");
-            popup.confirm('你确定要退出吗？','你确定要退出吗',function(action){
-                if(action == 'ok'){ window.location=url; }
-            });
-            return false;
-        });
-        var time=self.setInterval(function(){$("#today").html(date("Y-m-d H:i:s"));},1000);
-    });
-    $(document).ready(function(){
-    	$("#footRights").css({"color":"blue"});
-	});		
-</script>
+</div><!--友情链接结束-->
+</div>	<!--/.yao-wrap-->	
+								
+<footer>
+<div class="container">
+<div class="row">
+<div class="col-md-3">
+        <ul>
+            <li><h2>产品</h2></li>
+            <li><a href="https://worktile.com/tour">功能特性</a></li>
+            <li><a href="https://worktile.com/security">数据安全</a></li>
+            <li><a href="https://worktile.com/plan">付费方案</a></li>
+            <li><a href="https://worktile.com/mobile">移动版本</a></li>
+            <li><a href="https://worktile.com/nonprofit">公益计划</a></li>
+        </ul>
+</div>	
+<div class="col-md-3">
+        <ul >
+            <li><h2>媒体</h2></li>
+            <li><a href="https://worktile.com/uservoice">用户怎么说</a></li>
+            <li><a href="https://worktile.com/customers">他们也在用</a></li>
+            <li><a href="https://worktile.com/press">媒体报道</a></li>
+        </ul>
+</div>	
+<div class="col-md-3">	
+        <ul>
+            <li><h2>支持</h2></li>
+            <li><a href="https://worktile.com/guide">用户指南</a></li>
+            <li><a href="https://worktile.com/videos">帮助视频</a></li>
+            <li><a href="https://worktile.com/blog">官方博客</a></li>
+            <li><a href="https://worktile.com/feedback">在线反馈</a></li>
+        </ul>
+</div>	
+<div class="col-md-3">	
+        <ul >
+            <li><h2>更多</h2></li>
+            <li><a href="https://worktile.com/about" wt-tracker="Footer|Menu|Goto About">关于我们</a></li>
+            <li><a href="https://worktile.com/contact" wt-tracker="Footer|Menu|Goto Contact">联系我们</a></li>
+            <!--<li><a href="javascript:;">工作机会</a></li>-->
+            <li><a href="https://worktile.com/privacy" wt-tracker="Footer|Menu|Goto Privacy">隐私声明</a></li>
+            <li><a href="https://worktile.com/terms" wt-tracker="Footer|Menu|Goto Terms">服务条款</a></li>
+        </ul>
+</div>		
+</div>		
+ </div>
+    <div class="text-center">
+        © 2014 yao9.cn &nbsp; 中北大学 @飞软工作室监制
+    </div>
+</footer>
+<!-- <script>
+  $(function () {
+    $('#myTab a:last').tab('show')
+  })
+</script> -->
+</body>

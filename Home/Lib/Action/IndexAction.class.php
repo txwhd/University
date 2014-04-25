@@ -3,7 +3,7 @@
 class IndexAction extends CommonAction{
     //首页
 	public function index(){
-		$this->assign('diary',D('Diary')->where('status=1')->order('add_time DESC')->limit(5)->select());
+		/* $this->assign('diary',D('Diary')->where('status=1')->order('add_time DESC')->limit(5)->select());
 		$top_art = D('Article')->where('status=1')->order('sort DESC')->limit(8)->select();
 		foreach ($top_art as $key=>$val){
 			$top_art[$key] = $this->changurl($val);
@@ -11,7 +11,7 @@ class IndexAction extends CommonAction{
 		$this->assign('top_art',$top_art);
 		$this->assign('slide',D('Photo')->where('status=1 AND tid=5')->select());//幻灯片调用ID
 		$this->assign('video',D('Video')->where('status=1')->find(1));//视频调用ID
-		$this->seo(C('SITE_NAME'), C('SITE_KEYWORDS'), C('SITE_DESCRIPTION'), 0);
+		$this->seo(C('SITE_NAME'), C('SITE_KEYWORDS'), C('SITE_DESCRIPTION'), 0); */
 		$this->display();
     }
     /*  
