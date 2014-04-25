@@ -13,7 +13,6 @@ class CommonAction extends Action {
 				foreach ($nav_list[$key]['sub_nav'] as $key2=>$val2){
 					$nav_list[$key]['sub_nav'][$key2] = $this->changurl($val2);
 				}
-				 
 			}
 		}
 		//最热文章数据组装
