@@ -10,10 +10,11 @@ $config_arr2 = array(
         //'News' => '资讯管理',
         'Notice' => '公告管理',
         'Gift' => '礼品管理',
+        'Menu' => '菜单管理',
         'Article' => '文章管理',
         'Link' => '友情链接',
         'Advertisement' => '广告管理',
-      // 'Payment' => '支付管理', //二期做
+       'Payment' => '支付管理', //二期做
         'Business' => '商家入赘',
         'Activity' => '活动管理',
     		//超级管理员
