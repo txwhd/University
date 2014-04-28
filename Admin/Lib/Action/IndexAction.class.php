@@ -52,7 +52,7 @@ class IndexAction extends CommonAction {
 //            "allHomeRunCache" => WEB_CACHE_PATH . "Runtime/Home/",
 //        );
         $caches = array(
-            "HomeCache" => array("name" => "网站前台缓存文件", "path" => WEB_CACHE_PATH . "Home/Cache/"),
+            "HomeCache" => array("name" => "网站前台缓存文件", "path" => WEB_CACHE_PATH . "Runtime/Home/Cache/"),
             "AdminCache" => array("name" => "网站后台缓存文件", "path" => WEB_CACHE_PATH . "Runtime/Admin/Cache/"),
             "HomeData" => array("name" => "网站前台数据库字段缓存文件", "path" => WEB_CACHE_PATH . "Runtime/Home/Data/"),
             "AdminData" => array("name" => "网站后台数据库字段缓存文件", "path" => WEB_CACHE_PATH . "Runtime/Admin/Data/"),

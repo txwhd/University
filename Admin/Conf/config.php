@@ -10,14 +10,13 @@ $config_arr2 = array(
         //'News' => '资讯管理',
         'Notice' => '公告管理',
         'Gift' => '礼品管理',
-        'Menu' => '菜单管理',
+        //'Menu' => '菜单管理',
         'Article' => '文章管理',
         'Link' => '友情链接',
         'Advertisement' => '广告管理',
        'Payment' => '支付管理', //二期做
         'Business' => '商家入赘',
         'Activity' => '活动管理',
-    		//超级管理员
 	     'Webinfo'=>'系统设置',
         'SysData' => '数据管理',
         'Access' => '权限管理',
@@ -33,9 +32,12 @@ $config_arr2 = array(
             'index' => '站点配置',
             'setEmailConfig' => '邮箱配置',
             'setSafeConfig' => '安全配置',
+            'setFtpConfig' => 'FTP配置',
             'File/index' => '文件管理',
-        	'Menu/index' => '首页菜单',//二期做
-        	'Menu/add' => '增加首页菜单',//二期做
+        	'Menu/index' => '首页菜单',
+        	'Menu/add' => '增加首页菜单',
+        	'Mobile/index' => '移动版管理',
+        	'Code/index' => '二维码管理',
         ),
         'File' => array(
             'index' => '文件列表'
@@ -70,6 +72,8 @@ $config_arr2 = array(
             'addRecord' => '增加支付记录',
             'cardManager' => '充值卡管理',
             'setPoint' => '点数购买设置',
+            'Integral' => '积分换点数设置',
+            'PointChange' => '有效期购买设置',
             'setPayLine' => '在线支付设置',
     	 	
         ), 
@@ -125,7 +129,6 @@ $config_arr2 = array(
     'USER_AUTH_ON' => true,
     'USER_AUTH_TYPE' => 2, // 默认认证类型 1 登录认证 2 实时认证
     'USER_AUTH_KEY' => 'authId', // 用户认证SESSION标记
-//    'ADMIN_AUTH_KEY' => '281978297@qq.com',
     'USER_AUTH_MODEL' => 'Admin', // 默认验证数据表模型
     'AUTH_PWD_ENCODER' => 'md5', // 用户认证密码加密方式encrypt
     'USER_AUTH_GATEWAY' => '/system.php/Public/index', // 默认认证网关
