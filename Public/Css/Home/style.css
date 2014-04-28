@@ -7,8 +7,20 @@ body {
 	margin: 0;
 	padding:0;
 }
-
-
+ul{
+	list-style:none;
+}
+.container{
+	width:1000px;
+}
+.panel{
+	margin: 0;
+	padding:0;
+}
+nav{
+	margin: 0;
+	padding:0;
+}
 /*------------------------------头和尾--------------------------------*/
 header#header{
 height:58px;
@@ -89,6 +101,20 @@ border-right-color:#646668
 #header_me{
 margin-right:10px;
 }
+
+/*友情链接*/
+#friend{
+float:left;
+}
+.friend-logo{
+float:left;
+}
+.friend-logo img{
+width:136px;
+height:136px;
+margin-left:20px;
+border:1px solid red;
+}
 /*尾*/
 footer{
 width:100%;
@@ -164,30 +190,37 @@ float:left;
 width:300px;
 float:left;
 }
-/*友情链接*/
-#friend{
-width:1000px;
-float:left;
-}
-.friend-logo{
-float:left;
-}
-.friend-logo img{
-width:136px;
-height:136px;
 
-margin-left:20px;
-}
 /*------------------------------首页完--------------------------------*/
 /*------------------------------search--------------------------------*/
 hr,panel{
 	margin: 0;
 	padding:0;
 }
+hr,panel{
+	margin: 0;
+	padding:0;
+}
+.base{
+margin-left:15px;
+float:left;
+border:1px solid red;
+}
+.luck{
+margin-left:15px;
+float:left;
+border:1px solid red;
+}
+.word{
+margin-left:15px;
+float:left;
+border:1px solid red;
+}
 .condition{
 width:100px;
-margin-left:7px; 
+margin-left:3px; 
 float:left;
+border:1px solid red;
 }
 .search-all{
 width:1000px;
@@ -196,13 +229,7 @@ float:left;
 #search-select{
 width:100px;
 float:center-left;
-
 }
-
-
-
-
-
 
 /*------------------------------search完--------------------------------*/
 .story-border img{
