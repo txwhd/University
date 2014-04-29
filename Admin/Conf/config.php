@@ -29,7 +29,8 @@ $config_arr2 = array(
             'Notice/show' => '站内公告'//管理员站内公告
         ),
         'Webinfo' => array(
-            'index' => '站点配置',
+            'index' => '站点文本配置',
+            'setWebConfig' => '站点数据库配置',
             'setEmailConfig' => '邮箱配置',
             'setSafeConfig' => '安全配置',
             'setFtpConfig' => 'FTP配置',
@@ -41,6 +42,9 @@ $config_arr2 = array(
         ),
         'File' => array(
             'index' => '文件列表'
+        ),
+        'Code' => array(
+            'index' => '二维码列表'
         ),
         'Mood' => array(
             'index' => '发表心情列表'

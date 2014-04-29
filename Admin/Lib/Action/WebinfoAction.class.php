@@ -5,7 +5,7 @@ class WebinfoAction extends CommonAction {
 
     /**
       +----------------------------------------------------------
-     * 配置网站信息
+     * 配置网站信息   文本配置
       +----------------------------------------------------------
      */
     public function index() {
@@ -18,6 +18,14 @@ class WebinfoAction extends CommonAction {
       +----------------------------------------------------------
      */
     public function setEmailConfig() {
+        $this->checkSystemConfig("SYSTEM_EMAIL");
+    }
+    /**
+      +----------------------------------------------------------
+     * 配置网站的数据中的信息
+      +----------------------------------------------------------
+     */
+    public function setWebConfig() {
         $this->checkSystemConfig("SYSTEM_EMAIL");
     }
 

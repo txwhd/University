@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>数据库站点配置-系统设置-{$site.SITE_INFO.name}</title>
+    <php>$addCss="";</php>
+    <php>$addJs="";</php>
+    <include file="Common:intoHead" />
+</head>
+<body>
+    <div class="wrap"> <include file="Common:head" />
+        <div class="mainBody"> <include file="Common:left" />
+            <div id="Right">
+                <div class="contentArea">
+                    <div class="Item hr">
+                        <div class="current">数据库站点配置</div>
+                    </div>
+                    <form action="" method="post">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
+                            <tr>
+                                <th>网站logo上传：</th>
+                                <td><input class="input" name="logo_name" type="text" size="40" value="{$site.logo_name}" /><input name="logo_site" type="file"value="{$site.logo_site}"/></td>
+                            </tr>
+                            <tr>
+                                <th>网站简介：</th>
+                                <td><textarea name="description" cols="50" rows="3">{$site.description}</textarea><span style="color:red;">200字以内</span></td>
+                            </tr>
+                            <tr>
+                                <th>注册协议：</th>
+                                <td><textarea name="reg_agreement" id="content"cols="50" rows="3" style="height:300px;width:600px;" >{$site.reg_agreement}</textarea><span style="color:red;"></span></td>
+                            </tr>
+                            <tr>
+                                <th>版权信息代码：</th>
+                                <td><textarea id="copyright" name="copyright" style="height: 300px; width:600px;" >{$site.copyright}</textarea><span style="color:red;"></span></td>
+                            </tr>
+                        </table>
+                    </form>
+                    <div class="commonBtnArea" >
+                        <button class="btn submit">提交</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+<include file="Common:foot" />
+ <js href="__PUBLIC__/kindeditor/kindeditor.js,__PUBLIC__/kindeditor/lang/zh_CN.js"/>
+<script type="text/javascript">
+    $(".submit").click(function(){
+        commonAjaxSubmit();
+    });
+    $(function(){var  content ;
+    KindEditor.ready(function(K) {
+        content = K.create('#content');
+    });
+    $(".submit").click(function(){
+        content.sync();
+        commonAjaxSubmit();
+        return false;
+    });
+});
+</script>
+</body>
+</html>
