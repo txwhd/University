@@ -11,15 +11,36 @@ ul{
 	list-style:none;
 }
 .container{
+	padding: 0 ;
 	width:1000px;
+	margin-top:5px;
+	border:1px solid red;
 }
 .panel{
 	margin: 0;
 	padding:0;
 }
+
+header{
+	margin: 0;
+	padding:0;	
+}
 nav{
 	margin: 0;
 	padding:0;
+}
+.panel-heading{
+	background:url(__IMG__/Home/title_yellow.png);
+} 
+.panel-heading span{
+	float:right;
+}
+.panel-heading span a{
+	color:#3C763D;
+
+}
+.panel-heading span a:hover{
+text-decoration:underline;
 }
 /*------------------------------头和尾--------------------------------*/
 header#header{
@@ -103,51 +124,57 @@ margin-right:10px;
 }
 
 /*友情链接*/
-#friend{
-float:left;
+.friend{
+	margin-left:18px;
 }
-.friend-logo{
-float:left;
+.friend_link{
+	text-align:center;
+	float:left;
+	width:80px;
+
 }
-.friend-logo img{
-width:136px;
-height:136px;
-margin-left:20px;
-border:1px solid red;
+/* .friend_link  a{
+border-right-color: rgb(102, 102, 102); 
+border-right-width: 1px;
+ border-right-style: dotted;
 }
+ */
+
 /*尾*/
 footer{
 width:100%;
-float:left;
-background:#000000;
+background:black;
 }
 
 /*------------------------------首页--------------------------------*/
 #yao-wrap{
-width:1000px;
-margin:0 auto;
-border:1px solid red;
+
 }
 #ad-news{
-width:1000px;
-height:210px;
+
+
 }
 #carousell img{
-width:600px;
-height:205px;
+width:700px;
+height:250px;
 }
 .ad{
-width:600px;
-height:205px;
+border:1px solid red;
+float:left;
+width:700px;
+height:250px;
+}
+.news div.panel{
+width:290px;
+height:250px;
+margin-left:8px;
 float:left;
 }
-.news{
-width:380px;
-height:205px;
-margin-left:18px;
-float:left;
+.panel-body{
+	margin: 0;
+	padding:0;
 }
-/*店长推荐*/
+/*站长推荐*/
 #choose{
 margin-top:5px;
 }
@@ -155,40 +182,71 @@ margin-top:5px;
 margin-left:5px;
 float:left;
 }
-/*成功案例+留学生*/
-#success-international{
+/*<!--同校+投票-->*/
 
-}
-#success{
-width:600px;
+#oneschool{
+width:700px;
 float:left;
 }
-.success-people{
+.oneschool-people{
 float:left;
 }
-.success-people img{
+.oneschool-people img{
 width:132px;
 height:132px;
 }
-#international{
-width:380px;
+#vote{
+width:290px;
 float:left;
-margin-left:16px;
+margin-left:8px;
 }
+/*留学生+爱情攻略*/
+#international{
+width:700px;
+float:left;
+}
+#Finally{
+width:290px;
+float:left;
+margin-left:8px;
+}
+/*<!--成功案例+星座匹配-->*/
+#success{
+width:700px;
+float:left;
+}
+
+#success img{
+width:200px;
+height:200px;
+}
+#constellation{
+width:290px;
+float:left;
+margin-left:8px;
+}
+
+
+
 /*会员+心情*/
 
 #vip-feel{
 
-width:1000px;
 }
 #vip{
-width:680px;
+width:700px;
+float:left;
+}
+#vip img{
+width:100px;
+height:100px;
 float:left;
 }
 
 #feel{
-width:300px;
+width:290px;
 float:left;
+margin-left:8px;
 }
 
 /*------------------------------首页完--------------------------------*/
@@ -235,9 +293,7 @@ float:center-left;
 .story-border img{
 
 }
-.container{
-padding: 0 15px;
-}
+
 
 
 
