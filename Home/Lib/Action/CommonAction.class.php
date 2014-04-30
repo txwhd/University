@@ -5,11 +5,11 @@ class CommonAction extends Action {
 	function _initialize(){
 		Load('extend');
 		//导航数据组装
-		$nav_list = D('Category')->where('pid=0 AND status=1')->order('sort DESC')->select();
+		$nav_list = D('Menu')->where('parentid=0 AND status=1')->order('sort DESC')->select();
 		if(is_array($nav_list)){
 			foreach ($nav_list as $key=>$val){
 				$nav_list[$key] = $this->changurl($val);
-				$nav_list[$key]['sub_nav'] = D('Category')->where('pid='.$val['id'].' AND status=1')->select();
+				$nav_list[$key]['sub_nav'] = D('Menu')->where('parentid='.$val['menu_id'].' AND status=1')->select();
 				foreach ($nav_list[$key]['sub_nav'] as $key2=>$val2){
 					$nav_list[$key]['sub_nav'][$key2] = $this->changurl($val2);
 				}

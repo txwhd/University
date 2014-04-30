@@ -4,19 +4,17 @@ $config_arr1 = include_once WEB_ROOT . 'Common/config.php';
 $DB_PREFIX = $config_arr1['DB_PREFIX'];
 $config_arr2 = array(
     'admin_big_menu' => array(
-    		//15个菜单
         'Index' => '首页',
         'Member' => '会员管理',
         //'News' => '资讯管理',
         'Notice' => '公告管理',
         'Gift' => '礼品管理',
-        //'Menu' => '菜单管理',
         'Article' => '文章管理',
         'Link' => '友情链接',
         'Advertisement' => '广告管理',
-       'Payment' => '支付管理', //二期做
-        'Business' => '商家入赘',
+       'Payment' => '支付管理', 
         'Activity' => '活动管理',
+        'Other' => '其他业务',
 	     'Webinfo'=>'系统设置',
         'SysData' => '数据管理',
         'Access' => '权限管理',
@@ -26,11 +24,10 @@ $config_arr2 = array(
             'Index/myInfo' => '修改密码',
             'Index/cache' => '缓存清理',
             'News/add' => '新闻发布',
-            'Notice/show' => '站内公告'//管理员站内公告
         ),
         'Webinfo' => array(
             'index' => '站点文本配置',
-            'setWebConfig' => '站点数据库配置',
+            'webTableConfig' => '站点数据库配置',
             'setEmailConfig' => '邮箱配置',
             'setSafeConfig' => '安全配置',
             'setFtpConfig' => 'FTP配置',
@@ -43,8 +40,16 @@ $config_arr2 = array(
         'File' => array(
             'index' => '文件列表'
         ),
+        'Other' => array(
+            'index' => '其他业务列表',
+            'Label/index' => '标签管理',
+        	'Business/index' => '商家入赘'
+        ),
         'Code' => array(
             'index' => '二维码列表'
+        ),
+        'Label' => array(
+            'add' => '增加标签',
         ),
         'Mood' => array(
             'index' => '发表心情列表'

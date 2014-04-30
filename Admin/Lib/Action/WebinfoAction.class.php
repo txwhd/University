@@ -11,6 +11,14 @@ class WebinfoAction extends CommonAction {
     public function index() {
         $this->checkSystemConfig();
     }
+    /**
+      +----------------------------------------------------------
+     * 配置网站信息   数据表配置
+      +----------------------------------------------------------
+     */
+    public function webTableConfig() {
+       $this->display();
+    }
 
     /**
       +----------------------------------------------------------
@@ -22,7 +30,7 @@ class WebinfoAction extends CommonAction {
     }
     /**
       +----------------------------------------------------------
-     * 配置网站的数据中的信息
+     * 配置网站的文本中的信息
       +----------------------------------------------------------
      */
     public function setWebConfig() {

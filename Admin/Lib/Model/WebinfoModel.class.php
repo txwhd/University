@@ -1,6 +1,6 @@
 <?php
 
-class WebinfoModel extends Model {
+class WebinfoModel extends CommonModel {
 
     public function set_site_info() {
         

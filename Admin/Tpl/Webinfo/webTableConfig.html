@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>数据库站点配置-系统设置-{$site.SITE_INFO.name}</title>
+        <php>
+            $addCss="";
+            $addJs="";
+            $currentNav ='站点管理 >数据库站点';
+        </php>
+        <include file="Common:intoHead" />
+    </head>
+    <body>
+        <div class="wrap">
+            <include file="Common:head" />
+            <div class="mainBody">
+                <include file="Common:left" />
+                <div id="Right">
+                    <div class="Item hr">
+                        <div class="current">添加编辑新闻</div>
+                    </div>
+                     <form action="__URL__/setWebconfig" method="post">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
+                           <tr>
+                                <th>网站logo上传：</th>
+                                <td><input class="input" name="logo_name" type="text" size="40" value="{$site[0]['logo_name']}" /><input name="logo_site" type="file"value="{$site.logo_site}"/></td>
+                            </tr>
+                            <tr>
+                                <th>网站简介：</th>
+                                <td><textarea name="description" cols="50" rows="3">{$site[0]['description']}</textarea><span style="color:red;">200字以内</span></td>
+                            </tr>
+                            <tr>
+                                <th>注册协议：</th>
+                                <td><textarea name="reg_agreement" id="content" style="height:300px;width:600px;" >{$site[0]['reg_agreement']}</textarea><span style="color:red;"></span></td>
+                            </tr>
+                            <tr>
+                                <th>版权信息代码：</th>
+                                <td><textarea id="copyright" name="copyright" style="height: 300px; width:600px;" >{$site[0]['copyright']}</textarea><span style="color:red;"></span></td>
+                            </tr>
+                        </table>
+                        <input type="hidden" name="info[id]" value="{$info.id}" />
+                    </form>
+                    <div class="commonBtnArea" >
+                        <button class="btn submit">提交</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <include file="Common:foot" />
+        <js href="__PUBLIC__/kindeditor/kindeditor.js,__PUBLIC__/kindeditor/lang/zh_CN.js"/>
+        <script type="text/javascript">
+            $(function(){var  content ;
+                KindEditor.ready(function(K) {
+                    content = K.create('#content');
+                });
+            });
+        </script>
+    </body>
+</html>
+
