@@ -7,8 +7,6 @@ class GiftAction extends CommonAction {
 		$type=M('GiftType');
 		$result=$type->select();
 		$this->assign('type',$result);
-		$list = M()->table("mxczhyk_gift r")->join("mxczhyk_gift_type s on r.gift_type_id=s.gift_type_id")->select();
-		$this->assign('list',$list);
 	}
 	public function top(){
 		//置顶操作

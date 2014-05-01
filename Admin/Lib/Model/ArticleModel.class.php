@@ -1,13 +1,8 @@
 <?php
 // 文章模型
 class ArticleModel extends CommonModel {
-	protected $_link = array(
-			'article_class'=>array(
-					'mapping_type'=> HAS_ONE,
-					'mapping_name'=> 'article_class',
-					'class_name' => 'article_class',
-					'foreign_key' => 'cid',
-					'as_fields'=>'name,cid'
-			),
-	);
+	public function listNews($firstRow = 0, $listRows = 20) {
+		$list =  M()->table("mxczhyk_article r")->join("mxczhyk_article_class s on s.cid=r.cid")->select();
+		return $list;
+	}
 }
