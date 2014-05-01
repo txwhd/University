@@ -42,7 +42,7 @@ class MemberModel extends RelationModel{
 		  				'mapping_name'=> 'marriage_term',
 		  				'class_name' => 'marriage_term',
 		  				'foreign_key' => 'member_id',
-		  				'as_fields'=>',english_name,realName,nationName'
+		  				'as_fields'=>'english_name,realName,nationName'
 		  		), 
 		  		'viptype'=>array(
 		  				'mapping_type'=> BELONGS_TO,

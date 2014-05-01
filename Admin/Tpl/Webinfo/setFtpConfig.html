@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ftp配置-系统设置-{$site.SITE_INFO.name}</title>
+    <php>$addCss="";</php>
+    <php>$addJs="";</php>
+    <include file="Common:intoHead" />
+</head>
+<body>
+    <div class="wrap"> <include file="Common:head" />
+        <div class="mainBody"> <include file="Common:left" />
+            <div id="Right">
+                <div class="contentArea">
+                    <div class="Item hr">
+                        <div class="current">ftp配置</div>
+                    </div>
+                    <form action="" method="post">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
+                            <tr>
+                                <th width="120">功能没有实现：</th>
+                                <td><input name="site_name" type="text" class="input" size="40" value="{$site.SITE_INFO.site_name}" /></td>
+                            </tr>
+                            <!-- 
+                            
+                            //Ftp相关配置
+define('FTP_ENABLE', 0); //Ftp主机
+define('FTP_HOST', '127.0.0.1'); //Ftp主机
+define('FTP_PORT', '21'); //Ftp端口
+define('FTP_USER', ''); //Ftp帐号
+define('FTP_PW', ''); //Ftp密码
+define('FTP_PATH', '/'); //Ftp默认路径
+define('CHARSET', 'utf-8'); //网站字符集
+                             -->
+                        </table>
+                    </form>
+                    <div class="commonBtnArea" >
+                        <button class="btn submit">提交</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+<include file="Common:foot" />
+<script type="text/javascript">
+    $(".submit").click(function(){
+        commonAjaxSubmit();
+    });
+</script>
+</body>
+</html>

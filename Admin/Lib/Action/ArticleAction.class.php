@@ -4,8 +4,9 @@ class ArticleAction extends CommonAction {
 	
 	public function _before_index(){
 		load('extend');//截取文章标题
-		$list = M()->table("mxczhyk_article r")->join("mxczhyk_article_class s on r.cid=s.cid")->select();
-		print_r($list);
+		//$list = M()->table("mxczhyk_article r")->join("mxczhyk_article_class s on r.cid=s.cid")->select();
+		$list=D('Article')->select();
+		dump($list);
 	}
 	public function discuss(){
 		//评论列表 关联

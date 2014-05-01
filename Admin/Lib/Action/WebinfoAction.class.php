@@ -19,6 +19,14 @@ class WebinfoAction extends CommonAction {
     public function webTableConfig() {
        $this->display();
     }
+    /**
+      +----------------------------------------------------------
+     * 配置网站ftp服务器
+     * +----------------------------------------------------------
+     */
+    public function setFtpConfig() {
+       $this->display();
+    }
 
     /**
       +----------------------------------------------------------
