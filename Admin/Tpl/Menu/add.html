@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>支付管理-{$site.SITE_INFO.name}</title>
+        <title>系统设置-{$site.SITE_INFO.name}</title>
         <php>
             $addCss="";
             $addJs="";
-            $currentNav ='支付管理 > 增加支付记录';
+            $currentNav ='系统设置 > 编辑菜单';
         </php>
         <include file="Common:intoHead" />
     </head>
@@ -17,28 +17,38 @@
                 <include file="Common:left" />
                 <div id="Right">
                     <div class="Item hr">
-                        <div class="current">增加支付记录</div>
+                        <div class="current">添加编辑菜单</div>
                     </div>
                     <form>
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
-                           <tr>
-                                <th>支付人：</th>
-                                <td><input type="text" class="input" size="60" name="info[member_id]" value="{$info.member_id}"/></td>
+                            <tr>
+                                <th width="100">菜单名称：</th>
+                                <td><input id="menu_name" type="text" class="input" size="60" name="menu_name" value="{$info.menu_name}"/></td>
                             </tr>
-                           <tr>
-                                <th>支付时间：</th>
-                                <td><input type="text" class="input" size="60" name="info[create_time]" value="{$info.create_time}"/></td>
+                            <tr>
+                                <th width="100">上级菜单：</th>
+                                <td><input id="parentid" type="text" class="input" size="60" name="parentid" value="{$info.parentid}"/> </td>
                             </tr>
-                           <tr>
-                                <th>支付方式：</th>
-                                <td><input type="text" class="input" size="60" name="info[payment_id]" value="{$info.payment_id}"/></td>
+                            <tr>
+                                <th width="100">次序：</th>
+                                <td><input id="rank" type="text" class="input" size="60" name="rank" value="{$info.rank}"/> </td>
                             </tr>
-                           <tr>
-                                <th>排序：</th>
-                                <td><input type="text" class="input" size="60" name="info[sort]" value="{$info.sort}"/></td>
-                            </tr>
-                            
+                            <tr>
                            
+                          
+                                <th width="100">类型：</th>
+                                <td><input id="type" type="text" class="input" size="60" name="title" value="{$info.type}"/> </td>
+                            </tr>
+                           <tr>
+                                <th width="100">url：</th>
+                                <td><input id="urlr" type="text" class="input" size="60" name="url" value="{$info.url}"/> </td>
+                            </tr>
+                           <tr>
+                                <th width="100">范围：</th>
+                                <td><input id="target" type="text" class="input" size="60" name="target" value="{$info.target}"/> </td>
+                            </tr>
+                           
+                            
                         </table>
                         <input type="hidden" name="info[id]" value="{$info.id}" />
                     </form>
@@ -54,7 +64,7 @@
         <script type="text/javascript">
             $(function(){var  content ;
                 KindEditor.ready(function(K) {
-                    content = K.create('#content');
+                    content = K.create('#code');
                 });
                 $("#checkNewsTitle").click(function(){
                     $.getJSON("__URL__/checkNewsTitle", { title:$("#title").val(),id:"{$info.id}"}, function(json){

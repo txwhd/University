@@ -6,7 +6,7 @@
         <php>
             $addCss="";
             $addJs="";
-            $currentNav ='支付管理 > 增加支付记录';
+            $currentNav ='支付管理 > 在线支付';
         </php>
         <include file="Common:intoHead" />
     </head>
@@ -17,24 +17,40 @@
                 <include file="Common:left" />
                 <div id="Right">
                     <div class="Item hr">
-                        <div class="current">增加支付记录</div>
+                        <div class="current">在线支付</div>
                     </div>
                     <form>
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
                            <tr>
-                                <th>支付人：</th>
-                                <td><input type="text" class="input" size="60" name="info[member_id]" value="{$info.member_id}"/></td>
+                                <th>是否启用：</th>
+                                <td><input type="text" class="input" size="10" name="info[member_id]" value="{$info.member_id}"/></td>
                             </tr>
                            <tr>
-                                <th>支付时间：</th>
+                                <th>接口名称：</th>
                                 <td><input type="text" class="input" size="60" name="info[create_time]" value="{$info.create_time}"/></td>
                             </tr>
                            <tr>
-                                <th>支付方式：</th>
+                                <th>接口LOGO：</th>
                                 <td><input type="text" class="input" size="60" name="info[payment_id]" value="{$info.payment_id}"/></td>
                             </tr>
                            <tr>
-                                <th>排序：</th>
+                                <th>接口网址：</th>
+                                <td><input type="text" class="input" size="60" name="info[sort]" value="{$info.sort}"/></td>
+                            </tr>
+                           <tr>
+                                <th>结果返回地址：</th>
+                                <td><input type="text" class="input" size="60" name="info[sort]" value="{$info.sort}"/></td>
+                            </tr>
+                           <tr>
+                                <th>商品编号：</th>
+                                <td><input type="text" class="input" size="60" name="info[sort]" value="{$info.sort}"/></td>
+                            </tr>
+                           <tr>
+                                <th>支付秘钥：</th>
+                                <td><input type="text" class="input" size="60" name="info[sort]" value="{$info.sort}"/></td>
+                            </tr>
+                           <tr>
+                                <th>扣除手续费：</th>
                                 <td><input type="text" class="input" size="60" name="info[sort]" value="{$info.sort}"/></td>
                             </tr>
                             

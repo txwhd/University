@@ -6,7 +6,7 @@
         <php>
             $addCss="";
             $addJs="";
-            $currentNav ='支付管理 > 支付增加记录列表';
+            $currentNav ='支付管理> 点数购买设置';
         </php>
         <include file="Common:intoHead" />
     </head>
@@ -17,42 +17,41 @@
                 <include file="Common:left" />
                 <div id="Right">
                     <div class="Item hr">
-                        <div class="current">支付增加记录列表</div>
+                        <div class="current">购买点数</div>
+                        
                     </div>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
                         <thead>
                             <tr>
-                                <td>文章标题</td>
-                                <td>所属分类</td>
-                                <td>状态</td>
-                                <td>发布时间</td>
-                                <td>发布人</td>
-                                <td width="150">操作</td>
+                                <td>删除</td>
+                                <td>ID</td>
+                                <td>点数</td>
+                                <td>价格</td>
+                               
                             </tr>
                         </thead>
                         <tbody>
                         <volist name="list" id="vo">
-                            <tr align="center" id="{$vo.id}">
-                                <td >{$vo.title}</td>
-                                <td>{$vo.cidName}</td>
-                                <td>{$vo.status}</td>
-                                <td>{$vo.published|date="Y-m-d H:i:s",###}</td>
-                                <td>{$vo.aidName}</td>
-                                <td>[ <a href="__URL__/edit?id={$vo.id}">编辑 </a> ] [ <a link="{:U('News/del/',array('id'=>$vo['id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
-                            </tr>
+                            <tr align="center" id="{$vo.article_id}">
+                                <td>{$vo.title}</td>
+                                <td>{$vo.name}</td>
+                                <td>{$vo.keywords}</td>
+                                <td>{$vo.description}</td>
+                              </tr>>
                         </volist>
                         </tbody>
                             <tfoot align="center">
                                 <tr>
-                                <td>文章标题</td>
-                                <td>所属分类</td>
-                                <td>状态</td>
-                                <td>发布时间</td>
-                                <td>发布人</td>
-                                <td width="150">操作</td>
-                                </tr>
+                                <td>删除</td>
+                                <td>ID</td>
+                                <td>点数</td>
+                                <td>价格</td>
+                               
                             </tfoot>     
-                    </table>                
+                    </table> 
+                     <div class="commonBtnArea" >
+                        <button class="">{$page}</button>
+                    </div>                  
                 </div>
             </div>
         </div>
