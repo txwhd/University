@@ -35,7 +35,7 @@
                                 <td>{$vo.url}</td>
                                 <td>{$vo.logo}</td>
                                 <td>{$vo.rank}</td>
-                                <td>[ <a href="__URL__/edit?id={$vo.link_id}">编辑 </a> ] [ <a link="{:U('News/del/',array('id'=>$vo['id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
+                                <td>[ <a href="__URL__/edit?id={$vo.link_id}">编辑 </a> ] [ <a link="{:U('Link/del/',array('id'=>$vo['link_id']))}" href="javascript:void(0)" name="{$vo.name}" class="del">删除 </a> ]</td>
                             </tr>
                         </volist>
                         </tbody>

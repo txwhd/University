@@ -41,16 +41,16 @@
                             </tr>
                         </thead>
                         <volist name="list" id="vo">
-                            <tr align="center" id="{$vo.ad_id}">
+                            <tr align="center" id="{$vo.advertisement_id}">
                                 <td>{$vo.title}</td>
-                                <td><a href="__URL__/show?id={$vo.link_id}">查看</a></td>
+                                <td><a href="__URL__/show?id={$vo.advertisement_id}">查看</a></td>
                                 <td>{$vo.endtime}</td>
                                 <td>
-                               		<if condition="$vo.available eq 1 ">已经开启|<a href="__URL__/forbidden?id={$vo.ad_id}">禁用</a>
-									 <else /> 锁定|<a href="__URL__/checkPass?id={$vo.ad_id}">请审核开启</a>
+                               		<if condition="$vo.available eq 1 ">已经开启|<a href="__URL__/forbidden?id={$vo.advertisement_id}">禁用</a>
+									 <else /> 锁定|<a href="__URL__/checkPass?id={$vo.advertisement_id}">请审核开启</a>
 									</if>
                                 </td>
-                                <td>[ <a href="__URL__/edit?id={$vo.ad_id}">编辑 </a> ] [ <a link="{:U('Advertisement/del/',array('id'=>$vo['ad_id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
+                                <td>[ <a href="__URL__/edit?id={$vo.advertisement_id}">编辑 </a> ] [ <a link="{:U('Advertisement/del/',array('id'=>$vo['advertisement_id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
                             </tr>
                         </volist>
                         </tbody>

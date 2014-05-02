@@ -226,7 +226,6 @@ class CommonAction extends Action {
     	} else {
     		$str = lcfirst($name)._.id; // 将表的名字首字符小写
     		$where["$str"]=(int) $_GET['id'];
-    		print_r($where);
     		$info = $M->where($where)->find();
     		if ($info['id'] == '') {
     			$this->error("不存在该记录");
@@ -240,6 +239,7 @@ class CommonAction extends Action {
     	$name=$this->getActionName();
     	$str = lcfirst($name)._.id; // 将表的名字首字符小写
     	$where["$str"]=(int) $_GET['id'];
+    	print_r($str);
     	if (M($name)->where($where)->delete()) {
     		$this->success("成功删除");
     		echo json_encode(array("status"=>1,"info"=>""));
