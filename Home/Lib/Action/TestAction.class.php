@@ -48,6 +48,25 @@ user_id='".session('user_id')."'");
 		}
 }
 /*
+ * 停留在原来的状态：
+ * [php]
+XXXXX
+session_start();
+$_SESSION['now_page'] == $_SERVER['SCRIPT_NAME'];
+XXX
+[/php]
+
+
+登陆成功页面：
+[php]
+session_start();
+if (isset($_SESSION['now_page'])){
+        header("Location:".$_SESSION['now_page']);
+}
+[/php]
+
+
+
  * 在模板文件中的时间比较
  *     Action: 
     $this->t = time();
