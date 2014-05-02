@@ -224,10 +224,12 @@ class CommonAction extends Action {
     		$data=D($name)->upload();
     		echo json_encode(D($name)->edit($data));
     	} else {
-    		$str = lcfirst($name)._.id; // 将表的名字首字符小写
-    		$where["$str"]=(int) $_GET['id'];
+    		//$str = lcfirst($name).'_id'; // 将表的名字首字符小写
+    		//$str = $name.'_id';
+    		$str=$M->getPk ();
+    		$where[$str]=(int) $_GET['id'];
     		$info = $M->where($where)->find();
-    		if ($info['id'] == '') {
+    		if ($info == '') {
     			$this->error("不存在该记录");
     		}
     		$this->assign("info", $info);
@@ -237,9 +239,9 @@ class CommonAction extends Action {
     }
     public function del() {
     	$name=$this->getActionName();
-    	$str = lcfirst($name)._.id; // 将表的名字首字符小写
-    	$where["$str"]=(int) $_GET['id'];
-    	print_r($str);
+    	$str=$name->getPk ();
+    	//$str = $name.'_id'; // 将表的名字首字符小写
+    	$where[$str]=(int) $_GET['id'];
     	if (M($name)->where($where)->delete()) {
     		$this->success("成功删除");
     		echo json_encode(array("status"=>1,"info"=>""));

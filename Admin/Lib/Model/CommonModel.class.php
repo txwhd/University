@@ -97,9 +97,9 @@ class CommonModel extends Model {
 		$data=$M->create ();
 		if($data!==NULL){
 			$M->upload=$data['upload'];
-			$list=$M->save();
+			$list=$M->save($data);
 		}else{
-			$list=$M->save();
+			$list=$M->save($data);
 		}
 		
 		if ($list) {
