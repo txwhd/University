@@ -6,7 +6,7 @@
         <php>
             $addCss="";
             $addJs="";
-            $currentNav ='支付管理> 点数购买设置';
+            $currentNav ='支付管理> 支付记录';
         </php>
         <include file="Common:intoHead" />
     </head>
@@ -17,17 +17,21 @@
                 <include file="Common:left" />
                 <div id="Right">
                     <div class="Item hr">
-                        <div class="current">购买点数</div>
+                        <div class="current">支付记录</div>
                         
                     </div>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
                         <thead>
                             <tr>
-                                <td>删除</td>
-                                <td>ID</td>
-                                <td>点数</td>
-                                <td>价格</td>
-                               
+                                <td>选中</td>
+                                <td>流水号</td>
+                                <td>用户名</td>
+                                <td>金额</td>
+                                <td>支付结果</td>
+                                <td>支付时间</td>
+                                 <td>支付银行</td>
+                                <td>操作</td>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -37,16 +41,26 @@
                                 <td>{$vo.name}</td>
                                 <td>{$vo.keywords}</td>
                                 <td>{$vo.description}</td>
+                                <td>{$vo.titl}</td>
+                                <td>{$vo.nam}</td>
+                                <td>{$vo.keyword}</td>
+                                <td>{$vo.descriptio}</td>
+                               
                               </tr>>
                         </volist>
                         </tbody>
                             <tfoot align="center">
                                 <tr>
-                                <td>删除</td>
-                                <td>ID</td>
-                                <td>点数</td>
-                                <td>价格</td>
-                               </tr>
+                                   <td>选中</td>
+                                   <td>流水号</td>
+                                   <td>用户名</td>
+                                   <td>金额</td>
+                                   <td>支付结果</td>
+                                   <td>支付时间</td>
+                                   <td>支付银行</td>
+                                   <td>操作</td>
+                                </tr>
+                               
                             </tfoot>     
                     </table> 
                      <div class="commonBtnArea" >

@@ -17,6 +17,30 @@ class PaymentAction extends CommonAction {
 	//点数购买设置
 	public function setPoint(){
 		$this->display();
+	}	
+	//充值卡管理
+	public function cardManager(){
+		$this->display();
+		
+	}
+	//增加支付方式
+	public function add(){
+		$this->display();
+		
+	}
+	//支付记录列表
+	public function payRecord(){
+		$this->display();
+		
+	}
+	//积分换点数设置
+	public function Integral(){
+		$this->display();
+		
+	}
+	//有效期管理设置
+	public function PointChange(){
+		$this->display();
 		
 	}
 	
