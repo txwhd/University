@@ -14,8 +14,9 @@ ul{
 	padding: 0 ;
 	width:1000px;
 	margin-top:5px;
-	border:1px solid red;
+
 }
+
 .panel{
 	margin: 0;
 	padding:0;
@@ -37,7 +38,6 @@ nav{
 }
 .panel-heading span a{
 	color:#3C763D;
-
 }
 .panel-heading span a:hover{
 text-decoration:underline;
@@ -124,21 +124,21 @@ margin-right:10px;
 }
 
 /*友情链接*/
-.friend{
-	margin-left:18px;
-}
-.friend_link{
-	text-align:center;
-	float:left;
-	width:80px;
+#link{
+	font-size:18px;
 
 }
-/* .friend_link  a{
-border-right-color: rgb(102, 102, 102); 
-border-right-width: 1px;
- border-right-style: dotted;
+.friend{
+	text-align:center;
+	line-height:2.0;
+
 }
- */
+.friend a span{
+	margin-left:20px;
+	width:100px;
+
+}
+
 
 /*尾*/
 footer{
@@ -159,7 +159,7 @@ width:700px;
 height:250px;
 }
 .ad{
-border:1px solid red;
+
 float:left;
 width:700px;
 height:250px;
@@ -200,16 +200,34 @@ width:290px;
 float:left;
 margin-left:8px;
 }
+#vote div.panel{
+width:290px;
+height:316px;
+}
 /*留学生+爱情攻略*/
 #international{
 width:700px;
 float:left;
 }
+.international-people{
+	float:left;
+}
+.international-people img{
+	width:130px;
+	height:130px;
+}
+#international div.panel{
+width:700px;
+height:183px;
+}
+
+
 #Finally{
 width:290px;
 float:left;
 margin-left:8px;
 }
+
 /*<!--成功案例+星座匹配-->*/
 #success{
 width:700px;
@@ -225,7 +243,10 @@ width:290px;
 float:left;
 margin-left:8px;
 }
-
+#constellation div.panel{
+width:290px;
+height:243px;
+}
 
 
 /*会员+心情*/
@@ -248,37 +269,42 @@ width:290px;
 float:left;
 margin-left:8px;
 }
+#feel div.panel{
+width:290px;
+height:143px;
+}
 
 /*------------------------------首页完--------------------------------*/
 /*------------------------------search--------------------------------*/
+
 hr,panel{
 	margin: 0;
 	padding:0;
 }
-hr,panel{
-	margin: 0;
-	padding:0;
+.search-all{
 }
+.moresearch{
+	border-top:1px solid #BCE8F1;
+}
+.f20{font-size:20px;}
 .base{
 margin-left:15px;
-float:left;
-border:1px solid red;
+
 }
 .luck{
 margin-left:15px;
-float:left;
-border:1px solid red;
+
 }
 .word{
 margin-left:15px;
-float:left;
-border:1px solid red;
+height:70px;
 }
 .condition{
-width:100px;
+width:120px;
 margin-left:3px; 
+	border:1px solid red;
 float:left;
-border:1px solid red;
+
 }
 .search-all{
 width:1000px;

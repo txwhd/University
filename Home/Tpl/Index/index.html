@@ -7,6 +7,7 @@
 <body>
 <include file="Common:head" />
 <include file="Common:search" />
+
  <div id="ad-news">	
 <div class="container">		
 <div class="ad" >		
@@ -34,27 +35,26 @@
 												</div>
 											</div>				
 										</div>		
-					<a href="#carousell" data-slide="prev" class="left carousel-control"></a>
-					<a href="#carousell" data-slide="next" class="right carousel-control"></a>
-			</div>
 				<a href="#carousell" data-slide="prev" class="left carousel-control">&lsaquo;</a>
 				<a href="#carousell" data-slide="next" class="right carousel-control">&rsaquo;</a>
 									</div>
 </div>
 <div class="news">
 								<div class="panel panel-info">
-									  <div class="panel-heading">同校活动</div>
-									  <div class="panel-body">
-										<ul>
-										<li><a href="#">啦啦啦</a></li>
-										<li>啦啦啦</li>
-										<li>啦啦啦</li>
-										<li>啦啦啦</li>
-										<li>啦啦啦</li>
-										<li>啦啦啦</li>
-										
-										</ul>
-									  </div>
+									
+	
+<ul class="nav nav-tabs" id="myTab">
+  <li ><a href="#messages" data-toggle="tab">同校活动</a></li>
+  <li><a href="#settings" data-toggle="tab">同城活动</a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane fade in active" id="messages">我爱你</div>
+  <div class="tab-pane fade" id="settings">我恨你</div>
+</div>
+
+
+									  
 									</div>
 </div>
 </div>
@@ -180,13 +180,17 @@
 			<div class="panel panel-success">
 						 <div class="panel-heading">留学生恋情<span><a href="#">更多</a></span></div>
 				<div class="panel-body">					
-					<div class="choose-people">
+					<div class="international-people">
 					<img src="__IMG__/Home/001.jpg">
-					</div>				<div class="choose-people">
+					</div>				<div class="international-people">
 					<img src="__IMG__/Home/001.jpg">
-					</div>				<div class="choose-people">
+					</div>				<div class="international-people">
 					<img src="__IMG__/Home/001.jpg">
-					</div>				<div class="choose-people">
+					</div>				
+					<div class="international-people">
+					<img src="__IMG__/Home/001.jpg">
+					</div>
+					<div class="international-people">
 					<img src="__IMG__/Home/001.jpg">
 					</div>
 			</div>
@@ -197,11 +201,12 @@
 						 <div class="panel-heading">爱情攻略<span><a href="#">更多</a></span></div>
 						 <div class="panel-body">
 										<ul>
-										<li><a href="#">啦啦啦</a></li>
+										<li><a href="#"><div>啦啦啦05-01</div></a></li>
 										<li>啦啦啦</li>
 										<li>啦啦啦</li>
 										<li>啦啦啦</li>
 										<li>啦啦啦</li>
+										<li>啦啦啦</li>							
 										<li>啦啦啦</li>							
 										</ul>
 						</div>
@@ -281,6 +286,7 @@
 </div>	
 </div>	
 </div><!--会员+心情语录结束-->
+
 <include file="Common:link" />
 <include file="Common:foot" />
 <script>
@@ -288,5 +294,6 @@
     $('#myTab a:last').tab('show')
   })
 </script>
+
  </body>
 </html>
