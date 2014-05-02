@@ -76,7 +76,7 @@ $config_arr2 = array(
         ),
     	 'Payment' => array(
             'index' => '支付方式列表',
-    	 	'payrecord'=>'支付记录列表',
+    	 	'payRecord'=>'支付记录列表',
             'add' => '增加支付方式',
             'addRecord' => '增加支付记录',
             'cardManager' => '充值卡管理',
