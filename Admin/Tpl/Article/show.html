@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>公告管理-后台管理-{$site.SITE_INFO.name}</title>
+        <title>文章管理-后台管理-{$site.SITE_INFO.name}</title>
         <php>
             $addCss="";
             $addJs="";
-            $currentNav ='<a href="__URL__/index">公告管理</a> > 查看详细';
+            $currentNav ='<a href="__URL__/index">文章管理</a> > 查看详细';
         </php>
         <include file="Common:intoHead" />
     </head>
@@ -22,9 +22,9 @@
                     <form>
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
                             <tr>
-                                <th width="100">内容描述：</th>
+                                <th width="100">文章内容：</th>
                                 <td>
-                                <textarea id="content" class="input" style="height: 150px; width: 40%;">{$vo['content']}</textarea>
+                                <textarea id="content" class="input" style="height: 300px; width: 60%;">{$vo['content']}</textarea>
                                 </td>
                             </tr>
                         </table>

@@ -4,14 +4,6 @@ class ActivityAction extends CommonAction {
 	public function _before_index(){
 		load('extend');//截取
 	}
-	public function showDetail(){
-		//查看活动描述
-		$m=M('Activity');
-		$where['activity_id']=$_GET['id'];
-		$list=$m->$where($where)->select();
-		$this->assgn('vo',$list);
-		$this->display();
-	}
 	public function checkPass(){
 		//通过审核
 		$where['activity_id']=$_GET['id'];
