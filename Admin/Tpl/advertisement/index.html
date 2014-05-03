@@ -21,7 +21,7 @@
                         <!--查询搜索  -->
                           <div class="current">
                             <form action="__URL__/search" method="post">
-								广告名称 <input type="text" name="data[title]" size="30"/>
+								广告名称 <input type="text" name="data[title_name]" size="30"/>
 								广告种类<select name="">
 											<option value="">类别1</option>
 											<option value="">类别2</option>
@@ -42,7 +42,7 @@
                         </thead>
                         <volist name="list" id="vo">
                             <tr align="center" id="{$vo.advertisement_id}">
-                                <td>{$vo.title}</td>
+                                <td>{$vo.title_name}</td>
                                 <td><a href="__URL__/show?id={$vo.advertisement_id}">查看</a></td>
                                 <td>{$vo.endtime}</td>
                                 <td>
