@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>添加、编辑链接-后台管理-{$site.SITE_INFO.name}</title>
+        <title>广告管理-后台管理-{$site.SITE_INFO.name}</title>
         <php>
             $addCss="";
             $addJs="";
-            $currentNav ='资讯管理 > 添加编辑链接';
+            $currentNav ='广告管理 > 查看详细';
         </php>
         <include file="Common:intoHead" />
     </head>
@@ -17,54 +17,57 @@
                 <include file="Common:left" />
                 <div id="Right">
                     <div class="Item hr">
-                        <div class="current">添加编辑链接</div>
+                        <div class="current">查看详细</div>
                     </div>
                     <form>
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
                             <tr>
-                                <th width="100">广告链接：</th>
-                                <td><input id="ad_link" type="text" class="input" size="60" name="ad_link" value="{$info.ad_link}"{$vo.ad_link}/> <a href="javascript:void(0)" id="checkNewsTitle">检测是否重复</a></td>
-                            </tr>
-
-                            <tr>
-                                <th width="100">链接发布状态：</th>
-                                <td><label><input type="radio" name="info[status]" value="0" <if condition="$info.status eq 0"> checked="checked"</if> /> 链接审核状态</label> &nbsp; <label><input type="radio" name="info[status]" value="1" <if condition="$info.status eq 1"> checked="checked"</if> /> 链接已发布状态</label> </td>
+                                <th width="100">广告名称：</th>
+                                <td><input id="title" type="text" class="input" size="60" name="title" value="{$info.title}"/></td>
                             </tr>
                             <tr>
-                                <th>链接所属分类：</th>
-                                <td>
-                                    <select name="info[cid]">
-                                        <volist name="list" id="vo">
-                                            <if condition="$vo[cid] eq $info[cid]">
-                                                <option value="{$vo.cid}" selected="selected">{$vo.fullname}</option>
-                                                <else/>
-                                                <option value="{$vo.cid}">{$vo.fullname}</option>
-                                            </if>
-                                        </volist>
-                                    </select></td>
+                                <th width="100">广告地址：</th>
+                                <td><input id="ad_link" type="text" class="input" size="60" name="ad_link" value="{$info.ad_link}"/> </td>
                             </tr>
                             <tr>
-                                <th>链接关键词：</th>
-                                <td><input type="text" class="input" size="60" name="info[keywords]" value="{$info.keywords}"/> 多关键词间用半角逗号（,）分开，可用于做链接关联阅读条件</td>
-                            </tr>
+                                <th width="100">广告描述：</th>
+                                <td><input id="description" type="text" class="input" size="60" name="description" value="{$info.description}"/> </td>
                             <tr>
-                                <th>链接描述：</th>
-                                <td><textarea class="input" style="height: 60px; width: 600px;" name="info[description]">{$info.description}</textarea> 用于SEO的description</td>
+                                <th width="100">广告类型：</th>
+                                <td><label><input type="radio" name="type" value="0" <if condition="$info.status eq 0"> checked="checked"</if> /> 顶部</label> &nbsp; 
+                                    <label><input type="radio" name="type" value="1" <if condition="$info.status eq 1"> checked="checked"</if> /> 中部</label> &nbsp;
+                                    <label><input type="radio" name="type" value="2" <if condition="$info.status eq 2"> checked="checked"</if> /> 浮动</label> </td>
                             </tr>
-                            <tr>
-                                <th>链接摘要：</th>
-                                <td><textarea class="input" style="height: 60px; width: 600px;" name="info[summary]">{$info.summary}</textarea> 如果不填写则系统自动截取链接前200个字符</td>
+                             <tr>
+                                <th width="100">是否浮动：</th>
+                                <td><label><input type="radio" name="if_float" value="0" <if condition="$info.status eq 0"> checked="checked"</if> /> 静止状态</label> &nbsp; 
+                                    <label><input type="radio" name="if_float" value="1" <if condition="$info.status eq 1"> checked="checked"</if> /> 浮动状态</label> </td>
                             </tr>
-                            <tr>
-                                <th>链接内容：</th>
-                                <td><textarea id="content" class="input" style="height: 300px; width: 100%;" name="info[content]">{$info.content}</textarea></td>
+                           <tr>
+                                <th width="100">广告开始时间：</th>
+                                <td><input id="starttime" type="text" class="input" size="60" name="title" value="{$info.starttime}"/> </td>
+                            </tr>
+                           <tr>
+                                <th width="100">广告结束时间：</th>
+                                <td><input id="endtime" type="text" class="input" size="60" name="title" value="{$info.endtime}"/> </td>
+                            </tr>
+                           <tr>
+                                <th width="100">广告显示顺序：</th>
+                                <td><input id="displayorder" type="text" class="input" size="60" name="title" value="{$info.displayorder}"/> </td>
+                            </tr>
+                           <tr>
+                                <th width="100">广告参数：</th>
+                                <td><input id="parameters" type="text" class="input" size="60" name="title" value="{$info.parameters}"/> </td>
+                            </tr>
+                           <tr>
+                                <th width="100">广告图片地址：</th>
+                                <td><input id="image_site" type="file" size="30" class="input" size="60" name="image_site" value="{$info.image_site}"/></td>
+                            </tr>
+                                <th>广告代码：</th>
+                                <td><textarea id="code" class="input" style="height: 300px; width: 700px;" name="code">{$info.code}</textarea></td>
                             </tr>
                         </table>
-                        <input type="hidden" name="info[id]" value="{$info.id}" />
                     </form>
-                    <div class="commonBtnArea" >
-                        <button class="btn submit">提交</button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -74,17 +77,7 @@
         <script type="text/javascript">
             $(function(){var  content ;
                 KindEditor.ready(function(K) {
-                    content = K.create('#content');
-                });
-                $("#checkNewsTitle").click(function(){
-                    $.getJSON("__URL__/checkNewsTitle", { title:$("#title").val(),id:"{$info.id}"}, function(json){
-                        $("#checkNewsTitle").css("color",json.status==1?"#0f0":"#f00").html(json.info);
-                    });
-                });
-                $(".submit").click(function(){
-                    content.sync();
-                    commonAjaxSubmit();
-                    return false;
+                    content = K.create('#code');
                 });
             });
         </script>

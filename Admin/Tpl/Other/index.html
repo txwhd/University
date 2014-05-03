@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>公告管理-{$site.SITE_INFO.name}</title>
+        <title>其他业务管理-{$site.SITE_INFO.name}</title>
         <php>
             $addCss="";
             $addJs="";
-            $currentNav ='公告管理 > 公告列表';
+            $currentNav ='其他业务管理 >业务说明';
         </php>
         <include file="Common:intoHead" />
     </head>
@@ -17,91 +17,24 @@
                 <include file="Common:left" />
                 <div id="Right">
                     <div class="Item hr">
-                        <div class="current">公告列表</div>
-                         <div class="current">
-                        	 <form action="__URL__/search" method="post">
-								 公告名称<input type="text" name="notice_name" size="30"/>
-								<span><button type="submit">查询</button></span>
-							</form>
-						</div>
 					 </div>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
                         <thead>
                             <tr>
-                                <td>公告名称</td>
-                                <td>公告内容</td>
-                                <td>权限判断</td>
-                                <td>发布者</td>
-                                <td>发布时间</td>
-                                <td>是否锁定</td>
-                                <td>发送ip</td>
-                                <td width="150">操作</td>
+                                <td><h1>这里是全部的其他业务操作，点击进入每个业务中进行操作！</h1></td>
+                            </tr>
+                            <tr>
+                                <td><h2>标签管理</h2></td>
+                            </tr>
+                            <tr>
+                                <td><h2>商家入赘管理</h2></td>
                             </tr>
                         </thead>
-                        <volist name="list" id="vo">
-                            <tr align="center" id="{$vo.notice_id}">
-                                <td>{$vo.notice_name}</td>
-                                <td><a  id="show">查看详细</a></td>
-                                 <td>
-                                 	<if condition="$vo.if_admin eq 1"> 个人
-                                 	<else/>管理员
-                                 	</if>
-                                 </td>
-                                <td>{$vo.uploadedby}</td>
-                                <td>{$vo.uploadtime|date="Y-m-d H:i:s",###}</td>
-                                <td>
-                                <if condition="$vo.IsLock eq 2">锁定
-                                <else/>开启
-                                </if>
-                                </td>
-                                <td>{$vo.PostIP}</td>
-                                <td>[ <a href="__URL__/edit?id={$vo.notice_id}">编辑 </a> ] [ <a link="{:U('Notice/del/',array('id'=>$vo['notice_id']))}" href="javascript:void(0)" name="{$vo.notice_name}" class="del">删除 </a> ]</td>
-                            </tr>
-                        </volist>
-                        <tfoot align="center">
-                             <tr>
-                                <td>公告名称</td>
-                                <td>公告内容</td>
-                                <td>权限判断</td>
-                                <td>发布者</td>
-                                <td>发布时间</td>
-                                <td>是否锁定</td>
-                                <td>发送ip</td>
-                                <td width="150">操作</td>
-                            </tr>
-                            </tfoot>   
                     </table>
-                     <div class="commonBtnArea" >
-                        <button class="">{$page}</button>
-                    </div>   
                 </div>
             </div>
         </div>
         <div class="clear"></div>
         <include file="Common:foot" />
-        <script type="text/javascript">
-            $(function(){
-                $(".del").click(function(){
-                    var delLink=$(this).attr("link");
-                    popup.confirm('你真的打算删除【<b>'+$(this).attr("name")+'</b>】吗?','温馨提示',function(action){
-                        if(action == 'ok'){
-                            top.window.location.href=delLink;
-                        }
-                    });
-                    return false;
-                });
-            });
-          //弹出上传文件的层
-            $('#show').on('click', function(){
-                $.layer({
-                    type: 2,//0：信息框（默认），1：页面层，2：iframe层，3：加载层，4：tips层。
-                    title: '上传文件',
-                    shadeClose: true, //开启点击遮罩关闭层
-                    area : ['600px' , '460px'],
-                    offset : ['100px', ''],
-                    iframe: {src: '__URL__/show?id={$vo.notice_id}'}
-                });
-            });
-        </script>
     </body>
 </html>
