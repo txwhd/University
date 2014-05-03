@@ -22,6 +22,7 @@ class ArticleAction extends CommonAction{
 		$this->assign('page',$show);
 		$this->seo($type['title'], $type['keywords'], $type['description'], D('Common')->getPosition($id));
 		$this->choosetpl($type);
+		$this->display();
 	}
 	//查看文章详细信息
 	public function view(){		

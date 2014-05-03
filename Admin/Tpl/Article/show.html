@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>其他业务管理-{$site.SITE_INFO.name}</title>
+        <title>文章管理-后台管理-{$site.SITE_INFO.name}</title>
         <php>
             $addCss="";
             $addJs="";
-            $currentNav ='其他业务管理 >业务说明';
+            $currentNav ='<a href="__URL__/index">文章管理</a> > 查看详细';
         </php>
         <include file="Common:intoHead" />
     </head>
@@ -17,20 +17,18 @@
                 <include file="Common:left" />
                 <div id="Right">
                     <div class="Item hr">
-					 </div>
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
-                        <thead>
+                        <div class="current">查看详细</div>
+                    </div>
+                    <form>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
                             <tr>
-                                <td><h1>这里是全部的其他业务操作，点击进入每个业务中进行操作！</h1></td>
+                                <th width="100">文章内容：</th>
+                                <td>
+                                <textarea id="content" class="input" style="height: 300px; width: 60%;">{$vo['content']}</textarea>
+                                </td>
                             </tr>
-                            <tr>
-                                <td><h2>标签管理</h2></td>
-                            </tr>
-                            <tr>
-                                <td><h2>商家入赘管理</h2></td>
-                            </tr>
-                        </thead>
-                    </table>
+                        </table>
+                    </form>
                 </div>
             </div>
         </div>

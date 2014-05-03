@@ -23,7 +23,7 @@ class CommonAction extends Action {
 			}
 		}
 		$this->assign('hot_art',$hot_art);
-		//最热文章数据组装
+		//最新文章数据组装
 		$new_art = D('Article')->where('status=1')->order('add_time DESC')->limit(8)->select();
 		if(is_array($new_art)){
 			foreach ($new_art as $key=>$val){
@@ -125,9 +125,20 @@ class CommonAction extends Action {
     	}
     	return $ary;
     }
-    
+    //模块index操作
+    public function index(){
+    	$this->display();
+    }
     //空操作
 	public function _empty(){
 		$this->redirect("/");
+	}
+	//更多操作
+	public function listMore(){
+		$this->display();
+	}
+	//详细操作
+	public function showDetail(){
+		$this->display();
 	}
 }
