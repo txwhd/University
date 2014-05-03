@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>资讯管理-{$site.SITE_INFO.name}</title>
+        <title>文章管理-{$site.SITE_INFO.name}</title>
         <php>
             $addCss="";
             $addJs="";
@@ -37,7 +37,6 @@
                                 <td>所属分类</td>
                                 <td>关键字</td>
                                 <td>文章描述</td>
-                                <td>文章内容</td>
                                 <td>状态</td>
                                 <td>发布时间</td>
                                 <td>发布人ip</td>
@@ -48,11 +47,10 @@
                         <tbody>
                         <volist name="list" id="vo">
                             <tr align="center" id="{$vo.article_id}">
-                                <td>{$vo.title}</td>
+                                <td>{$vo.title|msubstr=0,6,'utf-8',true}</td>
                                 <td>{$vo.type_name}</td>
                                 <td>{$vo.keywords}</td>
                                 <td>{$vo.description}</td>
-                                <td><a  id="show">查看详细</a></td>
                                 <td>
                                 	<if condition="$tab.isLock eq 2 ">已经开启|<a href="__URL__/forbidden?{$vo.article_id}">禁用</a>
 									 <else /> 锁定|<a href="__URL__/checkPass?id={$vo.article_id}">请审核</a>
@@ -61,7 +59,7 @@
                                 <td>{$vo.add_time|date="Y-m-d H:i:s",###}</td>
                                 <td>{$vo.ip}</td>
                                 <td>{$vo.username}</td>
-                                <td>[ <a href="__URL__/edit?id={$vo.article_id}">编辑 </a> ] [ <a link="{:U('Article/del/',array('id'=>$vo['article_id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
+                                <td>[<a  href="__URL__/show?id={$vo.article_id}">内容</a>][ <a href="__URL__/edit?id={$vo.article_id}">编辑 </a> ] [ <a link="{:U('Article/del/',array('id'=>$vo['article_id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
                             </tr>
                         </volist>
                         </tbody>
@@ -71,7 +69,6 @@
                                 <td>所属分类</td>
                                 <td>关键字</td>
                                 <td>文章描述</td>
-                                <td>文章内容</td>
                                 <td>状态</td>
                                 <td>发布时间</td>
                                 <td>发布人ip</td>

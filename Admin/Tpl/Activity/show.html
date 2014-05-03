@@ -6,7 +6,7 @@
         <php>
             $addCss="";
             $addJs="";
-            $currentNav ='活动管理 > 查看详细';
+            $currentNav ='<a href="__URL__/index">活动管理</a> > 查看详细';
         </php>
         <include file="Common:intoHead" />
     </head>
@@ -23,7 +23,9 @@
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
                             <tr>
                                 <th width="100">活动描述：</th>
-                                <td><input id="title" type="text" class="input" size="60" name="content" value="{$vo['content']}"/></td>
+                                <td>
+                                <textarea id="content" class="input" style="height: 150px; width: 40%;">{$vo['content']}</textarea>
+                                </td>
                             </tr>
                         </table>
                     </form>
