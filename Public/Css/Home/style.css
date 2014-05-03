@@ -138,8 +138,6 @@ margin-right:10px;
 	width:100px;
 
 }
-
-
 /*尾*/
 footer{
 width:100%;
@@ -186,6 +184,7 @@ float:left;
 
 #oneschool{
 width:700px;
+height:316px;
 float:left;
 }
 .oneschool-people{
@@ -202,8 +201,20 @@ margin-left:8px;
 }
 #vote div.panel{
 width:290px;
-height:316px;
+height:250px;
 }
+#search_word{
+width:290px;
+margin-top:3px;
+float:left;
+margin-left:8px;
+}
+#search_word div.panel{
+width:290px;
+height:63px;
+}
+
+
 /*留学生+爱情攻略*/
 #international{
 width:700px;
