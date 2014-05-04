@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>资讯管理-{$site.SITE_INFO.name}</title>
+        <title>标签管理-{$site.SITE_INFO.name}</title>
         <php>
             $addCss="";
             $addJs="";
-            $currentNav ='资讯管理 > 资讯列表';
+            $currentNav ='标签管理 > 标签列表';
         </php>
         <include file="Common:intoHead" />
     </head>
@@ -17,12 +17,12 @@
                 <include file="Common:left" />
                 <div id="Right">
                     <div class="Item hr">
-                        <div class="current">资讯列表</div>
+                        <div class="current">标签列表</div>
                     </div>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
                         <thead>
                             <tr>
-                                <td>新闻标题</td>
+                                <td>标签名称</td>
                                 <td>所在分类</td>
                                 <td>状态</td>
                                 <td>发布时间</td>
@@ -36,8 +36,9 @@
                                 <td>{$vo.cidName}</td>
                                 <td>{$vo.status}</td>
                                 <td>{$vo.published|date="Y-m-d H:i:s",###}</td>
-                                <td>{$vo.aidName}</td>
-                                <td>[ <a href="__URL__/edit?id={$vo.id}">编辑 </a> ] [ <a link="{:U('News/del/',array('id'=>$vo['id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
+                                <td>{$vo.time}</td>
+                                <td>{$vo.people}</td>
+                               
                             </tr>
                         </volist>
                     </table>
