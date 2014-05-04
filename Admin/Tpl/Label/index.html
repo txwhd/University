@@ -23,24 +23,35 @@
                         <thead>
                             <tr>
                                 <td>标签名称</td>
-                                <td>所在分类</td>
                                 <td>状态</td>
                                 <td>发布时间</td>
-                                <td>发布人</td>
+                                <td>置顶</td>
+                                <td>排序</td>
                                 <td width="150">操作</td>
                             </tr>
                         </thead>
+                        <tbody>
                         <volist name="list" id="vo">
-                            <tr align="center" id="{$vo.id}">
-                                <td align="left">{$vo.title}</td>
-                                <td>{$vo.cidName}</td>
+                            <tr align="center" id="{$vo.label_id}">
+                                <td>{$vo.label_name}</td>
                                 <td>{$vo.status}</td>
-                                <td>{$vo.published|date="Y-m-d H:i:s",###}</td>
-                                <td>{$vo.time}</td>
-                                <td>{$vo.people}</td>
-                               
+                                <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+                                <td>{$vo.isTop}</td>
+                                <td>{$vo.sort}</td>
+                               <td>[<a href="__URL__/edit?id={$vo.label_id}">编辑 </a> ] [ <a link="{:U('Label/del/',array('id'=>$vo['label_id']))}" href="javascript:void(0)" name="{$vo.label_name}" class="del">删除 </a> ]</td>
                             </tr>
                         </volist>
+                        </tbody>
+                            <tfoot align="center">
+                                <tr>
+                                <td>标签名称</td>
+                                <td>状态</td>
+                                <td>发布时间</td>
+                                <td>置顶</td>
+                                <td>排序</td>
+                                <td width="150">操作</td>
+                                </tr>
+                            </tfoot>  
                     </table>
                      <div class="commonBtnArea" >
                         <button class="">{$page}</button>
