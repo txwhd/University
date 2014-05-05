@@ -17,41 +17,89 @@
                 <include file="Common:left" />
                 <div id="Right">
                     <div class="Item hr">
-                        <div class="current">在线支付</div>
+                        <div class="current">网银在线</div>
                     </div>
                     <form>
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
                            <tr>
                                 <th>是否启用：</th>
-                                <td><input type="text" class="input" size="10" name="info[member_id]" value="{$info.member_id}"/></td>
+                                <td>
+                                <lebel><input type="radio" class="input" size="10" name="info[B_check]" value="{$info.B_check}"/>是</lebel>
+                                <lebel><input type="radio" class="input" size="10" name="info[B_check]" value="{$info.B_check}"/>否</lebel>
+                                </td>
                             </tr>
                            <tr>
                                 <th>接口名称：</th>
-                                <td><input type="text" class="input" size="60" name="info[create_time]" value="{$info.create_time}"/></td>
+                                <td><input type="text" class="input" size="60" name="info[B_name]" value="{$info.B_name}"/></td>
                             </tr>
                            <tr>
                                 <th>接口LOGO：</th>
-                                <td><input type="text" class="input" size="60" name="info[payment_id]" value="{$info.payment_id}"/></td>
+                                <td><input type="text" class="input" size="60" name="info[B_Add]" value="{$info.B_Add}"/></td>
                             </tr>
                            <tr>
                                 <th>接口网址：</th>
-                                <td><input type="text" class="input" size="60" name="info[sort]" value="{$info.sort}"/></td>
+                                <td><input type="text" class="input" size="60" name="info[B_url]" value="{$info.B_url}"/></td>
                             </tr>
                            <tr>
                                 <th>结果返回地址：</th>
-                                <td><input type="text" class="input" size="60" name="info[sort]" value="{$info.sort}"/></td>
+                                <td><input type="text" class="input" size="60" name="info[return_Add]" value="{$info.return_Add}"/></td>
                             </tr>
                            <tr>
                                 <th>商品编号：</th>
-                                <td><input type="text" class="input" size="60" name="info[sort]" value="{$info.sort}"/></td>
+                                <td><input type="text" class="input" size="60" name="info[goods_no]" value="{$info.goods_no}"/></td>
                             </tr>
                            <tr>
                                 <th>支付秘钥：</th>
-                                <td><input type="text" class="input" size="60" name="info[sort]" value="{$info.sort}"/></td>
+                                <td><input type="text" class="input" size="60" name="info[password]" value="{$info.password}"/></td>
                             </tr>
                            <tr>
                                 <th>扣除手续费：</th>
-                                <td><input type="text" class="input" size="60" name="info[sort]" value="{$info.sort}"/></td>
+                                <td><input type="text" class="input" size="60" name="info[poundage]" value="{$info.poundage}"/></td>
+                            </tr>
+                            
+                           
+                        </table>
+                        <input type="hidden" name="info[id]" value="{$info.id}" />
+                    </form>
+                    <div class="Item hr">
+                        <div class="current">支付宝</div>
+                    </div>
+                   <form>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
+                           <tr>
+                                <th>是否启用：</th>
+                                <td>
+                                <lebel><input type="radio" class="input" size="10" name="info[A_check]" value="{$info.A_check}"/>是</lebel>
+                                <lebel><input type="radio" class="input" size="10" name="info[A_check]" value="{$info.A_check}"/>否</lebel>
+                                </td>
+                            </tr>
+                           <tr>
+                                <th>接口名称：</th>
+                                <td><input type="text" class="input" size="60" name="info[A_name]" value="{$info.A_name}"/></td>
+                            </tr>
+                           <tr>
+                                <th>接口LOGO：</th>
+                                <td><input type="text" class="input" size="60" name="info[A_Add]" value="{$info.A_Add}"/></td>
+                            </tr>
+                           <tr>
+                                <th>接口网址：</th>
+                                <td><input type="text" class="input" size="60" name="info[A_url]" value="{$info.A_url}"/></td>
+                            </tr>
+                           <tr>
+                                <th>结果返回地址：</th>
+                                <td><input type="text" class="input" size="60" name="info[return_Add]" value="{$info.return_Add}"/></td>
+                            </tr>
+                           <tr>
+                                <th>商品编号：</th>
+                                <td><input type="text" class="input" size="60" name="info[goods_no]" value="{$info.goods_no}"/></td>
+                            </tr>
+                           <tr>
+                                <th>支付秘钥：</th>
+                                <td><input type="text" class="input" size="60" name="info[password]" value="{$info.password}"/></td>
+                            </tr>
+                           <tr>
+                                <th>扣除手续费：</th>
+                                <td><input type="text" class="input" size="60" name="info[poundage]" value="{$info.poundage}"/></td>
                             </tr>
                             
                            

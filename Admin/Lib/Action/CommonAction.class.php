@@ -11,6 +11,7 @@ class CommonAction extends Action {
       +----------------------------------------------------------
      */
     public function _initialize() {
+    	load('extend');//截取
         header("Content-Type:text/html; charset=utf-8");
         header('Content-Type:application/json; charset=utf-8');
         $systemConfig = include WEB_ROOT . 'Common/systemConfig.php';
@@ -161,6 +162,8 @@ class CommonAction extends Action {
     	$showPage = $page->show();
     	$this->assign("page", $showPage);
     	$this->assign("list", D($name)->listNews($page->firstRow, $page->listRows));
+    	/* $list=M($name)->select();
+    	$this->assign('list',$list); */
     	$this->display();
     }
     public function search(){

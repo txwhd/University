@@ -6,7 +6,7 @@
         <php>
             $addCss="";
             $addJs="";
-            $currentNav ='支付管理 > 支付方式列表';
+            $currentNav ='支付管理> 支付列表';
         </php>
         <include file="Common:intoHead" />
     </head>
@@ -17,42 +17,41 @@
                 <include file="Common:left" />
                 <div id="Right">
                     <div class="Item hr">
-                        <div class="current">支付方式列表</div>
+                        <div class="current">支付列表</div>
                     </div>
-                   <!--  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
                         <thead>
                             <tr>
-                                <td>文章标题</td>
-                                <td>所属分类</td>
-                                <td>状态</td>
-                                <td>发布时间</td>
-                                <td>发布人</td>
-                                <td width="150">操作</td>
+                                <td>网银支付</td>
+                                <td>支付宝</td>
+                                <td>信用卡支付</td>
+                                <td>在线支付</td>
+                               
                             </tr>
                         </thead>
                         <tbody>
                         <volist name="list" id="vo">
-                            <tr align="center" id="{$vo.id}">
-                                <td >{$vo.title}</td>
-                                <td>{$vo.cidName}</td>
-                                <td>{$vo.status}</td>
-                                <td>{$vo.published|date="Y-m-d H:i:s",###}</td>
-                                <td>{$vo.aidName}</td>
-                                <td>[ <a href="__URL__/edit?id={$vo.id}">编辑 </a> ] [ <a link="{:U('News/del/',array('id'=>$vo['id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
-                            </tr>
+                            <tr align="center" id="{$vo.article_id}">
+                                <td>{$vo.B_pay}</td>
+                                <td>{$vo.A_pay}</td>
+                                <td>{$vo.Credit_pay}</td>
+                                <td>{$vo.Online_pay}</td>
+                              </tr>
                         </volist>
                         </tbody>
                             <tfoot align="center">
                                 <tr>
-                                <td>文章标题</td>
-                                <td>所属分类</td>
-                                <td>状态</td>
-                                <td>发布时间</td>
-                                <td>发布人</td>
-                                <td width="150">操作</td>
-                                </tr>
+                              <td>网银支付</td>
+                                <td>支付宝</td>
+                                <td>信用卡支付</td>
+                                <td>在线支付</td>
+                               
+                               </tr>
                             </tfoot>     
-                    </table>  -->               
+                    </table> 
+                     <div class="commonBtnArea" >
+                        <button class="">{$page}</button>
+                    </div>                  
                 </div>
             </div>
         </div>

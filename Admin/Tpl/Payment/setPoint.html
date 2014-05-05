@@ -23,29 +23,29 @@
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
                         <thead>
                             <tr>
-                                <td>删除</td>
                                 <td>ID</td>
                                 <td>点数</td>
                                 <td>价格</td>
-                               
+                                <td>操作</td>
                             </tr>
                         </thead>
                         <tbody>
                         <volist name="list" id="vo">
                             <tr align="center" id="{$vo.article_id}">
-                                <td>{$vo.title}</td>
-                                <td>{$vo.name}</td>
-                                <td>{$vo.keywords}</td>
-                                <td>{$vo.description}</td>
-                              </tr>>
+                                <td>{$vo.delete}</td>
+                                <td>{$vo.pay_id}</td>
+                                <td>{$vo.point}</td>
+                                <td>{$vo.price}</td>
+                              <td>[ <a href="__URL__/edit?id={$vo.activity_id}">编辑 </a> ] [ <a link="{:U('Activity/del/',array('id'=>$vo['activity_id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
+                            </tr>
                         </volist>
                         </tbody>
                             <tfoot align="center">
                                 <tr>
-                                <td>删除</td>
                                 <td>ID</td>
                                 <td>点数</td>
                                 <td>价格</td>
+                                 <td>操作</td>
                                </tr>
                             </tfoot>     
                     </table> 

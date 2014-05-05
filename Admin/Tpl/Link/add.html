@@ -51,13 +51,14 @@
         <div class="clear"></div>
         <include file="Common:foot" />
         <script type="text/javascript">
+       		 $(function(){
                 $("#checkNewsTitle").click(function(){
                     $.getJSON("__URL__/checkNewsTitle", { title:$("#title").val(),id:"{$info.id}"}, function(json){
                         $("#checkNewsTitle").css("color",json.status==1?"#0f0":"#f00").html(json.info);
                     });
                 });
                 $(".submit").click(function(){
-                    content.sync();
+                   // content.sync();
                     commonAjaxSubmit();
                     return false;
                 });

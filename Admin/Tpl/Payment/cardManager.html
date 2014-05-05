@@ -23,49 +23,53 @@
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
                         <thead>
                             <tr>
-                                <td>选中</td>
+                                <td width="90"><label><input name="" class="chooseAll" type="checkbox"/> 全选</label> <label><input name="" class="unsetAll" type="checkbox"/> 反选</label></td>
                                 <td>卡号</td>
                                 <td>密码</td>
                                 <td>面值</td>
                                 <td>开始日期</td>
                                 <td>截止日期</td>
                                  <td>状态</td>
+                                 <td>生成者</td>         <!--  生成此点卡的人 -->
                                 <td>使用者</td>
                                  <td>充值时间</td>
                                 <td>充值IP</td>
-                               
+                                 <td width="100">操作</td>
                             </tr>
                         </thead>
                         <tbody>
                         <volist name="list" id="vo">
                             <tr align="center" id="{$vo.article_id}">
-                                <td>{$vo.title}</td>
-                                <td>{$vo.name}</td>
+                                <td><input type="checkbox" name="table[]" value="{$vo.select}"/></td>
+                                <td>{$vo.Cno}</td>
                                 <td>{$vo.keywords}</td>
-                                <td>{$vo.description}</td>
-                                <td>{$vo.titl}</td>
-                                <td>{$vo.nam}</td>
-                                <td>{$vo.keyword}</td>
-                                <td>{$vo.descriptio}</td>
-                                <td>{$vo.keywor}</td>
-                                <td>{$vo.descripti}</td>
-                              </tr>>
+                                <td>{$vo.value}</td>
+                                <td>{$vo.stime}</td>
+                                <td>{$vo.etime}</td>
+                                <td>{$vo.state}</td>
+                                <td>{$vo.creator}</td>
+                                <td>{$vo.user}</td>
+                                <td>{$vo.Ptime}</td>
+                                <td>{$vo.Pip}</td>
+                              <td>[ <a href="__URL__/edit?id={$vo.activity_id}">编辑 </a> ] [ <a link="{:U('Activity/del/',array('id'=>$vo['activity_id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
+                            </tr>
                         </volist>
                         </tbody>
                             <tfoot align="center">
                                 <tr>
-                                  <td>选中</td>
+                                <td width="90"><label><input name="" class="chooseAll" type="checkbox"/> 全选</label> <label><input name="" class="unsetAll" type="checkbox"/> 反选</label></td>
                                 <td>卡号</td>
                                 <td>密码</td>
                                 <td>面值</td>
                                 <td>开始日期</td>
                                 <td>截止日期</td>
                                  <td>状态</td>
+                                 <td>生成者</td>
                                 <td>使用者</td>
                                  <td>充值时间</td>
                                 <td>充值IP</td>
-                                </tr>
-                               
+                                <td width="100">操作</td>
+                            </tr>
                             </tfoot>     
                     </table> 
                      <div class="commonBtnArea" >
@@ -78,6 +82,50 @@
         <include file="Common:foot" />
         <script type="text/javascript">
             $(function(){
+                $(".del").click(function(){
+                    var delLink=$(this).attr("link");
+                    popup.confirm('你真的打算删除【<b>'+$(this).attr("name")+'</b>】吗?','温馨提示',function(action){
+                        if(action == 'ok'){
+                            top.window.location.href=delLink;
+                        }
+                    });
+                    return false;
+                });
+            });
+            $(function(){
+           	 clickCheckbox();
+                $(".submit").click(function(){
+                    if($("tbody input[type='checkbox']:checked").size()==0){
+                        popup.alert("请先选择你要操作的记录吧");
+                        return false;
+                    }
+                    if($(this).attr("disabledSubmit")){
+                        popup.alert("已提交，系统在处理中...");
+                    }else{
+                        $(this).attr("disabledSubmit",true).html("提交处理中...");
+                        commonAjaxSubmit("__URL__/del");
+//                        popup.alert("系统处理中，如果数据库中数据较多可能需要较长时间，请稍候....");
+                        setTimeout(function(){
+                            popup.close("asyncbox_alert");
+                        },2000);
+                    }
+                });
+                $(".submitPostEmail").click(function(){
+                    if($("tbody input[type='checkbox']:checked").size()==0){
+                        popup.alert("请先选择你要操作的记录吧");
+                        return false;
+                    }
+                    if($(this).attr("disabledSubmit")){
+                        popup.alert("已提交，系统在处理中...");
+                    }else{
+                        $(this).attr("disabledSubmit",true).html("提交处理中...");
+                        commonAjaxSubmit("__URL__/del");
+//                        popup.alert("系统处理中，如果数据库中数据较多可能需要较长时间，请稍候....");
+                        setTimeout(function(){
+                            popup.close("asyncbox_alert");
+                        },2000);
+                    }
+                });
                 $(".del").click(function(){
                     var delLink=$(this).attr("link");
                     popup.confirm('你真的打算删除【<b>'+$(this).attr("name")+'</b>】吗?','温馨提示',function(action){

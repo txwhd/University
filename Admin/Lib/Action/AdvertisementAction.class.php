@@ -20,9 +20,9 @@ class AdvertisementAction extends CommonAction {
 	} */
 	public function forbidden(){
 		//禁止会员状态
-		$where['ad_id']=$_GET['id'];
+		$where['advertisement_id']=$_GET['id'];
 		$model=M("Advertisement");
-		$data['available'] = '2';
+		$data['available'] = 2;
 		$result=$model->where($where)->save($data);
 		if($result){
 			$this->success('已经禁用该广告！');
@@ -32,9 +32,9 @@ class AdvertisementAction extends CommonAction {
 	}
 	public function checkPass(){
 		//通过会员审核
-		$where['ad_id']=$_GET['id'];
+		$where['advertisement_id']=$_GET['id'];
 		$model=M("Advertisement");
-		$data['available'] = '1';
+		$data['available'] = 1;
 		$result=$model->where($where)->save($data);
 		if($result){
 			$this->success('已经开启该广告！');

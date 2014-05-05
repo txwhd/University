@@ -21,11 +21,11 @@
                         <!--查询搜索  -->
                           <div class="current">
                             <form action="__URL__/search" method="post">
-								礼品名称 <input type="text" name="gift_name"  size="30"/>
-								礼品种类<select name="gift_type_id">
-										<volist id="vo" name="type">
-											<option value="{$vo.gift_type_id}">{$vo.type_name}</option>
-										</volist>
+								礼品名称 <input type="text" name="data[gift_name]"  size="30"/>
+								礼品种类<select name="data[gift_type_id]">
+											<volist id="vo" name="type">
+												<option value="{$vo.gift_type_id}">{$vo.type_name}</option>
+											</volist>
 										</select>
 								<span><button type="submit">查询</button></span>
 							</form>
@@ -76,10 +76,10 @@
                 });
                
             });
-            $(document).ready(function(){
+           /*  $(document).ready(function(){
             	//得到分类id
             	 $("#category")
-            });
+            }); */
         </script>
     </body>
 </html>
