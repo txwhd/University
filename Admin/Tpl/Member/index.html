@@ -66,7 +66,7 @@
                             <tbody>
                                 <volist name="list" id="tab">
                                     <tr align="center">
-                                        <td><input type="checkbox" name="table[]" value="{$tab.Name}"/></td>
+                                        <td><input id="checkbox" type="checkbox" name="table[]" value="{$tab.member_id}"/></td>
                                         <td align="left"><a href="__URL__/show?id={$tab.member_id}">{$tab.username}</a></td>
                                         <td><if condition="$tab.gender eq 1 ">男
    											 <elseif condition="$tab.gender eq 2"/> 女
@@ -136,17 +136,15 @@
                      },2000);
                  }
              });
+             $("#checkbox").click(function(){
+            	 alert($("#checkbox").val());
+             })
              $(".submitPostEmail").click(function(){
                  if($("tbody input[type='checkbox']:checked").size()==0){
                      popup.alert("请先选择你要操作的记录吧");
                      return false;
                  }
-                 if($(this).attr("disabledSubmit")){
-                     popup.alert("已提交，系统在处理中...");
-                 }else{
-                     $(this).attr("disabledSubmit",true).html("提交处理中...");
-                     commonAjaxSubmit("__URL__/del");
-//                     popup.alert("系统处理中，如果数据库中数据较多可能需要较长时间，请稍候....");
+                alert($("#checkbox").val()) ;
                      setTimeout(function(){
                          popup.close("asyncbox_alert");
                      },2000);

@@ -6,7 +6,9 @@
 			<div class="panel-body">
 			<div class="container">
 				<div class="friend">
-					<a href="#"><span>同城约会</span></a>
+				<volist id="vo" name="link">
+					<a href="{$vo.url}"><span>{$vo.name}</span></a>
+				</volist>
 					<a href="#"><span>同城约会</span></a>
 					<a href="#"><span>同城约会</span></a>
 					<a href="#"><span>同城约会</span></a>
