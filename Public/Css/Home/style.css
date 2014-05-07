@@ -19,7 +19,6 @@ ul li{
 	margin-top:5px;
 	border:1px solid red;
 }
-
 .panel{
 	margin: 0;
 	padding:0;
@@ -332,20 +331,25 @@ float:left;
 width:100px;
 float:center-left;
 }
-
 /*------------------------------search完--------------------------------*/
-.story-border img{
-
+/*------------------------------PersonSpace--------------------------------*/
+#manage{
+	width:236px;
+	height:300px;
+	border:1px solid red;
 }
-
-
-
-
-
-
-
-
-
+manage-main{
+	margin:10 auto;
+	border:1px solid red;
+}
+.Person-left img{
+	width:100px;
+	height:100px;
+	float:left;
+}
+.Person-right{
+	margin-top:60px;
+}
 
 
 
