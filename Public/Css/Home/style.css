@@ -10,11 +10,14 @@ body {
 ul{
 	list-style:none;
 }
+ul li{
+	line-height:1.6;
+}
 .container{
 	padding: 0 ;
 	width:1000px;
 	margin-top:5px;
-
+	border:1px solid red;
 }
 
 .panel{
@@ -201,17 +204,7 @@ margin-left:8px;
 }
 #vote div.panel{
 width:290px;
-height:250px;
-}
-#search_word{
-width:290px;
-margin-top:3px;
-float:left;
-margin-left:8px;
-}
-#search_word div.panel{
-width:290px;
-height:63px;
+height:316px;
 }
 
 
@@ -232,19 +225,25 @@ width:700px;
 height:183px;
 }
 
-
 #Finally{
 width:290px;
+height:183px;
 float:left;
 margin-left:8px;
 }
+#Finally div.panel{
+width:290px;
+height:183px;
+}
 
+.Finally_list{
+	margin-left:10px;
+}
 /*<!--成功案例+星座匹配-->*/
 #success{
 width:700px;
 float:left;
 }
-
 #success img{
 width:200px;
 height:200px;
@@ -256,9 +255,19 @@ margin-left:8px;
 }
 #constellation div.panel{
 width:290px;
-height:243px;
+height:175px;
 }
-
+#search-word{
+	float:left;
+	width:290px;
+	height:60px;
+	margin-left:8px;
+	margin-top:3px;
+}
+#search-word div.panel{
+width:290px;
+height:63px;
+}
 
 /*会员+心情*/
 
