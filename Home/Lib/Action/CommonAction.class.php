@@ -3,6 +3,9 @@
 class CommonAction extends Action {
 	//初始化
 	function _initialize(){
+		//友情链接全部取出
+		//文章取出5条
+		//同校活动取出5条
 		Load('extend');
 		//导航数据组装
 		$nav_list = D('Menu')->where('parentid=0 AND status=1')->order('sort DESC')->select();
@@ -126,6 +129,7 @@ class CommonAction extends Action {
     	return $ary;
     }
     //模块index操作
+    //更多操作;根据传过来的表名取数据
     public function index(){
     	$this->display();
     }
@@ -133,12 +137,16 @@ class CommonAction extends Action {
 	public function _empty(){
 		$this->redirect("/");
 	}
-	//更多操作
+	//更多操作;根据传过来的表名取数据；导航栏有数据库的直接连接到导航栏方法；
 	public function listMore(){
 		$this->display();
 	}
 	//详细操作
+	//更多操作;根据传过来的表名取数据
 	public function showDetail(){
 		$this->display();
+	}
+	//search操作
+	public function search(){
 	}
 }

@@ -49,7 +49,7 @@
                                 <td>{$vo.uploadtime|date="Y-m-d H:i:s",###}</td>
                                 <td>
                                 <if condition="$vo.IsLock eq 2">锁定|<a href="__URL__/IsLock?id={$vo.notice_id}&p=2">开启</a>
-                                <else/>开启|<a href="__URL__/IsLock?id={$vo.notice_id}&p=2">锁定</a>
+                                <else/>开启|<a href="__URL__/IsLock?id={$vo.notice_id}&p=1">锁定</a>
                                 </if>
                                 </td>
                                 <td>{$vo.PostIP}</td>
