@@ -19,36 +19,30 @@
                     <div class="Item hr">
                         <div class="current">增加支付方式</div>
                     </div>
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
-                        <thead>
-                            <tr>
-                                <td>方式名称</td>
-                                <td>添加人</td>
-                                <td>添加时间</td>
-                                <td>状态</td>
-                               
+                   
+                     <form>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
+                           <tr>
+                                <th>方式名称：</th>
+                                <td><input type="text" class="input" size="60" name="info[name]" value="{$info.name}"/></td>
                             </tr>
-                        </thead>
-                        <tbody>
-                        <volist name="list" id="vo">
-                            <tr align="center" id="{$vo.article_id}">
-                                <td>{$vo.name}</td>
-                                <td>{$vo.people}</td>
-                                <td>{$vo.time}</td>
-                                <td>{$vo.status}</td>
-                              </tr>>
-                        </volist>
-                        </tbody>
-                            <tfoot align="center">
-                                <tr>
-                                 <td>方式名称</td>
-                                <td>添加人</td>
-                                <td>添加时间</td>
-                                <td>状态</td>
-                               
-                               </tr>
-                            </tfoot>     
-                    </table> 
+                           <tr>
+                                <th>添加人：</th>
+                                <td><input type="text" class="input" size="60" name="info[people]" value="{$info.people}"/></td>
+                            </tr>
+                           <tr>
+                                <th>添加时间：</th>
+                                <td><input type="text" class="input" size="60" name="info[addtime]" value="{$info.addtime}"/></td>
+                            </tr>
+                           <tr>
+                                <th>备注：</th>
+                                 <td><input type="text" class="input" size="60" name="info[status]" value="{$info.status}"/></td>
+                            </tr> 
+                            
+                           
+                        </table>
+                        <input type="hidden" name="info[id]" value="{$info.id}" />
+                    </form>
                      <div class="commonBtnArea" >
                         <button class="">{$page}</button>
                     </div>                  

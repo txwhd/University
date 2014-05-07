@@ -20,35 +20,30 @@
                         <div class="current">购买点数</div>
                         
                     </div>
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
-                        <thead>
-                            <tr>
-                                <td>ID</td>
-                                <td>点数</td>
-                                <td>价格</td>
-                                <td>操作</td>
+                   
+                     <form>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
+                           <tr>
+                                <th>购买人：</th>
+                                <td><input type="text" class="input" size="60" name="info[username]" value="{$info.username}"/></td>
                             </tr>
-                        </thead>
-                        <tbody>
-                        <volist name="list" id="vo">
-                            <tr align="center" id="{$vo.article_id}">
-                                <td>{$vo.delete}</td>
-                                <td>{$vo.pay_id}</td>
-                                <td>{$vo.point}</td>
-                                <td>{$vo.price}</td>
-                              <td>[ <a href="__URL__/edit?id={$vo.activity_id}">编辑 </a> ] [ <a link="{:U('Activity/del/',array('id'=>$vo['activity_id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
+                           <tr>
+                                <th>点数：</th>
+                                <td><input type="text" class="input" size="60" name="info[point]" value="{$info.point}"/></td>
                             </tr>
-                        </volist>
-                        </tbody>
-                            <tfoot align="center">
-                                <tr>
-                                <td>ID</td>
-                                <td>点数</td>
-                                <td>价格</td>
-                                 <td>操作</td>
-                               </tr>
-                            </tfoot>     
-                    </table> 
+                           <tr>
+                                <th>价格：</th>
+                                <td><input type="text" class="input" size="60" name="info[price]" value="{$info.price}"/></td>
+                            </tr>
+                           <tr>
+                                <th>支付人：</th>
+                                 <td><input type="text" class="input" size="60" name="info[payer]" value="{$info.payer}"/></td>
+                            </tr> 
+                            
+                           
+                        </table>
+                        <input type="hidden" name="info[id]" value="{$info.id}" />
+                    </form>
                      <div class="commonBtnArea" >
                         <button class="">{$page}</button>
                     </div>                  
@@ -57,18 +52,6 @@
         </div>
         <div class="clear"></div>
         <include file="Common:foot" />
-        <script type="text/javascript">
-            $(function(){
-                $(".del").click(function(){
-                    var delLink=$(this).attr("link");
-                    popup.confirm('你真的打算删除【<b>'+$(this).attr("name")+'</b>】吗?','温馨提示',function(action){
-                        if(action == 'ok'){
-                            top.window.location.href=delLink;
-                        }
-                    });
-                    return false;
-                });
-            });
-        </script>
+       
     </body>
 </html>

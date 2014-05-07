@@ -19,42 +19,37 @@
                     <div class="Item hr">
                         <div class="current">积分换点数设置</div>
                     </div>
-                     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
-                        <thead>
-                            <tr>
-                                <td>充值卡</td>
-                                <td>所需点数</td>
-                                <td>库存</td>
-                                <td>兑换时间</td>
-                                <td>兑换人</td>
-                                <td width="150">操作</td>
+                  
+                     <form>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
+                           <tr>
+                                <th>充值卡：</th>
+                                <td><input type="text" class="input" size="60" name="info[card]" value="{$info.card}"/></td>
                             </tr>
-                        </thead>
-                        <tbody>
-                        <volist name="list" id="vo">
-                            <tr align="center" id="{$vo.id}">
-                                <td >{$vo.card}</td>
-                                <td>{$vo.point}</td>
-                                <td>{$vo.repertory}</td>
-                                <td>{$vo.exchaged|date="Y-m-d H:i:s",###}</td>
-                                <td>{$vo.people}</td>
-                                <td>[ <a href="__URL__/edit?id={$vo.id}">编辑 </a> ] [ <a link="{:U('News/del/',array('id'=>$vo['id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
+                           <tr>
+                                <th>所需点数：</th>
+                                <td><input type="text" class="input" size="60" name="info[point]" value="{$info.point}"/></td>
                             </tr>
-                        </volist>
-                        </tbody>
-                            <tfoot align="center">
-                                <tr>
-                               
-                                <td>充值卡</td>
-                                <td>所需点数</td>
-                                <td>库存</td>
-                                <td>兑换时间</td>
-                                <td>兑换人</td>
-                                <td width="150">操作</td>
+                           <tr>
+                                <th>库存：</th>
+                                <td><input type="text" class="input" size="60" name="info[repertory]" value="{$info.repertory}"/></td>
+                            </tr>
+                           <tr>
+                                <th>兑换时间：</th>
+                                 <td><input type="text" class="input" size="60" name="info[exchaged_time]" value="{$info.exchaged_time}"/></td>
+                            </tr> 
                             
-                                </tr>
-                            </tfoot>     
-                    </table>                 
+                           <tr>
+                                <th>兑换人：</th>
+                                <td><input type="text" class="input" size="60" name="info[exchaged_people]" value="{$info.exchaged_people}"/></td>
+                            </tr>
+                           <tr>
+                                <th>备注：</th>
+                                 <td><input type="text" class="input" size="60" name="info[status]" value="{$info.status}"/></td>
+                            </tr> 
+                            
+                           
+                        </table>               
                 </div>
                     <div class="commonBtnArea" >
                         <button class="btn submit">提交</button>
