@@ -1,5 +1,7 @@
 <?php
 class TestAction extends Action{
+	//换一换ajax调用
+	//权限判断 个人中心；
 	//测试文件
 		public function photoupload(){
 	
