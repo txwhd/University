@@ -27,7 +27,6 @@ $config_arr2 = array(
         ),
         'Webinfo' => array(
             'index' => '站点文本配置',
-            'webTableConfig' => '站点数据库配置',
             'setEmailConfig' => '邮箱配置',
             'setSafeConfig' => '安全配置',
             'setFtpConfig' => 'FTP配置',

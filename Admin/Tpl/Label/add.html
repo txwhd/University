@@ -23,38 +23,27 @@
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
                             <tr>
                                 <th width="100">标签名称：</th>
-                                <td><input id="title" type="text" class="input" size="60" name="info[title]" value="{$info.title}"/> <a href="javascript:void(0)" id="checkNewsTitle">检测是否重复</a></td>
+                                <td><input id="title" type="text" class="input" size="60" name="label_name" value="{$info.label_name}"/> <a href="javascript:void(0)" id="checkNewsTitle">检测是否重复</a></td>
                             </tr>
-
                             <tr>
                                 <th width="100">状态：</th>
-                                <td><label><input type="radio" name="info[status]" value="0" <if condition="$info.status eq 0"> checked="checked"</if> /> 标签审核状态</label> &nbsp; <label><input type="radio" name="info[status]" value="1" <if condition="$info.status eq 1"> checked="checked"</if> /> 标签已发布状态</label> </td>
+                                <td><label><input type="radio" name="info[status]" value="1" <if condition="$info.status eq 1"> checked="checked"</if> /> 标签审核状态</label> &nbsp; <label><input type="radio" name="info[status]" value="2" <if condition="$info.status eq 2"> checked="checked"</if> /> 已发布</label> </td>
                             </tr>
                             <tr>
-                                <th>标签所属分类：</th>
-                                <td>
-                                    <select name="info[cid]">
-                                        <volist name="list" id="vo">
-                                            <if condition="$vo[cid] eq $info[cid]">
-                                                <option value="{$vo.cid}" selected="selected">{$vo.fullname}</option>
-                                                <else/>
-                                                <option value="{$vo.cid}">{$vo.fullname}</option>
-                                            </if>
-                                        </volist>
-                                    </select></td>
+                                <th width="100">置顶：</th>
+                                <td><label><input type="radio" name="isTop" value="2" <if condition="$info.isTop eq 2"> checked="checked"</if> /> 是</label> &nbsp; <label><input type="radio" name="info[isTop]" value="1" <if condition="$info.isTop eq 1"> checked="checked"</if> />否</label> </td>
                             </tr>
                              <tr>
                                 <th width="100">发布时间：</th>
-                                <td><input id="time" type="text" class="input" size="60" name="info[time]" value="{$info.time}"/></td>
+                                <td><input id="time" type="text" class="input" size="60" name="create_time" value="{$info.create_time}"/></td>
                             </tr>
                              <tr>
-                                <th width="100">发布人：</th>
-                                <td><input id="people" type="text" class="input" size="60" name="info[people]" value="{$info.people}"/></td>
+                                <th width="100">排序：</th>
+                                <td><input id="people" type="text" class="input" size="60" name="sort" value="{$info.sort}"/></td>
                             </tr>
-                           
-                            
                         </table>
-                        <input type="hidden" name="info[id]" value="{$info.id}" />
+                        <input type="hidden" name="info[id]" value="{$info.label_id}" />
+                        <input type="hidden" name="create_time" value="<?php time();?>" />
                     </form>
                     <div class="commonBtnArea" >
                         <button class="btn submit">提交</button>

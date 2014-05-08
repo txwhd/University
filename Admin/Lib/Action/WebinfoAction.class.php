@@ -17,7 +17,27 @@ class WebinfoAction extends CommonAction {
       +----------------------------------------------------------
      */
     public function webTableConfig() {
-       $this->display();
+    	/* $M=M('Webinfo');
+    	$list=$M->select();
+    	$this->assign('site',$list); */
+    	$this->display();
+      /*  print_r($_POST);
+       exit(); */
+       
+    }
+    /**
+      +----------------------------------------------------------
+     * 配置网站信息   数据表配置修改
+      +----------------------------------------------------------
+     */
+    public function setTableConfig() {
+    	$M=M('Webinfo');
+    	$list=$M->limit(1)->select();
+    	$this->assign('site',$list);
+    	$this->display();
+      /*  print_r($_POST);
+       exit(); */
+       
     }
     /**
       +----------------------------------------------------------
