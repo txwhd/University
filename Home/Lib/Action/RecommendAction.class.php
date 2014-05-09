@@ -1,6 +1,7 @@
 <?php
-class RecommendAction extends  Action{
-	public function index(){
-		$this->display();
-	}
+/*
+ * 站长推荐
+ */
+
+class RecommendAction extends  CommonAction{
 }

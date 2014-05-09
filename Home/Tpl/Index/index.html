@@ -285,28 +285,20 @@
 		</div>
 </div>
 <div id="feel">
-			<div class="panel panel-success">
-			<div class="panel-heading">心情语录<span><a href="#">更多</a></span></div>
-					<div class="panel-body">
-									<div class="row">		
-								<div class="col-sm-9">
-										<ul class="Finally_list"><!--一行可以写十四个字-->
-										<li><a href="#"><div>啦啦啦啦啦啦啦啦啦啦啦啦啦啦</div></a></li>
-										<li>啦啦啦</li>
-										<li>啦啦啦</li>
-										<li>啦啦啦</li>									
-										</ul>
-								</div>
-								<div class="col-sm-3">
-								05-06
-								05-06
-								05-06
-								05-06
-						
-								</div>
-								</div>	
-					</div>
+	<div class="panel panel-success">
+		<div class="panel-heading">心情语录<span><a target="_blank" href="__APP__/Mood/moreList">更多</a></span></div>
+		<div class="panel-body">
+		<div class="row">		
+			<div class="col-sm-9">
+					<ul class="Finally_list">
+					<volist id="vo" name="mood">
+						<li><a href="__APP__/Mood/showDetail?id={$vo.mood_id}&table=Mood">{$vo.content|msubstr=0,11,'utf-8',true}</a>{$vo.create_time|date="m-d",###}</li>
+					</volist>
+					</ul>
 			</div>
+		</div>	
+		</div>
+	</div>
 </div>	
 </div>	
 </div><!--会员+心情语录结束-->

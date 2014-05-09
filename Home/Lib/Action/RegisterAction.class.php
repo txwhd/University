@@ -13,7 +13,7 @@ class RegisterAction extends CommonAction{
 		}
 		echo json_encode($exit);
 	}
-	public  function addPersonReg(){
+	public  function dealReg(){
 		//增加个人用户
 		header('Content-Type:text/html;charset=utf-8');
 		$pass=trim($_POST['password']);

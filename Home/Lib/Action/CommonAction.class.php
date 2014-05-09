@@ -46,7 +46,7 @@ class CommonAction extends Action {
 			$new_comment[$key] = $this->msgmodify($val);
 		}
 		$this->assign('new_comment',$new_comment);
-		$this->assign('link',D('Link')->where('status=1')->order('sort DESC')->limit(8)->select());
+		$this->assign('link',D('Link')->where('status=1')->order('sort DESC')->select());//友情链接初始化
 		$this->assign('nav_list',$nav_list);
 	}
 	//验证码

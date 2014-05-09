@@ -40,12 +40,12 @@
                             <tr align="center" id="{$vo.discuss_id}">
                                 <td><a href="__APP__/Admin/Ariticle/show?id={$vo.discuss_id}">{$vo.title|msubstr=0,6,'utf-8',true}</a></td>
                                 <td>{$vo.article_class_id}</td>
-                                <td><a href="__URL__/show?id={$vo.discuss_id}" id="show">查看详细</a></td>
                                 <td>
                                 	<if condition="$tab.status eq 2 ">已经开启|<a href="__URL__/forbidden?id={$vo.discuss_id}">禁用</a>
 									 <else /> 锁定|<a href="__URL__/checkPass?id={$vo.discuss_id}">请审核</a>
 									</if>
 								</td>
+								<td><a href="__URL__/show?id={$vo.discuss_id}" id="show">查看详细</a></td>
                                 <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
                                 <td>[ <a href="__URL__/edit?id={$vo.discuss_id}">编辑 </a> ] [ <a link="{:U('Article/del/',array('id'=>$vo['discuss_id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
                             </tr>
