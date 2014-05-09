@@ -59,7 +59,7 @@ $config_arr2 = array(
         ),
         'Member' => array(
             'index' => '注册用户列表',
-            'category' => '会员分类管理',
+            'vipType' => '会员分类管理',
             'vipPrivilege' => '会员权限分配管理',
             'renzheng' => '认证管理',
             'Photo/index' => '相册管理',

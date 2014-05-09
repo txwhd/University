@@ -51,6 +51,17 @@ class MemberAction extends CommonAction {
     	$this->assign('info',$marriage);
     	$this->display();
     }
+    public function delType(){
+    	//删除会员类别
+    	$where['vip_type_id']=(int)$_GET['id'];
+    	$M=M('Viptype');
+    	$list  =  $M->where($where)->delete();
+    	if($list){
+    		$this->success('操作成功！');
+    	}else{
+    		$this->error("删除失败！");
+    	}
+    }
     public function show(){
     	//查看会员的全部信息
     	$M = D('Member');
@@ -95,12 +106,34 @@ class MemberAction extends CommonAction {
     	// 当前页数据查询
     	$list = $M->where($where)->limit($p->firstRow.','.$p->listRows)->select();
     }
-    public function category(){
+    public function vipType(){
     	//会员类别显示
     	$m=M('Viptype');
     	$list=$m->select();
     	$this->assign('list',$list);
     	$this->display();
+    }
+    public function addType(){
+    	//会员类别add
+    	$m=M('Viptype');
+    	$data=$m->create();
+    	if($m->add($data)){
+	    	$this->success('成功增加！');
+    	}else{
+    		$this->error("增加失败！");
+    	}
+    }
+    public function editType(){
+    	//会员类别edit
+    	$where['vip_type_id']=(int)$_GET['id'];
+    	$list= $m=M('Viptype')->where($where)->select();
+    	$this->assign('list',$list);
+    	$this->display();
+	    /* if($list){
+	    		$this->success('操作成功！');
+	    }else{
+	    		$this->error("操作失败！");
+	   } */
     }
     public function vipPrivilege(){
     	//会员类别权限显示

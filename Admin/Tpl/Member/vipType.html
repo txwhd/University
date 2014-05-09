@@ -1,0 +1,63 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>会员管理-会员分类-后台管理首页-{$site.SITE_INFO.name}</title>
+        <php>
+            $addCss="";
+            $addJs="";
+            $currentNav ='会员管理> 会员分类';
+        </php>
+        <include file="Common:intoHead" />
+    </head>
+    <body>
+        <div class="wrap">
+            <include file="Common:head" />
+            <div class="mainBody">
+                <include file="Common:left" />
+                <div id="Right">
+                    <div class="Item hr">
+                        <div class="current">会员分类管理</div>
+                    </div>
+                    <form action="__URL__/addType" method="post" id="quickForm">
+                        <b>添加分类：</b>
+                        <input  id="newName" class="input" type="text" name="vip_name" value="" />
+                        <button class="btn">确定添加</button>
+                    </form>
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tab">
+                        <thead>
+                            <tr align="center">
+                                <td width="10%">分类ID</td>
+                                 <td width="10%">会员分类名称</td>
+                                <td width="10%">操作</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <volist name="list" id="tree">
+                                <tr pid="{$tree.vip_type_id}">
+                                    <td align="center">{$tree.vip_type_id}</td>
+                                    <td  class="tree" style="cursor: pointer;"align="center">{$tree.vip_name}</td>
+                                    <td align="center">
+                                       <a href="__URL__/editType?id={$tree.vip_type_id}">[编辑] </a><a link="{:U('Member/delType/',array('id'=>$tree['vip_type_id']))}" href="javascript:void(0)" name="{$tree.vip_name}" class="del">[删除 ]</a></td>
+                                </tr>
+                            </volist>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        <div class="clear"></div>
+        <include file="Common:foot" />
+        <script type="text/javascript">
+        $(function(){
+            $(".del").click(function(){
+                var delLink=$(this).attr("link");
+                popup.confirm('你真的打算删除【<b>'+$(this).attr("name")+'</b>】吗?','温馨提示',function(action){
+                    if(action == 'ok'){
+                        top.window.location.href=delLink;
+                    }
+                });
+                return false;
+            });
+        });
+        </script>
+    </body>
+</html>
