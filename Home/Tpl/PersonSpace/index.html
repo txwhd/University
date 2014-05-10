@@ -7,18 +7,175 @@
 <body>
 <include file="Common:head" />
 <include file="Common:search" />
+
 <div class="container" >
-		<div id="manage">
-		<div class="manage-main">
-			<div class="Person-left">
-			<img src="__IMG__/Home/tou.jpg">
-			<div class="Person-right-top">小白</div>
-			<div class="Person-right">普通会员 <span><a href="#">升级</a></span></div>
-			<hr>
-			</div>
-		
-			</div>
-		</div>
+<div id="person-body">
+<div class="row">
+<div class="col-sm-3" >
+<div id="person-head">
+<div class="person-photo"><img class="img-thumbnail" src="__IMG__/Home/001.jpg"/></div>
+<div>
+<div class="person-name">马同学</div>
+<div class="person-power">普通会员<span class="label label-warning"><a>升级会员</a></span></div>
+</div>
+</div>
+<div id="person-nav" class="panel panel-success">
+<img src="__IMG__/Home/888.jpg"/>
+<!-- <a href="#">照片<span class="badge">42</span></a>||心情|留言<hr>访客|关注|活动
+<a href="#">心情<span class="badge">42</span></a>||心情|留言<hr>访客|关注|活动
+<a href="#">留言<span class="badge">42</span></a><hr>|心情|留言<hr>访客|关注|活动
+<a href="#">访客<span class="badge">+3</span></a>||心情|留言<hr>访客|关注|活动
+<a href="#">关注<span class="badge">16</span></a>||心情|留言<hr>访客|关注|活动
+<a href="#">活动<span class="badge">42</span></a>|心情|留言<hr>访客|关注|活动 -->
+</div>
+
+<div id="" class="panel panel-success">
+<div class="panel-heading"><b>个人档案</b></div>
+<div class="panel-body">	
+<ul class="nav nav-pills nav-stacked">
+  <li >
+    <a href="#">
+个人资料
+    </a>
+  </li>
+  <li >
+    <a href="#">
+    我的照片
+    </a>
+  </li>
+    <li >
+    <a href="#">
+诚信验证
+    </a>
+  </li>
+
+</ul>
+</div>
+</div>
+
+<div id="" class="panel panel-success">
+<div class="panel-heading">爱情信仰</div>
+<div class="panel-body">	
+<ul class="nav nav-pills nav-stacked">
+  <li >
+    <a href="#">
+爱情初体验
+    </a>
+  </li>
+  <li >
+    <a href="#">
+爱情再审视
+    </a>
+  </li>
+    <li >
+    <a href="#">
+爱情牵线
+    </a>
+  </li>
+</ul>
+</div>
+</div>
+
+<div id="" class="panel panel-success">
+<div class="panel-heading">服务中心</div>
+<div class="panel-body">	
+<ul class="nav nav-pills nav-stacked">
+  <li >
+    <a href="#">
+账号充值
+    </a>
+  </li>
+  <li >
+    <a href="#">
+身份升级
+    </a>
+  </li>
+    <li >
+    <a href="#">
+交友特权
+    </a>
+  </li>
+</ul>
+</div>
+</div>
+
+</div><!--/.col-sm-3  -->
+
+
+
+<div class="col-sm-6">
+<div id="right" class="panel panel-success">
+<!-- <iframe name="iframe1" src="__URL__/personMain" style="width:483px;height:1000px;border-color:#E5EDEF;border-width:0px;"">
+ </iframe>   -->
+<!-- <iframe id="St" src="__URL__/personMain" scrolling="no" frameborder="0" style="width: 100%;" onload="this.height=this.contentWindow.document.documentElement.scrollHeight">
+</iframe> -->
+<div id="leamain">
+     <iframe src="__URL__/personMain"style="width:483px;"" marginheight="0" marginwidth="0" frameborder="0" scrolling="no" width="765" height=100% id="iframepage" name="iframepage" onLoad="iFrameHeight()" ></iframe>
+	<script type="text/javascript" language="javascript">
+	    function iFrameHeight() {
+	        var ifm= document.getElementById("iframepage");
+	        var subWeb = document.frames ? document.frames["iframepage"].document :
+			ifm.contentDocument;
+	            if(ifm != null && subWeb != null) {
+	            ifm.height = subWeb.body.scrollHeight;
+	        }
+	    }
+	</script> 
+</div>
+
+</div>
+</div>
+<div class="col-sm-3">
+<div class="panel panel-success">
+<div class="panel-body">	
+转发可以赚取积分啊！！
+</div><!-- /.panel-body -->
+</div><!-- /.panel -->
+
+
+<div class="panel panel-success">
+<div class="panel-body">	
+<img class="img-thumbnail" src="__IMG__/Home/00000.jpg"/>
+</div><!-- /.panel-body -->
+</div><!-- /.panel -->
+
+
+<div class="panel panel-success">
+<div class="panel-heading">猜你喜欢</div>
+<div class="panel-body">	
+<div class="right-Recommend">
+<img src="__IMG__/Home/001.jpg"/>
+<img src="__IMG__/Home/001.jpg"/>
+<img src="__IMG__/Home/001.jpg"/>
+<img src="__IMG__/Home/001.jpg"/>
+<img src="__IMG__/Home/001.jpg"/>
+<img src="__IMG__/Home/001.jpg"/>
+<img src="__IMG__/Home/001.jpg"/>
+<img src="__IMG__/Home/001.jpg"/>
+<img src="__IMG__/Home/001.jpg"/>
+</div><!-- /.right-Recommend -->
+<!-- <ul class="pager">
+  <li class="previous"><a href="#">&larr; Older</a></li>
+  <li class="next"><a href="#">Newer &rarr;</a></li>
+</ul> -->
+
+</div><!-- /.panel-body -->
+</div><!-- /.panel -->
+
+
+
+
+</div>
+
+</div>
+
+</div><!-- /.row -->
+
+</div>
+</div>
+
+
+
 <include file="Common:link" />
 <include file="Common:foot" />
 <script>
