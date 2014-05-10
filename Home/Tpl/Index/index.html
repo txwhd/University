@@ -123,8 +123,6 @@
 		</div>
 		</div>
 </div><!--店长推荐结束-->
-
-
 <!--同校+投票-->
 <div id="oneschool-vote">
 <div class="container">
@@ -173,11 +171,17 @@
 <div class="container">
 <div id="international">
 			<div class="panel panel-success">
-						 <div class="panel-heading">留学生恋情<span><a href="#">更多</a></span></div>
-				<div class="panel-body">					
+				<div class="panel-heading">留学生恋情<span><a href="#">更多</a></span></div>
+				<div class="panel-body">
+					<volist id="vo" name="overseaStudent">
+						<div class="international-people">
+							<a href="__APP__/Mood/showDetail?id={$vo.mood_id}&table=Mood"><img src="{$vo.img}"></a>
+						</div>		
+					</volist>						
 					<div class="international-people">
 					<img src="__IMG__/Home/001.jpg">
-					</div>				<div class="international-people">
+					</div>				
+					<div class="international-people">
 					<img src="__IMG__/Home/001.jpg">
 					</div>				<div class="international-people">
 					<img src="__IMG__/Home/001.jpg">
@@ -191,34 +195,21 @@
 			</div>
 </div>
 </div>
-<div id="Finally">
-			<div class="panel panel-success">
-						 <div class="panel-heading">爱情攻略<span><a href="#">更多</a></span></div>
-						 <div class="panel-body">
-								<div class="row">		
-								<div class="col-sm-9">
-										<ul class="Finally_list"><!--一行可以写十四个字-->
-										<li><a href="#"><div>啦啦啦啦啦啦啦啦啦啦啦啦啦啦</div></a></li>
-										<li>啦啦啦</li>
-										<li>啦啦啦</li>
-										<li>啦啦啦</li>
-										<li>啦啦啦</li>
-										<li>啦啦啦</li>							
-													
-										</ul>
-								</div>
-								<div class="col-sm-3">
-								05-06
-								05-06
-								05-06
-								05-06
-								05-06
-								05-06
-								</div>
-								</div>						
-								</div>
-						</div>
-</div>			
+	<div id="Finally">
+		<div class="panel panel-success">
+			 <div class="panel-heading">爱情攻略<span><a href="__APP__/Article/listMore?table=Article">更多</a></span></div>
+			 <div class="panel-body">
+				<ul class="Finally_list"><!--一行可以写十四个字-->
+					<volist id="vo" name="loveStrategy">
+						<li>
+							<a href="__APP__/Article/showDetail?id={$vo.article_id}&table=Article">{$vo.content|msubstr=0,14,'utf-8',true}</a>
+							<span>{$vo.create_time|date="m-d",###}</span>
+						</li>
+					</volist>					
+				</ul>				
+			</div>
+		</div>
+	</div>			
 </div>			
 </div>
 
@@ -229,18 +220,17 @@
 			<div class="panel panel-success">
 						 <div class="panel-heading">牵手恋情<span><a href="#">更多</a></span></div>
 				<div class="panel-body">
-			
-					<div class="#">				
+					<volist id="vo" name="success">
+						<div class="choose-people">
+							<a href="__APP__/Mood/showDetail?id={$vo.mood_id}&table=Mood"><img src="{$vo.img}"></a>
+						</div>		
+					</volist>	
 					<div class="choose-people">
 					<img src="__IMG__/Home/001.jpg">
 					</div>
-					</div>	
-					<div class="#">				
 					<div class="choose-people">
 					<img src="__IMG__/Home/001.jpg">
 					</div>
-					</div>	
-
 			</div>
 			</div>
 	
@@ -262,47 +252,41 @@
 </div>
 <div id="search-word">
 	<div class="panel panel-info">
-	高富帅|白富美
+		<volist id="vo" name="label">
+			<a href="__APP__/label/showDetail?id={$vo.label_id}&table=Label">{$vo.label_name}</a>
+		</volist>	
 	</div>
 </div>
 </div>
 
 <!--会员+心情语录-->
 <div id="vip-feel">
-<div class="container">
-<div id="vip">
-			<div class="panel panel-success">
-				 <div class="panel-heading">vip会员服务</div>
-				 <div class="panel-body">
-					<div class="vip-border">	
-						<img src="__IMG__/Home/100.jpg"/>
-						<img src="__IMG__/Home/100.jpg"/>
-					
-					
-					
+	<div class="container">
+		<div id="vip">
+					<div class="panel panel-success">
+						 <div class="panel-heading">vip会员服务</div>
+						 <div class="panel-body">
+							<div class="vip-border">	
+								<img src="__IMG__/Home/100.jpg"/>
+								<img src="__IMG__/Home/100.jpg"/>
+						</div>
+					</div>
 				</div>
-			</div>
 		</div>
-</div>
-<div id="feel">
-	<div class="panel panel-success">
-		<div class="panel-heading">心情语录<span><a target="_blank" href="__APP__/Mood/moreList">更多</a></span></div>
-		<div class="panel-body">
-		<div class="row">		
-			<div class="col-sm-9">
+		<div id="feel">
+			<div class="panel panel-success">
+				<div class="panel-heading">心情语录<span><a target="_blank" href="__APP__/Mood/moreList">更多</a></span></div>
+				<div class="panel-body">
 					<ul class="Finally_list">
 					<volist id="vo" name="mood">
-						<li><a href="__APP__/Mood/showDetail?id={$vo.mood_id}&table=Mood">{$vo.content|msubstr=0,11,'utf-8',true}</a>{$vo.create_time|date="m-d",###}</li>
+						<li><a href="__APP__/Mood/showDetail?id={$vo.mood_id}&table=Mood">{$vo.content|msubstr=0,14,'utf-8',true}</a><span>{$vo.create_time|date="m-d",###}</span></li>
 					</volist>
 					</ul>
+				</div>
 			</div>
 		</div>	
-		</div>
-	</div>
-</div>	
-</div>	
+	</div>	
 </div><!--会员+心情语录结束-->
-
 <include file="Common:link" />
 <include file="Common:foot" />
 <script>
@@ -310,6 +294,5 @@
     $('#myTab a:last').tab('show')
   })
 </script>
-
  </body>
 </html>

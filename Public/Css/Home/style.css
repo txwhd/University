@@ -242,6 +242,10 @@ height:183px;
 .Finally_list{
 	margin-left:10px;
 }
+.Finally_list span{
+	float:right;
+	margin-right:10px;
+}
 /*<!--成功案例+星座匹配-->*/
 #success{
 width:700px;

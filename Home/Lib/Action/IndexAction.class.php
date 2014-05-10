@@ -13,6 +13,8 @@ class IndexAction extends CommonAction{
 		$this->assign('video',D('Video')->where('status=1')->find(1));//视频调用ID
 		$this->seo(C('SITE_NAME'), C('SITE_KEYWORDS'), C('SITE_DESCRIPTION'), 0); */
 		$this->assign('mood',M('Mood')->where('status=1')->order('create_time DESC')->limit(4)->select());//个人心情语录展示
+		$this->assign('mood',M('Mood')->where('status=1')->order('create_time DESC')->limit(4)->select());//个人心情语录展示
+		$this->assign('label',M('Label')->where('status=1')->order('sort DESC')->limit(10)->select());//标签展示（置顶的永远显示）
 		$this->display();
     }
     /*  
