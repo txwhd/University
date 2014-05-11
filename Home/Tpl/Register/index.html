@@ -1,49 +1,56 @@
 <include file="Common:intoHead" />
 <include file="Common:head" />
- <div  class="container">
+<div  class="container">
 <div class="other-warp" data-ng-controller="user_signup_ctrl">
     <div data-minheight="58" class="single-panel clearfix">
         <div class="single-panel-inner middle">
             <div class="single-panel-header">
                 <h3>注册新用户</h3>
             </div>
+            <php>
+          
+            </php>
             <div class="single-panel-body">
                 <div class="single-panel-section" ng-show="show_signup">
-                    <form  id="form-validate" action="__URL__/dealReg" name="register_form" novalidate class="form-horizontal wt-form">
+                    <form  id="form-validate" action="" method="post"  action="Login_addUser.action">
                         <div class="form-group">
-                            <label class="col-xs-2 control-label">用户名必须填写：</label>
+                            <label class="col-xs-2 control-label">姓名：</label>
                             <div class="col-xs-10">
-                                <input type="text" class="grd-white" data-validate="{required: true, messages:{required:'Please enter field required'}}" name="required" id="required" />
+                               <input type="text" class="form-control"  name="username" id="username"
+                               data-validate="{required: true, messages:{required:'请输入真实姓名'}}"/> 
                             </div>
+                            <em><label class="field_notice"></label></em>
                         </div>
 						<div class="form-group">
-                            <label class="col-xs-2 control-label">手机号：</label>
-
+                            <label class="col-xs-2 control-label">手机：</label>
                             <div class="col-xs-10">
-                                <input class="form-control" type="text" placeholder="请输入真市手机"
-                                       name="signup_name" ng-model="signup_name"
-                                       wt-remote-unique-check="{url:'/api/user/name/check?name={{signup_name}}'}"
-                                       wt-regex="^[A-Za-z]{1}[0-9A-Za-z_]{2,29}$"
-                                       required/>
+                               <input class="form-control" type="text" name="phone" id="phone" 
+                                data-validate="{required: true, phone:true,messages:{required:'请输入手机号码！', phone:'请输入有效手机！！'}}"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-xs-2 control-label">邮箱：</label>
                             <div class="col-xs-10">
-                                <input type="text" class="grd-white" autocomplete="off" onblur="companyReg.ifexit_email" data-validate="{required: true, email:true, messages:{required:'Please enter field email', email:'Please enter a valid email address'}}" name="email" id="email" />
+                                <input type="text"class="form-control" autocomplete="off" 
+                                data-validate="{required: true, email:true, messages:{required:'请输入邮箱！', email:'请输入有效邮箱！'}}"
+                                name="email" id="email" /> 
+                                <!--  onblur="companyReg.ifexit_email" <input class="grd-white"  id="email" name="email" class="{required:true,minlength:6,maxlength:50,email:true}" /> -->
            				 </div>
                         </div>
                         <div class="form-group">
                             <label class="col-xs-2 control-label">密码：</label>
                             <div class="col-xs-10">
-                                 <input type="password" class="grd-white" data-validate="{required: true, messages:{required:'Please enter field password'}}" name="password" id="password" />
+                                <input type="password" class="form-control"
+                                 data-validate="{required: true, messages:{required:'请输入密码！'}}" 
+                                 name="password" id="password" />
            					 </div>
                         </div>
                         <div class="form-group">
                             <label class="col-xs-2 control-label">重复密码：</label>
-
                             <div class="col-xs-10">
-                               <input type="password" class="grd-white" data-validate="{required: true, equalTo: '#password', messages:{required:'Please enter field confirm password', equalTo: 'confirmation password does not match the password'}}" name="cpassword" id="cpassword" />
+                              <input type="password" class="form-control"
+                               data-validate="{required: true, equalTo: '#password', messages:{required:'请输入重复密码！', equalTo: '确认密码与密码不匹配！'}}" 
+                               name="repass" id="repass" />
          				   </div>
                         </div>
                         <div class="form-group" ng-show="register_form.$errors.length > 0">
@@ -66,103 +73,88 @@
                 </div>
             </div>
             <div class="single-panel-footer" ng-hide="signup_success">
-                <div class="pull-right">点击注册，表明你同意我们的<a href="__APP__/Security/terms" wt-tracker="Signup Page|Panel Footer|Goto Terms">服务条款</a></div>
-				</div>
+                <div class="pull-right">点击注册，表明你同意我们的<a href="#terms" data-toggle="modal" data-target="#terms">服务条款</a></div>
+			</div>
+				<!-- Modal -->
+<div class="modal fade" id="terms" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      </div>
+      <div class="modal-body">
+		<div class="tab-content">
+		  <div class="tab-pane active" id="home">
+		  {$reg[0]['reg_agreement']}
+		  </div>
+		</div>
+      </div><!-- /.modal-body-->
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
       	  </div>
+      	  
     </div>
 </div>
-</div> 
-<!-- =============================
-=============================== -->
- 
-<!-- =========================================
-                    VALIDATION
-=========================================== -->
-<!--validation-->
-<!--validation 必须加id-->
-<form class="form-horizontal" id="form-validate" />
-    <fieldset>
-        <legend>Form Validate</legend>
-        <div class="control-group">
-            <label class="control-label" for="required">Required</label>
-            <div class="controls">
-                <input type="text" class="grd-white" data-validate="{required: true, messages:{required:'Please enter field required'}}" name="required" id="required" />
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="minlength">Min Length</label>
-            <div class="controls">
-                <input type="text" class="grd-white" data-validate="{required: true, minlength: 2, messages:{required:'Please enter field min length', minlength:'Please enter at least 2 characters.'}}" name="minlength" id="minlength" />
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="maxlength">Max Length</label>
-            <div class="controls">
-                <input type="text" class="grd-white" data-validate="{required: true, maxlength: 6, messages:{required:'Please enter field max length', maxlength:'Please enter a maximum of 6 characters.'}}" name="maxlength" id="maxlength" />
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="email">Email</label>
-            <div class="controls">
-                <input type="text" class="grd-white" data-validate="{required: true, email:true, messages:{required:'Please enter field email', email:'Please enter a valid email address'}}" name="email" id="email" />
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="url">URL</label>
-            <div class="controls">
-                <input type="text" class="grd-white" data-validate="{required: true, url:true, messages:{required:'Please enter field url', url:'Please enter a valid url'}}" name="url" id="url" />
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="date">Date</label>
-            <div class="controls">
-                <input type="text" class="grd-white" data-validate="{required: true, date:true, messages:{required:'Please enter field date', date:'Please enter a valid date'}}" name="date" id="date" />
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="mins">Min</label>
-            <div class="controls">
-                <input type="text" class="grd-white" data-validate="{required: true, number:true, min: 5, messages:{required:'Please enter field min', number:'Please enter a valid number', min:'Please enter a number greater than or equal to 5'}}" name="mins" id="mins" />
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="maxs">Max</label>
-            <div class="controls">
-                <input type="text" class="grd-white" data-validate="{required: true, number:true, max: 5, messages:{required:'Please enter field max', number:'Please enter a valid number', min:'Please enter a number less than or equal to 5'}}" name="maxs" id="maxs" />
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="number">Number</label>
-            <div class="controls">
-                <input type="text" class="grd-white" data-validate="{required: true, number:true, messages:{required:'Please enter field number', number:'Please enter a valid number'}}" name="number" id="number" />
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="password">Password</label>
-            <div class="controls">
-                <input type="password" class="grd-white" data-validate="{required: true, messages:{required:'Please enter field password'}}" name="password" id="password" />
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="cpassword">Confirm Password</label>
-            <div class="controls">
-                <input type="password" class="grd-white" data-validate="{required: true, equalTo: '#password', messages:{required:'Please enter field confirm password', equalTo: 'confirmation password does not match the password'}}" name="cpassword" id="cpassword" />
-            </div>
-        </div>
-        <div class="form-actions">
-            <button type="submit" class="btn btn-primary">Save changes</button>
-            <button type="button" class="btn">Cancel</button>
-        </div>
-    </fieldset>
-</form><!--/validation-->
-        <!-- javascript
-        ================================================== -->
+</div>  
+</div>  
         <script src="__JS__/Home/validate/jquery.validate.js"></script>
         <script src="__JS__/Home/validate/jquery.metadata.js"></script>
+<!-- <script src="__JS__/Home/validate/messages_cn.js" type="text/javascript"></script> -->
         <script type="text/javascript">
-            $(document).ready(function() {
+         $(document).ready(function() {
                 // validate form
                 $('#form-validate').validate();
+                errorPlacement: function(error, element){
+    				var error_td = element.next('em');
+    				error_td.find('.field_notice').hide();
+    				error_td.append(error);
+    			},
+    			success: function(label){
+    				label.addClass('validate_right').text('OK!');
+    			},
+            	jQuery.validator.addMethod("phone", function(val, element) {
+        	        var tel = /^(\d{3,4}-?)?\d{7,9}$/g;
+        	        return this.optional(element) || (tel.test(val));
+        	    }, "请正确填写您的电话号码");
+            	/*  $("#signupForm").validate({
+            	        rules: {
+            	        	username: "required",
+            	               email: {
+            	                  required: true,
+            	                  email: true
+            	               },
+            	               password: {
+            	                  required: true,
+            	                  minlength: 5
+            	              },
+            	             confirm_password: {
+            	                 required: true,
+            	                 minlength: 5,
+            	                 equalTo: "#password"
+            	             }
+            	        },
+            	        messages: {
+            	        	username: "请输入真实的姓名",
+            	                email: {
+            	                     required: "请输入Email地址",
+            	                     email: "请输入正确的email地址"
+            	                },
+            	                password: {
+            	                     required: "请输入密码",
+            	                     minlength: jQuery.format("密码不能小于{0}个字 符")
+            	               },
+            	               repass: {
+            	                     required: "请输入确认密码",
+            	                     minlength: "确认密码不能小于5个字符",
+            	                     equalTo: "两次输入密码不一致不一致"
+            	               }
+            	        }
+            	    }); */
+            	  $("#btn").click(function(){validator.resetForm();}); 
             });
         </script>
 <include file="Common:foot" />

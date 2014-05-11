@@ -202,8 +202,8 @@
 				<ul class="Finally_list"><!--一行可以写十四个字-->
 					<volist id="vo" name="loveStrategy">
 						<li>
-							<a href="__APP__/Article/showDetail?id={$vo.article_id}&table=Article">{$vo.content|msubstr=0,14,'utf-8',true}</a>
-							<span>{$vo.create_time|date="m-d",###}</span>
+							<a href="__APP__/Article/showDetail?id={$vo.article_id}&table=Article">{$vo.title|msubstr=0,14,'utf-8',true}</a>
+							<span>{$vo.update_time|date="m-d",###}</span>
 						</li>
 					</volist>					
 				</ul>				
