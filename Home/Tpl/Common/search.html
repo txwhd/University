@@ -4,14 +4,14 @@
 <div class="search-all">
 
 <div class="panel panel-info">
-<form class="f16">
+<form class="form-inline">
 我要找
- <select class="select" name="selectAge" id="selectAge">   
+ <select class="span2">   
  		<option value="2">女朋友</option>   
 		<option value="1">男朋友</option>   
  </select>   
 年龄在
- <select name="selectAge" id="selectAge">   
+ <select class="span2">   
 		<option value="1">18</option>   
 		<option value="2">19</option>   
 		<option value="2">20</option>   
@@ -19,7 +19,7 @@
 		<option value="2">22</option>   
 		<option value="2">23</option>   
  </select> 到
-  <select name="selectAge" id="selectAge">   
+  <select class="span2">   
 		<option value="1">18</option>   
 		<option value="2">19</option>   
 		<option value="2">20</option>   
@@ -28,7 +28,7 @@
 		<option value="2">23</option>   
  </select>之间
  地区
- <select name="selectAge" id="selectAge">   
+ <select class="span2">   
 		<option value="1">北京市</option>   
 		<option value="2">上海市</option>   
 		<option value="2">天津市</option>   
@@ -37,15 +37,21 @@
 		<option value="2">山西省</option>   
  </select> 
 
-<select name="selectAge" id="selectAge">   
+<select class="span2">   
 		<option value="1">中北大学</option>   
 		<option value="2">理工大学</option>   
  </select> 
  
-  <input type="checkbox" id="inlineCheckbox3" value="option3"/> 少数民族
-  <input type="checkbox" id="inlineCheckbox3" value="option3"/> 有照片
- <button type="button" class="btn btn-primary btn-sm">搜索</button>
-  <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">更多搜索</button>
+ <label class="checkbox inline">
+  <input type="checkbox" id="inlineCheckbox1" value="option1"/> 少数民族
+</label>
+<label class="checkbox inline">
+  <input type="checkbox" id="inlineCheckbox2" value="option2"/> 有照片
+</label>
+
+ <button type="button" class="btn btn-primary">搜索</button>
+  <button type="button" class="btn btn-primary" data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">更多搜索
+  </button>
 </form>
 </div>
 </div><!--/.searchall-->
