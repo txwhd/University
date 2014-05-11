@@ -163,7 +163,6 @@ width:700px;
 height:250px;
 }
 .ad{
-
 float:left;
 width:700px;
 height:250px;
@@ -251,9 +250,15 @@ height:183px;
 width:700px;
 float:left;
 }
+.success-style{
+	float:left;
+	width:345px;
+	height:200px;
+	border:1px solid red;
+}
 #success img{
-width:200px;
-height:200px;
+width:150px;
+height:150px;
 }
 #constellation{
 width:290px;
@@ -359,6 +364,9 @@ float:center-left;
 #person-nav{
 font-size:15px;
 }
+
+
+
 .right-Recommend img{
 	width:66px;
 	height:66px;
