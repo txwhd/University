@@ -159,17 +159,25 @@ background:black;
 
 }
 #carousell img{
-width:700px;
-height:250px;
+width:1000px;
+height:333px;
 }
 .ad{
 float:left;
-width:700px;
-height:250px;
+width:1000px;
+height:333px;
 }
+
+.recommend{
+float:left;
+	width:700px;
+	margin:0px;
+	padding:0px;
+}
+
 .news div.panel{
 width:290px;
-height:250px;
+height:333px;
 margin-left:8px;
 float:left;
 }
@@ -182,7 +190,7 @@ float:left;
 margin-top:5px;
 }
 .choose-people{
-margin-left:5px;
+margin:4px 4px 0px 0px;
 float:left;
 }
 /*<!--同校+投票-->*/
