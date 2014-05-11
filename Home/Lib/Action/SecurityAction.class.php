@@ -6,8 +6,7 @@
  */
 class SecurityAction extends CommonAction{
 	public function terms(){
-		$model=M('Webinfo');
-		$list=$model->field('reg_agreement')->limit(1)->select();
-		$this->assign('list',$list);
+		
+		
 	}
 }

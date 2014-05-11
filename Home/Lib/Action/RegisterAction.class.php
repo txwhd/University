@@ -2,7 +2,13 @@
 /*
  * 注册模块
  */
-class RegisterAction extends CommonAction{
+class RegisterAction extends Action{
+	public function index(){
+		$model=M('Webinfo');
+		$reg=$model->field('reg_agreement')->limit(1)->select();
+		$this->assign('reg',$reg);
+		$this->display();
+	}
 	public function ifRegEmail(){
 		$where['email']=$_POST['email'];
 		$re=M('member')->where($where)->select();
@@ -13,23 +19,34 @@ class RegisterAction extends CommonAction{
 		}
 		echo json_encode($exit);
 	}
+	public function test(){
+			if(isset($_GET['ajax']) && $_GET['ajax'] == 1){
+			if($_GET['name'] == 'yes'){
+				echo 'true';
+			}else{
+				echo 'false';
+			}
+			return;
+		}
+	}
 	public  function dealReg(){
 		//增加个人用户
-		header('Content-Type:text/html;charset=utf-8');
+		//header('Content-Type:text/html;charset=utf-8');
 		$pass=trim($_POST['password']);
 		$academy_id=trim($_POST['academy_id']);
-		$password_again=trim($_POST['password_again']);
+		$password_again=trim($_POST['repass']);
 		$email=trim($_POST['email']);
 		$username=trim($_POST['username']);
 		if(empty($pass)|| empty($password_again)||empty($username)||empty($email)){
 			$this->error('请把资料填写完整！',U('Register/showReg'));
 		}
 		$pattern1="/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/";
+		$phone="/^[A-Za-z]{1}[0-9A-Za-z_]{2,29}$/";
 		if (!preg_match($pattern1,$email)) {
 			$this->error('邮箱格式不对！',U('Register/showReg'));
 		}
-		if ($pass!=$password_again||strlen($pass)<5||strlen($pass)>12) {
-			$this->error('确认密码与密码不符合,或者长度不是5-12位！',U('Register/showReg'));
+		if ($pass!=$password_again) {
+			$this->error('确认密码与密码不符合',U('Register/showReg'));
 		}
 		$member=M('member');
 		$where['email'] = $email;
