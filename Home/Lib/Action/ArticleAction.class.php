@@ -60,4 +60,8 @@ class ArticleAction extends CommonAction{
 		$this->choosetpl($info);
 		
 	}
+	public function indexBlock(){
+		//首页显示的一小块
+		$this->assign('loveStrategy',M('Article')->where("islock=1 AND cid=1")->order('update_time DESC')->limit(5)->select());
+	}
 }

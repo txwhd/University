@@ -17,8 +17,11 @@ $config1 = array(
         'author' => 'leo.li',
         'author_email' => '281978297@qq.com',
     ),
+	'URL_HTML_SUFFIX'=>'html',
+	'HTML_CACHE_ON' => true, // 开启静态缓存
+	'URL_ROUTER_ON' => true, // 开启路由转换
 );
 $config2 = WEB_ROOT . "Common/systemConfig.php";
-$config2 = file_exists($config2) ? include "$config2" : array();//什么意思？可以去掉吗？
+$config2 = file_exists($config2) ? include "$config2" : array();
 return array_merge($config1, $config2);
 ?>

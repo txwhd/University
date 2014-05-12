@@ -1,5 +1,6 @@
 <?php
 ob_start();
+@set_magic_quotes_runtime();
 ini_set('date.timezone', 'Asia/Shanghai');
 define('THINK_PATH', './ThinkPHP/');
 define('APP_NAME', 'Admin');
