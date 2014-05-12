@@ -152,7 +152,6 @@ class CommonAction extends Action {
         }
     }
     public function index() {
-    	load('extend');//截取文章标题
     	$name=$this->getActionName();
     	$M = M($name);
     	$count = $M->count();

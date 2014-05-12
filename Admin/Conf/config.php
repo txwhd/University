@@ -22,6 +22,7 @@ $config_arr2 = array(
     'admin_sub_menu' => array(
         'Common' => array(
             'Index/myInfo' => '修改密码',
+            'Index/edit' => '修改个人信息',
             'Index/cache' => '缓存清理',
             'News/add' => '新闻发布',
         ),
@@ -42,7 +43,13 @@ $config_arr2 = array(
         'Other' => array(
             'index' => '其他业务列表',
             'Label/index' => '标签管理',
+        	'Vote/index' => '投票管理',
         	'Business/index' => '商家入赘'
+        ),
+        'Vote' => array(
+            'index' => '投票列表',
+            'add' => '增加投票',
+            'addOption' => '增加投票选项'
         ),
         'Code' => array(
             'index' => '二维码列表'

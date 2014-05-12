@@ -77,5 +77,13 @@ class IndexAction extends CommonAction {
             $this->display();
         }
     }
+   public function edit(){
+   	//显示修改页面
+   	$this->display();
+   }
+    public function editPersonInfo(){
+    	//修改个人信息
+    	
+    }
 
 }

@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>网站注册会员管理-后台管理首页-{$site.SITE_INFO.name}</title>
+        <php>
+            $addCss="";
+            $addJs="";
+            $currentNav ='网站注册会员管理 > 相册列表';
+        </php>
+        <include file="Common:intoHead" />
+    </head>
+    <body>
+        <div class="wrap">
+            <include file="Common:head" />
+            <div class="mainBody">
+                <include file="Common:left" />
+                <div id="Right">
+                    <div class="Item hr">
+                        <div class="current">相册管理</div>
+                         <!--查询搜索  -->
+                          <div class="current">
+                            <form action="__URL__/search" method="post">
+								 <input type="text" name="data[title]" title="Search" class="searchinput" id="searchinput" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- 请输入相册名称 -';" onfocus="if(this.value=='- 请输入相册名称 -')value='';" value="- 请输入相册名称 -" size="30"/>
+								 状态<select name="data[status]">
+											<option value="0">无限制</option>
+											<option value="1">开启</option>
+											<option value="2">禁止</option>
+										</select>
+								<span><button type="submit">查询</button></span>
+							</form>
+                          </div>
+					</div>
+                    <form>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
+                            <thead>
+                                <tr>
+                                    <td width="90"><label><input name="" class="chooseAll" type="checkbox"/> 全选</label> <label><input name="" class="unsetAll" type="checkbox"/> 反选</label></td>
+                                    <td>相册名</td>
+                                    <td>作者</td>
+                                    <td>查看详细</td>
+                                    <td>相册封面</td>
+                                    <td>相册描述</td>
+                                    <td>相册状态</td>
+                                    <td width="150">操作</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            	<volist name="list" id="tab">
+                                    <tr align="center">
+                                        <td><input type="checkbox" name="table[]" value="{$tab.Name}"/></td>
+                                        <td align="left">{$tab.title}</td>
+                                        <td align="left">{$tab.member_id}</td>
+                                        <td><a href="__URL__/photo_detail?id={$tab.id}">查看照片</></td>
+                                        <td><img width="120" height="80" src="__PUBLIC__/Upload/Photo/1.png"/></td>
+                                        <td>{$tab.intro|substr=0,20}</td>
+                                        <td>
+                                        	<if condition="$tab.isLock eq 2 ">已经开启|<a href="__URL__/forbidden?id={$tab.member_id}">禁用</a>
+   											 <else /> 禁用|<a href="__URL__/checkPass?id={$tab.member_id}">请审核</a>
+											</if>
+                                        </td>
+                                    	<td><a link="{:U('Photo/del/',array('id'=>$tab['member_id']))}" href="javascript:void(0)" name="{$tab.username}" class="del">删除 </a></td>
+                           			 </tr>
+                           		</volist>
+                            </tbody>
+                            <tfoot align="center">
+                                <tr>
+                                    <td width="90"><label><input name="" class="chooseAll" type="checkbox"/> 全选</label> <label><input name="" class="unsetAll" type="checkbox"/> 反选</label></td>
+                                    <td>相册名</td>
+                                    <td>作者</td>
+                                    <td>查看详细</td>
+                                    <td>相册封面</td>
+                                    <td>相册描述</td>
+                                    <td>相册状态</td>
+                                    <td width="150">操作</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </form>
+                   <div class="commonBtnArea" >
+                        <button class="">{$page}</button>
+                    </div>   
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <include file="Common:foot" />
+         <script type="text/javascript">
+            $(function(){
+                clickCheckbox();
+            });
+          /* //弹出上传文件的层
+            $('#showMarriage').on('click', function(){
+                $.layer({
+                    type: 2,//0：信息框（默认），1：页面层，2：iframe层，3：加载层，4：tips层。
+                    title: '上传文件',
+                    shadeClose: true, //开启点击遮罩关闭层
+                    area : ['600px' , '460px'],
+                    offset : ['100px', ''],
+                    iframe: {src: '__URL__/showMarriage'}
+                });
+            }); */
+        </script>
+    </body>
+</html>
