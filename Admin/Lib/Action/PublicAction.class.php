@@ -81,7 +81,7 @@ class PublicAction extends Action {
             $shell = substr($cookie, -32);
             $aid = (int) str_replace($shell, '', $cookie);
             $info = $M->where("`aid`='$aid'")->find();
-            if ($info['status'] == 0) {
+            if ($info['status'] == 2) {
                 $this->error("你的账号被禁用，有疑问联系管理员吧", __APP__);
             }
             if (md5($info['find_code']) == $shell) {

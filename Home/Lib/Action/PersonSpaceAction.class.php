@@ -6,6 +6,9 @@ class PersonSpaceAction extends CommonAction{
 	public function personMain(){
 		$this->display();
 	}	
+	public function editIntr(){
+		$this->display();
+	}	
 	
 }
 
