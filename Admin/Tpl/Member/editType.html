@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>支付管理-{$site.SITE_INFO.name}</title>
+        <php>
+            $addCss="";
+            $addJs="";
+            $currentNav ='会员管理 > 分类管理';
+        </php>
+        <include file="Common:intoHead" />
+    </head>
+    <body>
+        <div class="wrap">
+            <include file="Common:head" />
+            <div class="mainBody">
+                <include file="Common:left" />
+                <div id="Right">
+                    <div class="Item hr">
+                        <div class="current">分类编辑</div>
+                    </div>
+                  
+                     <form>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
+                           <tr>
+                                <th>会员权限名称：</th>
+                                <td><input type="text" class="input" size="60" name="info[pay_name]" value="{$info.pay_name}"/></td>
+                            </tr>
+                           <tr>
+                                <th>备注：</th>
+                                <td><input type="text" class="input" size="60" name="info[remark]" value="{$info.remark}"/></td>
+                            </tr>
+                         
+                           <tr>
+                                <th>状态：</th>
+                                    <td>
+                                <lebel><input type="radio" class="input" size="10" name="info[status]" value="{$info.status}"/>开启</lebel>
+                                <lebel><input type="radio" class="input" size="10" name="info[status]" value="{$info.status}"/>关闭</lebel>
+                                </td>
+                            </tr> 
+                            
+                           
+                        </table>               
+                </div>
+                    <div class="commonBtnArea" >
+                        <button class="btn submit">提交</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <include file="Common:foot" />
+        <js href="__PUBLIC__/kindeditor/kindeditor.js,__PUBLIC__/kindeditor/lang/zh_CN.js"/>
+        <script type="text/javascript">
+            $(function(){var  content ;
+                KindEditor.ready(function(K) {
+                    content = K.create('#content');
+                });
+                $("#checkNewsTitle").click(function(){
+                    $.getJSON("__URL__/checkNewsTitle", { title:$("#title").val(),id:"{$info.id}"}, function(json){
+                        $("#checkNewsTitle").css("color",json.status==1?"#0f0":"#f00").html(json.info);
+                    });
+                });
+                $(".submit").click(function(){
+                    content.sync();
+                    commonAjaxSubmit();
+                    return false;
+                });
+            });
+        </script>
+    </body>
+</html>
