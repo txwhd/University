@@ -25,10 +25,10 @@
                         <select name="data[pid]">
                             <option value="0">顶级分类</option>
                             <volist name="list" id="vo">
-                                <option value="{$vo.cid}">{$vo.name}</option>
+                                <option value="{$vo.cid}">{$vo.type_name}</option>
                             </volist>
                         </select>  &nbsp;
-                        <input placeholder="你要添加的分类名称" id="newName" class="input" type="text" name="data[name]" value="" /> &nbsp;
+                        <input placeholder="你要添加的分类名称" id="newName" class="input" type="text" name="data[type_name]"/> &nbsp;
                         <button class="btn quickSubmit">确定添加</button>
                     </form>
                     <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tab">
@@ -46,7 +46,13 @@
                             <volist name="list" id="tree">
                                 <tr pid="{$tree.pid}" cid="{$tree.cid}">
                                     <td width="10%" align="center">{$tree.cid}<input type="hidden" name="cid" value="{$tree.cid}"/></td>
-                                    <td width="20%" class="tree" style="cursor: pointer;">{$tree.name}</td>
+                                    <td width="20%" class="tree" style="cursor: pointer;">
+                                    	<if condition='$tree.pid neq 0'>
+                                    			|-{$tree.type_name}
+                                    		<else/>
+                                    			{$tree.type_name}
+                                    	</if>
+                                    </td>
                                     <td width="20%">
                                         <select name="act" class="act">
                                             <option selected="selected" value="edit">修改该分类</option>

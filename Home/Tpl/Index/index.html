@@ -104,8 +104,16 @@
 				</ul>
 				
 				<div class="tab-content">
-				  <div class="tab-pane fade in active" id="messages">我爱你</div>
-				  <div class="tab-pane fade" id="settings">我恨你</div>
+				  <div class="tab-pane fade in active" id="messages">
+				  	<volist name="Activity1" id="vo">
+					  	<p>{$vo.title}</p>
+				  	</volist>
+				  </div>
+				  <div class="tab-pane fade" id="settings">
+				  	<volist name="Activity2" id="vo">
+					  	<p>{$vo.title}</p>
+				  	</volist>
+				  </div>
 				</div>
 
 

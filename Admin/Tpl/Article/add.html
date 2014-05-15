@@ -37,9 +37,9 @@
                                     <select name="cid">
                                         <volist name="list" id="vo">
                                             <if condition="$vo[cid] eq $info[cid]">
-                                                <option value="{$vo.cid}" selected="selected">{$vo.fullname}</option>
+                                                <option value="{$vo.cid}" selected="selected">{$vo.type_name}</option>
                                                 <else/>
-                                                <option value="{$vo.cid}">{$vo.fullname}</option>
+                                                <option value="{$vo.cid}">{$vo.type_name}</option>
                                             </if>
                                         </volist>
                                     </select></td>

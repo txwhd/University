@@ -13,27 +13,32 @@ class CommonModel extends Model {
 		if (IS_POST) {
 			$act = $_POST[act];
 			$data = $_POST['data'];
-			$data['name'] = addslashes($data['name']);
+			//$data['name'] = addslashes($data['name']);
 			if ($act == "add") { //添加分类
 				unset($data[cid]);
 				if ($M->where($data)->count() == 0) {
-					return ($M->add($data)) ? array('status' => 1, 'info' => '分类 ' . $data['name'] . ' 已经成功添加到系统中', 'url' => U($name.'/category', array('time' => time()))) : array('status' => 0, 'info' => '分类 ' . $data['name'] . ' 添加失败');
+					return ($M->add($data)) ? array('status' => 1, 'info' => '分类 ' . $data['type_name'] . ' 已经成功添加到系统中', 'url' => U($name.'/category', array('time' => time()))) : array('status' => 0, 'info' => '分类 ' . $data['type_name'] . ' 添加失败');
 				} else {
-					return array('status' => 0, 'info' => '系统中已经存在分类' . $data['name']);
+					return array('status' => 0, 'info' => '系统中已经存在分类' . $data['type_name']);
 				}
 			} else if ($act == "edit") { //修改分类
-				if (empty($data['name'])) {
-					unset($data['name']);
+				if (empty($data['type_name'])) {
+					unset($data['type_name']);
 				}
 				if ($data['pid'] == $data['cid']) {
 					unset($data['pid']);
 				}
-				return ($M->save($data)) ? array('status' => 1, 'info' => '分类 ' . $data['name'] . ' 已经成功更新', 'url' => U($name.'/category', array('time' => time()))) : array('status' => 0, 'info' => '分类 ' . $data['name'] . ' 更新失败');
+				return ($M->save($data)) ? array('status' => 1, 'info' => '分类 ' . $data['type_name'] . ' 已经成功更新', 'url' => U($name.'/category', array('time' => time()))) : array('status' => 0, 'info' => '分类 ' . $data['type_name'] . ' 更新失败');
 			} else if ($act == "del") { //删除分类
-				unset($data['pid'], $data['name']);
-				return ($M->where($data)->delete()) ? array('status' => 1, 'info' => '分类 ' . $data['name'] . ' 已经成功删除', 'url' => U($name.'/category', array('time' => time()))) : array('status' => 0, 'info' => '分类 ' . $data['name'] . ' 删除失败');
+				unset($data['pid'], $data['type_name']);
+				return ($M->where($data)->delete()) ? array('status' => 1, 'info' => '分类 ' . $data['type_name'] . ' 已经成功删除', 'url' => U($name.'/category', array('time' => time()))) : array('status' => 0, 'info' => '分类 ' . $data['type_name'] . ' 删除失败');
 			}
 		} else {
+			/*分类显示未成功 $result=$M->where('pid=0')->select();
+			foreach ($result as $key=>$val){
+				
+				$result[$key]
+			} */
 		 	$result=$M->select();
 			return $result; 
 /* 		    import("Category");

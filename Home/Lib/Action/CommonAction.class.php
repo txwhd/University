@@ -45,10 +45,66 @@ class CommonAction extends Action {
 		foreach ($new_comment as $key => $val){
 			$new_comment[$key] = $this->msgmodify($val);
 		}
+		
+		//首页超链接
+		$link=M('Link');
+		$this->assign('link',$link->select());
+		
+		//首页活动
+		$Activity=M('Activity');
+		$this->assign('Activity1',$Activity->where('class=1')->limit(5)->order('Activity_id desc')->select());
+		$this->assign('Activity2',$Activity->where('class=2')->limit(5)->order('Activity_id desc')->select());
+		
+		//首页心情语录和爱情攻略
+		$mood=M('Article');
+		
+		$cid=$this->getclass('心情语录','Article');
+		$where['cid']=$cid;
+		$this->assign('mood',$mood->where($where)->limit(5)->order('article_id desc')->select());
+		$cid1=$this->getclass('爱情攻略','Article');
+		$where1['cid']=$cid1;
+		$this->assign('loveStrategy',$mood->where($where1)->limit(5)->order('article_id desc')->select());
+		
 		$this->assign('new_comment',$new_comment);
-		$this->assign('link',D('Link')->where('status=1')->order('sort DESC')->select());//友情链接初始化
+		//$this->assign('link',D('Link')->where('status=1')->order('sort DESC')->limit(8)->select());
 		$this->assign('nav_list',$nav_list);
 	}
+	
+	//根据分类名获取分类id
+	public function getclass($class_name,$action_name){
+		$m=M($action_name.'_class');
+		$str=$m->getPk ();
+		$where['type_name']=$class_name;
+		$result=$m->where($where)->select();
+		$cid=$result[0][$str];
+		return $cid;
+	}
+	
+	//搜索部分
+	public function search(){
+		//搜索会员信息
+		$action_name=$this->getActionName();
+		$M = M('Member_detail');
+		$data = $_POST['data'];
+		$condition = array();
+		foreach ($data as $k => $v) {
+			if(!empty($v)){
+				$condition[$k]= array('like',"%".trim($v)."%");
+			}
+		}
+		$this->assign("list", D('Member_detail')->listNews('Member_detail',$page->firstRow, $page->listRows,$condition));
+		$this->display($action_name);
+	}
+	
+	//首页更多方法
+	public function more(){
+		$condition['cid']=$_GET['id'];
+		$name=$_GET['name'];
+		$m=M($name);
+		$this->assign("list", D($name)->listNews($name,$page->firstRow, $page->listRows,$condition));
+		$this->display();
+	}
+	
 	//验证码
 	public function verify(){
 		$type = isset($_GET['type'])?$_GET['type']:'gif';
@@ -145,8 +201,5 @@ class CommonAction extends Action {
 	//更多操作;根据传过来的表名取数据
 	public function showDetail(){
 		$this->display();
-	}
-	//search操作
-	public function search(){
 	}
 }
