@@ -9,6 +9,8 @@
             $currentNav ='活动管理 > 添加活动';
         </php>
         <include file="Common:intoHead" />
+       <!--日期控件-->
+	<script type="text/javascript" src="__JS__/My97DatePicker/WdatePicker.js"></script>
     </head>
     <body>
         <div class="wrap">
@@ -40,11 +42,11 @@
                             </tr>
                             <tr>
                                 <th width="100">开始时间：</th>
-                                <td><input id="starttimefrom" type="text" class="input" size="60" name="starttimefrom" value="{$info.starttimefrom}"/></td>
-                            </tr>
+                                <td><input  class="input Wdate" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" placeholder=" 请点击选择"size="60" name="starttimefrom" value="{$info.starttimefrom}"/></td>
+                            </tr><!-- datetime 数据字段 -->
                             <tr>
                                 <th width="100">结束时间：</th>
-                                <td><input id="starttimeto" type="text" class="input" size="60" name="starttimeto" value="{$info.starttimeto}"/></td>
+                                <td><input class="input Wdate" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" placeholder=" 请点击选择"size="60" name="starttimeto" value="{$info.starttimeto}"/></td>
                             </tr>
                             <tr>
                                 <th width="100">地点：</th>

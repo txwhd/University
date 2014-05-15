@@ -1,4 +1,5 @@
 <?php
+header('Content-Type:text/html; charset=UTF-8');
 ob_start();
 @set_magic_quotes_runtime();
 ini_set('date.timezone', 'Asia/Shanghai');
