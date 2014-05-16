@@ -22,7 +22,6 @@ class MemberModel extends RelationModel{
         '该表的关联方式的属性1' => '定义',
         '该表的关联方式的属性N' => '定义',
     ),
-    
      protected $autoSaveRelations = true;        // 自动关联保存
     protected $autoDelRelations  = true;        // 自动关联删除
     protected $autoAddRelations  = true;        // 自动关联写入

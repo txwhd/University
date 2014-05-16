@@ -30,25 +30,36 @@ class RegisterAction extends Action{
 		}
 	}
 	public  function dealReg(){
-		//增加个人用户
-		//header('Content-Type:text/html;charset=utf-8');
-		$pass=trim($_POST['password']);
-		$academy_id=trim($_POST['academy_id']);
-		$password_again=trim($_POST['repass']);
-		$email=trim($_POST['email']);
-		$username=trim($_POST['username']);
-		if(empty($pass)|| empty($password_again)||empty($username)||empty($email)){
+		//$md5email=$this->emailmd5($result['email']+time());
+		header('Content-Type:text/html; charset=utf-8');//防止出现乱码
+		//$this->verifyCheck();//调用本类的函数，
+		if($_POST['submit']){
+			$model = D("Register");
+			$vo = $model->create();
+			if(false === $vo) die($model->getError());
+			$topicid = $model->add(); //add方法会返回新添加的记录的主键值
+			if($topicid) {
+				$this->success('添加成功！');
+			}else {
+				throw_exception("数据库添加失败");
+			}
+			$pass=trim($_POST['password']);
+			$password_again=trim($_POST['repass']);
+			$email=trim($_POST['email']);
+			$username=trim($_POST['username']);
+		}
+		
+		/* if(empty($pass)|| empty($password_again)||empty($username)||empty($email)){
 			$this->error('请把资料填写完整！',U('Register/showReg'));
 		}
-		$pattern1="/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/";
 		$phone="/^[A-Za-z]{1}[0-9A-Za-z_]{2,29}$/";
 		if (!preg_match($pattern1,$email)) {
 			$this->error('邮箱格式不对！',U('Register/showReg'));
 		}
 		if ($pass!=$password_again) {
 			$this->error('确认密码与密码不符合',U('Register/showReg'));
-		}
-		$member=M('member');
+		} */
+		/* $member=D('member');
 		$where['email'] = $email;
 		$find=$member->where($where)->find();
 		if ($find) {
@@ -83,6 +94,18 @@ class RegisterAction extends Action{
 				$sub=$subject->add($data1);
 				$this->redirect('Person/Index/index',array(),2,'注册成功!');
 			}
+		} */
+	}
+	//md5()
+	/* private function emailmd5($email){
+		return md5($email);
+	} */
+	//检验验证码是否正确
+	public function verifyCheck()
+	{
+		if (md5($_POST['verifyTest']) != Session::get('verify'))
+		{
+			die('验证码错误');  //如果验证码不对就退出程序
 		}
 	}
 }

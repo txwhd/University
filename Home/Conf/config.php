@@ -12,5 +12,6 @@ $config_arr2 = array(
 				'REPLY_EMAIL' => '857773627@qq.com', //回复EMAIL（留空则为发件人EMAIL）
 				'REPLY_NAME'  => '研究生', //回复名称（留空则为发件人名称）
 		),
+		
 );
 return array_merge($config_arr1, $config_arr2);

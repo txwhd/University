@@ -17,9 +17,11 @@ $config1 = array(
         'author' => 'leo.li',
         'author_email' => '281978297@qq.com',
     ),
+		
 	'URL_HTML_SUFFIX'=>'html',
 	'HTML_CACHE_ON' => true, // 开启静态缓存
 	'URL_ROUTER_ON' => true, // 开启路由转换
+		'URL_MODEL'=>'2',
 );
 $config2 = WEB_ROOT . "Common/systemConfig.php";
 $config2 = file_exists($config2) ? include "$config2" : array();

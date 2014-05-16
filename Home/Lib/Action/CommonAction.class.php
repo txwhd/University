@@ -184,9 +184,13 @@ class CommonAction extends Action {
     	}
     	return $ary;
     }
-    //模块index操作
-    //更多操作;根据传过来的表名取数据
+    //导航index操作；
+    //统一分配变量
+    //首页更多操作;根据传过来的表名取数据
     public function index(){
+    	//封装一个留学生index方法
+    	//1.哪个表；2.表里提取哪种类型数据，3.不操作数据表；
+    	
     	$this->display();
     }
     //空操作
@@ -197,9 +201,16 @@ class CommonAction extends Action {
 	public function listMore(){
 		$this->display();
 	}
-	//详细操作
-	//更多操作;根据传过来的表名取数据
-	public function showDetail(){
+	//详细文章操作；根据传过来的表名取数据
+	public function aticleDetail(){
+		$this->display();
+	}
+	//详细会员操作；根据传过来的表名和类型取数据
+	public function memberDetail(){
+		$this->display();
+	}
+	//详细牵手恋人操作；根据传过来的表名取数据
+	public function SuccessDetail(){
 		$this->display();
 	}
 }

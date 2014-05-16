@@ -1,5 +1,5 @@
 <?php
-class MemberAction extends  Action{
+class MemberAction extends  CommonAction{
 	public function index(){
 		$this->display();
 	}
