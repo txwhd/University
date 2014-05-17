@@ -41,12 +41,12 @@ class RegisterAction extends Action{
 			if($topicid) {
 				$this->success('添加成功！');
 			}else {
-				throw_exception("数据库添加失败");
+				$this->error("数据库添加失败");
 			}
-			$pass=trim($_POST['password']);
+			/* $pass=trim($_POST['password']);
 			$password_again=trim($_POST['repass']);
 			$email=trim($_POST['email']);
-			$username=trim($_POST['username']);
+			$username=trim($_POST['username']); */
 		}
 		
 		/* if(empty($pass)|| empty($password_again)||empty($username)||empty($email)){

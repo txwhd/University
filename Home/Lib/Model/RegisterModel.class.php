@@ -17,21 +17,24 @@ class RegisterModel extends Model{
 	 		array("password","checkLength","密码长度的要求是5~15位之间",0,'callback'),
 	 		array("password","repass","两次密码输入不一致",0,'confirm'),
 	 		array("email","require","电子邮箱必须填写"),
-	 		array('email','RegMail','邮箱格式不对',0,'callback'),
+	 		array('email','email','邮箱格式错误！',2),
 	 		array('Mobile','checkMobile','手机格式不对',0,'callback'),
-	 		//array('mail','email','邮箱格式错误！',2),
 	 		array("Mobile","require","手机必须填写"),
-	 		//array('regx','require','请输入验证码'), //验证码
+	 		//array('regx','require','请输入验证码'), 
+	 		//array('email','RegMail','邮箱格式不对',0,'callback'),
+	 		//验证码
 	 );
 	 //自动填充
 	 protected $_auto=array(
 	 		array("password","md5",3,'function'),
-	 		array("reg_time","getTime",3,'callback'),
-	 		array("last_login_time","getTime",3,'callback'),
-	 		array("getIp","getIp",3,'callback'),
+	 		array("reg_time",'time',3,'function') ,
+	 		array("last_login_time",'time',3,'function') ,
+	 		array( 'getIp','get_client_ip',3,'function') ,
 	 		/* 	array('ifadmin','0',self::MODEL_INSERT),
 	 		 array( 'ip','get_client_ip',3,'function') ,
-	 array( 'createtime','time',3,'function') , */
+	 		 array("last_login_time","getTime",3,'callback'),
+	 		 	array("getIp","getIp",3,'callback'),
+	*/
 	 
 	 );
 	 //自定义验证方法，来验证用户名的长度是否合法
@@ -44,12 +47,12 @@ class RegisterModel extends Model{
 	 		return true;
 	 	}
 	 }
-	 //返回访问者的IP地址
+	/*  function getTime(){
+	 	return date("Y-m-d H:i:s");
+	 }
+	  //返回访问者的IP地址
 	 function getIp(){
 	 	return $_SERVER['REMOTE_ADDR'];
-	 }
-	 function getTime(){
-	 	return date("Y-m-d H:i:s");
 	 }
 	 function RegMail($data){
 	 	if($data==""){
@@ -64,7 +67,7 @@ class RegisterModel extends Model{
 	 			return false;
 	 		}
 	 	}
-	 }
+	 } */
 	 function checkMobile($data){
 	 	if($data==""){
 	 		return true;

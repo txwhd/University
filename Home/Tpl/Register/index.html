@@ -1,5 +1,9 @@
 <include file="Common:intoHead" />
 <include file="Common:head" />
+<style type="text/css">
+    em.error { float: none; color: red; padding-left: .5em; vertical-align: top; }
+   .field_notice{display:none;}
+</style>
 <div  class="container">
 <div class="other-warp" data-ng-controller="user_signup_ctrl">
     <div data-minheight="58" class="single-panel clearfix">
@@ -13,33 +17,39 @@
                         <div class="form-group">
                             <label class="col-xs-2 control-label">姓名：</label>
                             <div class="col-xs-10">
-                               <input type="text" class="form-control"  name="username" id="username"
-                               data-validate="{required: true, messages:{required:'请输入真实姓名'}}"/> 
+                               <input type="text" class="form-control"  size="20" name="username" id="username"
+                               data-validate="{required: true, minlength:2, messages:{required:'请输入真实姓名', minlength:'长度至少是2个！'}}"/>
+                               <em><label class="field_notice"></label></em>
                             </div>
-                            <em><label class="field_notice"></label></em>
                         </div>
-						<!-- <div class="form-group">
+						<div class="form-group">
                             <label class="col-xs-2 control-label">手机：</label>
                             <div class="col-xs-10">
-                               <input class="form-control" type="text" name="Mobile" id="Mobile" 
+                               <input class="form-control required phone" type="text" name="Mobile" id="Mobile" 
+                               />
+                                <em><label class="field_notice"></label></em>
+<!--                                <input class="form-control" type="text" name="Mobile" id="Mobile" 
                                 data-validate="{required: true, Mobile:true,messages:{required:'请输入手机号码！', Mobile:'请输入有效手机！！'}}"/>
+                                <em><label class="field_notice"></label></em> -->
                             </div>
-                        </div> -->
+                        </div> 
                         <div class="form-group">
                             <label class="col-xs-2 control-label">邮箱：</label>
                             <div class="col-xs-10">
                                 <input type="text"class="form-control" autocomplete="off"  onblur="Reg.ifexit_email" 
                                 data-validate="{required: true, email:true, messages:{required:'请输入邮箱！', email:'请输入有效邮箱！'}}"
                                 name="email" id="email" /> 
-                                <span id="email_message" class="myerror"></span>
+                               <em><label class="field_notice"></label></em>
+                               <!--  <span id="message" name="message" class="myerror"></span> -->
            				 </div>
                         </div>
                         <div class="form-group">
                             <label class="col-xs-2 control-label">密码：</label>
                             <div class="col-xs-10">
                                 <input type="password" class="form-control"
-                                 data-validate="{required: true, messages:{required:'请输入密码！'}}" 
+                                 data-validate="{required: true, minlength:5, messages:{required:'请输入密码！',minlength:'长度至少为5位!'}}" 
                                  name="password" id="password" />
+                              <em><label class="field_notice"></label></em>
            					 </div>
                         </div>
                         <div class="form-group">
@@ -48,25 +58,15 @@
                               <input type="password" class="form-control"
                                data-validate="{required: true, equalTo: '#password', messages:{required:'请输入重复密码！', equalTo: '确认密码与密码不匹配！'}}" 
                                name="repass" id="repass" />
+                               <em><label class="field_notice"></label></em>
          				   </div>
                         </div>
-                       <!--  <div class="form-group" ng-show="register_form.$errors.length > 0">
-                            <label class="col-xs-2 control-label"></label>
-                            <div class="col-xs-10">
-                                <div class="alert alert-danger">
-                                    <i class="icon-remove-sign mr_5"></i>
-                                </div>
-                            </div>提示错误地方
-                        </div> -->
                         <div class="form-group">
                             <div class="col-xs-2"></div>
                             <div class="col-xs-10">
                                  <div class="form-actions">
                                         <input type="submit" class="btn btn-success" name="submit" value="Create account" />
                                     </div>
-<!--                                 <button wt-form-submit="js_submit(register_form)" type="button" class="btn btn-success"
-                                        data-loading-text="注册中..." loading-status="is_registering">注册新用户
-                                </button> -->
                             </div>
                         </div>
                     </form>
@@ -96,67 +96,55 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
       	  </div>
-      	  
     </div>
 </div>
 </div>  
 </div>  
  <script src="__JS__/Home/validate/jquery.validate.js"></script>
  <script src="__JS__/Home/Reg.js"></script>
-        <script src="__JS__/Home/validate/jquery.metadata.js"></script>
+ <script src="__JS__/Home/validate/jquery.metadata.js"></script>
  <script src="__JS__/Home/validate/messages_cn.js" type="text/javascript"></script> 
         <script type="text/javascript">
          $(document).ready(function() {
                  // validate
-                 $('#form-validate').validate();
+                 $('#form-validate').validate({
+                	 errorPlacement: function(error, element){
+                         var error_td = element.next('em');
+            	           error_td.find('.field_notice').hide();
+                      error_td.append(error);
+            	     },
+            	          success: function(label){
+            	                label.addClass('validate_right').text("OK!");
+            	           },
+                      //onkeyup: true,
+        	      /*      jQuery.validator.addMethod("Mobile", function(val, element) {
+               	        var tel = /^(\d{3,4}-?)?\d{7,9}$/g;
+               	        return this.optional(element) || (tel.test(val));
+               	    }, "请正确填写您的电话号码");  */
+                 });
+                
               /*  
-                $('#form-validate').validate();
-                errorPlacement: function(error, element){
-    				var error_td = element.next('em');
-    				error_td.find('.field_notice').hide();
-    				error_td.append(error);
-    			},
-    			success: function(label){
-    				label.addClass('validate_right').text('OK!');
-    			},
             	jQuery.validator.addMethod("Mobile", function(val, element) {
         	        var tel = /^(\d{3,4}-?)?\d{7,9}$/g;
         	        return this.optional(element) || (tel.test(val));
         	    }, "请正确填写您的电话号码"); */
-            	/*  $("#signupForm").validate({
-            	        rules: {
-            	        	username: "required",
-            	               email: {
-            	                  required: true,
-            	                  email: true
-            	               },
-            	               password: {
-            	                  required: true,
-            	                  minlength: 5
-            	              },
-            	             confirm_password: {
-            	                 required: true,
-            	                 minlength: 5,
-            	                 equalTo: "#password"
-            	             }
-            	        },
-            	        messages: {
-            	        	username: "请输入真实的姓名",
-            	                email: {
-            	                     required: "请输入Email地址",
-            	                     email: "请输入正确的email地址"
-            	                },
-            	                password: {
-            	                     required: "请输入密码",
-            	                     minlength: jQuery.format("密码不能小于{0}个字 符")
-            	               },
-            	               repass: {
-            	                     required: "请输入确认密码",
-            	                     minlength: "确认密码不能小于5个字符",
-            	                     equalTo: "两次输入密码不一致不一致"
-            	               }
-            	        }
-            	    }); */
+        	   /*  errorPlacement : function(error, element) {
+        	    	if (element.is(":radio"))
+        	    	error.appendTo(element.parent());
+        	    	else if (element.is(":checkbox"))
+        	    	error.appendTo(element.parent().parent());
+        	    	else
+        	    	error.appendTo(element.parent().next());
+        	    	}
+     			errorPlacement: function(error, element) {
+     			if ( element.is(":radio") )
+     			error.appendTo( element.parent().next().next() );
+     			else if ( element.is(":checkbox") )
+     			error.appendTo ( element.next() );
+     			else
+     			error.appendTo( element.parent() );
+     			},
+        	    	rules : {username:required : true,maxlength : 20} */
             	  /* $("#btn").click(function(){validator.resetForm();});  */
             });
         </script>

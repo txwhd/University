@@ -3,6 +3,14 @@ class TestAction extends Action{
 	//换一换ajax调用
 	//权限判断 个人中心；
 	//测试文件
+	public function index(){
+		$ip = get_client_ip();
+		echo $this->_server('REMOTE_ADDR');//访问者外部的ip
+		echo '<br>';
+		echo $this->_server('SERVER_ADDR');//当前服务器的ip
+		echo '<br>';
+		echo $ip;
+	}
 		public function photoupload(){
 	
 			session_start();
