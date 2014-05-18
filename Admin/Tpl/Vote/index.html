@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>网站注册会员管理-后台管理首页-{$site.SITE_INFO.name}</title>
+        <title>其他业务-投票管理-{$site.SITE_INFO.name}</title>
         <php>
             $addCss="";
             $addJs="";
-            $currentNav ='网站注册会员管理 > 相册列表';
+            $currentNav ='投票管理 > 管理列表';
         </php>
         <include file="Common:intoHead" />
     </head>
@@ -17,17 +17,12 @@
                 <include file="Common:left" />
                 <div id="Right">
                     <div class="Item hr">
-                        <div class="current">相册管理</div>
+                        <div class="current">投票管理</div>
                          <!--查询搜索  -->
                           <div class="current">
                             <form action="__URL__/search" method="post">
-								 <input type="text" name="data[title]" title="Search" class="searchinput" id="searchinput" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- 请输入相册名称 -';" onfocus="if(this.value=='- 请输入相册名称 -')value='';" value="- 请输入相册名称 -" size="30"/>
-								 状态<select name="data[status]">
-											<option value="0">无限制</option>
-											<option value="1">开启</option>
-											<option value="2">禁止</option>
-										</select>
-								<span><button type="submit">查询</button></span>
+								 <input type="text" name="data[vote_name]" title="Search" class="searchinput" id="searchinput" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- 请输入投票名称 -';" onfocus="if(this.value=='- 请输入投票名称 -')value='';" value="- 请输入投票名称 -" size="30"/>
+			                     <span><button type="submit">查询</button></span>
 							</form>
                           </div>
 					</div>
@@ -36,12 +31,11 @@
                             <thead>
                                 <tr>
                                     <td width="90"><label><input name="" class="chooseAll" type="checkbox"/> 全选</label> <label><input name="" class="unsetAll" type="checkbox"/> 反选</label></td>
-                                    <td>相册名</td>
-                                    <td>作者</td>
-                                    <td>查看详细</td>
-                                    <td>相册封面</td>
-                                    <td>相册描述</td>
-                                    <td>相册状态</td>
+                                    <td>投票名称</td>
+                                    <td>开始时间</td>
+                                    <td>结束时间</td>
+                                    <td>投票类型</td>
+                                    <td>投票总数</td>
                                     <td width="150">操作</td>
                                 </tr>
                             </thead>
@@ -49,29 +43,23 @@
                             	<volist name="list" id="tab">
                                     <tr align="center">
                                         <td><input type="checkbox" name="table[]" value="{$tab.Name}"/></td>
-                                        <td align="left">{$tab.title}</td>
-                                        <td align="left">{$tab.member_id}</td>
-                                        <td><a href="__URL__/photo_detail?id={$tab.id}">查看照片</></td>
-                                        <td><img width="120" height="80" src="__PUBLIC__/Upload/Photo/1.png"/></td>
-                                        <td>{$tab.intro|substr=0,20}</td>
-                                        <td>
-                                        	<if condition="$tab.isLock eq 2 ">已经开启|<a href="__URL__/forbidden?id={$tab.member_id}">禁用</a>
-   											 <else /> 禁用|<a href="__URL__/checkPass?id={$tab.member_id}">请审核</a>
-											</if>
-                                        </td>
-                                    	<td><a link="{:U('Photo/del/',array('id'=>$tab['member_id']))}" href="javascript:void(0)" name="{$tab.username}" class="del">删除 </a></td>
-                           			 </tr>
+                                        <td align="left">{$tab.vote_name}</td>
+                                        <td align="left">{$tab.start_time}</td>
+                                        <td align="left">{$tab.end_time}</td>
+                                        <td>{$tab.multiple}</td>
+                                        <td>{$vote_count}</td>
+                                    	 <td>[ <a href="__URL__/edit?id={$vo.vote_id}">编辑 </a> ] [ <a link="{:U('Vote/del/',array('id'=>$vo['vote_id']))}" href="javascript:void(0)" name="{$vo.name}" class="del">删除 </a> ]</td>
+                                    </tr>>
                            		</volist>
                             </tbody>
                             <tfoot align="center">
-                                <tr>
+                                 <tr>
                                     <td width="90"><label><input name="" class="chooseAll" type="checkbox"/> 全选</label> <label><input name="" class="unsetAll" type="checkbox"/> 反选</label></td>
-                                    <td>相册名</td>
-                                    <td>作者</td>
-                                    <td>查看详细</td>
-                                    <td>相册封面</td>
-                                    <td>相册描述</td>
-                                    <td>相册状态</td>
+                                    <td>投票名称</td>
+                                    <td>开始时间</td>
+                                    <td>结束时间</td>
+                                    <td>投票类型</td>
+                                    <td>投票总数</td>
                                     <td width="150">操作</td>
                                 </tr>
                             </tfoot>
@@ -88,6 +76,17 @@
          <script type="text/javascript">
             $(function(){
                 clickCheckbox();
+            });
+            $(function(){
+                $(".del").click(function(){
+                    var delLink=$(this).attr("Vote");
+                    popup.confirm('你真的打算删除【<b>'+$(this).attr("name")+'</b>】吗?','温馨提示',function(action){
+                        if(action == 'ok'){
+                            top.window.location.href=delLink;
+                        }
+                    });
+                    return false;
+                });
             });
           /* //弹出上传文件的层
             $('#showMarriage').on('click', function(){

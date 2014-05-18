@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>添加投票-后台管理-{$site.SITE_INFO.name}</title>
+        <php>
+            $addCss="";
+            $addJs="";
+            $currentNav ='资讯管理 > 添加投票';
+        </php>
+        <include file="Common:intoHead" />
+    </head>
+    <body>
+        <div class="wrap">
+            <include file="Common:head" />
+            <div class="mainBody">
+                <include file="Common:left" />
+                <div id="Right">
+                    <div class="Item hr">
+                        <div class="current">添加投票</div>
+                    </div>
+                    <form>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
+                            <tr>
+                                <th width="100">投票名称：</th>
+                                <td><input id="vote_name" type="text" class="input" size="60" name="vote_name" value="{$info.vote_name}"/> <a href="javascript:void(0)" id="checkNewsTitle">检测是否重复</a></td>
+                            </tr>
+                             <tr>
+                                <th width="100">开始时间：</th>
+                                <td><input id="start_time" type="text" class="input" size="60" name="start_time" value="{$info.start_time}"/></td>
+                            </tr>
+                             <tr>
+                                <th width="100">结束时间：</th>
+                                <td><input id="end_time" type="text" class="input" size="60" name="end_time" value="{$info.end_time}"/></td>
+                            </tr>
+                            
+                             <tr>
+                                <th width="100">投票类型：</th>
+                                <td><label><input type="radio" name="multiple" value="0" /> 单选</label> &nbsp; 
+                                    <label><input type="radio" name="multiple" value="1"  />多选</label> 
+                                </td>
+                            </tr>
+                           
+                            
+                           
+                        </table>
+                        <input type="hidden" name="link_id" value="{$info.link_id}" />
+                    </form>
+                    <div class="commonBtnArea" >
+                        <button class="btn submit">提交</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <include file="Common:foot" />
+        <script type="text/javascript">
+       		 $(function(){
+                $("#checkNewsTitle").click(function(){
+                    $.getJSON("__URL__/checkNewsTitle", { title:$("#title").val(),id:"{$info.id}"}, function(json){
+                        $("#checkNewsTitle").css("color",json.status==1?"#0f0":"#f00").html(json.info);
+                    });
+                });
+                $(".submit").click(function(){
+                   // content.sync();
+                    commonAjaxSubmit();
+                    return false;
+                });
+            });
+        </script>
+    </body>
+</html>
