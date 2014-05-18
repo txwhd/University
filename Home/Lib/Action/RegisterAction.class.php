@@ -37,69 +37,26 @@ class RegisterAction extends Action{
 			$model = D("Register");
 			$vo = $model->create();
 			if(false === $vo) die($model->getError());
-			$topicid = $model->add(); //add方法会返回新添加的记录的主键值
-			if($topicid) {
-				$this->success('添加成功！');
+			$member_id = $model->add(); //add方法会返回新添加的记录的主键值
+			if($member_id) {
+				//生成认证条件
+        		$map            =   array($vo);
+				import ( 'ORG.Util.RBAC' );
+				$_SESSION[C('USER_AUTH_KEY')]=$member_id;
+				$_SESSION['email']	=$_POST['email'];
+				$_SESSION['loginUserName']=$_POST['username'];
+				$_SESSION['OnlineTF']="1";//用户在线状态
+				//保存会员详细信息
+				$member_detail	=	M('member_detail');
+				$data['member_id']	=	$member_id;
+				$data['username']	=	trim($_POST['username']);
+				$member_detail->add($data);
+				$this->success('注册成功！','PersonSpace/ListHeadPhoto');
 			}else {
-				$this->error("数据库添加失败");
+				$this->error("注册失败");
 			}
-			/* $pass=trim($_POST['password']);
-			$password_again=trim($_POST['repass']);
-			$email=trim($_POST['email']);
-			$username=trim($_POST['username']); */
 		}
-		
-		/* if(empty($pass)|| empty($password_again)||empty($username)||empty($email)){
-			$this->error('请把资料填写完整！',U('Register/showReg'));
-		}
-		$phone="/^[A-Za-z]{1}[0-9A-Za-z_]{2,29}$/";
-		if (!preg_match($pattern1,$email)) {
-			$this->error('邮箱格式不对！',U('Register/showReg'));
-		}
-		if ($pass!=$password_again) {
-			$this->error('确认密码与密码不符合',U('Register/showReg'));
-		} */
-		/* $member=D('member');
-		$where['email'] = $email;
-		$find=$member->where($where)->find();
-		if ($find) {
-			$this->error('邮箱已经存在请重新注册！');
-		}
-		$data['username'] = $username;
-		$data['academy_id'] = $academy_id;
-		$data['password'] = md5($pass);
-		$data['email'] = $email;
-		$data['role_id'] = "4";
-		$data['status'] = "1";
-		$data['role_name'] = '个人用户';
-		$data['last_login_time'] = $data["reg_time"] = time();
-		$member_id = $member->add($data);
-		if (!$member_id){
-			redirect('Person/Register/showReg',3,'数据有误，注册失败');
-		}else{
-			$_SESSION['member_id']=$member_id;//将登陆id存续到session中
-			$_SESSION['personName']=$username;//将登陆用户名存续到session中
-				
-			$applyer=M('Applyer');
-			$result=$applyer->create();
-			$result['member_id'] = $member_id;
-			$result['real_name'] =$username;
-			$applyer_id = $applyer->add($result);
-			if (!$applyer_id){
-				$this->error('注册失败！');
-			}else {
-				$_SESSION['applyer_id']=$applyer_id;
-				$subject=M('Subject');//增加学科信息
-				$data1['applyer_id']=$_SESSION['applyer_id'];
-				$sub=$subject->add($data1);
-				$this->redirect('Person/Index/index',array(),2,'注册成功!');
-			}
-		} */
 	}
-	//md5()
-	/* private function emailmd5($email){
-		return md5($email);
-	} */
 	//检验验证码是否正确
 	public function verifyCheck()
 	{

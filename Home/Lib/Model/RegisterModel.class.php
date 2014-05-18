@@ -18,7 +18,8 @@ class RegisterModel extends Model{
 	 		array("password","repass","两次密码输入不一致",0,'confirm'),
 	 		array("email","require","电子邮箱必须填写"),
 	 		array('email','email','邮箱格式错误！',2),
-	 		array('Mobile','checkMobile','手机格式不对',0,'callback'),
+	 		//array('Mobile','checkMobile','手机格式不对',0,'callback'),
+	 		 array('Mobile','number','手机格式不对'),
 	 		array("Mobile","require","手机必须填写"),
 	 		//array('regx','require','请输入验证码'), 
 	 		//array('email','RegMail','邮箱格式不对',0,'callback'),
@@ -29,7 +30,8 @@ class RegisterModel extends Model{
 	 		array("password","md5",3,'function'),
 	 		array("reg_time",'time',3,'function') ,
 	 		array("last_login_time",'time',3,'function') ,
-	 		array( 'getIp','get_client_ip',3,'function') ,
+	 		array( 'getIp',"get_client_ip",3,'function') ,
+	 		array('OnlineTF','1'),//OnlineTF在线状态
 	 		/* 	array('ifadmin','0',self::MODEL_INSERT),
 	 		 array( 'ip','get_client_ip',3,'function') ,
 	 		 array("last_login_time","getTime",3,'callback'),
@@ -73,7 +75,7 @@ class RegisterModel extends Model{
 	 		return true;
 	 	}
 	 	else{
-	 		$phone="/^[A-Za-z]{1}[0-9A-Za-z_]{2,29}$/";
+//	 		$phone="/^[A-Za-z]{1}[0-9A-Za-z_]{2,29}$/";
 	 		if(preg_match($phone,$data)){
 	 			return true;
 	 		}else{
