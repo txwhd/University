@@ -79,7 +79,7 @@
             });
             $(function(){
                 $(".del").click(function(){
-                    var delLink=$(this).attr("Vote");
+                    var delLink=$(this).attr("vote");
                     popup.confirm('你真的打算删除【<b>'+$(this).attr("name")+'</b>】吗?','温馨提示',function(action){
                         if(action == 'ok'){
                             top.window.location.href=delLink;
