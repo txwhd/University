@@ -51,7 +51,7 @@ class RegisterAction extends Action{
 				$data['member_id']	=	$member_id;
 				$data['username']	=	trim($_POST['username']);
 				$member_detail->add($data);
-				$this->success('注册成功！','PersonSpace/ListHeadPhoto');
+				$this->display('PersonSpace/ListHeadPhoto');
 			}else {
 				$this->error("注册失败");
 			}
