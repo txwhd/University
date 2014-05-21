@@ -2,11 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>添加、编辑链接-后台管理-{$site.SITE_INFO.name}</title>
+        <title>修改个人休息-后台管理-{$site.SITE_INFO.name}</title>
         <php>
             $addCss="";
             $addJs="";
-            $currentNav ='资讯管理 > 添加编辑链接';
+            $currentNav ='首页 > 修改个人信息';
         </php>
         <include file="Common:intoHead" />
     </head>
@@ -17,24 +17,21 @@
                 <include file="Common:left" />
                 <div id="Right">
                     <div class="Item hr">
-                        <div class="current">添加编辑链接</div>
+                        <div class="current">修改个人信息</div>
                     </div>
                     <form>
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
                             <tr>
-                                <th width="100">链接名称：</th>
+                                <th width="100">登录名：</th>
                                 <td><input id="name" type="text" class="input" size="60" name="name" value="{$info.name}"/> <a href="javascript:void(0)" id="checkNewsTitle">检测是否重复</a></td>
                             </tr>
+                           
                              <tr>
-                                <th width="100">连接地址：</th>
-                                <td><input id="name" type="text" class="input" size="60" name="url" value="{$info.url}"/></td>
-                            </tr>
-                             <tr>
-                                <th width="100">上传logo：</th>
+                                <th width="100">上传头像：</th>
                                 <td><input id="logo" type="file"  name="logo" value="{$info.logo}"/></td>
                             </tr>
                             <tr>
-                                <th>备注：</th>
+                                <th>个人简介：</th>
                                 <td><textarea class="input"  name="rank">{$info.rank}</textarea></td>
                             </tr>
                             
