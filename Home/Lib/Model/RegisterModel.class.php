@@ -10,7 +10,7 @@ class RegisterModel extends Model{
 	 protected $_validate=array(
 	 		//每个字段的详细验证内容
 	 		array("username","require","用户名不能为空"),//默认情况下用正则进行验证
-	 		array("username","checkLength","用户名长度不符合要求",0,'callback'),
+	 		//array("username","checkLength","用户名长度不符合要求",0,'callback'),
 	 		array('username','','帐号名称已经存在！',0,'unique',1), // 在新增的时候验证name字段是否唯一
 	 		//array('name','','姓名已存在！',0,'unique',self::MODEL_INSERT),
 	 		array("password","require","密码不能为空"),

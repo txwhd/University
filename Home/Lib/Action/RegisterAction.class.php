@@ -30,13 +30,13 @@ class RegisterAction extends Action{
 		}
 	}
 	public  function dealReg(){
-		//$md5email=$this->emailmd5($result['email']+time());
-		header('Content-Type:text/html; charset=utf-8');//防止出现乱码
-		//$this->verifyCheck();//调用本类的函数，
+		//header('Content-Type:text/html; charset=utf-8');//防止出现乱码
+		$model = D("Register");
 		if($_POST['submit']){
-			$model = D("Register");
 			$vo = $model->create();
-			if(false === $vo) die($model->getError());
+			if(false === $vo){
+				$this->error($model->getError());
+			}
 			$member_id = $model->add(); //add方法会返回新添加的记录的主键值
 			if($member_id) {
 				//生成认证条件
@@ -51,9 +51,10 @@ class RegisterAction extends Action{
 				$data['member_id']	=	$member_id;
 				$data['username']	=	trim($_POST['username']);
 				$member_detail->add($data);
-				$this->display('PersonSpace/ListHeadPhoto');
+				$this->success('注册成功','Home/PersonSpace/ListHeadPhoto');
+				//$this->display('PersonSpace/ListHeadPhoto');
 			}else {
-				$this->error("注册失败");
+				//$this->error($model->getError());
 			}
 		}
 	}

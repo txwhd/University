@@ -1,0 +1,57 @@
+<!-- <div class="control-group">
+  <label class="control-label">上传照片</label>
+  <div class="controls">
+    <input type="file" />
+  </div>
+</div> -->
+<!--参数说明
+imgUrl = default.jpg 默认图片 
+uploadUrl= upfile.php 接收图片接口
+uploadSrc=false 是否上传原图
+showCame=true 是否显示摄像头
+pCut=162|162 裁切框大小
+pSize=162|162|48|48|20|20 预览保存图片大小  -->
+  <style type="text/css" media="screen">
+  html, body { height:900px; background-color: #ffffff;}
+  #flashContent { width:483px; height:100%; }
+  </style>
+  <script type="text/javascript">
+   function uploadevent(status,picUrl,callbackdata){
+  //alert(picUrl); //后端存储图片
+	//alert(callbackdata); //后端返回数据
+        status += '';
+     switch(status){
+     case '1':
+		var time = new Date().getTime();
+		var filename162 = picUrl+'_162.jpg';
+		var filename48 = picUrl+'_48.jpg';
+		var filename20 = picUrl+"_20.jpg";
+		document.getElementById('avatar_priview').innerHTML = "头像1 : <img src='"+filename162+"?" + time + "'/> <br/> 头像2: <img src='"+filename48+"?" + time + "'/><br/> 头像3: <img src='"+filename20+"?" + time + "'/>" ;
+	break;
+     case '-1':
+	  window.location.reload();
+     break;
+     default:
+     window.location.reload();
+    } 
+   }
+  </script>
+ </head>
+ <body>
+  <div id="altContent">
+	<OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+		codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"
+		WIDTH="650" HEIGHT="450" id="myMovieName">
+		<PARAM NAME=movie VALUE="__UPLOAD__/HeadPhoto/avatar.swf">
+		<PARAM NAME=quality VALUE=high>
+		<PARAM NAME=bgcolor VALUE=#FFFFFF>
+		<param name="flashvars" value="imgUrl=__UPLOAD__/HeadPhoto/default.jpg&uploadUrl=__URL__/upfileHeadPhoto&uploadSrc=false" />
+		<EMBED src="__UPLOAD__/HeadPhoto/avatar.swf" quality=high bgcolor=#FFFFFF WIDTH="650" HEIGHT="450" wmode="transparent" flashVars="__UPLOAD__/HeadPhoto/default.jpg&uploadUrl=__URL__/upfileHeadPhoto&uploadSrc=false"
+			NAME="myMovieName" ALIGN="" TYPE="application/x-shockwave-flash" allowScriptAccess="always"
+			PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer">
+		</EMBED>
+	</OBJECT>
+  </div>
+  <div id="avatar_priview"></div>
+</body>
+</html>
