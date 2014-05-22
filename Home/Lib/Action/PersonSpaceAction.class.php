@@ -23,6 +23,21 @@ class PersonSpaceAction extends CommonAction{
 		//显示相册页面
 		$this->display();
 	}	
+	public function ListVipUpgrade(){
+		//显示相册页面
+		$this->display();
+	}	
+	public function ListFriend(){
+		//显示交友特权
+		$this->display();
+	}	
+	public function ListPay(){
+		//显示账户充值
+		$this->display();
+	}	
+	public function VipUpgrade(){
+		//处理升级管理
+	}	
 	public function upfileHeadPhoto(){
 		//上传头像处理 现在不成功
 		$savePath = './';  //图片存储路径
