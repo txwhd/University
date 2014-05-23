@@ -6,7 +6,7 @@
         <php>
             $addCss="";
             $addJs="";
-            $currentNav ='<a href="__URL__/index">投票列表</a> > 添加投票项';
+            $currentNav ='投票管理 > 添加投票项';
         </php>
         <include file="Common:intoHead" />
     </head>
@@ -23,18 +23,18 @@
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
                             <tr>
                                 <th width="100">选项名称：</th>
-                                <td><input id="option_name" type="text" class="input" size="60" name="option_name" value="{$info.option_name}"/>
+                                <td><input id="option_name" type="text" class="input" size="60" name="option_name" value="{$info[0]['option_name']}"/>
                              <tr>
                                 <th width="100">已投票数：</th>
-                                <td><input id="option_count" type="text" class="input" size="60" name="option_count" value="{$info.option_count}"/></td>
+                                <td><input id="option_count" type="text" class="input" size="60" name="option_count" value="{$info[0]['option_count']}"/></td>
                             </tr>
                              <tr>
                                 <th width="100">显示顺序：</th>
-                                <td><input id="sort" type="text" class="input" size="60" name="sort" value="{$info.sort}"/></td>
+                                <td><input id="sort" type="text" class="input" size="60" name="sort" value="{$info[0]['sort']}"/></td>
                             </tr>
                         </table>
-                        <input type="hidden" name="vote_id" value="{$list.vote_id}" />
-                        <input type="hidden" name="formType" value="1" />
+                        <input type="hidden" name="option_id" value="{$info.option_id}" />
+                      
                          <div class="commonBtnArea" >
                         <button class="btn submit" name="addOption">提交</button>
                     </div>
@@ -48,3 +48,4 @@
         </script>
     </body>
 </html>
+>

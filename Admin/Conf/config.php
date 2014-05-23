@@ -49,7 +49,6 @@ $config_arr2 = array(
         'Vote' => array(
             'index' => '投票列表',
             'add' => '增加投票',
-            'addOption' => '增加投票选项'
         ),
         'Code' => array(
             'index' => '二维码列表'

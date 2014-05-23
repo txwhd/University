@@ -6,7 +6,7 @@
         <php>
             $addCss="";
             $addJs="";
-            $currentNav ='投票管理 > 管理列表';
+            $currentNav ='<a href="__URL__/index">投票列表</a>->投票详细选项';
         </php>
         <include file="Common:intoHead" />
     </head>
@@ -17,25 +17,24 @@
                 <include file="Common:left" />
                 <div id="Right">
                     <div class="Item hr">
-                        <div class="current">投票管理</div>
+                        <div class="current">投票选项管理</div>
                          <!--查询搜索  -->
                           <div class="current">
                             <form action="__URL__/search" method="post">
-								 <input type="text" name="data[vote_name]" title="Search" class="searchinput" id="searchinput" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- 请输入投票名称 -';" onfocus="if(this.value=='- 请输入投票名称 -')value='';" value="- 请输入投票名称 -" size="30"/>
+								 <input type="text" name="data[vote_name]" title="Search" class="searchinput" id="searchinput" onkeydown="if (event.keyCode==13) {}" onblur="if(this.value=='')value='- 请输入投票项名称 -';" onfocus="if(this.value=='- 请输入投票项名称 -')value='';" value="- 请输入投票项名称 -" size="30"/>
 			                     <span><button type="submit">查询</button></span>
 							</form>
                           </div>
+                          <div class="current"><a href="__URL__/addOption?type=1&id={$list[0]['vote_id']}">投票选项增加</a></div>
 					</div>
                     <form>
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
                             <thead>
                                 <tr>
                                     <td width="90"><label><input name="" class="chooseAll" type="checkbox"/> 全选</label> <label><input name="" class="unsetAll" type="checkbox"/> 反选</label></td>
-                                    <td>投票名称</td>
-                                    <td>开始时间</td>
-                                    <td>结束时间</td>
-                                    <td>投票类型</td>
-                                    <td>投票总数</td>
+                                    <td>选项名称</td>
+                                    <td>选票数量</td>
+                                    
                                     <td width="150">操作</td>
                                 </tr>
                             </thead>
@@ -43,27 +42,18 @@
                             	<volist name="list" id="tab">
                                     <tr align="center">
                                         <td><input type="checkbox" name="table[]" value="{$tab.Name}"/></td>
-                                        <td align="left">{$tab.vote_name}</td>
-                                        <td align="left">{$tab.start_time}</td>
-                                        <td align="left">{$tab.end_time}</td>
-                                        <td>
-                                       		 <if condition="$tab.multiple eq 1 ">多选
-											 <else/>单选
-											</if>
-                                        </td>
-                                        <td>{$vote_count}</td>
-                                    	 <td>[<a href="__URL__/show?id={$tab.vote_id}">详细</a> ][<a href="__URL__/edit?id={$tab.vote_id}">编辑 </a> ] [ <a link="{:U('Vote/del/',array('id'=>$tab['vote_id']))}" href="javascript:void(0)" name="{$vo.vote_name}" class="del">删除 </a> ]</td>
+                                        <td align="left">{$tab.option_name}</td>
+                                        <td align="left">{$tab.option_count}</td>
+                                    	 <td>[<a href="__URL__/editOption?id={$tab.option_id}">编辑 </a> ] [ <a link="{:U('Vote/del/',array('id'=>$tab['option_id']))}" href="javascript:void(0)" name="{$vo.option_name}" class="del">删除 </a> ]</td>
                                     </tr>
                            		</volist>
                             </tbody>
                             <tfoot align="center">
                                  <tr>
-                                    <td width="90"><label><input name="" class="chooseAll" type="checkbox"/> 全选</label> <label><input name="" class="unsetAll" type="checkbox"/> 反选</label></td>
-                                    <td>投票名称</td>
-                                    <td>开始时间</td>
-                                    <td>结束时间</td>
-                                    <td>投票类型</td>
-                                    <td>投票总数</td>
+                                   <td width="90"><label><input name="" class="chooseAll" type="checkbox"/> 全选</label> <label><input name="" class="unsetAll" type="checkbox"/> 反选</label></td>
+                                    <td>选项名称</td>
+                                    <td>选票数量</td>
+                                    
                                     <td width="150">操作</td>
                                 </tr>
                             </tfoot>
