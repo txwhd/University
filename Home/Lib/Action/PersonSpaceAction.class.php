@@ -37,6 +37,14 @@ class PersonSpaceAction extends CommonAction{
 	}	
 	public function VipUpgrade(){
 		//处理升级管理
+	}
+	public function ListArticle(){
+		//显示推荐文章
+		$this->display();
+	}	
+	public function ListArticleAdd(){
+		//显示增加文章
+		$this->display();
 	}	
 	public function upfileHeadPhoto(){
 		//上传头像处理 现在不成功
