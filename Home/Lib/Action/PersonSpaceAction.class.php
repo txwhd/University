@@ -1,7 +1,8 @@
 <?php
 class PersonSpaceAction extends CommonAction{
 	public function index(){
-		//姓名，
+		//姓名分配
+		//引进约会功能（引诱）
 		$this->display();
 	}
 	public function personMain(){
@@ -14,7 +15,7 @@ class PersonSpaceAction extends CommonAction{
 	public function ListApprove(){
 		//显示诚信认证页面
 		$this->display();
-	}	
+	}	 
 	public function ListHeadPhoto(){
 		//显示上传头像页面
 		$this->display();
@@ -44,6 +45,10 @@ class PersonSpaceAction extends CommonAction{
 	}	
 	public function ListArticleAdd(){
 		//显示增加文章
+		$this->display();
+	}	
+	public function ListAct(){
+		//显示活动
 		$this->display();
 	}	
 	public function upfileHeadPhoto(){
