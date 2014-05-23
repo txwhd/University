@@ -63,10 +63,11 @@ box-shadow:inset 0 1px 0 rgba(255,255,255,0.15),0 1px 5px rgba(57,57,57,0.075);
 background:#393939;
 margin:0 auto;
 height:58px;
+font-size:18px;
 }
 header#header nav.navbar:before,header#header nav.navbar:after{
 content:" ";
-display:table
+display:table;
 }
 header#header nav.navbar:after{
 clear:both
@@ -75,7 +76,7 @@ header#header nav.navbar:before,header#header nav.navbar:after{
 content:" ";display:table
 }
 header#header nav.navbar:after{clear:both}
-header#header nav.navbar#header_outer ul#header_menu{margin-left:200px}
+header#header nav.navbar#header_outer ul#header_menu{margin-left:220px}
 header#header nav.navbar#header_outer ul#header_menu>li{margin-right:5px}
 header#header nav.navbar#header_outer ul#header_menu>li.divider-vertical{border-left-color:#111;border-right-color:#363636}
 header#header nav.navbar#header_outer ul#header_menu>li>a{line-height:35px;height:35px;padding:0 20px;margin-top:12px;border-radius:3px;color:#aaa}header#header nav.navbar#header_outer ul#header_menu>li>a:hover{color:#fff}
