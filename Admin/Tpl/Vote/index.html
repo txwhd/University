@@ -51,8 +51,8 @@
 											 <else/>单选
 											</if>
                                         </td>
-                                        <td>{$vote_count}</td>
-                                    	 <td>[<a href="__URL__/show?id={$tab.vote_id}">详细</a> ][<a href="__URL__/edit?id={$tab.vote_id}">编辑 </a> ] [ <a link="{:U('Vote/del/',array('id'=>$tab['vote_id']))}" href="javascript:void(0)" name="{$vo.vote_name}" class="del">删除 </a> ]</td>
+                                        <td>{$tab.vote_count}</td>
+                                    	 <td>[<a href="__URL__/show?id={$tab.vote_id}">详细</a> ][<a href="__URL__/edit?id={$tab.vote_id}">编辑 </a> ] [ <a link="{:U('Vote/del/',array('id'=>$tab['vote_id']))}" href="javascript:void(0)" name="{$tab.vote_name}" class="del">删除 </a> ]</td>
                                     </tr>
                            		</volist>
                             </tbody>
@@ -63,7 +63,7 @@
                                     <td>开始时间</td>
                                     <td>结束时间</td>
                                     <td>投票类型</td>
-                                    <td>投票总数</td>
+                                    <td>投票总数</td> 
                                     <td width="150">操作</td>
                                 </tr>
                             </tfoot>
@@ -83,7 +83,7 @@
             });
             $(function(){
                 $(".del").click(function(){
-                    var delLink=$(this).attr("vote");
+                    var delLink=$(this).attr("link");
                     popup.confirm('你真的打算删除【<b>'+$(this).attr("name")+'</b>】吗?','温馨提示',function(action){
                         if(action == 'ok'){
                             top.window.location.href=delLink;

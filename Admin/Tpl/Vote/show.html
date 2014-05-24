@@ -44,7 +44,7 @@
                                         <td><input type="checkbox" name="table[]" value="{$tab.Name}"/></td>
                                         <td align="left">{$tab.option_name}</td>
                                         <td align="left">{$tab.option_count}</td>
-                                    	 <td>[<a href="__URL__/editOption?id={$tab.option_id}">编辑 </a> ] [ <a link="{:U('Vote/del/',array('id'=>$tab['option_id']))}" href="javascript:void(0)" name="{$vo.option_name}" class="del">删除 </a> ]</td>
+                                    	 <td>[<a href="__URL__/editOption?id={$tab.option_id}">编辑 </a> ] [ <a href="{:U('Vote/delOption/',array('id'=>$tab['option_id']))}" name="{$tab.option_name}" class="del">删除 </a> ]</td>
                                     </tr>
                            		</volist>
                             </tbody>
@@ -71,16 +71,6 @@
             $(function(){
                 clickCheckbox();
             });
-            $(function(){
-                $(".del").click(function(){
-                    var delLink=$(this).attr("vote");
-                    popup.confirm('你真的打算删除【<b>'+$(this).attr("name")+'</b>】吗?','温馨提示',function(action){
-                        if(action == 'ok'){
-                            top.window.location.href=delLink;
-                        }
-                    });
-                    return false;
-                });
             });
         </script>
     </body>

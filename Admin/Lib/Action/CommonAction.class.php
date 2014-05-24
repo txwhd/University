@@ -254,7 +254,8 @@ class CommonAction extends Action {
     } */
     public function del() {
     	$name=$this->getActionName();
-    	$str=$name->getPk ();
+    	$m=M($name);
+    	$str=$m->getPk ();
     	//$str = $name.'_id'; // 将表的名字首字符小写
     	$where[$str]=(int) $_GET['id'];
     	if (M($name)->where($where)->delete()) {

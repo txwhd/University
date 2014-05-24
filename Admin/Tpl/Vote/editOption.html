@@ -19,7 +19,7 @@
                     <div class="Item hr">
                         <div class="current">添加-编辑投票项</div>
                     </div>
-                    <form action="__URL__/addOption" method="post" >
+                    <form action="__URL__/editOption" method="post" >
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
                             <tr>
                                 <th width="100">选项名称：</th>
@@ -33,10 +33,10 @@
                                 <td><input id="sort" type="text" class="input" size="60" name="sort" value="{$info[0]['sort']}"/></td>
                             </tr>
                         </table>
-                        <input type="hidden" name="option_id" value="{$info.option_id}" />
-                      
+                        <input type="hidden" name="option_id" value="{$info[0]['option_id']}" />
+                        <input type="hidden" name="formType" value="1" />
                          <div class="commonBtnArea" >
-                        <button class="btn submit" name="addOption">提交</button>
+                        <button class="btn submit" name="editOption">提交</button>
                     </div>
                     </form>
                 </div>
@@ -44,8 +44,6 @@
         </div>
         <div class="clear"></div>
         <include file="Common:foot" />
-        <script type="text/javascript">
-        </script>
     </body>
 </html>
 >
