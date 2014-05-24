@@ -50,7 +50,7 @@
 									 <else /> 锁定|<a href="__URL__/checkPass?id={$vo.advertisement_id}">请审核开启</a>
 									</if>
                                 </td>
-                                <td>[ <a href="__URL__/edit?id={$vo.advertisement_id}">编辑 </a> ] [ <a link="{:U('Advertisement/del/',array('id'=>$vo['advertisement_id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
+                                <td>[ <a href="__URL__/edit?id={$vo.advertisement_id}">编辑 </a> ] [ <a link="{:U('Advertisement/del/',array('id'=>$vo['advertisement_id']))}" href="javascript:void(0)" name="{$vo.title_name}" class="del">删除 </a> ]</td>
                             </tr>
                         </volist>
                         </tbody>
