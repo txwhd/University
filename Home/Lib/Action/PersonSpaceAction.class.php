@@ -47,7 +47,7 @@ class PersonSpaceAction extends CommonAction{
 		//显示增加文章
 		$this->display();
 	}	
-	public function ListAct(){
+	public function ListActivity(){
 		//显示活动
 		$this->display();
 	}	
