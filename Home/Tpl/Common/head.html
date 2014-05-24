@@ -92,23 +92,7 @@
 														</div>					
 												</form>
 		  </div>
-		 
-		</div><!--ThinkAjax.sendForm() 函数参数说明：
-
-    第一个参数为提交表单的 id 。
-    第二是参数为提交服务器端处理的地址。
-    第三个参数为如果提交成功，执行的函数名称。
-    第四个参数为显示提示信息的 div id。
-    
-    ThinkPHP Ajax 实现流程说明
-
-    将表单提交按钮定义为 button ，点击触发 onClick 事件，执行 ThinkAjax.sendForm() 函数。
-    ThinkAjax.sendForm() 函数将表单提交（默认 POST 方式）给服务器端 checkLogin 操作执行。
-    checkLogin 操作根据检验结果使用 ajaxReturn 返回不同信息。
-    ThinkAjax.sendForm() 根据服务器端返回结果，将提示信息显示在 id="result" 的结果内并执行 complete() 函数。
-    ajaxReturn 如果返回的 status=1 ，complete() 函数执行 id="list" div 的 innerHTML 。
-    
-		  -->
+		</div>
       </div><!-- /.modal-body-->
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
