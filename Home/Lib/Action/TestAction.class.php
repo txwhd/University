@@ -114,4 +114,16 @@ PHP时间戳与时间相互转换(精确到毫秒)*/
 	$date = date($tag,$usec);
 	return str_replace('x', $sec, $date);
 } */ 
-
+/*
+ * ip地址转换\import('ORG.Net.IpLocation');// 导入IpLocation类
+$Ip = new IpLocation(); // 实例化类 参数表示IP地址库文件
+$area = $Ip->getlocation('www.baidu.com'); // 获取域名服务器所在的位置
+dump($area);
+输出
+array(5) {
+["ip"] => string(14) "61.135.169.105"
+["beginip"] => string(12) "61.135.162.0"
+["endip"] => string(14) "61.135.169.255"
+["country"] => string(9) "北京市"
+["area"] => string(12) "百度蜘蛛"
+}  */

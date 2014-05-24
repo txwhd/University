@@ -14,14 +14,10 @@ $config1 = array(
     'TOKEN_RESET' => FALSE, //令牌验证出错后是否重置令牌 默认为true
     /* 开发人员相关信息 */
     'AUTHOR_INFO' => array(
-        'author' => 'leo.li',
+        'author' => '中北飞软工作室',
         'author_email' => '281978297@qq.com',
+        'author_web' => 'www.feiruan.net',
     ),
-		
-	'URL_HTML_SUFFIX'=>'html',
-	'HTML_CACHE_ON' => true, // 开启静态缓存
-	'URL_ROUTER_ON' => true, // 开启路由转换
-		//'URL_MODEL'=>'2',
 );
 $config2 = WEB_ROOT . "Common/systemConfig.php";
 $config2 = file_exists($config2) ? include "$config2" : array();

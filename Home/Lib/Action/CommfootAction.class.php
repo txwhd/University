@@ -2,9 +2,23 @@
 /**
  +----------------------------------------------------------
  *公用的foot操作
+ *aothor:857773627@qq.com xiaocheng
  +----------------------------------------------------------
  */
-class CommfootAction extends CommonAction{
+class CommfootAction extends Action{
+	/**
+	 +----------------------------------------------------------
+	 * 公共menu
+	 +----------------------------------------------------------
+	 */
+	public function menu(){
+		//$model= 查到数据
+		
+	}
+	/* public function right(){
+		//$model= 根据文章id->内容
+		
+	} */
 	/**
 	 +----------------------------------------------------------
 	 * 服务条款
@@ -20,7 +34,8 @@ class CommfootAction extends CommonAction{
 	 +----------------------------------------------------------
 	 */
 	public function about(){
-	
+		$this->menu();
+		$this->display();
 	
 	}
 	/**
