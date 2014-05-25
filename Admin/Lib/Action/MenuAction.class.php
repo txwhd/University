@@ -1,15 +1,9 @@
 <?php
 /*
- * name:会员发布心情
+ * name:菜单管理
  * aothor:
  */
 class MenuAction extends CommonAction {
-	public function _before_index(){
-		//管理member表
-		$list = M()->table("mxczhyk_mood r")->join("mxczhyk_member s on r.member_id=s.member_id")->select();
-		$this->assign('list',$list);
-	}
-	
 	public function forbidden(){
 		//禁止状态
 		$where['mood_id']=$_GET['id'];

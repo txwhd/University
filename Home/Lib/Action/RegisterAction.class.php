@@ -2,7 +2,7 @@
 /*
  * 注册模块
  */
-class RegisterAction extends Action{
+class RegisterAction extends CommonAction{
 	public function index(){
 		$model=M('Webinfo');
 		$reg=$model->field('reg_agreement')->limit(1)->select();

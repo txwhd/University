@@ -196,7 +196,6 @@ class CommonAction extends Action {
     public function add() {
     	$name=$this->getActionName();
     	if (IS_POST) {
-    		//$this->checkToken();
     		$data=D($name)->upload();
     		echo json_encode(D($name)->addNews($data));
     	} else {

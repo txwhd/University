@@ -17,7 +17,7 @@
                 <include file="Common:left" />
                 <div id="Right">
                     <div class="Item hr">
-                        <div class="current">添加编辑菜单</div>
+                        <div class="current">添加,编辑菜单</div>
                     </div>
                     <form>
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
@@ -34,14 +34,12 @@
                                 <td><input id="rank" type="text" class="input" size="60" name="rank" value="{$info.rank}"/> </td>
                             </tr>
                             <tr>
-                           
-                          
                                 <th width="100">类型：</th>
                                 <td><input id="type" type="text" class="input" size="60" name="title" value="{$info.type}"/> </td>
                             </tr>
                            <tr>
                                 <th width="100">url：</th>
-                                <td><input id="urlr" type="text" class="input" size="60" name="url" value="{$info.url}"/> </td>
+                                <td><input id="url" type="text" class="input" size="60" name="url" value="{$info.url}"/> </td>
                             </tr>
                            <tr>
                                 <th width="100">范围：</th>
@@ -50,27 +48,18 @@
                            
                             
                         </table>
-                        <input type="hidden" name="info[id]" value="{$info.id}" />
-                    </form>
-                    <div class="commonBtnArea" >
+                        <input type="hidden" name="info[id]" value="{$info.menu_id}" />
+                        <div class="commonBtnArea" >
                         <button class="btn submit">提交</button>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
         <div class="clear"></div>
         <include file="Common:foot" />
-        <js href="__PUBLIC__/kindeditor/kindeditor.js,__PUBLIC__/kindeditor/lang/zh_CN.js"/>
         <script type="text/javascript">
-            $(function(){var  content ;
-                KindEditor.ready(function(K) {
-                    content = K.create('#code');
-                });
-                $("#checkNewsTitle").click(function(){
-                    $.getJSON("__URL__/checkNewsTitle", { title:$("#title").val(),id:"{$info.id}"}, function(json){
-                        $("#checkNewsTitle").css("color",json.status==1?"#0f0":"#f00").html(json.info);
-                    });
-                });
+            $(function(){
                 $(".submit").click(function(){
                     content.sync();
                     commonAjaxSubmit();

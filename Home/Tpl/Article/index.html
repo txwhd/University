@@ -1,7 +1,5 @@
 <include file="Common:intoHead" />
-<include file="Public:meta" />
 <include file="Common:head" />
-<include file="Common:search" />
  <!--page_container-->
     <div class="page_container">
     	<div class="wrap">
@@ -9,50 +7,27 @@
                 <section>
                 	<div class="row">
                     	<div class="span8">
+                    	<volist name="list" id="list">
                         	<div class="post">
-                            	<h2 class="title"><span><a href="blog_post.html">Lorem Ipsum is simply dummy text</a></span></h2>
-                           		<img src="img/blog/1.jpg" alt="" />
+                            	<h2 class="title"><span><a href="{$list[0]['title']}">{$list[0]['title']}</a></span></h2>
+                           		<!-- <img src="img/blog/1.jpg" alt="" /> -->
                                 <div class="post_info">
-                                	<div class="fleft">On <span>12 Nov 2020</span> / By <a href="#">John Smith</a> / Tags <a href="#">Works</a>, <a href="#">Personal</a></div>
-                                    <div class="fright"><a href="#">25</a> Comments</div>                                    
+                                	<div class="fleft">On <span>{$list[0]['update_time']}</span> / By <a href="{$list[0]['username']}">{$list[0]['username']}</a> 
+                                	/标签<volist name="label" id="label">
+                                		<a href="{$list[0]['title']}">{$list[0]['title']}</a>, <a href="#">Personal</a></div>
+                                		</volist>
+                                    <div class="fright"><a href="{$list[0]['title']}">{$list[0]['title']}</a> 评论</div>                                    
                                 	<div class="clear"></div>
                                 </div>
-                                <p>Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio. Morbi nunc odio, gravida at, cursus nec, luctus a, lorem. Maecenas tristique orci ac sem. Duis ultricies pharetra magna. Donec accumsan malesuada orci. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus...</p>
-                                <a href="blog_post.html" class="arrow_link">Read more</a>
+                                <p>{$list[0]['title']}</p>
+                                <a href="{$list[0]['content']}" class="arrow_link">详细</a>
                             </div>
-                            <div class="post">
-                            	<h2 class="title"><span><a href="blog_post.html">It is a long established fact that a reader will</a></span></h2>
-                           		<img src="img/blog/2.jpg" alt="" />
-                                <div class="post_info">
-                                	<div class="fleft">On <span>12 Nov 2020</span> / By <a href="#">John Smith</a> / Tags <a href="#">Works</a>, <a href="#">Personal</a></div>
-                                    <div class="fright"><a href="#">25</a> Comments</div>                                    
-                                	<div class="clear"></div>
-                                </div>
-                                <p>Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio. Morbi nunc odio, gravida at, cursus nec, luctus a, lorem. Maecenas tristique orci ac sem. Duis ultricies pharetra magna. Donec accumsan malesuada orci. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus...</p>
-                                <a href="blog_post.html" class="arrow_link">Read more</a>
-                            </div>
-                            <div class="post">
-                            	<h2 class="title"><span><a href="blog_post.html">Duis aute irure dolor in reprehenderit in voluptate velit esse</a></span></h2>
-                           		<img src="img/blog/3.jpg" alt="" />
-                                <div class="post_info">
-                                	<div class="fleft">On <span>12 Nov 2020</span> / By <a href="#">John Smith</a> / Tags <a href="#">Works</a>, <a href="#">Personal</a></div>
-                                    <div class="fright"><a href="#">25</a> Comments</div>                                    
-                                	<div class="clear"></div>
-                                </div>
-                                <p>Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio. Morbi nunc odio, gravida at, cursus nec, luctus a, lorem. Maecenas tristique orci ac sem. Duis ultricies pharetra magna. Donec accumsan malesuada orci. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus...</p>
-                                <a href="blog_post.html" class="arrow_link">Read more</a>
-                            </div>
+                         </volist>
                             <div class="pagination">
-                                <ul>
-                                  <li><a href="#">&larr;</a></li>
-                                  <li class="active"><a href="#">10</a></li>
-                                  <li class="disabled"><a href="#">...</a></li>
-                                  <li><a href="#">20</a></li>
-                                  <li><a href="#">&rarr;</a></li>
-                                </ul>
+                               <div class="page">{$page}</div>
                             </div>
                         </div>
-                    	<div class="span4">
+                    	<div class="news">
                         	<div class="sidebar">
                             	<div class="widget">
                                 	<form class="form-search">
@@ -123,6 +98,4 @@
         </div>
     </div>
     <!--//page_container-->
-        <!-- 将这个调到右面 -->
-<include file="Common:link" />
 <include file="Common:foot" />

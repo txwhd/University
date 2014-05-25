@@ -4,5 +4,7 @@
  *
  */
 class NationAction extends CommonAction{
-	
+	public function index(){
+		$this->display();
+	}
 }

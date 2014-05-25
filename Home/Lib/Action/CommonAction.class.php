@@ -7,17 +7,7 @@ class CommonAction extends Action {
 		//文章取出5条
 		//同校活动取出5条
 		Load('extend');
-		//导航数据组装
-		$nav_list = D('Menu')->where('parentid=0 AND status=1')->order('sort DESC')->select();
-		if(is_array($nav_list)){
-			foreach ($nav_list as $key=>$val){
-				$nav_list[$key] = $this->changurl($val);
-				$nav_list[$key]['sub_nav'] = D('Menu')->where('parentid='.$val['menu_id'].' AND status=1')->select();
-				foreach ($nav_list[$key]['sub_nav'] as $key2=>$val2){
-					$nav_list[$key]['sub_nav'][$key2] = $this->changurl($val2);
-				}
-			}
-		}
+		$this->assign('menu',M('menu')->where('parentid=0 AND type=1')->order('sort')->limit(8)->select());//导航数据组装
 		//最热文章数据组装
 		$hot_art = D('Article')->where('status=1')->order('apv DESC')->limit(8)->select();
 		if(is_array($hot_art)){
@@ -190,7 +180,17 @@ class CommonAction extends Action {
     public function index(){
     	//封装一个留学生index方法
     	//1.哪个表；2.表里提取哪种类型数据，3.不操作数据表；
-    	
+    	$name=$this->getActionName();
+    	$M = M($name);
+    	$count = $M->count();
+    	import("ORG.Util.Page");       //载入分页类
+    	$page = new Page($count, 20);
+    	$showPage = $page->show();
+    	$this->assign("page", $showPage);
+    	$this->assign("list", D($name)->listNews($page->firstRow, $page->listRows));
+    	/* $list=M($name)->select();
+    	 $this->assign('list',$list); */
+    	$this->display();
     	$this->display();
     }
     //空操作

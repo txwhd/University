@@ -17,16 +17,11 @@
                 <include file="Common:left" />
                 <div id="Right">
                     <div class="Item hr">
-                        <div class="current">心情列表管理</div>
+                        <div class="current">首页菜单管理</div>
                          <!--查询搜索  -->
                           <div class="current">
                             <form action="__URL__/search" method="post">
-								姓名<input type="text" name="data[username]" size="30"/>
-								&nbsp;&nbsp;状态<select name="data[status]">
-											<option value="">无限制</option>
-											<option value="1">开启</option>
-											<option value="2">禁止</option>
-										</select>
+								名称<input type="text" name="data[menu_name]" size="30"/>
 								<span><button type="submit">查询</button></span>
 							</form>
                           </div>
@@ -40,7 +35,8 @@
                                     <td>次序</td>
                                     <td>类型</td>
                                     <td>url</td>
-                                    <td width="150">范围</td>
+                                    <td>范围</td>
+                                    <td width="150">操作</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -52,8 +48,7 @@
                                         <td >{$tab.type}</td>
                                         <td >{$tab.url}</td>
                                         <td >{$tab.target}</td>
-                                        
-                                   
+                           			  <td>[ <a href="__URL__/edit?id={$tab.menu_id}">编辑 </a>][<a link="{:U('Menu/del/',array('id'=>$tab['menu_id']))}" href="javascript:void(0)" name="{$vo.menu_name}" class="del">删除 </a> ]</td>
                            			 </tr>
                                 </volist>
                             </tbody>
@@ -64,7 +59,8 @@
                                     <td>次序</td>
                                     <td>类型</td>
                                     <td>url</td>
-                                    <td width="150">范围</td>
+                                    <td>范围</td>
+                                    <td width="150">操作</td>
                                 </tr>
                             </tfoot>
                         </table>
@@ -78,8 +74,18 @@
         <div class="clear"></div>
         <include file="Common:foot" />
          <script type="text/javascript">
-            $(function(){
-                clickCheckbox();
+         $(function(){
+             $(".del").click(function(){
+                 var delLink=$(this).attr("link");
+                 popup.confirm('你真的打算删除【<b>'+$(this).attr("name")+'</b>】吗?','温馨提示',function(action){
+                     if(action == 'ok'){
+                         top.window.location.href=delLink;
+                     }
+                 });
+                 return false;
+             });
+            
+         });
         </script>
     </body>
 </html>

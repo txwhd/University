@@ -3,7 +3,6 @@
 <link type="text/css" href="__CSS__/Home/jquery-ui-1.10.0.custom.css" rel="Stylesheet" />	
 <!-- <script type="text/javascript" src="js/jquery-1.4.4.min.js"></script> -->
 <script type="text/javascript" src="__JS__/Home/jquery-ui-1.9.2.custom.min.js"></script>
- 
 <include file="Common:head" />
 <style type="text/css">
     em.error { float: none; color: red; padding-left: .5em; vertical-align: top; }
@@ -15,7 +14,6 @@
         <div class="single-panel-inner middle">
             <div class="single-panel-header">
                 <h3><a href="#" class="btn btn-large btn-primary disabled">注册新用户</a></h3>
-                
             </div>
             <div class="single-panel-body">
                 <div class="single-panel-section" ng-show="show_signup">
@@ -31,12 +29,12 @@
 	                    <div class="form-group">
 	                           <label class="col-xs-2 control-label">我是：</label>
 	                              <!--js加载-->
-	                               <div class="input-append col-xs-5"> 
-									  <input class="span2" id="appendedInput" type="text" name="nationName" id="nationName" placeholder="请输入你的民族"
-									   data-validate="{required: true, messages:{required:'请填写你的民族'}}">
-									  <span class="add-on">族</span>
-									   <em><label class="field_notice"></label></em>
-									</div>
+                               <div class="input-append col-xs-5"> 
+								  <input class="span2" id="appendedInput" type="text" name="nationName" id="nationName" placeholder="请输入你的民族"
+								   data-validate="{required: true, messages:{required:'请填写你的民族'}}">
+								  <span class="add-on">族</span>
+								   <em><label class="field_notice"></label></em>
+								</div>
 	                      </div>
                         <div class="form-group">
                             <label class="col-xs-2 control-label">出生年月：</label>
@@ -150,53 +148,28 @@
          $(document).ready(function() {
                  // validate
                  $('#form-validate').validate({
-                	 /* errorPlacement: function(error, element){
+                	 errorPlacement: function(error, element){
                          var error_td = element.next('em');
             	           error_td.find('.field_notice').hide();
                       error_td.append(error);
-                      success: function(label){
-      	                label.addClass('validate_right').text("OK!");
-      	          		 }, */
-            	    // },
-            	         
+            	     },
+            	     success: function(label){
+       	                label.addClass('validate_right').text("OK!");
+       	          		 }, 
                       //onkeyup: true,
         	      /*      jQuery.validator.addMethod("Mobile", function(val, element) {
                	        var tel = /^(\d{3,4}-?)?\d{7,9}$/g;
                	        return this.optional(element) || (tel.test(val));
                	    }, "请正确填写您的电话号码");  */
                  });
-                
-              /*  
-            	jQuery.validator.addMethod("Mobile", function(val, element) {
-        	        var tel = /^(\d{3,4}-?)?\d{7,9}$/g;
-        	        return this.optional(element) || (tel.test(val));
-        	    }, "请正确填写您的电话号码"); */
-        	   /*  errorPlacement : function(error, element) {
-        	    	if (element.is(":radio"))
-        	    	error.appendTo(element.parent());
-        	    	else if (element.is(":checkbox"))
-        	    	error.appendTo(element.parent().parent());
-        	    	else
-        	    	error.appendTo(element.parent().next());
-        	    	}
-     			errorPlacement: function(error, element) {
-     			if ( element.is(":radio") )
-     			error.appendTo( element.parent().next().next() );
-     			else if ( element.is(":checkbox") )
-     			error.appendTo ( element.next() );
-     			else
-     			error.appendTo( element.parent() );
-     			},
-        	    	rules : {username:required : true,maxlength : 20} */
-            	  /* $("#btn").click(function(){validator.resetForm();});  */
-            	 /* $('#datepicker').datepicker({
+            	 $('#datepicker').datepicker({
          		    inline: true
          		});
             	// Autocomplete
             	 var availableTags = ["ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++", "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran", "Groovy", "Haskell", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python", "Ruby", "Scala", "Scheme"];
             	 $("#email").autocomplete({
             	     source: availableTags
-            	 }); */
+            	 }); 
             });
         </script>
 <include file="Common:foot" />

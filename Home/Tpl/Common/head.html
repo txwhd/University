@@ -7,34 +7,16 @@
 <!--导航栏-->
 <header id="header">
     <nav id="header_outer" class="navbar   navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="navbar-header">    
+        <div class="navbar-header">
+       		 <div class="logo"><img src="__IMG__/Home/logo.png" /></div>    
         </div>
         <div class="collapse navbar-collapse navbar-header-collapse">
             <ul id="header_menu" class="nav navbar-nav">
-                <li class="active">
-                <a wt-tracker="Header|Menu|Goto Index" href="__APP__/Index/index">首页</a>
-                </li>
-				<li >
-                <a wt-tracker="Header|Menu|Goto Index" href="__APP__/Recommend/index">站长推荐</a>
-                </li>
-                <li>
-                <a wt-tracker="Header|Menu|Goto Tour" href="__APP__/Member/index">同校恋爱</a>
-                </li>
-                <li>
-                <a wt-tracker="Header|Menu|Goto Plan" href="__APP__/City/index">同城恋爱</a>
-                </li>
-                <li>
-                <a wt-tracker="Header|Menu|Goto Plan" href="__APP__/Nation/index">民族恋情</a>
-                </li>               
-				<li>
-                <a wt-tracker="Header|Menu|Goto Plan" href="__APP__/Article/index">文章发布</a>
-                </li>
-                <li>
-                <a wt-tracker="Header|Menu|Goto Blog" href="__APP__/Success/index">牵手恋人</a>
-                </li>
-				 <li>
-                <a wt-tracker="Header|Menu|Goto Blog" href="__APP__/PersonSpace/index">个人中心</a>
-                </li>
+             	 <volist name="menu" id="vo">
+               		 <li>
+                 	<a href="__APP__/{$vo['url']}">{$vo['menu_name']}</a>
+                 	</li>
+                </volist>
             </ul>
             <ul class="nav navbar-nav navbar-right ng-scope" ng-controller="user_ctrl" id="header_me">
                 <li class="divider-vertical hidden-xs"></li>
