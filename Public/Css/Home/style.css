@@ -129,6 +129,22 @@ border-right-color:#646668
 #header_me{
 margin-right:10px;
 }
+/*图片新闻模块*/
+.photo_news{
+	width:700px;
+	margin-left:5px;
+	text-align:center;
+}
+
+/* 图片新闻切换 */
+.JQ-slide{width:620px;height:270px;overflow:hidden;position:relative;margin:0px 40px;}
+.JQ-slide-content{position:absolute;}/*必须要的元素*/
+.JQ-slide-content li{width:620px;height:270px;float:left;display:inline;position:relative;}
+.JQ-slide-content li img{width:620px;height:270px;}
+.JQ-slide-content li span{display:block;background:black;color:white;font-size:14px;font-weight:bold;padding:0 14px;line-height:28px;position:absolute;bottom:5px;left:0;z-index:10;width:620px;overflow:hidden;filter:alpha(opacity=50);-moz-opacity:0.5;-khtml-opacity:0.5;opacity:0.5;}
+.JQ-slide-nav{position:absolute;bottom:14px;right:8px;z-index:30;}
+.JQ-slide-nav li{float:left;display:inline;background:url(images/focus_li.png) no-repeat;_background:url(images/focus_li.gif) no-repeat;width:10px;height:10px;text-indent:-999em;overflow:hidden;cursor:pointer;margin-right:5px;}
+.JQ-slide-nav li.on{background-position:-15px 0;}
 
 /*友情链接*/
 #link{

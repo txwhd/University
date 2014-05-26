@@ -3,13 +3,15 @@
 <head >
 <include file="Common:intoHead" />
 <include file="Public:meta" />
+<script type="text/javascript" src="__JS__/Home/jquery.slide.js"></script>
 </head>
 <body>
 <include file="Common:head" />
 <include file="Common:search" />
  <div id="ad-news">	
 <div class="container">		
-<div class="ad" >		
+<div class="ad" >
+<!--图片新闻模块-->
 	<div id="carousell" class="carousel slide">
 		<div class="carousel-inner">
 			<div class="item active">
@@ -19,15 +21,6 @@
 				<p>探险家伊泽瑞尔攻略：蛋刀蓝EZ冲分利器单挑王</p>
 				</div>
 			</div>
-			<volist name="list2" id="vo">
-				<div class="item active">
-					<a href="{$vo.external_link}" target="_blank"><img src="__ROOT__/{$vo.thumbnails}" class="img-responsive" alt="Responsive image"/></a>
-					<div class="carousel-caption">
-					<h4>标题一</h4>
-					<p>{$vo.image_description}</p>
-					</div>
-				</div>
-			</volist>
 			<div class="item">
 				<img src="__IMG__/Home/2.jpg" alt="" />
 				<div class="carousel-caption">
@@ -41,15 +34,23 @@
 					<h4>标题三</h4>
 					<p>Riot设计师：细谈联盟系统及MMR系统的优缺点</p>
 				</div>
-			</div>				
+			</div>	
+			<volist name="list2" id="vo">
+				<div class="item active">
+					<a href="{$vo.ad_link}" target="_blank"><img src="__ROOT__/{$vo.image_site}" class="img-responsive" alt="Responsive image"/></a>
+					<div class="carousel-caption">
+					<h4>{$vo.title_name}</h4>
+					<p>{$vo.image_description}</p>
+					</div>
+				</div>
+			</volist>				
 		</div>
 		<a href="#carousell" data-slide="prev" class="left carousel-control">&lsaquo;</a>
 		<a href="#carousell" data-slide="next" class="right carousel-control">&rsaquo;</a>
 	</div>
 </div>
 </div>
-</div><!-- /.ad-news -->
- 	
+</div>
 <!--店长推荐-->
 <div class="container">
 <div id="choose" class="recommend">
@@ -95,14 +96,11 @@
 		</div>
 </div><!--店长推荐结束-->
 <div class="news">
-								<div class="panel panel-info">
-									
-	
+	<div class="panel panel-info">
 				<ul class="nav nav-tabs" id="myTab">
-				  <li ><a href="#messages" data-toggle="tab">同校活动</a></li>
+				  <li ><a href="#messages" data-toggle="tab">校园活动</a></li>
 				  <li><a href="#settings" data-toggle="tab">同城活动</a></li>
 				</ul>
-				
 				<div class="tab-content">
 				  <div class="tab-pane fade in active" id="messages">
 				  	<volist name="Activity1" id="vo">
@@ -293,10 +291,14 @@
 </div><!--会员+心情语录结束-->
 <include file="Common:link" />
 <include file="Common:foot" />
-<script>
-  $(function () {
-    $('#myTab a:last').tab('show')
-  })
+<script type="text/javascript">
+	$(document).ready(function(){
+		 $('#myTab a:last').tab('show');
+		// 后两个参数不写为0默认从左上角滑出，可修改这两个参数调整浮动图片出现的位置
+		if(<{$ad3[0]['on_float']}> == 2){
+			FloatAd.newFloatAd("__ROOT__/<{$ad3[0]['image_site_thumb']}><{$ad3[0]['ad_name']}>","__APP__/<{$ad3[0]['ad_link']}>",0,0,"__ROOT__/Public/Img/Home/close.png"); 
+		}
+	});
 </script>
  </body>
 </html>

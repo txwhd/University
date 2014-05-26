@@ -4,15 +4,16 @@ class IndexAction extends CommonAction{
     //首页
 	public function index(){
 		/* $this->assign('diary',D('Diary')->where('status=1')->order('add_time DESC')->limit(5)->select());
-		$top_art = D('Article')->where('status=1')->order('sort DESC')->limit(8)->select();
-		foreach ($top_art as $key=>$val){
-			$top_art[$key] = $this->changurl($val);
-		}
-		$this->assign('top_art',$top_art);
 		$this->assign('slide',D('Photo')->where('status=1 AND tid=5')->select());//幻灯片调用ID
 		$this->assign('video',D('Video')->where('status=1')->find(1));//视频调用ID
 		 */
-		$this->assign('mood',M('Mood')->where('status=1')->order('create_time DESC')->limit(4)->select());//个人心情语录展示
+		//爱情攻略
+		$where['type_name']="爱情攻略";
+		$com['cid']=M('Article_class')->where($where)->select();
+		$com['islock']="1";
+		$this->assign('loveStrategy',M('Article')->where($com)->order('update_time DESC')->limit(8)->select());
+		//个人心情语录展示
+		$this->assign('mood',M('Mood')->where('status=1')->order('create_time DESC')->limit(4)->select());
 		$this->assign('label',M('Label')->where('status=1')->order('sort DESC')->limit(10)->select());//标签展示（置顶的永远显示）
 		//友情链接
 		$this->assign('link',M('Link')->where('status=1')->order('sort DESC')->select());

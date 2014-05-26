@@ -12,7 +12,7 @@ $config_arr2 = array(
 				'REPLY_EMAIL' => '857773627@qq.com', //回复EMAIL（留空则为发件人EMAIL）
 				'REPLY_NAME'  => '研究生', //回复名称（留空则为发件人名称）
 		), */
-		'TMPL_EXCEPTION_FILE'=>'./Home/Tpl/Public/error.html'    ,   // 定义公共错误模板
+		//'TMPL_EXCEPTION_FILE'=>'./Home/Tpl/Public/error.html'    ,   // 定义公共错误模板
 		'URL_HTML_SUFFIX'       => 'html',  // URL伪静态后缀设置
 		'HTML_CACHE_ON' => true, // 开启静态缓存
 		'URL_ROUTER_ON' => true, // 开启路由转换

@@ -20,7 +20,7 @@
                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
                             <tr>
                                 <th width="120">站点名称：</th>
-                                <td><input name="site_name" type="text" class="input" size="40" value="{$site.SITE_INFO.site_name}" /></td>
+                                <td><input name="site_name" type="text" class="input" size="40" value="{$site.SITE_INFO.site_name}" /><span style="color:red;" >一般不超过80个字符</span></td>
                             </tr>
                             <tr>
                                 <th width="120">站点域名：</th>
@@ -56,11 +56,11 @@
                             </tr>
                             <tr>
                                 <th>网站seo关键字：</th>
-                                <td><input class="input" name="keywords" type="text" size="40" value="{$site.SITE_INFO.keywords}" /><span style="color:red;">6个关键字以内，且用逗号隔开！</span></td>
+                                <td><input class="input" name="keywords" type="text" size="40" value="{$site.SITE_INFO.keywords}"/><span style="color:red;">一般不超过100个字符</span></td>
                             </tr>
                             <tr>
                                 <th>网站描述：</th>
-                                <td><textarea name="description"  rows="5" cols="17">{$site.SITE_INFO.description}</textarea></td>
+                                <td><textarea name="description"  rows="5" cols="17">{$site.SITE_INFO.description}</textarea><span style="color:red;">一般不超过200个字符</span></td>
                             </tr>
                         </table>
                     </form>
