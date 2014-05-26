@@ -11,9 +11,15 @@ class IndexAction extends CommonAction{
 		$this->assign('top_art',$top_art);
 		$this->assign('slide',D('Photo')->where('status=1 AND tid=5')->select());//幻灯片调用ID
 		$this->assign('video',D('Video')->where('status=1')->find(1));//视频调用ID
-		$this->seo(C('SITE_NAME'), C('SITE_KEYWORDS'), C('SITE_DESCRIPTION'), 0); */
+		 */
 		$this->assign('mood',M('Mood')->where('status=1')->order('create_time DESC')->limit(4)->select());//个人心情语录展示
 		$this->assign('label',M('Label')->where('status=1')->order('sort DESC')->limit(10)->select());//标签展示（置顶的永远显示）
+		//友情链接
+		$this->assign('link',M('Link')->where('status=1')->order('sort DESC')->select());
+		//首页活动
+		$Activity=M('Activity');
+		$this->assign('Activity1',$Activity->where('class=1 AND isLock=1')->limit(5)->order('activity_id desc')->select());
+		$this->assign('Activity2',$Activity->where('class=2 AND isLock=1')->limit(5)->order('activity_id desc')->select());
 		R('Article/indexBlock');
 		$this->display();
     }

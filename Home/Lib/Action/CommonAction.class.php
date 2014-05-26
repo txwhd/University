@@ -8,16 +8,20 @@ class CommonAction extends Action {
 		//同校活动取出5条
 		Load('extend');
 		$this->assign('menu',M('menu')->where('parentid=0 AND type=1')->order('sort')->limit(8)->select());//导航数据组装
-		//最热文章数据组装
+		//seo
+		$systemConfig = include WEB_ROOT . 'Common/systemConfig.php';
+		F("systemConfig", $systemConfig, WEB_ROOT . "Common/");
+		$this->assign("site", $systemConfig);
+		/* //最热文章数据组装
 		$hot_art = D('Article')->where('status=1')->order('apv DESC')->limit(8)->select();
 		if(is_array($hot_art)){
 			foreach ($hot_art as $key=>$val){
 				$hot_art[$key] = $this->changurl($val);
 			}
 		}
-		$this->assign('hot_art',$hot_art);
+		$this->assign('hot_art',$hot_art); */
 		//最新文章数据组装
-		$new_art = D('Article')->where('status=1')->order('add_time DESC')->limit(8)->select();
+		/* $new_art = D('Article')->where('status=1')->order('add_time DESC')->limit(8)->select();
 		if(is_array($new_art)){
 			foreach ($new_art as $key=>$val){
 				$new_art[$key] = $this->changurl($val);
@@ -34,30 +38,17 @@ class CommonAction extends Action {
 		$new_comment = D('Message')->where('status=1 AND pid=0 AND aid!=0')->order('add_time DESC')->limit(5)->select();
 		foreach ($new_comment as $key => $val){
 			$new_comment[$key] = $this->msgmodify($val);
-		}
-		
-		//首页超链接
-		$link=M('Link');
-		$this->assign('link',$link->select());
-		
-		//首页活动
-		$Activity=M('Activity');
-		$this->assign('Activity1',$Activity->where('class=1')->limit(5)->order('Activity_id desc')->select());
-		$this->assign('Activity2',$Activity->where('class=2')->limit(5)->order('Activity_id desc')->select());
-		
-		//首页心情语录和爱情攻略
+		} */
+		/* //首页心情语录和爱情攻略
 		$mood=M('Article');
-		
 		$cid=$this->getclass('心情语录','Article');
 		$where['cid']=$cid;
 		$this->assign('mood',$mood->where($where)->limit(5)->order('article_id desc')->select());
 		$cid1=$this->getclass('爱情攻略','Article');
 		$where1['cid']=$cid1;
 		$this->assign('loveStrategy',$mood->where($where1)->limit(5)->order('article_id desc')->select());
-		
 		$this->assign('new_comment',$new_comment);
-		//$this->assign('link',D('Link')->where('status=1')->order('sort DESC')->limit(8)->select());
-		$this->assign('nav_list',$nav_list);
+		$this->assign('nav_list',$nav_list); */
 	}
 	
 	//根据分类名获取分类id
