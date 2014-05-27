@@ -50,11 +50,17 @@ text-decoration:underline;
 }
 /* 右浮动 */
 .pull-right {
-  float: right !important;
+ 	float: right;
+	width:290px;
+	height:500px;
+	margin-left:8px;
 }
 /* 左浮动 */
 .pull-left {
-  float: left !important;
+float: left !important;
+width:700px;
+height:500px;
+float:left;
 }
 /*------------------------------头和尾--------------------------------*/
 header#header{
@@ -130,10 +136,8 @@ background:#A4133C;
 
 /*------------------------------首页--------------------------------*/
 #yao-wrap{
-
 }
 #ad-news{
-
 
 }
 #carousell img{
@@ -145,14 +149,12 @@ float:left;
 width:1000px;
 height:333px;
 }
-
 .recommend{
 float:left;
 	width:700px;
 	margin:0px;
 	padding:0px;
 }
-
 .news div.panel{
 width:290px;
 height:333px;

@@ -91,7 +91,6 @@
 					<img src="__IMG__/Home/001.jpg">
 					</div>
 			</div>			
-
 		</div>
 		</div>
 </div><!--店长推荐结束-->
@@ -149,13 +148,11 @@
 </div>
 </div>
 <div id="vote">
-			<div class="panel panel-success">
-						 <div class="panel-heading">投票---中北大学校花评选活动<span><a href="#">更多</a></span></div>
-						 <div class="panel-body">
-
-						</div>
-			</div>
-			
+	<div class="panel panel-success">
+		 <div class="panel-heading">投票---中北大学校花评选活动<span><a href="#">更多</a></span></div>
+		 <div class="panel-body">
+		</div>
+	</div>
 </div>	
 </div>			
 </div><!--同校+投票结束-->
@@ -209,37 +206,29 @@
 	</div>			
 </div>			
 </div>
-
 <!--成功案例+星座匹配-->
-<div id="success-constellation"><!--/constellation 星座 -->
 <div class="container">
 <div id="success">
-			<div class="panel panel-success">
-						 <div class="panel-heading">牵手恋情<span><a href="#">更多</a></span></div>
-				<div class="panel-body">
-	
-				
-					<volist id="vo" name="success">
-						<div class="choose-people">
-							<a href="__APP__/Mood/showDetail?id={$vo.mood_id}&table=Mood"><img src="{$vo.img}"></a>
-						</div>		
-					</volist>	
-					
-					<div class="success-style" >
-					<div class="choose-people">
-					<img class="img-thumbnail" src="__IMG__/Home/001.jpg">
-					</div>
-					</div>
-					<div class="success-style" >
-					<div class="choose-people">
-					<img class="img-thumbnail" src="__IMG__/Home/001.jpg">
-					</div>
-					</div>
-					
-	
+	<div class="panel panel-success">
+		<div class="panel-heading">牵手恋情<span><a href="__APP__/Success/more?table=success_object">更多</a></span></div>
+		<div class="panel-body">
+			<volist id="vo" name="success">
+				<div class="choose-people">
+					<a href="__APP__/Mood/showDetail?id={$vo.mood_id}&table=Mood"><img src="{$vo.img}"></a>
+				</div>		
+			</volist>	
+			<div class="success-style" >
+			<div class="choose-people">
+			<img class="img-thumbnail" src="__IMG__/Home/001.jpg">
 			</div>
 			</div>
-	
+			<div class="success-style" >
+			<div class="choose-people">
+			<img class="img-thumbnail" src="__IMG__/Home/001.jpg">
+			</div>
+			</div>
+	</div>
+	</div>
 </div>
 <div id="constellation">
 				<div class="panel panel-info">
@@ -249,9 +238,7 @@
 				</ul>
 				<div class="tab-content">
 				  <div class="tab-pane fade in active" id="messa">
-				  <form role="form">
-				  <div class="form-group">
-				     <div class="col-xs-10">
+				  <form class="form-inline">
 						  <select class="input-xlarge">
 							  <option>白羊座 3月21日---4月19日 </option>
 							  <option>水瓶座 1月20日---2月18日  </option>
@@ -266,28 +253,24 @@
 							  <option>双子座 5月21日---6月21日  </option>
 							  <option>摩羯座 12月22日 ---1月19日</option>
 							</select>
-					</div>
-					<!-- <button type="submit" class="btn btn-primary">查询</button> -->
-				  </div>
+							 <button type="button" class="btn btn-primary btn-xs">搜索</button>
 				  </form>
 				  </div>
 				  <div class="tab-pane fade" id="sett">
-					  <form class="form-inline" role="form">
-						  <div class="form-group">
-							<div class="col-xs-6 input-append">
-							  <select class="input-block-level ">
-								  <option>1</option>
-								  <option>1</option>
-								  <option>1</option>
-								</select>
-								<div class="btn-group">月</div>
-							</div>
-						  </div>
-					</form>
+					  <form class="form-inline">
+						 <select class="span2">   
+						 		<option value="2">1</option>   
+								<option value="1">2</option>   
+						 </select>日
+						 <select class="span2">   
+						 		<option value="2">1</option>   
+								<option value="1">2</option>   
+						 </select>月
+						 <button type="button" class="btn btn-primary btn-xs">搜索</button>
+						 </form>
 				  </div>
 				</div>			
 				</div>		
-
 </div>
 <div id="search-word">
 	<div class="panel panel-info">
