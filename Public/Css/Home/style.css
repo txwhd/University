@@ -75,7 +75,7 @@ clear:both
 header#header nav.navbar:before,header#header nav.navbar:after{
 content:" ";display:table
 }
-header#header nav.navbar:after{clear:both}
+/*header#header nav.navbar:after{clear:both}
 header#header nav.navbar#header_outer ul#header_menu{margin-left:220px}
 header#header nav.navbar#header_outer ul#header_menu>li{margin-right:5px}
 header#header nav.navbar#header_outer ul#header_menu>li.divider-vertical{border-left-color:#111;border-right-color:#363636}
@@ -104,7 +104,7 @@ header#header nav.navbar .navbar-header a#header_logo:hover{background-position:
 header#header nav.navbar .navbar-right:last-child{margin-right:0}
 header#header ul.nav>li{
 line-height:58px
-}
+}  */
 header#header ul.nav>li>a{
 height:58px;
 line-height:58px;

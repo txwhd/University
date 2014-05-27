@@ -49,6 +49,11 @@ class CommonAction extends Action {
 		$this->assign('loveStrategy',$mood->where($where1)->limit(5)->order('article_id desc')->select());
 		$this->assign('new_comment',$new_comment);
 		$this->assign('nav_list',$nav_list); */
+		/*
+		 * 用封装之后的调用方式 $id = $this->router();
+		$type = D('Category')->where('status=1')->find($id);
+		$map = D('Common')->getCategoryMap($id);*/
+		
 	}
 	
 	//根据分类名获取分类id
@@ -60,7 +65,21 @@ class CommonAction extends Action {
 		$cid=$result[0][$str];
 		return $cid;
 	}
-	
+	public function getCity($ip){
+		//ip地址转换
+		import('ORG.Net.IpLocation');// 导入IpLocation类
+		$Ip = new IpLocation(); // 实例化类 参数表示IP地址库文件
+		$result = $Ip->getlocation($ip); // 获取域名服务器所在的位置
+		$country=$result[0]['country'];
+		return $country;
+		/*dump($area); 输出array(5) {
+		["ip"] => string(14) "61.135.169.105"
+		["beginip"] => string(12) "61.135.162.0"
+		["endip"] => string(14) "61.135.169.255"
+		["country"] => string(9) "北京市"
+		["area"] => string(12) "百度蜘蛛"
+		}   */
+	}
 	//搜索部分
 	public function search(){
 		//搜索会员信息

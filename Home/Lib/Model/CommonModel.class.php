@@ -1,5 +1,6 @@
 <?php
 class CommonModel extends Model {
+	
 	public function listNews($name,$firstRow = 0, $listRows = 20,$where) {
 		$M = M($name);
 		$count = $M->where($where)->count();

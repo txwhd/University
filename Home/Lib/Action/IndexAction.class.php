@@ -8,9 +8,11 @@ class IndexAction extends CommonAction{
 		$this->assign('video',D('Video')->where('status=1')->find(1));//视频调用ID
 		 */
 		//爱情攻略
-		$where['type_name']="爱情攻略";
-		$com['cid']=M('Article_class')->where($where)->select();
+		//$where['type_name']="爱情攻略";
+		$this->getclass("爱情攻略", 'Article_class');
+		//$com['cid']=M('Article_class')->where($where)->select();
 		$com['islock']="1";
+		//$com['cid'] = $this->getclass($id);
 		$this->assign('loveStrategy',M('Article')->where($com)->order('update_time DESC')->limit(8)->select());
 		//个人心情语录展示
 		$this->assign('mood',M('Mood')->where('status=1')->order('create_time DESC')->limit(4)->select());
@@ -19,8 +21,11 @@ class IndexAction extends CommonAction{
 		$this->assign('link',M('Link')->where('status=1')->order('sort DESC')->select());
 		//首页活动
 		$Activity=M('Activity');
-		$this->assign('Activity1',$Activity->where('class=1 AND isLock=1')->limit(5)->order('activity_id desc')->select());
-		$this->assign('Activity2',$Activity->where('class=2 AND isLock=1')->limit(5)->order('activity_id desc')->select());
+		/* $ip=get_client_ip();
+		$country=$this->getCity($ip);
+		where('class=1 AND isLock=1') */
+		$this->assign('Activity1',$Activity->where('isLock=1')->limit(5)->order('activity_id desc')->select());
+		$this->assign('Activity2',$Activity->where('isLock=1')->limit(5)->order('activity_id desc')->select());
 		R('Article/indexBlock');
 		$this->display();
     }
