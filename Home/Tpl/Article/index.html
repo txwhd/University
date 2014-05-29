@@ -1,33 +1,27 @@
 <include file="Common:intoHead" />
 <include file="Common:head" />
  <!--page_container-->
-    <div class="page_container">
+    <div class="page_container"><!-- 整体布局控制 -->
     	<div class="wrap">
+    	<section>
         	<div class="container">
-                <section>
-                	<div class="row">
-                    	<div class="span8">
+                 <div class="pull-left">
                     	<volist name="list" id="list">
-                        	<div class="post">
                             	<h2 class="title"><span><a href="{$list[0]['title']}">{$list[0]['title']}</a></span></h2>
-                           		<!-- <img src="img/blog/1.jpg" alt="" /> -->
-                                <div class="post_info">
                                 	<div class="fleft">On <span>{$list[0]['update_time']}</span> / By <a href="{$list[0]['username']}">{$list[0]['username']}</a> 
-                                	/标签<volist name="label" id="label">
-                                		<a href="{$list[0]['title']}">{$list[0]['title']}</a>, <a href="#">Personal</a></div>
-                                		</volist>
-                                    <div class="fright"><a href="{$list[0]['title']}">{$list[0]['title']}</a> 评论</div>                                    
+                                	/关键字<a href="{}">{$list[0]['kerwords']}</a>
+                                	</div><!-- 前居左  后居右 -->
+                                    <div class="fright"><a href="{:U('Article/SearchKeywords/',array('id'=>$vo['gift_id']))}">{$list[0]['title']}</a> 评论</div>                                    
                                 	<div class="clear"></div>
-                                </div>
                                 <p>{$list[0]['title']}</p>
                                 <a href="{$list[0]['content']}" class="arrow_link">详细</a>
-                            </div>
                          </volist>
-                            <div class="pagination">
-                               <div class="page">{$page}</div>
-                            </div>
-                        </div>
-                    	<div class="news">
+                           <div class="pagination">
+                              <div class="page">{$page}</div>
+                           </div>
+                    </div>
+              </div>
+   <div class="pull-right">
                         	<div class="sidebar">
                             	<div class="widget">
                                 	<form class="form-search">
@@ -90,12 +84,10 @@
                                         <li><a href="#">Excepteur sint occaecat cupidatat non proident</a></li>
                                     </ul>                                   
                                 </div>                            
-                            </div>                             
-                        </div>                	
+                        </div>  
+                       </div>   
+                       </section>           	
                 	</div>
-                </section>
             </div>
-        </div>
-    </div>
     <!--//page_container-->
 <include file="Common:foot" />

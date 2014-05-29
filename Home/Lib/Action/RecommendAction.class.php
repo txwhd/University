@@ -4,4 +4,7 @@
  */
 
 class RecommendAction extends  CommonAction{
+	public function index(){
+		$this->display();
+	}
 }

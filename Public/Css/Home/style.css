@@ -48,6 +48,20 @@ nav{
 .panel-heading span a:hover{
 text-decoration:underline;
 }
+/* 右浮动 */
+.pull-right {
+ 	float: right;
+	width:290px;
+	height:500px;
+	margin-left:8px;
+}
+/* 左浮动 */
+.pull-left {
+float: left !important;
+width:700px;
+height:500px;
+float:left;
+}
 /*------------------------------头和尾--------------------------------*/
 header#header{
 height:58px;
@@ -75,36 +89,6 @@ clear:both
 header#header nav.navbar:before,header#header nav.navbar:after{
 content:" ";display:table
 }
-/*header#header nav.navbar:after{clear:both}
-header#header nav.navbar#header_outer ul#header_menu{margin-left:220px}
-header#header nav.navbar#header_outer ul#header_menu>li{margin-right:5px}
-header#header nav.navbar#header_outer ul#header_menu>li.divider-vertical{border-left-color:#111;border-right-color:#363636}
-header#header nav.navbar#header_outer ul#header_menu>li>a{line-height:35px;height:35px;padding:0 20px;margin-top:12px;border-radius:3px;color:#aaa}header#header nav.navbar#header_outer ul#header_menu>li>a:hover{color:#fff}
-header#header nav.navbar#header_outer ul#header_menu>li.active>a{color:#fff;background:#555;box-shadow:none}
-header#header nav.navbar#header_outer div#header_me{height:58px}header#header nav.navbar#header_outer div#header_me ul.nav{margin-right:0}
-header#header nav.navbar#header_outer div#header_me ul.nav li a{padding-right:0;color:#aaa}
-header#header nav.navbar#header_inner .navbar-header a#header_logo:hover{background-position:left -58px}
-header#header nav.navbar#header_inner #header_search{height:58px;margin-left:220px}
-header#header nav.navbar#header_inner #header_search .navbar-form{margin-top:13px;padding:0;padding-right:10px}
-header#header nav.navbar#header_inner #header_search .navbar-form input.typeahead{font-size:12px;color:#555;background:rgba(255,255,255,0.75) url("/img/header/icon-search.png") 5px 50% no-repeat;width:305px;height:32px;padding:5px 5px 5px 25px;margin:0;border:solid 1px #555;border-radius:3px;vertical-align:middle;float:left;outline:none}
-header#header nav.navbar#header_inner #header_search .navbar-form input.typeahead::-webkit-input-placeholder{color:#666}
-header#header nav.navbar#header_inner #header_search .navbar-form input.typeahead:-moz-placeholder{color:#666}
-header#header nav.navbar#header_inner #header_search .navbar-form input.typeahead:focus{-webkit-transition:background 150ms linear;transition:background 150ms linear;background-color:#fff}
-header#header nav.navbar#header_inner div#header_menu ul.nav>li>a{line-height:58px;padding:0 25px;color:#aaa}header#header nav.navbar#header_inner div#header_menu ul.nav>li>a:hover{color:#d14836;background:rgba(255,255,255,0.05)}
-header#header nav.navbar#header_inner div#header_menu ul.nav>li .icon-plus,header#header nav.navbar#header_inner div#header_menu ul.nav>li .icon-bell-alt{font-size:16px}
-header#header nav.navbar#header_inner div#header_menu ul.nav>li .notice-menu{white-space:nowrap}
-header#header nav.navbar#header_inner div#header_menu ul.nav>li .notice-menu .label{font-size:12px !important;font-weight:300;text-align:center;height:14px;padding:2px 6px;border-radius:2px !important;text-shadow:none !important}
-header#header nav.navbar#header_inner div#header_menu ul.nav>li .notice-menu .label.label-default{color:#777;background-color:#aaa}
-header#header nav.navbar#header_inner div#header_menu ul.nav>li .notice-menu .label.label-danger{color:#fff;background-color:#d84c31}
-header#header nav.navbar#header_inner ul#header_me a{display:block;padding-right:15px !important}
-header#header nav.navbar#header_inner ul#header_me a:hover,header#header nav.navbar#header_inner ul#header_me a.openpop{background:rgba(255,255,255,0.05)}
-header#header nav.navbar .navbar-header a#header_logo{position:absolute;left:0;bottom:0;border:0;display:block;padding:0;width:220px;height:58px;overflow:hidden;line-height:100em;text-indent:200em;background:url('/img/logo.png') left top no-repeat}
-header#header nav.navbar .navbar-header a#header_logo:hover{background-position:left bottom}
-@media (max-width:768px){header#header nav.navbar .navbar-collapse{background:#393939 !important;margin:0 -2% 0 -2%}}
-header#header nav.navbar .navbar-right:last-child{margin-right:0}
-header#header ul.nav>li{
-line-height:58px
-}  */
 header#header ul.nav>li>a{
 height:58px;
 line-height:58px;
@@ -129,23 +113,6 @@ border-right-color:#646668
 #header_me{
 margin-right:10px;
 }
-/*图片新闻模块*/
-.photo_news{
-	width:700px;
-	margin-left:5px;
-	text-align:center;
-}
-
-/* 图片新闻切换 */
-.JQ-slide{width:620px;height:270px;overflow:hidden;position:relative;margin:0px 40px;}
-.JQ-slide-content{position:absolute;}/*必须要的元素*/
-.JQ-slide-content li{width:620px;height:270px;float:left;display:inline;position:relative;}
-.JQ-slide-content li img{width:620px;height:270px;}
-.JQ-slide-content li span{display:block;background:black;color:white;font-size:14px;font-weight:bold;padding:0 14px;line-height:28px;position:absolute;bottom:5px;left:0;z-index:10;width:620px;overflow:hidden;filter:alpha(opacity=50);-moz-opacity:0.5;-khtml-opacity:0.5;opacity:0.5;}
-.JQ-slide-nav{position:absolute;bottom:14px;right:8px;z-index:30;}
-.JQ-slide-nav li{float:left;display:inline;background:url(images/focus_li.png) no-repeat;_background:url(images/focus_li.gif) no-repeat;width:10px;height:10px;text-indent:-999em;overflow:hidden;cursor:pointer;margin-right:5px;}
-.JQ-slide-nav li.on{background-position:-15px 0;}
-
 /*友情链接*/
 #link{
 	font-size:18px;
@@ -169,10 +136,8 @@ background:#A4133C;
 
 /*------------------------------首页--------------------------------*/
 #yao-wrap{
-
 }
 #ad-news{
-
 
 }
 #carousell img{
@@ -184,14 +149,12 @@ float:left;
 width:1000px;
 height:333px;
 }
-
 .recommend{
 float:left;
 	width:700px;
 	margin:0px;
 	padding:0px;
 }
-
 .news div.panel{
 width:290px;
 height:333px;
@@ -451,7 +414,6 @@ font-size:15px;
 	height:66px;
 	margin-left:5px;
 }
-
 
 
 
