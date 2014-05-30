@@ -30,7 +30,7 @@ ul li:hover{
 	padding:0px ;
 	width:1000px;
 	margin-top:10px;
-
+	border:1px solid red;
 }
 .panel{
 	margin: 0;
@@ -56,21 +56,6 @@ nav{
 }
 .panel-heading span a:hover{
 text-decoration:underline;
-}
-
-/* 右浮动 */
-.pull-right {
- 	float: right;
-	width:290px;
-	height:500px;
-	margin-left:8px;
-}
-/* 左浮动 */
-.pull-left {
-float: left !important;
-width:700px;
-height:500px;
-float:left;
 }
 /*------------------------------头和尾--------------------------------*/
 header#header{
@@ -150,17 +135,11 @@ background:#A4133C;
 #ad-news{
 
 }
-#carousell img{
-width:1000px;
-height:333px;
-}
 .ad{
 float:left;
-width:1000px;
-height:333px;
 }
 .recommend{
-float:left;
+	float:left;
 	width:700px;
 	margin:0px;
 	padding:0px;
