@@ -11,18 +11,13 @@
 	<div id="person-head">
 	<div class="person-photo"><img class="img-thumbnail" src="__IMG__/Home/001.jpg"/></div>
 	<div>
-	<div class="person-name">马同学</div>
-	<div class="person-power">普通会员<span class="label label-warning"><a href="">升级会员</a></span></div>
+	<div class="person-name">{$Think.session.loginUserName}</div>
+	<div class="person-power">普通会员{$memberType}<span class="label label-warning"><a href="">升级会员</a></span></div>
 	</div>
 	</div>
 <div id="person-nav" class="panel panel-success">
 <img src="__IMG__/Home/888.jpg"/>
-<!-- <a href="#">照片<span class="badge">42</span></a>||心情|留言<hr>访客|关注|活动
-<a href="#">心情<span class="badge">42</span></a>||心情|留言<hr>访客|关注|活动
-<a href="#">留言<span class="badge">42</span></a><hr>|心情|留言<hr>访客|关注|活动
-<a href="#">访客<span class="badge">+3</span></a>||心情|留言<hr>访客|关注|活动
-<a href="#">关注<span class="badge">16</span></a>||心情|留言<hr>访客|关注|活动
-<a href="#">活动<span class="badge">42</span></a>|心情|留言<hr>访客|关注|活动 -->
+<!-- 留言|访客|关注|好感|约会<span class="label label-warning">+10</span> -->
 </div>
 
 <div id="" class="panel panel-success">
@@ -32,7 +27,7 @@
   <li><a href="__URL__/ListIntro" target="iframepage">个人资料  </a></li>
   <li><a href="__URL__/ListHeadPhoto" target="iframepage">我的头像</a></li>
   <li><a href="__URL__/ListPhoto" target="iframepage">我的相册</a></li>
-  <li><a href="__URL__/ListPhoto" target="iframepage">择偶条件</a></li>
+  <li><a href="__URL__/ListTerm" target="iframepage">择偶条件</a></li>
 </ul>
 </div>
 </div>
@@ -40,21 +35,14 @@
 <div class="panel-heading">爱情信仰</div>
 	<div class="panel-body">	
 		<ul class="nav nav-pills nav-stacked">
-		  <li><a href="__URL__/ListVipUpgrade" target="iframepage">我的爱情宣言</a></li>
-		  <li><a href="__URL__/ListVipUpgrade" target="iframepage">我的信仰 </a></li>
-		  <li><a href="__URL__/ListVipUpgrade" target="iframepage">我要去约会 </a></li>
+		  <li><a href="__URL__/ListMonologue" target="iframepage">我的爱情宣言</a></li>
+		  <li><a href="__URL__/ListBelief" target="iframepage">我的信仰 </a></li>
+		  <li><a href="__URL__/goLove" target="iframepage">我要去约会 </a></li>
 		</ul>
 	</div>
 </div>
 <div id="" class="panel panel-success">
 <div class="panel-heading"><a href="__URL__/ListActivity" target="iframepage">活动中心</a></div>
-	<!-- <div class="panel-body">	
-		<ul class="nav nav-pills nav-stacked">
-		  <li><a >推荐同校活动</a></li>
-		  <li><a href="__URL__/ListVipUpgrade" target="iframepage">发布活动信息 </a></li>
-		  <li><a href="__URL__/ListVipUpgrade" target="iframepage">参加同校活动 </a></li>
-		</ul>
-	</div> -->
 </div>
 <div id="" class="panel panel-success">
 <div class="panel-heading"><a href="__URL__/ListArticle" target="iframepage">写写爱情</a></div>
@@ -80,10 +68,6 @@
 	</div>
 </div><!--/.col-sm-3  --><div class="col-sm-6">
 <div id="right" class="panel panel-success">
-<!-- <iframe name="iframe1" src="__URL__/personMain" style="width:483px;height:1000px;border-color:#E5EDEF;border-width:0px;"">
- </iframe>   -->
-<!-- <iframe id="St" src="__URL__/personMain" scrolling="no" frameborder="0" style="width: 100%;" onload="this.height=this.contentWindow.document.documentElement.scrollHeight">
-</iframe> -->
 <div id="leamain">
      <iframe src="__URL__/personMain"style="width:811px;"" marginheight="0" marginwidth="0" frameborder="0" scrolling="no" width="765" height=100% id="iframepage" name="iframepage" onLoad="iFrameHeight()" ></iframe>
 	<script type="text/javascript" language="javascript">

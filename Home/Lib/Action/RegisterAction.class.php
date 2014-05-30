@@ -30,7 +30,6 @@ class RegisterAction extends CommonAction{
 		}
 	}
 	public  function dealReg(){
-		//header('Content-Type:text/html; charset=utf-8');//防止出现乱码
 		$model = D("Register");
 		if($_POST['submit']){
 			$vo = $model->create();
@@ -46,6 +45,7 @@ class RegisterAction extends CommonAction{
 				$_SESSION['email']	=$_POST['email'];
 				$_SESSION['loginUserName']=$_POST['username'];
 				$_SESSION['OnlineTF']="1";//用户在线状态
+				$_SESSION['memberType']="普通用户";//用户在线状态
 				//保存会员详细信息
 				$member_detail	=	M('member_detail');
 				$data['member_id']	=	$member_id;

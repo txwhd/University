@@ -7,6 +7,8 @@ class IndexAction extends CommonAction{
 		$this->assign('slide',D('Photo')->where('status=1 AND tid=5')->select());//幻灯片调用ID
 		$this->assign('video',D('Video')->where('status=1')->find(1));//视频调用ID
 		 */
+		//广告
+		$this->assign('ad_top',M('Advertisement')->where('type=1 AND available=1')->order('displayorder')->limit(4)->select());
 		//爱情攻略
 		//$where['type_name']="爱情攻略";
 		$this->getclass("爱情攻略", 'Article_class');

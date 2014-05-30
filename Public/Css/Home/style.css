@@ -3,6 +3,15 @@
 	margin: 0;
 	padding:0;
 }
+a{
+	&:link,&visited{
+	color:#606060;
+	text-decoration:none;
+	}
+	&:hover,&active{
+	color:#212121;
+	}
+}
 body {
 	margin: 0;
 	padding:0;
@@ -48,6 +57,7 @@ nav{
 .panel-heading span a:hover{
 text-decoration:underline;
 }
+
 /* 右浮动 */
 .pull-right {
  	float: right;

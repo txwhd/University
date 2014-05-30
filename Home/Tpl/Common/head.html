@@ -93,12 +93,6 @@
     //登录页面弹
    $(document).ready(function() {
 	   $.layer({
-		   var loginhtml, validation = function(){
-		        //验证写在这
-		        $('.BB_button').on('click', function(){
-		            return false; //此处只作演示
-		        });
-		    };
 		    var page = {};
 		    layer.login = function(options){
 		        options = options || {};
@@ -117,7 +111,7 @@
 		        if(loginhtml){
 		            page.html = loginhtml;
 		        } else {
-		            page.url = 'test/uplogin.html'
+		            page.url = 'login.html'
 		            page.ok = function(datas){
 		                loginhtml = datas; //保存登录节点
 		                validation();

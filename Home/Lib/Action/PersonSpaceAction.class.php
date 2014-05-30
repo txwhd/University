@@ -12,6 +12,22 @@ class PersonSpaceAction extends CommonAction{
 		//显示基本信息页面
 		$this->display();
 	}	
+	public function ListTerm(){
+		//显示择偶条件表
+		$this->display();
+	}	 
+	public function ListMonologue(){
+		//显示爱情宣言
+		$this->display();
+	}	 
+	public function ListBelief(){
+		//显示信仰
+		$this->display();
+	}	 
+	public function goLove(){
+		//显示约会
+		$this->display();
+	}	 
 	public function ListApprove(){
 		//显示诚信认证页面
 		$this->display();

@@ -18,7 +18,7 @@ class ArticleAction extends CommonAction{
 		$this->display();
 	}
 	//查看文章详细信息
-	public function view(){		
+	public function aticleDetail(){		
 		$id = $this->router();
 		D('Article')->setInc('apv',"id=$id",1);
 		$info = D('Article')->where("id=$id AND status=1")->find();
