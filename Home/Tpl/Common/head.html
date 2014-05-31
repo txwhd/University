@@ -40,76 +40,68 @@
       <div class="login-layout">
 		<div class="tab-content" >
 			  <div class="tab-pane active" id="email">
-				<form role="form">
+				<form role="form" action="" method="post">
 				  <div class="form-group col-xs-10">
 				    <input type="email" class="form-control input-lg" id="exampleInputEmail1" placeholder="输入邮箱/姓名">
 				  </div>
 				  <div class="form-group col-xs-10">
 				    <input type="password" class="form-control input-lg" id="exampleInputPassword1" placeholder="输入密码">
 				  </div>
-				   <div class="checkbox">
-					    <div class="col-sm-offset-2 col-xs-10">
+				   <div class="checkbox col-xs-10">
+					    <div class="col-sm-offset-2">
 					       <ul class="list-inline">
 		      					<li><input type="checkbox">记住我</li>
 		      					<li><a href=""><small>忘记密码?</small></a></li>
 		      				</ul>
 					    </div>
 					</div>
-					 <div class="form-group">
-			    	<div class="col-xs-10">
-                        <div class="form-actions">
-                     	  <input type="submit" name="submit" class="btn btn-primary btn-lg-10" value="登陆" />
-                        </div>
-                     </div>
-				   </div>
+					 <div class="form-actions col-xs-10">
+                          <input type="submit" class="btn btn-block btn-large btn-danger" value="登陆" />
+                      </div>
 				</form>
 			</div>
 			<div class="tab-pane" id="mobile">
-				<form role="form">
+				<form role="form"  action="" method="post">
 				  <div class="form-group  col-xs-10">
 				    <input type="email" class="form-control input-lg" id="exampleInputEmail1" placeholder="请输入手机号码">
 				  </div>
 				  <div class="form-group  col-xs-10">
 				    <input type="password" class="form-control input-lg" id="exampleInputPassword1" placeholder="输入密码">
 				  </div>
-				   <div class="checkbox">
-					    <div class="col-sm-offset-2 col-xs-10">
+				   <div class="checkbox col-xs-10">
+					      <div class="col-sm-offset-2">
 					       <ul class="list-inline">
 		      					<li><input type="checkbox">记住我</li>
 		      					<li><a href=""><small>忘记密码?</small></a></li>
 		      				</ul>
 					    </div>
 					</div>
-				  <div class="form-group">
-			    	<div class="col-xs-10">
-                                <div class="form-actions">
-                             	  <input type="submit" name="submit" class="btn btn-primary btn-lg-10" value="登陆" />
-                                </div>
-                     </div>
-				   </div>
+				    <div class="form-actions col-xs-10">
+                          <input type="submit" class="btn btn-block btn-large btn-danger" value="登陆" />
+                      </div>
 				</form>
 			  </div>
-		</div>
+			</div>
 		</div>
       <div class="modal-footer" id="login-footer" >
 	      <div class="third-login">
 	      		<span class="text-left"><strong>第三方登陆</strong></span>
 	      		<div>
 		      		<ul class="list-inline">
-		      			<li><img src="__IMG__/Home/qq_icon.png"/></li>
-		      			<li><img src="__IMG__/Home/qq_icon.png"/></li>
-		      			<li><img src="__IMG__/Home/qq_icon.png"/></li>
+		      			<li><a href=""><img src="__IMG__/Home/qq_icon.png"/></a></li>
+		      			<li><a href=""><img src="__IMG__/Home/qq_icon.png"/></a></li>
+		      			<li><a href=""><img src="__IMG__/Home/qq_icon.png"/></a></li>
+		      			<li><a href=""><img src="__IMG__/Home/qq_icon.png"/></a></li>
+		      			<li><a href=""><img src="__IMG__/Home/qq_icon.png"/></a></li>
 		      		</ul>
 	      		</div>
-	      		<span class="text-left"><strong>还没有加入到邀99大学生恋爱网</strong></span>
+	      		<span class="text-left"><strong>还未加入邀99大学生恋爱网</strong></span>
 	      		<div>
-		      		<ul class="list-inline">
-		      			<li><a href="" >马上加入</a></li>
-		      		</ul>
+		      		<ul class="list-inline"><li><a href="__APP__/Register/index" >马上加入</a></li></ul>
 	      		</div>
 	      </div>
       </div>
-    </div><!-- login -->
+</div><!-- login -->
 </header>
 <script language="JavaScript">
 //弹出login层

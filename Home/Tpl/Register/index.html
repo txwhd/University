@@ -1,68 +1,77 @@
 <include file="Common:intoHead" />
+<include file="Common:head" />
 <!-- jquery ui -->
 <link type="text/css" href="__CSS__/Home/jquery-ui-1.10.0.custom.css" rel="Stylesheet" />	
 <!-- <script type="text/javascript" src="js/jquery-1.4.4.min.js"></script> -->
 <script type="text/javascript" src="__JS__/Home/jquery-ui-1.9.2.custom.min.js"></script>
-<include file="Common:head" />
-<style type="text/css">
-    em.error { float: none; color: red; padding-left: .5em; vertical-align: top; }
-   .field_notice{display:none;}
-</style>
-<div  class="container">
-<div class="other-warp" data-ng-controller="user_signup_ctrl">
-    <div data-minheight="58" class="single-panel clearfix">
-        <div class="single-panel-inner middle">
-            <div class="single-panel-header">
-                <h3><a href="#" class="btn btn-large btn-primary disabled">注册新用户</a></h3>
-            </div>
-            <div class="single-panel-body">
-                <div class="single-panel-section" ng-show="show_signup">
+<div class="container">
+	<div class="row">
+        <div class="col-md-6">
+        	<div class="single-panel-header">
+        		<div class="logo"><img src="__IMG__/Home/logo.png" class="img-rounded"/></div>  
+	        </div>
+	         <div class="single-panel-body">
+	         <img src="__IMG__/Home/reg_right_1.png" class="img-rounded"/>
+	         <div><img src="__IMG__/Home/reg_right_2.png" class="img-rounded"/>
+	         </div>
+	         </div>
+	         <div class="single-panel-footer">
+	         </div>
+		</div>
+		<div class="col-md-6">
+	            <div class="single-panel-header">
+	                <h3><a href="#" class="btn btn-large btn-primary disabled">注册新用户</a></h3>
+	            </div>
+	            <div class="single-panel-body">
                     <form  class="form-horizontal"  id="form-validate" method="post"  action="__URL__/dealReg">
-	                   <!--  <div class="form-group">
-	                           <label class="col-xs-2 control-label">我想找</label>
-	                           <div class="col-xs-5">
-	                               <input type="radio" name="gender" id="gender"data-validate="{required: true, messages:{required:'请选择您的性别'}}"/>男朋友
-	                               <input type="radio" name="gender" id="gender"data-validate="{required: true, messages:{required:'请选择您的性别'}}"/>女朋友
-	                               <em><label class="field_notice"></label></em>
+	                     <div class="form-group">
+	                           <label class="col-xs-3 control-label">我想找</label>
+	                           <div class="col-xs-6">
+	                           		<label class="checkbox-inline">
+									  <input type="radio" name="gender" id="gender"data-validate="{required: true, messages:{required:'请选择您的性别'}}"/>男朋友
+									</label>
+									<label class="checkbox-inline">
+									 <input type="radio" name="gender" id="gender"data-validate="{required: true, messages:{required:'请选择您的性别'}}"/>女朋友
+									</label>
+									<em><label class="field_notice"></label></em>
 	                           </div>
 	                      </div>
 	                    <div class="form-group">
-	                           <label class="col-xs-2 control-label">我是：</label>
-	                              js加载
-                               <div class="input-append col-xs-5"> 
+	                           <label class="col-xs-3 control-label">我是：</label>
+                               <div class="input-append"> 
 								  <input class="span2" id="appendedInput" type="text" name="nationName" id="nationName" placeholder="请输入你的民族"
 								   data-validate="{required: true, messages:{required:'请填写你的民族'}}">
 								  <span class="add-on">族</span>
-								   <em><label class="field_notice"></label></em>
+								   <em><label class="field_notice">js加载</label></em>
 								</div>
 	                      </div>
                         <div class="form-group">
-                            <label class="col-xs-2 control-label">出生年月：</label>
-                            <div class="col-xs-5">
+                            <label class="col-xs-3 control-label">出生年月：</label>
+                            <div class="col-xs-6">
                                <input type="text" class="form-control" name="birthday" id="datepicker" placeholder="请输入你的出生年月，填写后不能修改"
                                data-validate="{required: true, messages:{required:'请输入出生年月'}"/>
                                <em><label class="field_notice"></label></em> 填写后不能更改
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-xs-2 control-label">大学：</label>
-                            <div class="col-xs-5">
+                            <label class="col-xs-3 control-label">大学：</label>
+                            <div class="col-xs-6">
                                <input type="text" class="form-control" name="schoolName" id="schoolName" placeholder="请输入你的大学名称，填写后不能修改"
                                data-validate="{required: true, minlength:2, messages:{required:'请输入大学名称'}}"/>
                                <em><label class="field_notice"></label></em>后面有学院
                             </div>
-                        </div> -->
+                        </div>
                         <div class="form-group">
-                            <label class="col-xs-2 control-label">姓名：</label>
-                            <div class="col-xs-5">
+                            <label class="col-xs-3 control-label">姓名：</label>
+                            <div class="col-xs-6">
                                <input type="text" class="form-control"name="username" id="username" placeholder="请输入你的真实姓名，本站承诺严格保护你的隐私"
                                data-validate="{required: true, minlength:2, messages:{required:'请输入真实姓名', minlength:'长度至少是2个！'}}"/>
                                <em><label class="field_notice"></label></em>
                             </div>
                         </div>
 						<div class="form-group">
-                            <label class="col-xs-2 control-label">手机：</label>
-                            <div class="col-xs-5">
+                            <label class="col-xs-3 control-label">手机：</label>
+                            <div class="col-xs-6">
                                <input class="form-control required phone" type="text" name="Mobile" id="Mobile" placeholder="你的真实手机号码将作为验证" />
                                 <em><label class="field_notice"></label></em>
 <!--                                <input class="form-control" type="text" name="Mobile" id="Mobile" 
@@ -71,8 +80,8 @@
                             </div>
                         </div> 
                         <div class="form-group">
-                            <label class="col-xs-2 control-label">邮箱：</label>
-                            <div class="col-xs-5">
+                            <label class="col-xs-3 control-label">邮箱：</label>
+                            <div class="col-xs-6">
                                 <input type="text" class="form-control" onblur="Reg.ifexit_email" placeholder="请填写常用的邮箱"
                                 data-validate="{required: true, email:true, messages:{required:'请输入邮箱！', email:'请输入有效邮箱！'}}"
                                 name="email" id="email" /> 
@@ -81,17 +90,17 @@
            				 </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-xs-2 control-label">密码：</label>
-                            <div class="col-xs-5">
-                                <input  type="password" class="form-control" placeholder="请输入长度至少为5位的密码"
-                                 data-validate="{required: true, minlength:5, messages:{required:'请输入密码！',minlength:'长度至少为5位!'}}" 
+                            <label class="col-xs-3 control-label">密码：</label>
+                            <div class="col-xs-6">
+                                <input  type="password" class="form-control" placeholder="请输入长度至少为6位的密码"
+                                 data-validate="{required: true, minlength:5, messages:{required:'请输入密码！',minlength:'长度至少为6位!'}}" 
                                  name="password" id="password" />
                               <em><label class="field_notice"></label></em>
            					 </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-xs-2 control-label">重复密码：</label>
-                            <div class="col-xs-5">
+                            <label class="col-xs-3 control-label">重复密码：</label>
+                            <div class="col-xs-6">
                               <input type="password" class="form-control"  placeholder="请重新输入你的密码！"
                                data-validate="{required: true, equalTo: '#password', messages:{required:'请输入重复密码！', equalTo: '确认密码与密码不匹配！'}}" 
                                name="repass" id="repass" />
@@ -99,20 +108,26 @@
          				   </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-xs-2"></div>
-                            <div class="col-xs-5">
-                                 <div class="form-actions">
-                              	  <input type="submit" name="submit" class="btn btn-primary" value="注册" />
-                                 </div>
-                            </div>
-                        </div>
+						    <div class="col-sm-offset-3 col-sm-10">
+						      <div class="checkbox">
+						        <label>
+						          <input type="checkbox">同意我们的<a href="#terms" data-toggle="modal" data-target="#terms">服务条款</a>
+						        </label>
+						      </div>
+						    </div>
+						  </div>
+                        <div class="form-group">
+                       		 <label class="col-xs-3 control-label"></label>
+                        	<div class="form-actions col-xs-6">
+	                          <input type="submit" class="btn btn-block btn-large btn-danger" value="开启爱情之门" />
+	                      	</div>
+	                    </div>
                     </form>
-                </div>
-            </div>
-            <div class="single-panel-footer" ng-hide="signup_success">
-                <div class="pull-right">点击注册，表明你同意我们的<a href="#terms" data-toggle="modal" data-target="#terms">服务条款</a></div>
-			</div>
-				<!-- Modal -->
+	      </div>
+	     </div>
+	</div>  
+</div>  
+					<!-- Modal -->
 <div class="modal fade" id="terms" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -126,17 +141,12 @@
 		  </div>
 		</div>
       </div><!-- /.modal-body-->
-      
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-      	  </div>
-    </div>
+	  <div class="modal-footer">
+	    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+	  </div>
+</div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
 </div>
-</div>  
-</div>  
  <script src="__JS__/Home/validate/jquery.validate.js"></script>
  <script src="__JS__/Home/Reg.js"></script>
  <script src="__JS__/Home/validate/jquery.metadata.js"></script>
@@ -169,4 +179,3 @@
             	 }); 
             });
         </script>
-<include file="Common:foot" />

@@ -372,6 +372,10 @@ height:143px;
 	clear:both;
 }
 /*login end  */
+/*reg start  */
+ em.error { float: none; color: red; padding-left: .5em; vertical-align: top; }
+ .field_notice{display:none;}
+/*reg end  */
 /*------------------------------首页完--------------------------------*/
 hr,panel{
 	margin: 0;
