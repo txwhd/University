@@ -51,7 +51,10 @@ class RegisterAction extends CommonAction{
 				$data['member_id']	=	$member_id;
 				$data['username']	=	trim($_POST['username']);
 				$member_detail->add($data);
-				$this->success('注册成功','Home/PersonSpace/ListHeadPhoto');
+				if ($member_detail) {
+					$this->redirect('PersonSpace/ListHeadPhoto');
+				}
+				//$this->success('注册成功','Home/PersonSpace/ListHeadPhoto');
 				//$this->display('PersonSpace/ListHeadPhoto');
 			}else {
 				//$this->error($model->getError());

@@ -29,114 +29,100 @@
             </ul>
         </div>
 	</nav>
-	<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<ul class="nav nav-tabs" id="myTab">
-				  <li class="active"><a href="#home" data-toggle="tab">用户登录</a></li>
-				  <li><a href="#profile" data-toggle="tab">手机登陆</a></li>
-				</ul>
+	<!-- login -->
+<div class="login" style="display:none;">
+      <div class="modal-header" >
+		<ul class="nav nav-tabs" id="loginTab">
+		  <li class="active"><a href="#email" data-toggle="tab">邮箱登录</a></li>
+		  <li><a href="#mobile" data-toggle="tab">手机登陆</a></li>
+		</ul>
       </div>
-      <div class="modal-body">
-		<div class="tab-content">
-		  <div class="tab-pane active" id="home">
-		  												<form class="form-inline">
-														<div class="control-group">
-															<label class="control-label">用户名</label>
-															<div class="controls">
-																<input type="text" />
-															</div>
-														</div>
-														<div class="control-group">
-															<label class="control-label">密码</label>
-															<div class="controls">
-																<input type="text" />
-															</div>
-														</div>					
-													</form>
-		  </div>
-		  <div class="tab-pane" id="profile">
-		  												<form class="form-inline">
-														<div class="control-group">
-															<label class="control-label">手机号</label>
-															<div class="controls">
-																<input type="text" />
-															</div>
-														</div>
-														<div class="control-group">
-															<label class="control-label">密码</label>
-															<div class="controls">
-																<input type="text" />
-															</div>
-														</div>					
-												</form>
-		  </div>
+      <div class="login-layout">
+		<div class="tab-content" >
+			  <div class="tab-pane active" id="email">
+				<form role="form">
+				  <div class="form-group col-xs-10">
+				    <input type="email" class="form-control input-lg" id="exampleInputEmail1" placeholder="输入邮箱/姓名">
+				  </div>
+				  <div class="form-group col-xs-10">
+				    <input type="password" class="form-control input-lg" id="exampleInputPassword1" placeholder="输入密码">
+				  </div>
+				   <div class="checkbox">
+					    <div class="col-sm-offset-2 col-xs-10">
+					       <ul class="list-inline">
+		      					<li><input type="checkbox">记住我</li>
+		      					<li><a href=""><small>忘记密码?</small></a></li>
+		      				</ul>
+					    </div>
+					</div>
+					 <div class="form-group">
+			    	<div class="col-xs-10">
+                        <div class="form-actions">
+                     	  <input type="submit" name="submit" class="btn btn-primary btn-lg-10" value="登陆" />
+                        </div>
+                     </div>
+				   </div>
+				</form>
+			</div>
+			<div class="tab-pane" id="mobile">
+				<form role="form">
+				  <div class="form-group  col-xs-10">
+				    <input type="email" class="form-control input-lg" id="exampleInputEmail1" placeholder="请输入手机号码">
+				  </div>
+				  <div class="form-group  col-xs-10">
+				    <input type="password" class="form-control input-lg" id="exampleInputPassword1" placeholder="输入密码">
+				  </div>
+				   <div class="checkbox">
+					    <div class="col-sm-offset-2 col-xs-10">
+					       <ul class="list-inline">
+		      					<li><input type="checkbox">记住我</li>
+		      					<li><a href=""><small>忘记密码?</small></a></li>
+		      				</ul>
+					    </div>
+					</div>
+				  <div class="form-group">
+			    	<div class="col-xs-10">
+                                <div class="form-actions">
+                             	  <input type="submit" name="submit" class="btn btn-primary btn-lg-10" value="登陆" />
+                                </div>
+                     </div>
+				   </div>
+				</form>
+			  </div>
 		</div>
-      </div><!-- /.modal-body-->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-primary" onClick="ThinkAjax.sendForm('form1','-Article/checkLogin',complete,'result');">登陆</button>
+		</div>
+      <div class="modal-footer" id="login-footer" >
+	      <div class="third-login">
+	      		<span class="text-left"><strong>第三方登陆</strong></span>
+	      		<div>
+		      		<ul class="list-inline">
+		      			<li><img src="__IMG__/Home/qq_icon.png"/></li>
+		      			<li><img src="__IMG__/Home/qq_icon.png"/></li>
+		      			<li><img src="__IMG__/Home/qq_icon.png"/></li>
+		      		</ul>
+	      		</div>
+	      		<span class="text-left"><strong>还没有加入到邀99大学生恋爱网</strong></span>
+	      		<div>
+		      		<ul class="list-inline">
+		      			<li><a href="" >马上加入</a></li>
+		      		</ul>
+	      		</div>
+	      </div>
       </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal- fade--><!--导航栏结束-->
+    </div><!-- login -->
 </header>
 <script language="JavaScript">
-var loginhtml, validation = function(){
-    //验证写在这
-    $('.BB_button').on('click', function(){
-        return false; //此处只作演示
-    });
-};
-var page = {};
-layer.login = function(options){
-    options = options || {};
-    $.layer({
-        type: 1,
-        title: '用户登录',
-        offset: [($(window).height() - 290)/2+'px', ''],
-        border : [5, 0.5, '#666'],
-        area: ['450px','290px'],
-        shadeClose: true,
-        page: page
-    });
-};
-$('#poplogin').on('click', function(){
-    //如果已经请求过，则直接读取缓存节点
-    if(loginhtml){
-        page.html = loginhtml;
-    } else {
-        page.url = 'test/uplogin.html'
-        page.ok = function(datas){
-            loginhtml = datas; //保存登录节点
-            validation();
-        }
-    }
-    layer.login();    
-});
-//弹出一个loading层
- $('#test4').on('click', function(){
-     var ii = layer.load('加载中');
-     //var loadi = layer.load(5, 0); //如不想让加载自动关闭，第一个参数设置0即可，如：layer.load(0);
-     //此处用setTimeout演示ajax的回调
-     setTimeout(function(){
-         layer.close(ii);
-     }, 1000);
- });
-//弹出一个页面层
+//弹出login层
  $('#login').on('click', function(){
-     $.layer({
-    	 type: 1,
-         title: '用户登录',
-         offset: [($(window).height() - 290)/2+'px', ''],
-         border : [5, 0.5, '#666'],
-         area: ['450px','290px'],
-         shadeClose: true,//不显示遮罩
-         closeBtn: [0, true],
-         page: {html: "adsfa"}
-     });
+	 $.layer({
+		    type: 1,
+		    title: false,
+		    offset: [($(window).height() - 500)/2+'px', ''],
+		    area: ['300px', '500px'],
+		    shade: [0.5, '#000'],
+		    page : {dom : '.login'}, success: function(){
+		        layer.shift('left'); //左边动画弹出
+		    }
+		}); 
  });
 </script>

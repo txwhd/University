@@ -111,24 +111,24 @@
 		</div>
 		</div>
 </div><!--店长推荐结束-->
-<div class="news">
+<div class="activity">
 	<div class="panel panel-info">
 				<ul class="nav nav-tabs" id="myTab">
-				  <li ><a href="#messages" data-toggle="tab">校园活动</a></li>
-				  <li><a href="#settings" data-toggle="tab">同城活动</a></li>
+				  <li ><a href="#schoolyard" data-toggle="tab">校园活动</a></li>
+				  <li><a href="#cityActivity" data-toggle="tab">同城活动</a></li>
 				</ul>
 				<div class="tab-content">
-				  <div class="tab-pane fade in active" id="messages">
+				  <div class="tab-pane fade in active" id="schoolyard">
 				  	<volist name="Activity1" id="vo">
 				  		<li>
-							<a href="__APP__/Activity/showDetail?id={$vo.activity_id}&table=activity">{$vo.title|msubstr=0,14,'utf-8',true}</a>
+							<a href="__APP__/Activity/showDetail?id={$vo.activity_id}&table=activity">{$vo.title|msubstr=0,14,'utf-8',false}</a>
 						</li>
 				  	</volist>
 				  </div>
-				  <div class="tab-pane fade" id="settings">
+				  <div class="tab-pane fade" id="cityActivity">
 				  	<volist name="Activity2" id="vo">
 					  	<li>
-							<a href="__APP__/Activity/showDetail?id={$vo.activity_id}&table=activity">{$vo.title|msubstr=0,14,'utf-8',true}</a>
+							<a href="__APP__/Activity/showDetail?id={$vo.activity_id}&table=activity">{$vo.title|msubstr=0,14,'utf-8',false}</a>
 						</li>
 				  	</volist>
 				  </div>
@@ -251,46 +251,52 @@
 	</div>
 </div>
 <div id="constellation">
-				<div class="panel panel-info">
-				<ul class="nav nav-tabs" id="myTab">
-				  <li ><a href="#messa" data-toggle="tab">星座匹配</a></li>
-				  <li><a href="#sett" data-toggle="tab">生日匹配</a></li>
-				</ul>
-				<div class="tab-content">
-				  <div class="tab-pane fade in active" id="messa">
+	<div class="panel panel-info">
+		<ul class="nav nav-tabs" id="myTab">
+		  <li ><a href="#messa" data-toggle="tab">星座匹配</a></li>
+		  <li><a href="#sett" data-toggle="tab">生日匹配</a></li>
+		</ul>
+		<div class="tab-content">
+		  <div class="tab-pane fade in active" id="messa">
+		  	<div class="constellation_layout">
+			  <form class="form-inline">
+					  <select class="input-xlarge">
+						  <option>白羊座 3月21日---4月19日 </option>
+						  <option>水瓶座 1月20日---2月18日  </option>
+						  <option>双鱼座 2月19日---3月20日 </option>
+						  <option>金牛座 4月20日---5月20日  </option>
+						  <option>双子座 5月21日---6月21日  </option>
+						  <option>巨蟹座 6月22日---7月22日  </option>
+						  <option>狮子座 7月23日---8月22日  </option>
+						  <option>天秤座 9月23日--10月23日   </option>
+						  <option>处女座 8月23日---9月22日   </option>
+						  <option>射手座 11月22日---12月21日 </option>
+						  <option>双子座 5月21日---6月21日  </option>
+						  <option>摩羯座 12月22日 ---1月19日</option>
+						</select>
+						<div><a href="" ><img src="__IMG__/Home/constellation_button.png" alt="星座"/></a></div>
+			  </form>
+			  </div>
+			  <div><img src="__IMG__/Home/constellation.png" alt="星座"/></div>
+		  </div>
+		  <div class="tab-pane fade" id="sett">
+			  <div>
 				  <form class="form-inline">
-						  <select class="input-xlarge">
-							  <option>白羊座 3月21日---4月19日 </option>
-							  <option>水瓶座 1月20日---2月18日  </option>
-							  <option>双鱼座 2月19日---3月20日 </option>
-							  <option>金牛座 4月20日---5月20日  </option>
-							  <option>双子座 5月21日---6月21日  </option>
-							  <option>巨蟹座 6月22日---7月22日  </option>
-							  <option>狮子座 7月23日---8月22日  </option>
-							  <option>天秤座 9月23日--10月23日   </option>
-							  <option>处女座 8月23日---9月22日   </option>
-							  <option>射手座 11月22日---12月21日 </option>
-							  <option>双子座 5月21日---6月21日  </option>
-							  <option>摩羯座 12月22日 ---1月19日</option>
-							</select>
-							 <button type="button" class="btn btn-primary btn-xs">搜索</button>
-				  </form>
-				  </div>
-				  <div class="tab-pane fade" id="sett">
-					  <form class="form-inline">
-						 <select class="span2">   
-						 		<option value="2">1</option>   
-								<option value="1">2</option>   
-						 </select>日
-						 <select class="span2">   
-						 		<option value="2">1</option>   
-								<option value="1">2</option>   
-						 </select>月
-						 <button type="button" class="btn btn-primary btn-xs">搜索</button>
-						 </form>
-				  </div>
-				</div>			
-				</div>		
+					 <select class="span2">   
+					 		<option value="2">1</option>   
+							<option value="1">2</option>   
+					 </select>日
+					 <select class="span2">   
+					 		<option value="2">1</option>   
+							<option value="1">2</option>   
+					 </select>月
+					 <div><a href="" ><img src="__IMG__/Home/constellation_button.png" alt="星座"/></a></div>
+					 </form>
+					 <div>生日配对说明：请选择二人的星座，点击配对分析后，系统会分析两种星座的配对指数、配对分析及注意事项，以及该星座的最佳配对星座和最不佳配对星座。选择出生时间并点击我的最配，系统会分析您的星座，以及您的最佳星座配对。</div>
+				 </div>
+		  </div>
+		</div>			
+	</div>		
 </div>
 <div id="search-word">
 	<div class="panel panel-info">
