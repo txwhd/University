@@ -21,7 +21,7 @@
             <ul class="nav navbar-nav navbar-right ng-scope" ng-controller="user_ctrl" id="header_me">
                 <li class="divider-vertical hidden-xs"></li>
                 <li>
-               <a id="myModal">登陆</a>
+               <a id="login">登陆</a>
                 </li>
                 <li>
                 <a href="__APP__/Register/index">注册</a>
@@ -85,8 +85,7 @@
 </div><!-- /.modal- fade--><!--导航栏结束-->
 </header>
 <script language="JavaScript">
-//登录页面弹
- var loginhtml, validation = function(){
+var loginhtml, validation = function(){
     //验证写在这
     $('.BB_button').on('click', function(){
         return false; //此处只作演示
@@ -105,7 +104,7 @@ layer.login = function(options){
         page: page
     });
 };
-$('#login').on('click', function(){
+$('#poplogin').on('click', function(){
     //如果已经请求过，则直接读取缓存节点
     if(loginhtml){
         page.html = loginhtml;
@@ -126,5 +125,18 @@ $('#login').on('click', function(){
      setTimeout(function(){
          layer.close(ii);
      }, 1000);
+ });
+//弹出一个页面层
+ $('#login').on('click', function(){
+     $.layer({
+    	 type: 1,
+         title: '用户登录',
+         offset: [($(window).height() - 290)/2+'px', ''],
+         border : [5, 0.5, '#666'],
+         area: ['450px','290px'],
+         shadeClose: true,//不显示遮罩
+         closeBtn: [0, true],
+         page: {html: "adsfa"}
+     });
  });
 </script>

@@ -1,93 +1,88 @@
 <include file="Common:intoHead" />
 <include file="Common:head" />
- <!--page_container-->
  <div id="page_container"><!-- 整体布局控制 -->
  <div class="container">
 	<div class="row">
-			<div class="col-md-8" style="border:1px solid red;">
-			           	<volist name="list" id="list">
-			                   	<h2 class="title"><span><a href="{$list[0]['title']}">{$list[0]['title']}</a></span></h2>
-			                       	<div class="fleft">On <span>{$list[0]['update_time']}</span> / By <a href="{$list[0]['username']}">{$list[0]['username']}</a> 
-			                       	/关键字<a href="{}">{$list[0]['kerwords']}</a>
-			                       	</div><!-- 前居左  后居右 -->
-			                           <div class="fright"><a href="{:U('Article/SearchKeywords/',array('id'=>$vo['gift_id']))}">{$list[0]['title']}</a> 评论</div>                                    
-			                       	<div class="clear"></div>
-			                       <p>{$list[0]['title']}</p>
-			                       <a href="{$list[0]['content']}" class="arrow_link">详细</a>
-			                </volist>
-			                  <div class="pagination">
-			                     <div class="page">{$page}</div>
-			                  </div>
-			       
+		<div class="col-md-8">
+	        <volist name="list" id="list">
+                	<h2 class="title"><span><a href="{$list[0]['title']}">{$list[0]['title']}</a></span></h2>
+                    	<div class="fleft">On <span>{$list[0]['update_time']}</span> / By <a href="{$list[0]['username']}">{$list[0]['username']}</a> 
+                    	/关键字<a href="{}">{$list[0]['kerwords']}</a>
+                    	</div><!-- 前居左  后居右 -->
+                        <div class="fright"><a href="{:U('Article/SearchKeywords/',array('id'=>$vo['gift_id']))}">{$list[0]['title']}</a> 评论</div>                                    
+                    	<div class="clear"></div>
+                    <p>{$list[0]['title']}</p>
+                    <a href="{$list[0]['content']}" class="arrow_link">详细</a>
+             </volist>
+              <div class="pagination">
+                 <div class="page">{$page}</div>
+              </div>
 			</div>
-	<div class="col-md-4" style="border:1px solid red;" >
-	   		
-	                        	<div class="sidebar">
-	                            	<div class="widget">
-	                                	<form class="form-search">
-	                                        <input type="text" class="input-medium search-query">
-	                                        <button type="submit" class="btn dark_btn">Search</button>
-	                                     </form>
-	                                </div>
-	                                <div class="widget">
-	                                	<h2 class="title"><span>text widjet</span></h2>
-	                                	<p>Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio. Morbi nunc odio, gravida at, cursus nec, luctus a, lorem. Maecenas tristique orci ac sem. Duis ultricies pharetra magna. Donec accumsan malesuada orci. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-	                                    <p><a href="#" class="arrow_link">Read more</a></p>
-	                                </div>
-	                                <div class="widget">
-	                                	<h2 class="title"><span>recent posts</span></h2>
-	                                	<ul class="recent_post">
-	                                    	<li>
-	                                        	<a href="#"><img src="img/img8.jpg" alt="" /></a>
-	                                            <div><a href="#">It is a long established fact that a reader will be distracted </a></div>
-	                                            16th July, 2020
-	                                        	<div class="clear"></div>
-	                                        </li>
-	                                        <li>
-	                                        	<a href="#"><img src="img/img9.jpg" alt="" /></a>
-	                                            <div><a href="#">It is a long established fact that a reader will be distracted </a></div>
-	                                            16th July, 2020
-	                                        	<div class="clear"></div>
-	                                        </li>
-	                                        <li>
-	                                        	<a href="#"><img src="img/img10.jpg" alt="" /></a>
-	                                            <div><a href="#">It is a long established fact that a reader will be distracted </a></div>
-	                                            16th July, 2020
-	                                        	<div class="clear"></div>
-	                                        </li>
-	                                    </ul>
-	                                	<p><a href="#" class="arrow_link">Go to the portfolio</a></p>
-	                                </div>
-	                                <div class="widget">
-	                                	<h2 class="title"><span>Latest tweets</span></h2>
-	                                	<div class="tweet_block"></div>
-	                                </div>
-	                                <div class="widget tags">
-	                                	<h2 class="title"><span>tags</span></h2>
-	                                	<a href="#">Lorem ipsum</a>
-	                                    <a href="#">Dolor</a>
-	                                    <a href="#">Long established</a>
-	                                    <a href="#">Sit amet</a>
-	                                    <a href="#">Latin words</a>
-	                                    <a href="#">Excepteur sint</a>                                    
-	                                </div>
-	                                <div class="widget">
-	                                	<h2 class="title"><span>links</span></h2>
-	                                	<ul class="links">
-	                                    	<li><a href="#">Lorem ipsum dolor sit amet, consectetur</a></li> 
-	                                        <li><a href="#">Adipisicing elit, sed do eiusmod tempor incididunt</a></li>
-	                                        <li><a href="#">Ut labore et dolore magna aliqua.</a></li>
-	                                        <li><a href="#">Ut enim ad minim veniam, quis nostrud exercitation ullamco</a></li>
-	                                        <li><a href="#">Laboris nisi ut aliquip ex ea commodo consequat.</a></li>
-	                                        <li><a href="#">Duis aute irure dolor in reprehenderit</a></li>
-	                                        <li><a href="#">In voluptate velit esse cillum</a></li>
-	                                        <li><a href="#">Excepteur sint occaecat cupidatat non proident</a></li>
-	                                    </ul>                                   
-	                                </div>                            
-	                        </div>  
-	                
+	<div class="col-md-4">
+             	<div class="sidebar">
+                 	<div class="widget">
+                     	<form class="form-search">
+                             <input type="text" class="input-medium search-query">
+                             <button type="submit" class="btn dark_btn">Search</button>
+                          </form>
+                     </div>
+                     <div class="widget">
+                     	<h2 class="title"><span>text widjet</span></h2>
+                     	<p>Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio. Morbi nunc odio, gravida at, cursus nec, luctus a, lorem. Maecenas tristique orci ac sem. Duis ultricies pharetra magna. Donec accumsan malesuada orci. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+                         <p><a href="#" class="arrow_link">Read more</a></p>
+                     </div>
+                     <div class="widget">
+                     	<h2 class="title"><span>recent posts</span></h2>
+                     	<ul class="recent_post">
+                         	<li>
+                             	<a href="#"><img src="img/img8.jpg" alt="" /></a>
+                                 <div><a href="#">It is a long established fact that a reader will be distracted </a></div>
+                                 16th July, 2020
+                             	<div class="clear"></div>
+                             </li>
+                             <li>
+                             	<a href="#"><img src="img/img9.jpg" alt="" /></a>
+                                 <div><a href="#">It is a long established fact that a reader will be distracted </a></div>
+                                 16th July, 2020
+                             	<div class="clear"></div>
+                             </li>
+                             <li>
+                             	<a href="#"><img src="img/img10.jpg" alt="" /></a>
+                                 <div><a href="#">It is a long established fact that a reader will be distracted </a></div>
+                                 16th July, 2020
+                             	<div class="clear"></div>
+                             </li>
+                         </ul>
+                     	<p><a href="#" class="arrow_link">Go to the portfolio</a></p>
+                     </div>
+                     <div class="widget">
+                     	<h2 class="title"><span>Latest tweets</span></h2>
+                     	<div class="tweet_block"></div>
+                     </div>
+                     <div class="widget tags">
+                     	<h2 class="title"><span>tags</span></h2>
+                     	<a href="#">Lorem ipsum</a>
+                         <a href="#">Dolor</a>
+                         <a href="#">Long established</a>
+                         <a href="#">Sit amet</a>
+                         <a href="#">Latin words</a>
+                         <a href="#">Excepteur sint</a>                                    
+                     </div>
+                     <div class="widget">
+                     	<h2 class="title"><span>links</span></h2>
+                     	<ul class="links">
+                         	<li><a href="#">Lorem ipsum dolor sit amet, consectetur</a></li> 
+                             <li><a href="#">Adipisicing elit, sed do eiusmod tempor incididunt</a></li>
+                             <li><a href="#">Ut labore et dolore magna aliqua.</a></li>
+                             <li><a href="#">Ut enim ad minim veniam, quis nostrud exercitation ullamco</a></li>
+                             <li><a href="#">Laboris nisi ut aliquip ex ea commodo consequat.</a></li>
+                             <li><a href="#">Duis aute irure dolor in reprehenderit</a></li>
+                             <li><a href="#">In voluptate velit esse cillum</a></li>
+                             <li><a href="#">Excepteur sint occaecat cupidatat non proident</a></li>
+                         </ul>                                   
+                     </div>                            
+             </div>  
 	  </div>
-	    <!--//page_container-->
 	    </div>
     </div>
 <include file="Common:foot" />
