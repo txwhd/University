@@ -13,7 +13,25 @@ class CommfootAction extends Action{
 	 */
 	public function menu(){
 		//$model= 查到数据
+		$menu1=$this->FindMenu('网站简介');
+		$this->assign('menu1',$menu1);
 		
+		$menu2=$this->FindMenu('新手入门');
+		$this->assign('menu2',$menu2);
+		
+		$menu3=$this->FindMenu('用户体验');
+		$this->assign('menu3',$menu3);
+		
+		$menu4=$this->FindMenu('更多');
+		$this->assign('menu4',$menu4);
+	}
+	public function FindMenu($data){
+		$m=M('Article_class');
+		$where['type_name']=$data;
+		$result=$m->where($where)->select();
+		$where1['cid']=$result[0]['cid'];
+		$menu=M('Article')->where($where1)->select();
+		return $menu;
 	}
 	/* public function right(){
 		//$model= 根据文章id->内容
@@ -35,6 +53,18 @@ class CommfootAction extends Action{
 	 */
 	public function about(){
 		$this->menu();
+		//右边内容
+		$id=$_GET['id'];
+		$m=M('Article');
+		$str=$m->getPk ();
+		$where[$str]=$id;
+		$result=$m->where($where)->select();
+		$this->assign('article',$result);
+		$this->display();
+	
+	}
+	
+	public function aboutmain(){
 		$this->display();
 	
 	}
