@@ -3,7 +3,7 @@
 	margin: 0;
 	padding:0;
 }
-a{
+/* a{
 	&:link,&visited{
 	color:#606060;
 	text-decoration:none;
@@ -11,7 +11,7 @@ a{
 	&:hover,&active{
 	color:#212121;
 	}
-}
+} */
 body {
 	margin: 0;
 	padding:0;
@@ -230,15 +230,19 @@ position:absolute;
 #ifocus_tx .normal { 
   display:none;
   }
-
 /*站长推荐*/
 #choose{
 margin-top:5px;
 
 }
+
 #choose div.panel{
 width:700px;
 
+
+.choose-people{
+margin:4px 4px 0px 0px;
+float:left;
 }
 /*--同校+投票--*/
 #oneschool{
@@ -249,29 +253,7 @@ float:left;
 .oneschool-people{
 float:left;
 }
-	.boxgrid{ 
-				width: 135px; 
-				height: 135px; 
-				margin:10px; 
-				float:left; 
-				background:#E8E8FF; 
-				border: solid 2px #8399AF; 
-				overflow: hidden; 
-				position: relative; 
-			}
-				.boxgrid img{ 
-					position: absolute; 
-					top: 0; 
-					left: 0; 
-					border: 0; 
-				}
-				.boxgrid p{ 
-					padding: 0 10px; 
-					color:#afafaf; 
-					font-weight:bold; 
-					font:10pt "Lucida Grande", Arial, sans-serif; 
-				}
-
+	
 .oneschool-people img{
 width:132px;
 height:132px;
