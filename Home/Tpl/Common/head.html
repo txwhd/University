@@ -51,7 +51,7 @@
 					    <div class="col-sm-offset-2">
 					       <ul class="list-inline">
 		      					<li><input type="checkbox">记住我</li>
-		      					<li><a href=""><small>忘记密码?</small></a></li>
+		      					<li><a id="forgetpass" class="btns" href="javascript:;" onclick="layer.closeAll();"><small>忘记密码?</small></a></li>
 		      				</ul>
 					    </div>
 					</div>
@@ -72,7 +72,7 @@
 					      <div class="col-sm-offset-2">
 					       <ul class="list-inline">
 		      					<li><input type="checkbox">记住我</li>
-		      					<li><a href=""><small>忘记密码?</small></a></li>
+		      					<li><a id="forgetpass1" class="btns" href="javascript:;" onclick="layer.closeAll();"><small>忘记密码?</small></a></li>
 		      				</ul>
 					    </div>
 					</div>
@@ -102,11 +102,49 @@
 	      </div>
       </div>
 </div><!-- login -->
+	<!-- forgetpass start-->
+<div class="forgetpass" style="display:none;">
+  <div class="tab-pane active" id="email">
+	<form role="form" action="" method="post">
+	  <div class="form-group col-xs-10">
+	    <input type="email" class="form-control input-lg" id="exampleInputEmail1" placeholder="输入邮箱">
+	  </div>
+	 <div class="form-actions col-xs-10">
+          <input type="submit" class="btn btn-block btn-large btn-danger" value="提交" />
+    </div>
+	</form>
+</div>
+</div>
+<!-- forgetpass end -->
 </header>
 <script language="JavaScript">
-//弹出login层
- $('#login').on('click', function(){
-	 $.layer({
+//忘记密码弹窗
+$('#forgetpass').on('click', function(){
+	  $.layer({
+		    type: 1,
+		    title: '找回密码',
+		    offset: [($(window).height() - 200)/2+'px', ''],
+		    area: ['300px', '200px'],
+		    shade: [0.5, '#000'],
+		    page : {dom : '.forgetpass'}, success: function(){
+		        layer.shift('left'); //左边动画弹出
+		    }
+		});  
+}); 
+$('#forgetpass1').on('click', function(){
+	  $.layer({
+		    type: 1,
+		    title: '找回密码',
+		    offset: [($(window).height() - 200)/2+'px', ''],
+		    area: ['300px', '200px'],
+		    shade: [0.5, '#000'],
+		    page : {dom : '.forgetpass'}, success: function(){
+		        layer.shift('left'); //左边动画弹出
+		    }
+		});  
+}); 
+$('#login').on('click', function(){
+	  $.layer({
 		    type: 1,
 		    title: false,
 		    offset: [($(window).height() - 500)/2+'px', ''],
@@ -115,6 +153,7 @@
 		    page : {dom : '.login'}, success: function(){
 		        layer.shift('left'); //左边动画弹出
 		    }
-		}); 
- });
+		});  
+});
+//登录结束
 </script>
