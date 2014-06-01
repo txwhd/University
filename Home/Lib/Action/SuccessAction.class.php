@@ -5,6 +5,8 @@
 class SuccessAction extends CommonAction{
 	public function index(){
 		$model=M('success_object');
-		$this->assign('',$list);
+		$list=$model->select();
+		$this->assign('list',$list);
+		$this->display();
 	}
 }
