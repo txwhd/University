@@ -3,7 +3,7 @@
 	margin: 0;
 	padding:0;
 }
-a{
+/* a{
 	&:link,&visited{
 	color:#606060;
 	text-decoration:none;
@@ -11,7 +11,7 @@ a{
 	&:hover,&active{
 	color:#212121;
 	}
-}
+} */
 body {
 	margin: 0;
 	padding:0;
@@ -158,68 +158,88 @@ float:left;
 	margin: 0;
 	padding:0;
 }
+#ifocus { 
+	width:700px;
+	height:245px;
+  	margin:20px;
+    border:1px solid #DEDEDE;
+    background:#F8F8F8;
+	 }
+ #ifocus_pic 
+ {
+	  display:inline;
+	  position:relative; 
+	  float:left; 
+	  width:580px; 
+	  height:225px; 
+	  overflow:hidden; 
+	  margin:10px 0 0 10px; 
+	  }
+#ifocus_piclist { 
+position:absolute;
+ }
+#ifocus_piclist li { 
+	 width:580px;
+	 height:225px; 
+	 overflow:hidden;
+ }
+#ifocus_piclist img {
+	 width:580px;
+	  height:225px; 
+	  }
+#ifocus_btn { 
+     display:inline; 
+	 float:right; 
+	 width:91px; 
+	 margin:9px 9px 0 0; 
+	 }
+#ifocus_btn li { 
 
-#imgPlay {
-	MARGIN: 8px auto; OVERFLOW: hidden; WIDTH: 600px; ZOOM: 1; POSITION: relative; HEIGHT: 304px
-}
-#imgPlay .imgs IMG {
-	BORDER-RIGHT: #dbdbdb 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: #dbdbdb 1px solid; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; BORDER-LEFT: #dbdbdb 1px solid; WIDTH: 956px; PADDING-TOP: 1px; BORDER-BOTTOM: #dbdbdb 1px solid
-}
-#imgPlay .imgs LI {
-	FLOAT: left; POSITION: relative
-}
-#imgPlay .imgs {
-	WIDTH: 5760px
-}
-#imgPlay .btn {
-	RIGHT: 12px; OVERFLOW: hidden; WIDTH: 112px; BOTTOM: 12px; TEXT-INDENT: -9999px; POSITION: absolute; HEIGHT: 29px;
-}
-#imgPlay .btn A {
-	BACKGROUND: url(../images/bg.png) no-repeat;BACKGROUND-POSITION: 0px 0px; DISPLAY: block; WIDTH: 112px; HEIGHT: 29px;
-}
-#imgPlay .btn A:hover {
-	BACKGROUND: url(../images/bg.png) no-repeat;BACKGROUND-POSITION: 0px -30px;
-}
-#imgPlay .prev {
-	BACKGROUND: url(../images/imgPlayer.png) no-repeat 0px 0px; LEFT: 1px; WIDTH: 46px; CURSOR: pointer; TEXT-INDENT: -9999px; POSITION: absolute; TOP: 110px; HEIGHT: 81px
-}
-#imgPlay .next {
-	BACKGROUND: url(../images/imgPlayer.png) no-repeat 0px 0px; LEFT: 1px; WIDTH: 46px; CURSOR: pointer; TEXT-INDENT: -9999px; POSITION: absolute; TOP: 110px; HEIGHT: 81px
-}
-#imgPlay .next {
-	BACKGROUND-POSITION: right 0px; RIGHT: 1px; LEFT: auto
-}
-#imgPlay .num {
-	DISPLAY: inline; LEFT: 400px; POSITION: absolute; TOP: 275px; HEIGHT: 19px
-}
-#imgPlay .num SPAN {
-	DISPLAY: inline-block; BACKGROUND: url(../images/imgPlayer.png) no-repeat -19px -83px; MARGIN: 0px 2px; OVERFLOW: hidden; WIDTH: 14px; CURSOR: pointer; LINE-HEIGHT: 0; HEIGHT: 13px
-}
-#imgPlay .num SPAN.on {
-	BACKGROUND-POSITION: 1px -83px
-}
-#imgPlay .num .lc {
-	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: url(../images/lc.png) no-repeat; FLOAT: left; PADDING-BOTTOM: 0px; WIDTH: 13px; PADDING-TOP: 3px; HEIGHT: 16px
-}
-#imgPlay .num .mc {
-	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: url(../images/lc.png) no-repeat; FLOAT: left; PADDING-BOTTOM: 0px; WIDTH: 13px; PADDING-TOP: 3px; HEIGHT: 16px
-}
-#imgPlay .num .rc {
-	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: url(../images/lc.png) no-repeat; FLOAT: left; PADDING-BOTTOM: 0px; WIDTH: 13px; PADDING-TOP: 3px; HEIGHT: 16px
-}
-#imgPlay .num .mc {
-	BACKGROUND: url(../images/mc.png) repeat-x
-}
-#imgPlay .num .rc {
-	BACKGROUND: url(../images/rc.png) no-repeat
-}
-#imgPlay #numInner {
-	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: none transparent scroll repeat 0% 0%; PADDING-BOTTOM: 0px; PADDING-TOP: 3px; POSITION: absolute; TOP: 275px; TEXT-ALIGN: center
-}
+     width:91px; 
+	 height:57px; 
+	 cursor:pointer; 
+	 opacity:0.5;
+	  -moz-opacity:0.5; 
+	  filter:alpha(opacity=50); 
+	  }
+#ifocus_btn img { 
+ 	width:75px;
+	height:45px;
+    margin:7px 0 0 11px; 
+	}
+#ifocus_btn .current {
+	 background: url(i/ifocus_btn_bg.gif) no-repeat; 
+	 opacity:1; -moz-opacity:1; filter:alpha(opacity=100); 
+	 }
+#ifocus_opdiv { 
+	  position:absolute; 
+	  left:0; 
+	  bottom:0; 
+	  width:580px;
+	   height:35px;
+		background:#000;
+		 opacity:0.5; 
+		 -moz-opacity:0.5; 
+		 filter:alpha(opacity=50); 
+   }
+#ifocus_tx { 
+  position:absolute; 
+  left:8px; 
+  bottom:8px; 
+  color:#FFF; }
+#ifocus_tx .normal { 
+  display:none;
+  }
 /*站长推荐*/
 #choose{
 margin-top:5px;
+
 }
+
+#choose div.panel{
+width:700px;
+
+
 .choose-people{
 margin:4px 4px 0px 0px;
 float:left;
@@ -233,6 +253,7 @@ float:left;
 .oneschool-people{
 float:left;
 }
+	
 .oneschool-people img{
 width:132px;
 height:132px;
@@ -246,8 +267,6 @@ margin-left:8px;
 width:290px;
 height:316px;
 }
-
-
 /*留学生+爱情攻略*/
 #international{
 width:700px;
