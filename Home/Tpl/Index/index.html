@@ -10,14 +10,13 @@
 <include file="Common:head" />
 <include file="Common:search" />
 
-
+<!-- 图片轮换+许愿瓶 -->
 <div class="container">	
  <div id="ifocus-news">	
 <div id="ifocus" class="pull-left">
  <div id="ifocus_pic">
   <div id="ifocus_piclist" >
-  		
-<!-- 			<volist name="ad_top" id="vo">
+  					<volist name="ad_top" id="vo">
 				<div class="item active">
 					<a href="{$vo.ad_link}" target="_blank"><img src="__ROOT__/{$vo.image_site}" class="img-responsive" alt="Responsive image"/></a>
 					<div class="carousel-caption">
@@ -25,7 +24,7 @@
 					<p>{$vo.image_description}</p>
 					</div>
 				</div>
-			</volist>		 -->
+			</volist>	
    <ul>
     <li><a href="#"><img src="__IMG__/Home/photojs/01.jpg" alt="" /></a></li>
     <li><a href="#"><img src="__IMG__/Home/photojs/02.jpg" alt="" /></a></li>
@@ -54,17 +53,25 @@
 </div><!--  ./ifocus-->
 
 <div id="news" class="pull-right">
-<img src="__IMG__/Home/photojs/btn_01.jpg"/>
+许愿瓶:可以找到你最心仪的ren噢！
+<button>马上许愿</button>
+
+
 </div><!-- ./news -->
 </div><!-- ./ifocus-news -->
 </div><!--./container  -->
 
-<!--店长推荐+活动-->
+<!--同校恋情+活动-->
 <div class="container">
 <div id="choose-activity">
 <div id="choose" class="pull-left">
-			<div class="panel panel-default">
-		<div class="panel-heading">站长推荐<span><a href="#">换一换</a></span></div>						  
+			<div class="panel">
+		 <div class="panel-heading">同校恋情</span>
+		 <volist id="vo" name="label">
+			<p class="label "><a href="__APP__/label/showDetail?id={$vo.label_id}&table=Label">[{$vo.label_name}]</a></p>
+		</volist>	
+		<span><a href="#">换一换</a></span>
+		</div>						  
 			<div class="panel-body">
 			<div>
 				<div class="boxgrid thecombo">
@@ -117,17 +124,18 @@
 				<h3>Florian Nicolle</h3>
 				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
 				</div>
-	
 			</div>
 		</div>
 		</div>
 </div>
-<div class="activity" class="pull-right">
-	<div class="panel panel-info">
-				<ul class="nav nav-tabs" id="myTab">
+<div id="activity" class="pull-right">
+	<div class="panel">
+	
+				<ul class="nav nav-tabs" id="myTab" >
 				  <li ><a href="#schoolyard" data-toggle="tab">校园活动</a></li>
 				  <li><a href="#cityActivity" data-toggle="tab">同城活动</a></li>
 				</ul>
+		
 				<div class="tab-content">
 				  <div class="tab-pane fade in active" id="schoolyard">
 				  	<volist name="Activity1" id="vo">
@@ -146,121 +154,9 @@
 				</div>
 		</div>
 </div><!-- ./activity -->
-</div><!-- ./choose-activity -->
-</div><!-- ./container -->
-<!--同校+投票-->
-<div id="oneschool-vote">
-<div class="container">
-<div id="oneschool">
-			<div class="panel panel-success">
-				 <div class="panel-heading"><img src="__IMG__/Home/title_yellow.png">&nbsp;同校恋情<img src="__IMG__/Home/title_bluel.png"><span><a href="__APP__/Member/index?table=Member" >更多</a></span></div>
-				
-				<div class="panel-body">		 
-				
-				<div class="boxgrid thecombo">
-				<img class="cover" src="__IMG__/Home/001.jpg"/>
-				<h3>Florian Nicolle</h3>
-				<p>Graphic Designer<br/><a href="#" target="_BLANK">More Work</a></p>
-				</div>	
-			<div class="boxgrid thecombo">
-				<img class="cover" src="florian.jpg"/>
-				<h3>马先生</h3>
-				<p>175cm<br/><a href="#" target="_BLANK">点赞</a></p>
-			</div>
-			
-			</div>
-</div>
-</div>
-<div id="vote">
-	<div class="panel panel-success">
-		 <div class="panel-heading">投票---你觉得本站那些地方需要修改<span><a href="#">更多</a></span></div>
-		 <div class="panel-body">
-		 	 <input type="radio" name="poll_voteNr" value="2" > 网页特效<BR>
-            <input type="radio" name="poll_voteNr" value="3" > 网页素材<BR>
-            <input type="radio" name="poll_voteNr" value="4" > 相关软件<BR>
-		</div>
-	</div>
-</div>	
-</div>			
-</div>
-
-<!--同校+投票结束-->
-<!--中部广告-->
-<div class="container"><img src="__IMG__/Home/ad.jpg"></div>
-<!--中部广告结束  -->
-
-<!--留学生+爱情攻略-->
-<div id="international-Finally"><!-- Finally爱情攻略 -->
-<div class="container">
-<div id="international">
-			<div class="panel panel-success">
-				<div class="panel-heading">留学生恋情<span><a href="__APP__/Overseas/index?table=Member_detail&type=oversea">更多</a></span></div>
-				<div class="panel-body">
-					<volist id="vo" name="overseas">
-						<div class="international-people">
-							<a href="__APP__/Mood/showDetail?id={$vo.mood_id}&table=Mood"><img src="{$vo.img}"></a>
-						</div>		
-					</volist>						
-					<div class="international-people">
-					<img src="__IMG__/Home/001.jpg">
-					</div>				
-					<div class="international-people">
-					<img src="__IMG__/Home/001.jpg">
-					</div>				<div class="international-people">
-					<img src="__IMG__/Home/001.jpg">
-					</div>				
-					<div class="international-people">
-					<img src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="international-people">
-					<img src="__IMG__/Home/001.jpg">
-					</div>
-			</div>
-</div>
-</div>
-	<div id="Finally">
-		<div class="panel panel-success">
-			 <div class="panel-heading">爱情攻略<span><a href="__APP__/Article/listMore?table=Article">更多</a></span></div>
-			 <div class="panel-body">
-				<ul class="Finally_list"><!--一行可以写十四个字-->
-					<volist id="vo" name="loveStrategy">
-						<li>
-							<a href="__APP__/Article/showDetail?id={$vo.article_id}&table=Article">{$vo.title|msubstr=0,14,'utf-8',true}</a>
-							<span>{$vo.update_time|date="m-d",###}</span>
-						</li>
-					</volist>					
-				</ul>				
-			</div>
-		</div>
-	</div>			
-</div>			
-</div>
-<!--成功案例+星座匹配-->
-<div class="container">
-<div id="success">
-	<div class="panel panel-success">
-		<div class="panel-heading">牵手恋情<span><a href="__APP__/Success/more?table=success_object">更多</a></span></div>
-		<div class="panel-body">
-			<volist id="vo" name="success">
-				<div class="choose-people">
-					<a href="__APP__/Mood/showDetail?id={$vo.mood_id}&table=Mood"><img src="{$vo.img}"></a>
-				</div>		
-			</volist>	
-			<div class="success-style" >
-			<div class="choose-people">
-			<img class="img-thumbnail" src="__IMG__/Home/001.jpg">
-			</div>
-			</div>
-			<div class="success-style" >
-			<div class="choose-people">
-			<img class="img-thumbnail" src="__IMG__/Home/001.jpg">
-			</div>
-			</div>
-	</div>
-	</div>
-</div>
-<div id="constellation">
-	<div class="panel panel-info">
+<div id="constellation" class="pull-right">
+	<div class="panel">
+	
 		<ul class="nav nav-tabs" id="myTab">
 		  <li ><a href="#messa" data-toggle="tab">星座匹配</a></li>
 		  <li><a href="#sett" data-toggle="tab">生日匹配</a></li>
@@ -282,11 +178,9 @@
 						  <option>射手座 11月22日---12月21日 </option>
 						  <option>双子座 5月21日---6月21日  </option>
 						  <option>摩羯座 12月22日 ---1月19日</option>
-						</select>
-						<div><a href="" ><img src="__IMG__/Home/constellation_button.png" alt="星座"/></a></div>
+						</select>		
 			  </form>
 			  </div>
-			  <div><img src="__IMG__/Home/constellation.png" alt="星座"/></div>
 		  </div>
 		  <div class="tab-pane fade" id="sett">
 			  <div>
@@ -299,51 +193,223 @@
 					 		<option value="2">1</option>   
 							<option value="1">2</option>   
 					 </select>月
-					 <div><a href="" ><img src="__IMG__/Home/constellation_button.png" alt="星座"/></a></div>
-					 </form>
-					 <div>生日配对说明：请选择二人的星座，点击配对分析后，系统会分析两种星座的配对指数、配对分析及注意事项，以及该星座的最佳配对星座和最不佳配对星座。选择出生时间并点击我的最配，系统会分析您的星座，以及您的最佳星座配对。</div>
+					 </form>			
 				 </div>
 		  </div>
 		</div>			
-	</div>		
+	</div>	
+</div><!-- ./ constellation-->
+</div><!-- ./choose-activity -->
+</div><!-- ./container -->
+<!--中部广告-->
+<div class="container">
+<div class="ad"><img src="__IMG__/Home/ad.jpg"></div>
 </div>
-<div id="search-word">
-	<div class="panel panel-info">
-		<volist id="vo" name="label">
-			<span class="label label-info"><a href="__APP__/label/showDetail?id={$vo.label_id}&table=Label">{$vo.label_name}</a></span>
-		</volist>	
-	</div>
-</div>
-</div>
-
-<!--会员+心情语录-->
-<div id="vip-feel">
-	<div class="container">
-		<div id="vip">
-					<div class="panel panel-success">
-						 <div class="panel-heading">vip会员服务</div>
-						 <div class="panel-body">
-							<div class="vip-border">	
-								<img src="__IMG__/Home/100.jpg"/>
-								<img src="__IMG__/Home/100.jpg"/>
-						</div>
-					</div>
+<!--中部广告结束  -->
+<!-- 民族风情+心情语录 -->
+<div class="container">
+<div  id="nation" class="pull-left">
+		<div class="panel">
+			<div class="panel-heading">民族风情<span><a href="__APP__/Member/index?table=Member" >更多</a></span></div>		
+			<div class="panel-body">
+			<div>
+				<div class="boxgrid thecombo">
+				<img class="cover" src="__IMG__/Home/001.jpg"/>
+				<h3>Florian Nicolle</h3>
+				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
 				</div>
+				<div class="boxgrid thecombo">
+				<img class="cover" src="__IMG__/Home/001.jpg"/>
+				<h3>Florian Nicolle</h3>
+				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
+				</div>
+				<div class="boxgrid thecombo">
+				<img class="cover" src="__IMG__/Home/001.jpg"/>
+				<h3>Florian Nicolle</h3>
+				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
+				</div>
+				<div class="boxgrid thecombo">
+				<img class="cover" src="__IMG__/Home/001.jpg"/>
+				<h3>Florian Nicolle</h3>
+				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
+				</div>
+				<div class="boxgrid thecombo">
+				<img class="cover" src="__IMG__/Home/001.jpg"/>
+				<h3>Florian Nicolle</h3>
+				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
+				</div>
+				<div class="boxgrid thecombo">
+				<img class="cover" src="__IMG__/Home/001.jpg"/>
+				<h3>Florian Nicolle</h3>
+				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
+				</div>
+				<div class="boxgrid thecombo">
+				<img class="cover" src="__IMG__/Home/001.jpg"/>
+				<h3>Florian Nicolle</h3>
+				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
+				</div>
+				<div class="boxgrid thecombo">
+				<img class="cover" src="__IMG__/Home/001.jpg"/>
+				<h3>Florian Nicolle</h3>
+				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
+				</div>
+				<div class="boxgrid thecombo">
+				<img class="cover" src="__IMG__/Home/001.jpg"/>
+				<h3>Florian Nicolle</h3>
+				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
+				</div>
+				<div class="boxgrid thecombo">
+				<img class="cover" src="__IMG__/Home/001.jpg"/>
+				<h3>Florian Nicolle</h3>
+				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
+				</div>
+			</div>	
+			</div>
 		</div>
-		<div id="feel">
-			<div class="panel panel-success">
-				<div class="panel-heading">心情语录<span><a target="_blank" href="__APP__/Mood/moreList">更多</a></span></div>
+</div>
+<div id="Causerie" class="pull-right">
+<div class="panel">
+			<div class="panel-heading">心情语录<span><a href="__APP__/Member/index?table=Member" >更多</a></span></div>		
+			<div class="panel-body">
+
+		<div class="Causerie-model">
+			<div class="Causerie-photo">
+			<div><img alt="" src="__IMG__/Home/001.jpg"></div>
+			</div>
+			<div class="Causerie-container">
+			<h6>李姑娘</h6>
+			<p>挺想你的</p>
+			<div class="Causerie-discuss">
+			<button>点赞</button>
+			<button>关注</button>
+			</div>
+			</div>
+		</div> 
+		<div class="Causerie-model">
+			<div class="Causerie-photo">
+			<div><img alt="" src="__IMG__/Home/001.jpg"></div>
+			</div>
+			<div class="Causerie-container">
+			<h6>李姑娘</h6>
+			<p>挺想你的</p>
+			<div class="Causerie-discuss">
+			<button>点赞</button>
+			<button>关注</button>
+			</div>
+			</div>
+		</div> 
+		<div class="Causerie-model">
+			<div class="Causerie-photo">
+			<div><img alt="" src="__IMG__/Home/001.jpg"></div>
+			</div>
+			<div class="Causerie-container">
+			<h6>李姑娘</h6>
+			<p>挺想你的</p>
+			<div class="Causerie-discuss">
+			<button>点赞</button>
+			<button>关注</button>
+			</div>
+			</div>
+		</div> 
+		
+</div>
+</div>
+</div>
+</div>
+<!--留学生+爱情攻略-->
+<div id="international-Finally"><!-- Finally爱情攻略 -->
+<div class="container">
+<div id="international">
+			<div class="panel">
+				<div class="panel-heading">留学生恋情<span><a href="__APP__/Overseas/index?table=Member_detail&type=oversea">更多</a></span></div>
 				<div class="panel-body">
-					<ul class="Finally_list">
-					<volist id="vo" name="mood">
-						<li><a href="__APP__/Mood/showDetail?id={$vo.mood_id}&table=Mood">{$vo.content|msubstr=0,14,'utf-8',true}</a><span>{$vo.create_time|date="m-d",###}</span></li>
-					</volist>
-					</ul>
+					<volist id="vo" name="overseas">
+						<div class="international-people">
+							<a href="__APP__/Mood/showDetail?id={$vo.mood_id}&table=Mood"><img src="{$vo.img}"></a>
+						</div>		
+					</volist>						
+					<div class="boxgrid thecombo">
+				<img class="cover" src="__IMG__/Home/001.jpg"/>
+				<h3>Florian Nicolle</h3>
+				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
+				</div>
+				<div class="boxgrid thecombo">
+				<img class="cover" src="__IMG__/Home/001.jpg"/>
+				<h3>Florian Nicolle</h3>
+				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
+				</div>
+				<div class="boxgrid thecombo">
+				<img class="cover" src="__IMG__/Home/001.jpg"/>
+				<h3>Florian Nicolle</h3>
+				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
+				</div>
+				<div class="boxgrid thecombo">
+				<img class="cover" src="__IMG__/Home/001.jpg"/>
+				<h3>Florian Nicolle</h3>
+				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
+				</div>
+				<div class="boxgrid thecombo">
+				<img class="cover" src="__IMG__/Home/001.jpg"/>
+				<h3>Florian Nicolle</h3>
+				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
 				</div>
 			</div>
-		</div>	
-	</div>	
-</div><!--会员+心情语录结束-->
+</div>
+</div>
+	<div id="Finally">
+		<div class="panel ">
+			 <div class="panel-heading">爱情攻略<span><a href="__APP__/Article/listMore?table=Article">更多</a></span></div>
+			 <div class="panel-body">
+				<ul class="Finally_list"><!--一行可以写十四个字-->
+					<volist id="vo" name="loveStrategy">
+						<li>
+							<a href="__APP__/Article/showDetail?id={$vo.article_id}&table=Article">{$vo.title|msubstr=0,14,'utf-8',true}</a>
+							<span>{$vo.update_time|date="m-d",###}</span>
+						</li>
+					</volist>					
+				</ul>				
+			</div>
+		</div>
+	</div>			
+</div>			
+</div>
+<!--成功案例+服务+投票-->
+<div class="container">
+<div id="success">
+	<div class="panel ">
+		<div class="panel-heading">牵手恋情<span><a href="__APP__/Success/more?table=success_object">更多</a></span></div>
+		<div class="panel-body">
+			<volist id="vo" name="success">
+				<div class="choose-people">
+					<a href="__APP__/Mood/showDetail?id={$vo.mood_id}&table=Mood"><img src="{$vo.img}"></a>
+				</div>		
+			</volist>	
+			<div class="success-style" >
+			<div class="choose-people">
+			<img class="img-thumbnail" src="__IMG__/Home/001.jpg">
+			</div>
+			</div>
+			<div class="success-style" >
+			<div class="choose-people">
+			<img class="img-thumbnail" src="__IMG__/Home/001.jpg">
+			</div>
+			</div>
+		
+	</div>
+	</div>
+</div>
+	<div id="vote" class="pull-right">
+	<div class="panel ">
+		 <div class="panel-heading">投票---你觉得本站那些地方需要修改<span><a href="#">更多</a></span></div>
+		 <div class="panel-body">
+		 	 <input type="radio" name="poll_voteNr" value="2" > 网页特效<BR>
+            <input type="radio" name="poll_voteNr" value="3" > 网页素材<BR>
+            <input type="radio" name="poll_voteNr" value="4" > 相关软件<BR>
+		</div>
+	</div>
+</div>	
+</div>
+
 <include file="Common:link" />
 <include file="Common:foot" />
  </body>

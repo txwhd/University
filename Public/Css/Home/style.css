@@ -7,12 +7,15 @@ body {
 	margin: 0;
 	padding:0;
 }
+button{
+	background:#FF6699;
+}
+
  a{
  	
 }
  	
  a:visited{
- 
 	text-decoration:none;
  }	
 a:hover{
@@ -29,13 +32,13 @@ ul li{
 	list-style-type:none;
 }
 ul li:hover{
-	font-weight: bold;
+	
 }
 .container{
 	padding:0;
 	width:1000px;
 	margin-top:5px;
-	border:1px solid red;
+	
 }
 .pull-left{
 	float:left;
@@ -49,35 +52,53 @@ ul li:hover{
 .panel{
 	margin: 0;
 	padding:0;
-}
-header{
-	margin: 0;
-	padding:0;	
-}
-nav{
-	margin: 0;
-	padding:0;
+	border-color:#FF99FF;
 }
 .panel-body{
 	margin: 0;
 	padding:0;
 }
 .panel-heading{
-	background:url(__IMG__/Home/title_yellow.png);
+	background:#FFCCFF;
+	color:#428BCA;
 } 
 .panel-heading span{
 	float:right;
+	color:#428BCA;
 }
 .panel-heading span a{
-	color:#3C763D;
+	color:#428BCA;
 }
 .panel-heading span a:hover{
-text-decoration:underline;
+
 }
+#myTab{
+	background:#FFccff;
+}
+
+#myTab li a{
+	background:#FFccff;
+}
+#myTab li a:link{
+	background:#FFccff;
+}
+
+#myTab li a:hover{
+	background:#FF6699;
+	border:1px solid red;
+}
+
+#myTab li a:visited{
+	background:#FF6699;
+	
+}
+
+
+
+
 /*------------------------------头和尾--------------------------------*/
 header#header{
 height:58px;
-background:#A4133C;
 position:relative;
 }
 header#header nav.navbar{
@@ -86,10 +107,10 @@ margin:0;
 height:58px;
 -webkit-box-shadow:inset 0 1px 0 rgba(255,255,255,0.15),0 1px 5px rgba(57,57,57,0.075);
 box-shadow:inset 0 1px 0 rgba(255,255,255,0.15),0 1px 5px rgba(57,57,57,0.075);
-background:#A4133C;
+background:#FF99FF;
 margin:0 auto;
 height:58px;
-/* font-size:18px; */
+font-weight:bold;
 }
 header#header nav.navbar:before,header#header nav.navbar:after{
 content:" ";
@@ -101,15 +122,19 @@ clear:both
 header#header nav.navbar:before,header#header nav.navbar:after{
 content:" ";display:table
 }
+header#header ul.nav>li{
+	text-align: center;
+}
 header#header ul.nav>li>a{
 height:58px;
+
 line-height:58px;
 padding-top:0;
 padding-bottom:0
 }
 header#header ul.nav>li>a:hover{
 color:#fff;
-background:none
+background:#FF6699;
 }
 header#header ul.nav>li>a:focus{
 background:none
@@ -141,14 +166,14 @@ margin-right:10px;
 /*尾*/
 footer{
 width:100%;
-background:#A4133C;
+background:#FF99FF;
 }
 
 /*------------------------------首页--------------------------------*/
 #yao-wrap{
 }
 
-
+/*---------图片轮换+许愿瓶----------*/
 #ifocus-news{
 
 }
@@ -211,7 +236,7 @@ position:absolute;
 	  bottom:0; 
 	  width:580px;
 	  height:35px;
-	  background:#000;
+	  background:#FFCCFF;
 	  opacity:0.5; 
 	  -moz-opacity:0.5; 
 	  filter:alpha(opacity=50); 
@@ -232,34 +257,35 @@ position:absolute;
 	width:290px;
 }
 
-/*站长推荐*/ 
+/*---同校恋情+活动-----*/ 
 .boxgrid{ 
 	width: 125px; 
 	height: 140px; 
-	margin:5px; 
+	margin:7px; 
 	float:left; 
 	background:#E8E8FF; 
-	border: solid 2px #8399AF; 
+	border: solid 2px #ff99ff; 
 	overflow: hidden; 
 	position: relative; 
 }
-	.boxgrid img{ 
+.boxgrid img{ 
 		position: absolute; 
 		top: 0; 
 		left: 0; 
 		border: 0; 
 	}
-	.boxgrid p{ 
+.boxgrid p{ 
 		padding: 0 10px; 
 		color:#afafaf; 
 		font-weight:bold; 
 		font:10pt "Lucida Grande", Arial, sans-serif; 
 }
 
-.activity div.panel{
+
+
+#activity div.panel{
 width:290px;
-height:333px;
-margin-left:8px;
+height:180px;
 float:left;
 }
 
@@ -269,35 +295,50 @@ float:left;
 	margin-left:5px;
 }
 
-
-#choose div.panel{
-width:700px;
+#constellation{
+	margin-top:21px;
 }
 
-/*--同校+投票--*/
-#oneschool{
-width:700px;
-height:316px;
-float:left;
+#constellation div.panel{
+height:150px;
 }
-.oneschool-people{
-float:left;
+
+/*----------中部图片---------*/
+.ad img{
+	width:1000px;
 }
+
+/*----------民族风情和心情语录---------*/
+#nation{
 	
-.oneschool-people img{
-width:132px;
-height:132px;
 }
-#vote{
-width:290px;
-float:left;
-margin-left:8px;
+
+.Causerie-model{
+	border:1px solid red ;
+	line-height:1;
+	margin-top:10px;
 }
-#vote div.panel{
-width:290px;
-height:316px;
+.Causerie-photo{
+	float:left;
+	width:84px;
+	height:84px;
+	border:1px solid red ;
 }
-/*留学生+爱情攻略*/
+.Causerie-photo img{
+	width:84px;
+	height:84px;
+}
+.Causerie-container{
+	width:200px;
+	height:85px;
+	float:left;
+	border:1px solid red ;
+}
+.Causerie-discuss{
+	width:570px;
+	float:left;
+}
+/*-------------------留学生+ 爱情攻略-------------------------*/
 #international{
 width:700px;
 float:left;
@@ -309,10 +350,7 @@ float:left;
 	width:130px;
 	height:130px;
 }
-#international div.panel{
-width:700px;
-height:183px;
-}
+
 
 #Finally{
 width:290px;
@@ -332,7 +370,11 @@ height:183px;
 	float:right;
 	margin-right:10px;
 }
-/*<!--成功案例+星座匹配-->*/
+
+
+
+/*-------------------牵手恋人+投票-------------------------*/
+
 #success{
 width:700px;
 float:left;
@@ -347,51 +389,24 @@ float:left;
 width:150px;
 height:150px;
 }
-#constellation{
+
+#vote{
 width:290px;
 float:left;
 margin-left:8px;
 }
-#constellation div.panel{
+#vote div.panel{
 width:290px;
-height:175px;
+height:150px;
 }
-#search-word{
-	float:left;
-	width:290px;
-	height:60px;
-	margin-left:8px;
-	margin-top:3px;
-}
-#search-word div.panel{
-width:290px;
-height:63px;
-}
+/*------------------首页结束------------------*/
 
-/*会员+心情*/
 
-#vip-feel{
 
-}
-#vip{
-width:700px;
-float:left;
-}
-#vip img{
-width:100px;
-height:100px;
-float:left;
-}
 
-#feel{
-width:290px;
-float:left;
-margin-left:8px;
-}
-#feel div.panel{
-width:290px;
-height:143px;
-}
+
+
+
 /*login start  */
 .login{
 	height:500px;
@@ -429,6 +444,10 @@ height:143px;
  em.error { float: none; color: red; padding-left: .5em; vertical-align: top; }
  .field_notice{display:none;}
 /*reg end  */
+ 
+ 
+ 
+ 
 /*------------------------------首页完--------------------------------*/
 hr,panel{
 	margin: 0;
