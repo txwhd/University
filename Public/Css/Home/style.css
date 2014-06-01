@@ -3,7 +3,7 @@ body {
 	margin: 0;
 	padding:0;
 }
- *{
+*{
 	margin: 0;
 	padding:0;
 }
@@ -32,10 +32,19 @@ ul li:hover{
 	font-weight: bold;
 }
 .container{
-	padding:0px ;
+	padding:0;
 	width:1000px;
-	margin-top:10px;
+	margin-top:5px;
 	border:1px solid red;
+}
+.pull-left{
+	float:left;
+	width:700px;
+}
+.pull-right{
+	float:left;
+	width:290px;
+	margin-left:8px;
 }
 .panel{
 	margin: 0;
@@ -46,6 +55,10 @@ header{
 	padding:0;	
 }
 nav{
+	margin: 0;
+	padding:0;
+}
+.panel-body{
 	margin: 0;
 	padding:0;
 }
@@ -115,7 +128,6 @@ margin-right:10px;
 /*友情链接*/
 #link{
 	font-size:18px;
-
 }
 .friend{
 	text-align:center;
@@ -125,7 +137,6 @@ margin-right:10px;
 .friend a span{
 	margin-left:20px;
 	width:100px;
-
 }
 /*尾*/
 footer{
@@ -136,46 +147,21 @@ background:#A4133C;
 /*------------------------------首页--------------------------------*/
 #yao-wrap{
 }
-#ad-news{
+
+
+#ifocus-news{
 
 }
-.ad{
-float:left;
-}
-.recommend{
-	float:left;
-	width:700px;
-	margin:0px;
-	padding:0px;
-}
-/*活动  */
-.activity div.panel{
-width:290px;
-height:333px;
-margin-left:8px;
-float:left;
-}
 
-.tab-content li{
-	line-height:1.8;
-	list-style-type:none;
-	margin-left:5px;
-}
-.panel-body{
-	margin: 0;
-	padding:0;
-}
-#ifocus { 
-	width:700px;
+#ifocus { 	
 	height:245px;
-  	margin:20px;
     border:1px solid #DEDEDE;
     background:#F8F8F8;
 	 }
  #ifocus_pic 
  {
 	  display:inline;
-	  position:relative; 
+	  position: relative;
 	  float:left; 
 	  width:580px; 
 	  height:225px; 
@@ -201,7 +187,6 @@ position:absolute;
 	 margin:9px 9px 0 0; 
 	 }
 #ifocus_btn li { 
-
      width:91px; 
 	 height:57px; 
 	 cursor:pointer; 
@@ -216,40 +201,79 @@ position:absolute;
 	}
 #ifocus_btn .current {
 	 background: url(i/ifocus_btn_bg.gif) no-repeat; 
-	 opacity:1; -moz-opacity:1; filter:alpha(opacity=100); 
+	 opacity:1; 
+	 -moz-opacity:1; 
+	 filter:alpha(opacity=100); 
 	 }
 #ifocus_opdiv { 
 	  position:absolute; 
 	  left:0; 
 	  bottom:0; 
 	  width:580px;
-	   height:35px;
-		background:#000;
-		 opacity:0.5; 
-		 -moz-opacity:0.5; 
-		 filter:alpha(opacity=50); 
+	  height:35px;
+	  background:#000;
+	  opacity:0.5; 
+	  -moz-opacity:0.5; 
+	  filter:alpha(opacity=50); 
    }
 #ifocus_tx { 
   position:absolute; 
   left:8px; 
-  bottom:8px; 
+  bottom:1px; 
   color:#FFF; }
 #ifocus_tx .normal { 
   display:none;
   }
-/*站长推荐*/
-#choose{
-margin-top:5px;
+  
+#news{
 
 }
+#news img{
+	width:290px;
+}
+
+/*站长推荐*/ 
+.boxgrid{ 
+	width: 125px; 
+	height: 140px; 
+	margin:5px; 
+	float:left; 
+	background:#E8E8FF; 
+	border: solid 2px #8399AF; 
+	overflow: hidden; 
+	position: relative; 
+}
+	.boxgrid img{ 
+		position: absolute; 
+		top: 0; 
+		left: 0; 
+		border: 0; 
+	}
+	.boxgrid p{ 
+		padding: 0 10px; 
+		color:#afafaf; 
+		font-weight:bold; 
+		font:10pt "Lucida Grande", Arial, sans-serif; 
+}
+
+.activity div.panel{
+width:290px;
+height:333px;
+margin-left:8px;
+float:left;
+}
+
+.tab-content li{
+	line-height:1.8;
+	list-style-type:none;
+	margin-left:5px;
+}
+
 
 #choose div.panel{
 width:700px;
 }
-.choose-people{
-margin:4px 4px 0px 0px;
-float:left;
-}
+
 /*--同校+投票--*/
 #oneschool{
 width:700px;

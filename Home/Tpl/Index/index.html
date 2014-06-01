@@ -10,16 +10,14 @@
 <include file="Common:head" />
 <include file="Common:search" />
 
- <div id="ad-news">	
-<div class="container">		
-	
 
-<div id="ifocus">
+<div class="container">	
+ <div id="ifocus-news">	
+<div id="ifocus" class="pull-left">
  <div id="ifocus_pic">
- 
   <div id="ifocus_piclist" >
   		
-			<volist name="ad_top" id="vo">
+<!-- 			<volist name="ad_top" id="vo">
 				<div class="item active">
 					<a href="{$vo.ad_link}" target="_blank"><img src="__ROOT__/{$vo.image_site}" class="img-responsive" alt="Responsive image"/></a>
 					<div class="carousel-caption">
@@ -27,7 +25,7 @@
 					<p>{$vo.image_description}</p>
 					</div>
 				</div>
-			</volist>		
+			</volist>		 -->
    <ul>
     <li><a href="#"><img src="__IMG__/Home/photojs/01.jpg" alt="" /></a></li>
     <li><a href="#"><img src="__IMG__/Home/photojs/02.jpg" alt="" /></a></li>
@@ -53,16 +51,67 @@
    <li class="normal"><img src="__IMG__/Home/photojs/btn_04.jpg" alt="" /></li>
   </ul>
  </div>
-</div>
-</div>
-</div>
-<!--店长推荐-->
+</div><!--  ./ifocus-->
+
+<div id="news" class="pull-right">
+<img src="__IMG__/Home/photojs/btn_01.jpg"/>
+</div><!-- ./news -->
+</div><!-- ./ifocus-news -->
+</div><!--./container  -->
+
+<!--店长推荐+活动-->
 <div class="container">
-<div id="choose" class="recommend">
+<div id="choose-activity">
+<div id="choose" class="pull-left">
 			<div class="panel panel-default">
-		<div class="panel-heading"><img src="__IMG__/Home/title_yellow.png">&nbsp;站长推荐<img src="__IMG__/Home/title_bluel.png"><span><a href="#">换一换</a></span></div>						  
+		<div class="panel-heading">站长推荐<span><a href="#">换一换</a></span></div>						  
 			<div class="panel-body">
 			<div>
+				<div class="boxgrid thecombo">
+				<img class="cover" src="__IMG__/Home/001.jpg"/>
+				<h3>Florian Nicolle</h3>
+				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
+				</div>
+				<div class="boxgrid thecombo">
+				<img class="cover" src="__IMG__/Home/001.jpg"/>
+				<h3>Florian Nicolle</h3>
+				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
+				</div>
+				<div class="boxgrid thecombo">
+				<img class="cover" src="__IMG__/Home/001.jpg"/>
+				<h3>Florian Nicolle</h3>
+				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
+				</div>
+				<div class="boxgrid thecombo">
+				<img class="cover" src="__IMG__/Home/001.jpg"/>
+				<h3>Florian Nicolle</h3>
+				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
+				</div>
+				<div class="boxgrid thecombo">
+				<img class="cover" src="__IMG__/Home/001.jpg"/>
+				<h3>Florian Nicolle</h3>
+				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
+				</div>
+				<div class="boxgrid thecombo">
+				<img class="cover" src="__IMG__/Home/001.jpg"/>
+				<h3>Florian Nicolle</h3>
+				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
+				</div>
+				<div class="boxgrid thecombo">
+				<img class="cover" src="__IMG__/Home/001.jpg"/>
+				<h3>Florian Nicolle</h3>
+				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
+				</div>
+				<div class="boxgrid thecombo">
+				<img class="cover" src="__IMG__/Home/001.jpg"/>
+				<h3>Florian Nicolle</h3>
+				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
+				</div>
+				<div class="boxgrid thecombo">
+				<img class="cover" src="__IMG__/Home/001.jpg"/>
+				<h3>Florian Nicolle</h3>
+				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
+				</div>
 				<div class="boxgrid thecombo">
 				<img class="cover" src="__IMG__/Home/001.jpg"/>
 				<h3>Florian Nicolle</h3>
@@ -72,8 +121,8 @@
 			</div>
 		</div>
 		</div>
-</div><!--店长推荐结束-->
-<div class="activity">
+</div>
+<div class="activity" class="pull-right">
 	<div class="panel panel-info">
 				<ul class="nav nav-tabs" id="myTab">
 				  <li ><a href="#schoolyard" data-toggle="tab">校园活动</a></li>
@@ -96,8 +145,9 @@
 				  </div>
 				</div>
 		</div>
-</div><!--/.news  -->
-</div>
+</div><!-- ./activity -->
+</div><!-- ./choose-activity -->
+</div><!-- ./container -->
 <!--同校+投票-->
 <div id="oneschool-vote">
 <div class="container">
