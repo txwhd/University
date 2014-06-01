@@ -3,13 +3,10 @@
 <head >
 <include file="Common:intoHead" />
 <include file="Public:meta" />
-<script type="text/javascript" src="__JS__/Home/jquery.slide.js"></script>
-<script type="text/javascript" src="__JS__/Home/001.js"></script>
 </head>
 <body>
 <include file="Common:head" />
 <include file="Common:search" />
-
 <!-- 图片轮换+许愿瓶 -->
 <div class="container">	
  <div id="ifocus-news">	
@@ -51,16 +48,12 @@
   </ul>
  </div>
 </div><!--  ./ifocus-->
-
 <div id="news" class="pull-right">
 许愿瓶:可以找到你最心仪的ren噢！
 <button>马上许愿</button>
-
-
 </div><!-- ./news -->
 </div><!-- ./ifocus-news -->
 </div><!--./container  -->
-
 <!--同校恋情+活动-->
 <div class="container">
 <div id="choose-activity">
@@ -415,11 +408,7 @@
  </body>
 
 <script type="text/javascript">
-
 $(document).ready(function(){
-	//To switch directions up/down and left/right just place a "-" in front of the top/left attribute
-	//Vertical Sliding
-
 	//Diagnal Sliding
 	$('.boxgrid.thecombo').hover(function(){
 		$(".cover", this).stop().animate({top:'260px', left:'325px'},{queue:false,duration:300});
@@ -440,15 +429,6 @@ $(document).ready(function(){
 		$(".cover", this).stop().animate({top:'220px'},{queue:false,duration:160});
 	});
 });
-
-/* 	$(document).ready(function(){
-		 $('#myTab a:last').tab('show');
-		// 后两个参数不写为0默认从左上角滑出，可修改这两个参数调整浮动图片出现的位置
-		if(<{$ad3[0]['on_float']}> == 2){
-			FloatAd.newFloatAd("__ROOT__/<{$ad3[0]['image_site_thumb']}><{$ad3[0]['ad_name']}>","__APP__/<{$ad3[0]['ad_link']}>",0,0,"__ROOT__/Public/Img/Home/close.png"); 
-		}
-	}); */
-
 </script>
 
 </html>

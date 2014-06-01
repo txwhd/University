@@ -1,19 +1,3 @@
-		$.ajax({
-	        type: "post",
-	        dataType: "JSON",
-	        async:false,
-	        url: URL+"/companyequal",
-	        data:{"email":email,"password":password,"code":code},
-	        success: function (data) {//data就是返回的那个字符串
-	        	if (data==1) {
-	        		$("#c_login_error").html("验证码错误");
-	            }else if(data==3){
-	            	$("#c_login_error").html("邮箱或密码错误");
-	            }else if(data==2) {
-	            	 $("#c_login_error").html("");
-	            }
-	        }
-	    });
 /*-----------------------图片滚动-----------------------------------------*/
 	function $(id) { return document.getElementById(id); }
 	function addLoadEvent(func){
