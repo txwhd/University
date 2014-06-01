@@ -12,6 +12,22 @@ class PersonSpaceAction extends CommonAction{
 		//显示基本信息页面
 		$this->display();
 	}	
+	public function ListTerm(){
+		//显示择偶条件表
+		$this->display();
+	}	 
+	public function ListMonologue(){
+		//显示爱情宣言
+		$this->display();
+	}	 
+	public function ListBelief(){
+		//显示信仰
+		$this->display();
+	}	 
+	public function goLove(){
+		//显示约会
+		$this->display();
+	}	 
 	public function ListApprove(){
 		//显示诚信认证页面
 		$this->display();
@@ -49,9 +65,18 @@ class PersonSpaceAction extends CommonAction{
 	}	
 	public function ListActivity(){
 		//显示活动
+		$where['member_id']=$_SESSION[C('USER_AUTH_KEY')];
+		$list=M('Activity')->where($where)->select();
+		$this->assign('list',$list);
 		$this->display();
 	}	
 	public function upfileHeadPhoto(){
+	/* 	$where['member_id']=$_SESSION[C('USER_AUTH_KEY')];
+		if ($list=M('Activity')->where($where)->field('member_id')->find()) {
+			//增加
+		}else{
+			//编辑
+		} */
 		//上传头像处理 现在不成功
 		$savePath = './';  //图片存储路径
 $savePicName = time();  //图片存储名称

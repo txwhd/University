@@ -3,7 +3,7 @@
  * name：会员管理
  * aothor：马晓成857773627@qq.com
  */
-class MemberDetailModel extends RelationModel{
+class MemberDetailModel extends CommonModel{
 	
 	  protected $_link = array(
         'viptype'=>array(

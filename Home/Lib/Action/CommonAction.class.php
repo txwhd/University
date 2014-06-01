@@ -192,15 +192,9 @@ class CommonAction extends Action {
     	//1.哪个表；2.表里提取哪种类型数据，3.不操作数据表；
     	$name=$this->getActionName();
     	$M = M($name);
-    	$count = $M->count();
-    	import("ORG.Util.Page");       //载入分页类
-    	$page = new Page($count, 20);
-    	$showPage = $page->show();
-    	$this->assign("page", $showPage);
     	$this->assign("list", D($name)->listNews($page->firstRow, $page->listRows));
-    	/* $list=M($name)->select();
-    	 $this->assign('list',$list); */
-    	$this->display();
+    	$list=M($name)->select();
+    	 $this->assign('list',$list);
     	$this->display();
     }
     //空操作
@@ -209,10 +203,6 @@ class CommonAction extends Action {
 	}
 	//更多操作;根据传过来的表名取数据；导航栏有数据库的直接连接到导航栏方法；
 	public function listMore(){
-		$this->display();
-	}
-	//详细文章操作；根据传过来的表名取数据
-	public function aticleDetail(){
 		$this->display();
 	}
 	//详细会员操作；根据传过来的表名和类型取数据
