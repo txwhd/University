@@ -104,7 +104,9 @@ ul li{
 	background:#FF6699;
 	
 }
-
+.top30{
+	margin-top:30px;
+}
 /*------------------------------头和尾--------------------------------*/
 header#header{
 height:58px;
@@ -261,7 +263,6 @@ position:absolute;
 
 #wishing{
 	width:290px;
-
 	height:245px;
 	border:1px solid #ff99ff;
 	/*  background:url(Public/Img/Home/wishing.png) no-repeat center 280px; */
@@ -524,6 +525,15 @@ font-size:15px;
 /*----------------民族风情-----------------*/
 #nation-centre{
 	
+}
+
+#carousell{
+		width:700px;
+	height:245px;
+}
+#carousell img{
+	width:700px;
+	height:245px;
 }
 #nation-left{
 	
