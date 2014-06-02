@@ -5,7 +5,7 @@
 <include file="Common:head" />
 <include file="Common:search" />
 <div class="container" >
-<div id="person-body">
+<div id="person-centre">
 <div class="row">
 <div class="col-sm-3" >
 	<div id="person-head">
@@ -15,62 +15,92 @@
 	<div class="person-power">普通会员{$memberType}<span class="label label-warning"><a href="">升级会员</a></span></div>
 	</div>
 	</div>
-<div id="person-nav" class="panel panel-success">
+<div id="person-nav" class="panel">
 <img src="__IMG__/Home/888.jpg"/>
 <!-- 留言|访客|关注|好感|约会<span class="label label-warning">+10</span> -->
 </div>
-
-<div id="" class="panel panel-success">
-<div class="panel-heading"><b>个人档案</b></div>
-<div class="panel-body">	
-<ul class="nav nav-pills nav-stacked">
-  <li><a href="__URL__/ListIntro" target="iframepage">个人资料  </a></li>
-  <li><a href="__URL__/ListHeadPhoto" target="iframepage">我的头像</a></li>
-  <li><a href="__URL__/ListPhoto" target="iframepage">我的相册</a></li>
-  <li><a href="__URL__/ListTerm" target="iframepage">择偶条件</a></li>
-</ul>
-</div>
-</div>
-<div id="" class="panel panel-success">
-<div class="panel-heading">爱情信仰</div>
-	<div class="panel-body">	
-		<ul class="nav nav-pills nav-stacked">
-		  <li><a href="__URL__/ListMonologue" target="iframepage">我的爱情宣言</a></li>
-		  <li><a href="__URL__/ListBelief" target="iframepage">我的信仰 </a></li>
-		  <li><a href="__URL__/goLove" target="iframepage">我要去约会 </a></li>
+<div class="panel-group" id="accordion">
+  <div class="panel">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapsea">
+          		个人档案
+        </a>
+      </h4>
+    </div>
+    <div id="collapsea" class="panel-collapse collapse ">
+      <div class="panel-body">
+      <ul class="nav nav-pills nav-stacked">
+		  <li><a href="__URL__/ListIntro" target="iframepage">个人资料  </a></li>
+		  <li><a href="__URL__/ListHeadPhoto" target="iframepage">我的头像</a></li>
+		  <li><a href="__URL__/ListPhoto" target="iframepage">我的相册</a></li>
+		  <li><a href="__URL__/ListTerm" target="iframepage">择偶条件</a></li>
+		  <li><a href="__URL__/ListApprove" target="iframepage">诚信验证</a></li>
 		</ul>
-	</div>
+      </div>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseb">
+          爱情信仰
+        </a>
+      </h4>
+    </div>
+    <div id="collapseb" class="panel-collapse collapse">
+      <div class="panel-body">
+	      	<ul class="nav nav-pills nav-stacked">
+			  <li><a href="__URL__/ListMonologue" target="iframepage">我的爱情宣言</a></li>
+			  <li><a href="__URL__/ListBelief" target="iframepage">我的信仰 </a></li>
+			  <li><a href="__URL__/goLove" target="iframepage">我要去约会 </a></li>
+			</ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapsec">
+         服务中心
+        </a>
+      </h4>
+    </div>
+    <div id="collapsec" class="panel-collapse collapse">
+      <div class="panel-body">
+		<ul class="nav nav-pills nav-stacked">
+				<li><a href="__URL__/ListPay" target="iframepage">账号充值</a></li>
+			  	<li><a href="__URL__/ListVipUpgrade" target="iframepage">会员升级 </a></li>
+			 	<li><a href="__URL__/ListFriend" target="iframepage">交友特权 </a></li>
+			</ul>     
+	 </div>
+    </div>
+  </div>
 </div>
-<div id="" class="panel panel-success">
+
+
+
+
+<!-- <div id="" class="panel">
 <div class="panel-heading"><a href="__URL__/ListActivity" target="iframepage">活动中心</a></div>
 </div>
-<div id="" class="panel panel-success">
+<div id="" class="panel">
 <div class="panel-heading"><a href="__URL__/ListArticle" target="iframepage">写写爱情</a></div>
+</div> -->
 	<!-- <div class="panel-body">	
 		<ul class="nav nav-pills nav-stacked">
 		  <li><a href="__URL__/ListArticle" target="iframepage">推荐爱情美文</a></li>
 		  <li><a href="__URL__/ListArticleAdd" target="iframepage"> </a></li>
 		</ul>
 	</div> -->
-</div>
-<div id="" class="panel panel-success">
-<div class="panel-heading"><a href="__URL__/ListApprove" target="iframepage">诚信验证</a></div>
-</div>
-<div id="" class="panel panel-success">
-	<div class="panel-heading">服务中心</div>
-		<div class="panel-body">	
-			<ul class="nav nav-pills nav-stacked">
-				<li><a href="__URL__/ListPay" target="iframepage">账号充值</a></li>
-			  	<li><a href="__URL__/ListVipUpgrade" target="iframepage">会员升级 </a></li>
-			 	<li><a href="__URL__/ListFriend" target="iframepage">交友特权 </a></li>
-			</ul>
-		</div>
-	</div>
+
+
+
 </div><!--/.col-sm-3  -->
-<div class="col-sm-6">
-<div id="right" class="panel panel-success">
+<div class="col-sm-9">
+<div id="right" class="panel">
 <div id="leamain">
-     <iframe src="__URL__/personMain"style="width:811px;"" marginheight="0" marginwidth="0" frameborder="0" scrolling="no" width="765" height=100% id="iframepage" name="iframepage" onLoad="iFrameHeight()" ></iframe>
+     <iframe src="__URL__/personMain"style="width:740px;"" marginheight="0" marginwidth="0" frameborder="0" scrolling="no" width="740px" height=100% id="iframepage" name="iframepage" onLoad="iFrameHeight()" ></iframe>
 	<script type="text/javascript" language="javascript">
 	    function iFrameHeight() {
 	        var ifm= document.getElementById("iframepage");
