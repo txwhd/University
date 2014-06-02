@@ -7,6 +7,11 @@ body {
 	margin: 0;
 	padding:0;
 }
+.container{
+	padding:0;
+	width:1000px;
+	margin-top:10px;
+}
 button{
 	background:#FF6699;
 }
@@ -29,13 +34,17 @@ ul li{
 	line-height:1.6;
 	list-style-type:none;
 }
-ul li:hover{
-	
+.pagination ul li a:hover{
+	background:#FF6699;
 }
-.container{
-	padding:0;
-	width:1000px;
-	margin-top:10px;
+
+.pagination{
+		margin: 0;
+		padding:0;
+		float:right;
+		margin-right:20px;
+		margin-bottom: 10px;
+		margin-top: 10px;
 }
 .pull-left{
 	float:left;
@@ -89,9 +98,6 @@ ul li:hover{
 	background:#FF6699;
 	
 }
-
-
-
 
 /*------------------------------头和尾--------------------------------*/
 header#header{
@@ -248,7 +254,6 @@ position:absolute;
   }
   
 #news{
-	width:290px;
 	height:245px;
 	border:1px solid #ff99ff;
 }
@@ -375,8 +380,6 @@ height:197px;
 	margin-right:10px;
 }
 
-
-
 /*-------------------牵手恋人+投票-------------------------*/
 
 #success{
@@ -386,8 +389,6 @@ float:left;
 .success-style{
 	float:left;
 	width:348px;
-	height:200px;
-
 }
 #success img{
 width:188px;
@@ -395,6 +396,7 @@ height:198px;
 }
 .success-photo{
 	float:left;
+	
 }
 .success-people{
 	float:left;
@@ -409,13 +411,6 @@ width:290px;
 height:243px;
 }
 /*------------------首页结束------------------*/
-
-
-
-
-
-
-
 /*login start  */
 .login{
 	height:500px;
@@ -518,7 +513,63 @@ font-size:15px;
 	height:66px;
 	margin-left:5px;
 }
-/* 爱情之语 start*/
+/*----------------民族风情-----------------*/
+#nation-centre{
+	
+}
+#nation-left{
+	
+}
+#nation-left div.panel{
+	
+}
+.nation-people{
+	float:left;
+	width: 125px; 
+	height: 140px; 
+	margin:7px; 
+	float:left; 
+	background:#E8E8FF; 
+	border: solid 2px #ff99ff; 
+	overflow: hidden; 
+	position: relative;	
+}
+.top10{
+	margin-top:10px;
+}
+/*-------------同城-------------------*/
+#city-centre{
+	
+}
+#city-left{
+	
+}
+#city-left div.panel{
+	
+}
+.city-people{
+	float:left;
+	width: 125px; 
+	height: 140px; 
+	margin:7px; 
+	float:left; 
+	background:#E8E8FF; 
+	border: solid 2px #ff99ff; 
+	overflow: hidden; 
+	position: relative;	
+}
+/*---------------------牵手恋人-----------------------*/
+.success-weight img{
+	width:190px;
+	height:229px;
+	
+}
+.top20{
+	margin-top:20px;
+}
+
+
+/* --------------爱情之语 start-----------*/
 .widget li {
 	padding-left: 15px;
 	line-height: 35px;

@@ -1,31 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+<head >
 <include file="Common:intoHead" />
 <include file="Public:meta" />
+</head>
+<body>
 <include file="Common:head" />
 <include file="Common:search" />
-<div class="container">
-<div id="success">
-			<div class="panel panel-success">
-						 <div class="panel-heading">牵手恋人<span><a href="#">更多</a></span></div>
-				<div class="panel-body">
-					<volist id="vo" name="success">
-						<div class="choose-people">
-							<a href="__APP__/Mood/showDetail?id={$vo.mood_id}&table=Mood"><img src="{$vo.img}"></a>
-						</div>		
-					</volist>	
-					<div class="success-style" >
-					<div class="choose-people">
-					<img class="img-thumbnail" src="__IMG__/Home/001.jpg">
-					</div>
-					</div>
-					<div class="success-style" >
-					<div class="choose-people">
-					<img class="img-thumbnail" src="__IMG__/Home/001.jpg">
-					</div>
-					</div>
-			</div>
-			</div>
-</div>
-</div>
 
-<include file="Common:link" />
+<div class="container">
+<div id="success-centre">
+<div id="success-left" class="pull-left">
+			<div class="panel">
+						<div class="panel-heading">牵手恋人<span><a href="#">换一换</a></span></div>						  
+			<div class="panel-body">
+			<div>
+			<volist id="vo" name="success">
+				<div class="choose-people">
+					<a href="__APP__/Mood/showDetail?id={$vo.mood_id}&table=Mood"><img src="{$vo.img}"></a>
+				</div>		
+			</volist>	
+			<div class="success-style " >
+			<div class="success-photo success-weight" >
+			<img class="img-thumbnail" src="__IMG__/Home/success001.jpg">
+			</div>
+			<div class="success-people">
+			<h5>文先生和马同学</h5>
+			<span>我们在同城这个平台里相遇，原本不相信网络这个虚拟的世界，可是奇迹出现了，我们相爱了，并且决心把这份珍贵的爱进行到底！</span>
+			<button type="button" class="btn btn-sm">祝福</button>
+			</div>
+			</div>
+			<div class="success-style " >
+			<div class="success-photo success-weight">
+			<img class="img-thumbnail" src="__IMG__/Home/success001.jpg">
+			</div>
+			<div class="success-people">
+			<h5>文先生和马同学</h5>
+			<span>我们在同城这个平台里相遇，原本不相信网络这个虚拟的世界，可是奇迹出现了，我们相爱了，并且决心把这份珍贵的爱进行到底！</span>
+			<button type="button" class="btn btn-sm">祝福</button>
+			</div>
+			</div>
+				<div class="success-style top20" >
+			<div class="success-photo success-weight">
+			<img class="img-thumbnail" src="__IMG__/Home/success001.jpg">
+			</div>
+			<div class="success-people">
+			<h5>文先生和马同学</h5>
+			<span>我们在同城这个平台里相遇，原本不相信网络这个虚拟的世界，可是奇迹出现了，我们相爱了，并且决心把这份珍贵的爱进行到底！</span>
+			<button type="button" class="btn btn-sm">祝福</button>
+			</div>
+			</div>
+			
+			<div class="success-style top20" >
+			<div class="success-photo success-weight">
+			<img class="img-thumbnail" src="__IMG__/Home/success001.jpg">
+			</div>
+			<div class="success-people">
+			<h5>文先生和马同学</h5>
+			<span>我们在同城这个平台里相遇，原本不相信网络这个虚拟的世界，可是奇迹出现了，我们相爱了，并且决心把这份珍贵的爱进行到底！</span>
+			<button type="button" class="btn btn-sm">祝福</button>
+			</div>
+			</div>
+				<div class="success-style top20" >
+			<div class="success-photo success-weight">
+			<img class="img-thumbnail" src="__IMG__/Home/success001.jpg">
+			</div>
+			<div class="success-people">
+			<h5>文先生和马同学</h5>
+			<span>我们在同城这个平台里相遇，原本不相信网络这个虚拟的世界，可是奇迹出现了，我们相爱了，并且决心把这份珍贵的爱进行到底！</span>
+			<button type="button" class="btn btn-sm">祝福</button>
+			</div>
+			</div>
+				<div class="success-style top20" >
+			<div class="success-photo success-weight">
+			<img class="img-thumbnail" src="__IMG__/Home/success001.jpg">
+			</div>
+			<div class="success-people">
+			<h5>文先生和马同学</h5>
+			<span>我们在同城这个平台里相遇，原本不相信网络这个虚拟的世界，可是奇迹出现了，我们相爱了，并且决心把这份珍贵的爱进行到底！</span>
+			<button type="button" class="btn btn-sm">祝福</button>
+			</div>
+			</div>
+			
+			
+		
+			<div>
+				<ul class="pagination">
+				  <li><a href="#">&laquo;</a></li>
+				  <li><a href="#">1</a></li>
+				  <li><a href="#">2</a></li>
+				  <li><a href="#">3</a></li>
+				  <li><a href="#">4</a></li>
+				  <li><a href="#">5</a></li>
+				  <li><a href="#">&raquo;</a></li>
+				</ul>
+			</div>
+			</div>
+	
+
+
+		</div>
+		</div>
+</div><!-- ./city-left -->
+<include file="Common:right" />
+</div>
+</div><!-- ./container -->
 <include file="Common:foot" />
+ </body>
+</html>
