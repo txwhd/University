@@ -7,6 +7,12 @@ body {
 	margin: 0;
 	padding:0;
 }
+textarea{
+	margin: 0;
+	padding:0;
+	border:1px solid #ff99ff;
+	resize:none;
+}
 .container{
 	padding:0;
 	width:1000px;
@@ -579,8 +585,12 @@ font-size:15px;
 }
 /* 爱情之语 end*/
 
-
-
+/*-------------个人中心---------------*/
+#say{
+	width:742px;
+	height:100px;
+	font-size:18px;
+}
 
 
 
