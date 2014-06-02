@@ -247,15 +247,15 @@ position:absolute;
   display:none;
   }
   
-#news{
+#wishing{
 	width:290px;
 	height:245px;
 	border:1px solid #ff99ff;
+	/*  background:url(Public/Img/Home/wishing.png) no-repeat center 280px; */
 }
-#news img{
+#wishing img{
 	width:290px;
 }
-
 /*---同校恋情+活动-----*/ 
 .boxgrid{ 
 	width: 125px; 
