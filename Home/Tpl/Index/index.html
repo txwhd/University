@@ -48,9 +48,10 @@
   </ul>
  </div>
 </div><!--  ./ifocus-->
-<div id="wishing"  style="background:url(__IMG__/Home/wishing.png);background-repeat:no-repeat;"class="pull-right">
-许愿瓶:可以找到你最心仪的ren噢！
-<button type="button" class="btn btn-sm">马上许愿</button>
+<div id="wishing-layout"  style="background:url(__IMG__/Home/wishing.png);background-repeat:no-repeat;"class="pull-right">
+<h3 class="text-center">许个愿开启美好的一天!</h3>
+<p class="text-danger">因为我知道你是个容易担心的小孩,所以我将线交你手中却也不敢飞的太远.不管我随着风飞翔到云间,我希望你能看得见,就算我偶尔会贪完玩迷了路,也知道你在等着我. ！</p>
+<button type="button" id="wish-button" onMouseOut=this.style.background-color="#FF6699" class="button button-pill button-caution">马上许愿</button>
 </div><!-- ./news -->
 </div><!-- ./ifocus-news -->
 </div><!--./container  -->
@@ -263,46 +264,20 @@
 <div id="Causerie" class="pull-right">
 <div class="panel">
 <div class="panel-heading">心情语录<span><a href="__APP__/Member/index?table=Member" >更多</a></span></div>		
-			<div class="panel-body">
+	<div class="panel-body">
+	<volist id="vo" name="mood">
 		<div class="Causerie-model">
-			<div class="Causerie-photo">
-			<div><img alt="" src="__IMG__/Home/001.jpg"></div>
-			</div>
+			<div class="Causerie-photo"><div><img alt="" src="__IMG__/Home/001.jpg"></div></div>
 			<div class="Causerie-container">
-			<h5>李姑娘</h5>
-			<p>挺想你的</p>
+			<p><a href="__APP__/Mood/showDetail?id={$vo.mood_id}&table=Mood">{$vo.content|msubstr=0,20,'utf-8',false}</a></p>
 			<div class="Causerie-discuss">
+			<span>{$vo.create_time|date="m-d",###}</span>
 			<a>点赞</a>&nbsp;&nbsp;&nbsp;<a>关注</a>
 			</div>
 			</div>
 		</div> 
-			<div class="Causerie-model">
-			<div class="Causerie-photo">
-			<div><img alt="" src="__IMG__/Home/001.jpg"></div>
-			</div>
-			<div class="Causerie-container">
-			<h5>李姑娘</h5>
-			<p>挺想你的</p>
-			<div class="Causerie-discuss">
-			<a>点赞</a>&nbsp;&nbsp;&nbsp;<a>关注</a>
-			</div>
-			</div>
-		</div> 
-			<div class="Causerie-model">
-			<div class="Causerie-photo">
-			<div><img alt="" src="__IMG__/Home/001.jpg"></div>
-			</div>
-			<div class="Causerie-container">
-			<h5>李姑娘</h5>
-			<p>挺想你的</p>
-			<div class="Causerie-discuss">
-			<a>点赞</a>&nbsp;&nbsp;&nbsp;<a>关注</a>
-			</div>
-			</div>
-		</div> 
-
-		
-</div>
+	</volist>
+	</div>
 </div>
 </div>
 </div>

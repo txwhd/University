@@ -15,14 +15,32 @@ body {
 button{
 	background:#FF6699;
 }
- a{
- 	
-}	
+p{ text-indent:2em; padding:0px; margin:0px; }
+/* button的样式自定义 */
+.button-caution{
+	background:#FF6699 repeat-x;
+ 	cursor:hand;
+}
+.button-caution:link{
+	background:#FF6699 repeat-x;
+}
+.button-caution:hover{
+	background:#FF6699 repeat-x;
+}
+.button-caution:action{
+	background:#FF6699 repeat-x;
+}
+.button-caution:visited{
+	background:#FF6699 repeat-x;
+}
+#wish-button{
+	margin:50px 50px 0px 90px;
+}
  a:visited{
 	text-decoration:none;
  }	
 a:hover{
-	
+	list-style-type:none;
 }
 a:active{
 	color:#212121;
@@ -253,15 +271,12 @@ position:absolute;
   display:none;
   }
 
-#wishing{
+#wishing-layout{
 	width:290px;
 
 	height:245px;
 	border:1px solid #ff99ff;
 	/*  background:url(Public/Img/Home/wishing.png) no-repeat center 280px; */
-}
-#wishing img{
-	width:290px;
 }
 /*---同校恋情+活动-----*/ 
 .boxgrid{ 
@@ -315,22 +330,18 @@ height:150px;
 
 /*----------民族风情和心情语录---------*/
 #nation{
-	
 }
 #Causerie{
-	
 }
 #Causerie div.panel{
 width:290px;
 height:351px;
 }
-
-
 .Causerie-model{
 	border:1px solid #E8E8E8 ;
 	line-height:1;
 	height:90px;
-	margin-top:10px;
+	
 }
 .Causerie-photo{
 	float:left;
@@ -344,12 +355,16 @@ height:351px;
 }
 .Causerie-container{
 	width:200px;
-	height:85px;
 	float:left;
-	
+}
+.Causerie-container p{
 }
 .Causerie-discuss{
-	float:left;
+	height:20px;
+	margin-top:50px;
+}
+.Causerie-discuss a {
+	float:right;
 }
 /*-------------------留学生+ 爱情攻略-------------------------*/
 #international{
