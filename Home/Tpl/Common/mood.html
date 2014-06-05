@@ -1,0 +1,23 @@
+<div id="Causerie" class="pull-right">
+<div class="panel">
+	<div class="panel-heading">心情语录<span><a href="__APP__/Member/index?table=Member" >更多</a></span></div>		
+	<div class="panel-body">
+	<volist id="vo" name="mood">
+		<div class="Causerie-model">
+			<div class="Causerie-photo">
+				<div><img alt="" src="__IMG__/Home/001.jpg"></div>
+			</div>
+			<div class="Causerie-container">
+				<div class="Causerie-text-layout">
+					<p><a href="__APP__/Mood/showDetail?id={$vo.mood_id}&table=Mood">{$vo.content|msubstr=0,20,'utf-8',false}</a><span>——{$vo.create_time|date="m-d",###}</span></p>
+				</div>
+				<div class="Causerie-discuss">
+					<a id="praise" href="" >点赞</a>
+					<a id="attention" href="">关注</a>
+				</div>
+			</div>
+		</div> 
+	</volist>
+	</div>
+</div>
+</div>

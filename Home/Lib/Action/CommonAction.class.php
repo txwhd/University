@@ -12,22 +12,7 @@ class CommonAction extends Action {
 		$systemConfig = include WEB_ROOT . 'Common/systemConfig.php';
 		F("systemConfig", $systemConfig, WEB_ROOT . "Common/");
 		$this->assign("site", $systemConfig);
-		/* //最热文章数据组装
-		$hot_art = D('Article')->where('status=1')->order('apv DESC')->limit(8)->select();
-		if(is_array($hot_art)){
-			foreach ($hot_art as $key=>$val){
-				$hot_art[$key] = $this->changurl($val);
-			}
-		}
-		$this->assign('hot_art',$hot_art); */
-		//最新文章数据组装
-		/* $new_art = D('Article')->where('status=1')->order('add_time DESC')->limit(8)->select();
-		if(is_array($new_art)){
-			foreach ($new_art as $key=>$val){
-				$new_art[$key] = $this->changurl($val);
-			}
-		}
-		$this->assign('new_art',$new_art);
+		/* 
 		//最新留言
 		$new_leave = D('Message')->where('status=1 AND pid=0 AND aid=0')->order('add_time DESC')->limit(5)->select();
 		foreach ($new_leave as $key => $val){

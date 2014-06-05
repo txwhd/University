@@ -13,13 +13,10 @@
 <div id="ifocus" class="pull-left">
  <div id="ifocus_pic">
   <div id="ifocus_piclist" >
-  					<volist name="ad_top" id="vo">
-				<div class="item active">
+  			<volist name="ad_top" id="vo">
 					<a href="{$vo.ad_link}" target="_blank"><img src="__ROOT__/{$vo.image_site}" class="img-responsive" alt="Responsive image"/></a>
-					<div class="carousel-caption">
 					<h4>{$vo.title_name}</h4>
 					<p>{$vo.image_description}</p>
-					</div>
 				</div>
 			</volist>	
    <ul>
@@ -48,21 +45,17 @@
   </ul>
  </div>
 </div><!--  ./ifocus-->
-<div id="wishing-layout"  style="background:url(__IMG__/Home/wishing.png);background-repeat:no-repeat;"class="pull-right">
-<h3 class="text-center">许个愿开启美好的一天!</h3>
-<p class="text-danger">因为我知道你是个容易担心的小孩,所以我将线交你手中却也不敢飞的太远.不管我随着风飞翔到云间,我希望你能看得见,就算我偶尔会贪完玩迷了路,也知道你在等着我. ！</p>
-<button type="button" id="wish-button" onMouseOut=this.style.background-color="#FF6699" class="button button-pill button-caution">马上许愿</button>
-</div><!-- ./news -->
+<include file="Common:wishing" />
 </div><!-- ./ifocus-news -->
 </div><!--./container  -->
 <!--同校恋情+活动-->
 <div class="container">
 <div id="choose-activity">
-<div id="choose" class="pull-left">
+	<div id="choose" class="pull-left">
 			<div class="panel">
-		 <div class="panel-heading">同校恋情</span>
+		 <div class="panel-heading">同校恋情
 		 <volist id="vo" name="label">
-			<p class="label "><a href="__APP__/label/showDetail?id={$vo.label_id}&table=Label">[{$vo.label_name}]</a></p>
+			<p class="label"><a href="__APP__/label/showDetail?id={$vo.label_id}&table=Label">[{$vo.label_name}]</a></p>
 		</volist>	
 		<span><a href="#">换一换</a></span>
 		</div>						  
@@ -121,41 +114,16 @@
 			</div>
 		</div>
 		</div>
-</div>
-<div id="activity" class="pull-right">
-	<div class="panel">
-				<ul class="nav nav-tabs" id="myTab" >
-				  <li ><a href="#schoolyard" data-toggle="tab">校园活动</a></li>
-				  <li><a href="#cityActivity" data-toggle="tab">同城活动</a></li>
-				</ul>
-		
-				<div class="tab-content">
-				  <div class="tab-pane fade in active" id="schoolyard">
-				  	<volist name="Activity1" id="vo">
-				  		<li>
-							<a href="__APP__/Activity/showDetail?id={$vo.activity_id}&table=activity">{$vo.title|msubstr=0,14,'utf-8',false}</a>
-						</li>
-				  	</volist>
-				  </div>
-				  <div class="tab-pane fade" id="cityActivity">
-				  	<volist name="Activity2" id="vo">
-					  	<li>
-							<a href="__APP__/Activity/showDetail?id={$vo.activity_id}&table=activity">{$vo.title|msubstr=0,14,'utf-8',false}</a>
-						</li>
-				  	</volist>
-				  </div>
-				</div>
-		</div>
-</div><!-- ./activity -->
+	</div>
+	<include file="Common:activity" /><!-- 活动右侧展示 -->
 <div id="constellation" class="pull-right">
 	<div class="panel">
-	
 		<ul class="nav nav-tabs" id="myTab">
-		  <li ><a href="#messa" data-toggle="tab">星座匹配</a></li>
-		  <li><a href="#sett" data-toggle="tab">生日匹配</a></li>
+		  <li ><a href="#constellation-tab" data-toggle="tab">星座匹配</a></li>
+		  <li><a href="#birth" data-toggle="tab">生日匹配</a></li>
 		</ul>
 		<div class="tab-content">
-		  <div class="tab-pane fade in active" id="messa">
+		  <div class="tab-pane fade in active" id="constellation-tab">
 		  	<div class="constellation_layout">
 			  <form class="form-inline">
 					  <select class="input-xlarge">
@@ -175,7 +143,7 @@
 			  </form>
 			  </div>
 		  </div>
-		  <div class="tab-pane fade" id="sett">
+		  <div class="tab-pane fade" id="birth">
 			  <div>
 				  <form class="form-inline">
 					 <select class="span2">   
@@ -260,25 +228,7 @@
 			</div>
 		</div>
 </div>
-<div id="Causerie" class="pull-right">
-<div class="panel">
-<div class="panel-heading">心情语录<span><a href="__APP__/Member/index?table=Member" >更多</a></span></div>		
-	<div class="panel-body">
-	<volist id="vo" name="mood">
-		<div class="Causerie-model">
-			<div class="Causerie-photo"><div><img alt="" src="__IMG__/Home/001.jpg"></div></div>
-			<div class="Causerie-container">
-			<p><a href="__APP__/Mood/showDetail?id={$vo.mood_id}&table=Mood">{$vo.content|msubstr=0,20,'utf-8',false}</a></p>
-			<div class="Causerie-discuss">
-			<span>{$vo.create_time|date="m-d",###}</span>
-			<a>点赞</a>&nbsp;&nbsp;&nbsp;<a>关注</a>
-			</div>
-			</div>
-		</div> 
-	</volist>
-	</div>
-</div>
-</div>
+<include file="Common:mood"/><!--个人心情展示-->
 </div>
 <!--留学生+爱情攻略-->
 <div id="international-Finally"><!-- Finally爱情攻略 -->
@@ -377,20 +327,28 @@
 	<div class="panel ">
 		 <div class="panel-heading">投票---你觉得本站那些地方需要修改<span><a href="#">更多</a></span></div>
 		 <div class="panel-body">
-		 	 <input type="radio" name="poll_voteNr" value="2" > 网页特效<BR>
-            <input type="radio" name="poll_voteNr" value="3" > 网页素材<BR>
-            <input type="radio" name="poll_voteNr" value="4" > 相关软件<BR>
+		 	 <input type="radio" name="" value="2" > 网页特效<BR>
+            <input type="radio" name="" value="3" > 网页素材<BR>
+            <input type="radio" name="" value="4" > 网页主色<BR>
+            <input type="radio" name="" value="4" > 功能分布<BR>
+            <input type="radio" name="" value="4" > 诚信认证<BR>
+            <input type="radio" name="" value="4" > 内容真实<BR>
+            <input type="radio" name="" value="4" > 广告管理<BR>
+            <input type="radio" name="" value="4" > 整体布局<BR>
 		</div>
 	</div>
 </div>	
 </div>
-
 <include file="Common:link" />
 <include file="Common:foot" />
  </body>
-
 <script type="text/javascript">
 $(document).ready(function(){
+	 $('input').iCheck({
+		    checkboxClass: 'icheckbox_futurico',
+		    radioClass: 'iradio_futurico',
+		    increaseArea: '20%' // optional
+		  });
 	//Diagnal Sliding
 	$('.boxgrid.thecombo').hover(function(){
 		$(".cover", this).stop().animate({top:'260px', left:'325px'},{queue:false,duration:300});

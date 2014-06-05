@@ -88,6 +88,9 @@ ul li{
 	margin: 0;
 	padding:0;
 }
+.panel-body input{
+	margin-left:5px;
+}
 .panel-heading{
 	background:#FFCCFF;
 	color:#428BCA;
@@ -206,7 +209,6 @@ background:#FF99FF;
 #ifocus-news{
 
 }
-
 #ifocus { 	
 	height:245px;
     border:1px solid #DEDEDE;
@@ -345,10 +347,9 @@ width:290px;
 height:351px;
 }
 .Causerie-model{
-	border:1px solid #E8E8E8 ;
+ 	border:1px solid #E8E8E8 ;
 	line-height:1;
-	height:90px;
-	
+	height:104px;
 }
 .Causerie-photo{
 	float:left;
@@ -358,21 +359,22 @@ height:351px;
 }
 .Causerie-photo img{
 	width:84px;
-	height:84px;
+	height:94px;
 }
 .Causerie-container{
 	width:200px;
 	float:left;
 }
 .Causerie-container p{
+	margin:auto;
 }
 .Causerie-discuss{
 	height:20px;
 	margin-top:50px;
 }
-.Causerie-discuss a {
-	float:right;
-}
+#praise{float:left;}
+#attention{	float:right;}
+.Causerie-text-layout{height:30px; line-height:35px;}
 /*-------------------留学生+ 爱情攻略-------------------------*/
 #international{
 width:700px;
@@ -603,10 +605,11 @@ font-size:15px;
 
 
 /* --------------爱情之语 start-----------*/
-.widget li {
-	padding-left: 15px;
-	line-height: 35px;
-	border-bottom: 1px solid #EFF4F5;
+.col-md-8{
+	float:left;
+}
+.col-md-4{
+	float:right;
 }
 /* 爱情之语 end*/
 

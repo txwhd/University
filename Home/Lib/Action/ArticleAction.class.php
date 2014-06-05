@@ -2,18 +2,27 @@
 //前台文章管理
 class ArticleAction extends CommonAction{
 	public function index(){
-		//$type = D('Category')->where('status=1')->find($id);
 		$map['islock'] = array('eq',1);			
 		//分页取数据
 		import("ORG.Util.Page");
 		$Article = D("Article");			
 		$count = $Article->where($map)->count(); 
-		$Page = new Page($count,4);
+		$Page = new Page($count,1);
 		$show = $Page->show(); 
 		$list = $Article->where($map)->order('sort DESC,update_time DESC')->limit($Page->firstRow.','.$Page->listRows)->select();
+		//最热文章数据组装
+		$hot_art = D('Article')->where($map)->order('apv DESC')->limit(5)->select();
+		$this->assign('hot_art',$hot_art);
+		//最新文章数据组装
+		$new_art = D('Article')->where($map)->order('add_time DESC')->limit(5)->select();
+		$this->assign('new_art',$new_art);
 		//赋值给模板
 		$this->assign('list',$list);
+		//$this->assign('type',$type);
+		$this->assign('keywords',$Article->where($map)->order('sort DESC,update_time DESC')->limit(7)->field('keywords')->select());
 		$this->assign('page',$show);
+		//赋值文章类型
+		$this->assign('type',D('Article_class')->where('sys_type=1')->limit(5)->select());
 		//$this->seo($type['title'], $type['keywords'], $type['description'], D('Common')->getPosition($id));
 		$this->display();
 	}
