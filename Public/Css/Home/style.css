@@ -212,73 +212,14 @@ background:#FF99FF;
     border:1px solid #DEDEDE;
     background:#F8F8F8;
 	 }
- #ifocus_pic 
- {
-	  display:inline;
-	  position: relative;
-	  float:left; 
-	  width:580px; 
-	  height:225px; 
-	  overflow:hidden; 
-	  margin:10px 0 0 10px; 
-	  }
-#ifocus_piclist { 
-position:absolute;
- }
-#ifocus_piclist li { 
-	 width:580px;
-	 height:225px; 
-	 overflow:hidden;
- }
-#ifocus_piclist img {
-	 width:580px;
-	  height:225px; 
-	  }
-#ifocus_btn { 
-     display:inline; 
-	 float:right; 
-	 width:91px; 
-	 margin:9px 9px 0 0; 
-	 }
-#ifocus_btn li { 
-     width:91px; 
-	 height:57px; 
-	 cursor:pointer; 
-	 opacity:0.5;
-	  -moz-opacity:0.5; 
-	  filter:alpha(opacity=50); 
-	  }
-#ifocus_btn img { 
- 	width:75px;
-	height:45px;
-    margin:7px 0 0 11px; 
-	}
-#ifocus_btn .current {
-	 background: url(i/ifocus_btn_bg.gif) no-repeat; 
-	 opacity:1; 
-	 -moz-opacity:1; 
-	 filter:alpha(opacity=100); 
-	 }
-#ifocus_opdiv { 
-	  position:absolute; 
-	  left:0; 
-	  bottom:0; 
-	  width:580px;
-	  height:35px;
-	  background:#FFCCFF;
-	  opacity:0.5; 
-	  -moz-opacity:0.5; 
-	  filter:alpha(opacity=50); 
-   }
-#ifocus_tx { 
-  position:absolute; 
-  left:8px; 
-  bottom:1px; 
-  color:#FFF; }
-#ifocus_tx .normal { 
-  display:none;
-  }
-
+.item{
+	width:698px;
+	height:245px;
+}
+.item img{
+	width:698px;
+	height:245px;
+}
 #wishing-layout{
 	width:290px;
 	height:245px;
