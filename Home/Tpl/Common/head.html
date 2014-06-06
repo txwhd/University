@@ -12,15 +12,22 @@
         </div>
         <div class="collapse navbar-collapse navbar-header-collapse">
             <ul id="header_menu" class="nav navbar-nav">
-             	 <volist name="menu" id="vo"><li><a href="__APP__/{$vo['url']}">{$vo['menu_name']}</a></li>
-                </volist>
+             	<volist name="menu" id="vo">
+             	 <li><a href="__APP__/{$vo['url']}">{$vo['menu_name']} </a></li>
+	             	<!--  <if condition="$vo['menu_name'] eq 个人中心 ">
+		             	 <empty name="$Think.session.username"><li><a id="login">个人中心</a></li>
+		             	 <else/><li><a href="__APP__/{$vo['url']}">个人中心</a></li>
+		             	 </empty> 
+					<else /><li><a href="__APP__/{$vo['url']}">{$vo['menu_name']} </a></li>
+					</if> -->
+                </volist> 
             </ul>
             <ul class="nav navbar-nav navbar-right ng-scope" ng-controller="user_ctrl" id="header_me">
                 <li class="divider-vertical hidden-xs"></li>
                <!--  <li>
                 <a href="__APP__/Register/index">退出</a>
                 </li>  -->
-                <li><a id="login">登录</a></li>
+                <li><a id="login" >登录</a></li>
                 <li><a href="__APP__/Register/index">注册</a></li> 
             </ul>
         </div>
@@ -185,6 +192,8 @@ $(document).ready(function(){
 	});
 	/* $('#').qtip({content:'必优博客-技术源于实践，实践必然优秀! ', position:'center'});  */
 	$('#testqtip').on('click', function(){
+		ajaxreturn('url') 
+		msg=""
 	    layer.tips('比如实现用户小名片什么的呀', this, {
 	        style: ['background-color:#0FA6D8; color:#fff', '#0FA6D8'],
 	        maxWidth:150

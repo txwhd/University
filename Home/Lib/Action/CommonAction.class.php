@@ -12,6 +12,13 @@ class CommonAction extends Action {
 		$systemConfig = include WEB_ROOT . 'Common/systemConfig.php';
 		F("systemConfig", $systemConfig, WEB_ROOT . "Common/");
 		$this->assign("site", $systemConfig);
+		//爱情攻略
+		$footwhere['sys_type']="2";
+		$findMenu=M('Article')->where($footwhere)->order('sort')->limit(4)->select();
+		foreach ($findMenu as $key => $val){
+			$new_comment[$key] = $this->msgmodify($val);
+		}
+		$this->assign('footMenu',$findMenu);
 		/* 
 		//最新留言
 		$new_leave = D('Message')->where('status=1 AND pid=0 AND aid=0')->order('add_time DESC')->limit(5)->select();
@@ -24,8 +31,8 @@ class CommonAction extends Action {
 		foreach ($new_comment as $key => $val){
 			$new_comment[$key] = $this->msgmodify($val);
 		} */
-		/* //首页心情语录和爱情攻略
-		$mood=M('Article');
+		 //首页心情语录和爱情攻略
+		/* $mood=M('Article');
 		$cid=$this->getclass('心情语录','Article');
 		$where['cid']=$cid;
 		$this->assign('mood',$mood->where($where)->limit(5)->order('article_id desc')->select());
@@ -33,7 +40,7 @@ class CommonAction extends Action {
 		$where1['cid']=$cid1;
 		$this->assign('loveStrategy',$mood->where($where1)->limit(5)->order('article_id desc')->select());
 		$this->assign('new_comment',$new_comment);
-		$this->assign('nav_list',$nav_list); */
+		$this->assign('nav_list',$nav_list);  */
 		/*
 		 * 用封装之后的调用方式 $id = $this->router();
 		$type = D('Category')->where('status=1')->find($id);
