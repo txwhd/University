@@ -1,5 +1,31 @@
 <?php
 class  ForgetPassAction extends Action{
+	public function findPwd() {
+		$M = M("Admin");
+		if (IS_POST) {
+			$this->checkToken();
+			echo json_encode(D("Public")->findPwd());
+		} else {
+			setcookie("$this->loginMarked", NULL, -3600, "/");
+			unset($_SESSION["$this->loginMarked"], $_COOKIE["$this->loginMarked"]);
+			$cookie = $this->_get('code');
+			$shell = substr($cookie, -32);
+			$aid = (int) str_replace($shell, '', $cookie);
+			$info = $M->where("`aid`='$aid'")->find();
+			if ($info['status'] == 2) {
+				$this->error("你的账号被禁用，有疑问联系管理员吧", __APP__);
+			}
+			if (md5($info['find_code']) == $shell) {
+				$this->assign("info", $info);
+				$_SESSION['aid'] = $aid;
+				$systemConfig = include WEB_ROOT . 'Common/systemConfig.php';
+				$this->assign("site", $systemConfig);
+				$this->display("Common:findPwd");
+			} else {
+				$this->error("验证地址不存在或已失效", __APP__);
+			}
+		}
+	}
 	public function password($data=0){
 		//点击修改密码的链接之后情况
 		$data=$_GET['md5email'];
