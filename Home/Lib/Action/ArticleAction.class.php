@@ -7,7 +7,7 @@ class ArticleAction extends CommonAction{
 		import("ORG.Util.Page");
 		$Article = D("Article");			
 		$count = $Article->where($map)->count(); 
-		$Page = new Page($count,1);
+		$Page = new Page($count,3);
 		$show = $Page->show(); 
 		$list = $Article->where($map)->order('sort DESC,update_time DESC')->limit($Page->firstRow.','.$Page->listRows)->select();
 		//最热文章数据组装
