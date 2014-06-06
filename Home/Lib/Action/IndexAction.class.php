@@ -18,7 +18,7 @@ class IndexAction extends CommonAction{
 		$this->assign('loveStrategy',M('Article')->where($com)->order('update_time DESC')->limit(6)->select());
 		//个人心情语录展示
 		$this->assign('mood',M('Mood')->where('status=1')->order('create_time DESC')->limit(3)->select());
-		$this->assign('label',M('Label')->where('status=1')->order('sort DESC')->limit(10)->select());//标签展示（置顶的永远显示）
+		$this->assign('label',M('Label')->where('status=1')->order('sort DESC')->limit(9)->select());//标签展示（置顶的永远显示）
 		//友情链接
 		$this->assign('link',M('Link')->where('status=1')->order('sort DESC')->select());
 		//首页活动

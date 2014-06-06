@@ -11,81 +11,78 @@
 	<div class="row">
 		<div class="col-md-8">
 	        <volist name="list" id="list">
-                	<h2 class="title"><span><a href="{$list[0]['title']}">{$list[0]['title']}</a></span></h2>
-                    	<div class="fleft">On <span>{$list[0]['update_time']}</span> / By <a href="{$list[0]['username']}">{$list[0]['username']}</a> 
-                    	/关键字<a href="{}">{$list[0]['kerwords']}</a>
+                	<h2 class="title"><span><a href="{:U('Article/aticleDetail/',array('id'=>$list['article_id']))}">{$list['title']}</a></span></h2>
+                    	<div class="fleft">日期：<span>{$list.create_time|date="Y-m-d",###}</span> /作者： <a href="{$list[0]['username']}">{$list['username']}</a> 
+                    	/关键字<a href="{}">{$list['kerwords']}</a>
                     	</div><!-- 前居左  后居右 -->
-                        <div class="fright"><a href="{:U('Article/SearchKeywords/',array('id'=>$vo['gift_id']))}">{$list[0]['title']}</a> 评论</div>                                    
+                        <div class="fright"><a href="{:U('Article/SearchKeywords/',array('id'=>$list['gift_id']))}">{$list['title']}</a> 评论</div>                                    
                     	<div class="clear"></div>
-                    <p>{$list[0]['title']}</p>
-                    <a href="{$list[0]['content']}" class="arrow_link">详细</a>
+                    <p>{$list['content']|msubstr=0,200,'utf-8',true}</p>
+                    <a href="{:U('Article/aticleDetail/',array('id'=>$list['article_id']))}" class="arrow_link">详细</a>
              </volist>
-              <div class="pagination">
-                 <div class="page">{$page}</div>
+              <div class="">
+              	<ul class="pagination">{$page}</ul>
               </div>
+		</div>
+		<div class="col-md-4">
+           <div class="panel">
+               	<form class="" role="search">
+                  <div class="input-group">
+		     	 <input type="text" class="form-control">
+		     	 <span class="input-group-btn">
+		        <button class="btn btn-danger" type="button">搜索</button>
+		      	</span>
+		 		</div><!-- /input-group -->
+               </form>
+          </div>
+          <div class="panel">
+                   	<div class="panel-heading">美文分类</div>
+                   	<div class="panel-body">
+                    	<ul class="category">
+                    		<volist name="type" id="vo">
+                             <li><div><img src="__IMG__/Home/li_bg.jpg" alt="" /><a href="__URL__/type?id={$vo.cid}">{$vo.type_name}</a>
+                                 </div>
+                             </li>
+                            </volist>
+                        </ul> 
+                       </div>                              
+                   </div>  
+                   <div class="panel">      
+                    <div class="widget kerwords">
+                    	<div class="panel-heading">关键字</div>
+                    	<div class="panel-body">
+                     	<volist name="keywords" id="vo">
+                     		<span  class="btn btn-link"><a href="__URL__/keywords?id={$vo.article_id}">{$vo.keywords}</a></span>
+                     	</volist>
+                    </div>
+                    </div>
+                   </div>
+                 	<div class="panel">
+			<ul class="nav nav-tabs" id="myTab" >
+			  <li ><a href="#new_art" data-toggle="tab" class="title">最新美文</a></li>
+			  <li><a href="#hot_art" data-toggle="tab" class="title">最热美文</a></li>
+			</ul>
+			<div class="tab-content">
+			  <div class="tab-pane fade in active" id="new_art">
+			  	<volist name="new_art" id="vo">
+			  		<li>
+						<a href="__URL__/showDetail?id={$vo.article_id}&table=Article">{$vo.title|msubstr=0,14,'utf-8',false}</a>
+					</li>
+			  	</volist>
+			  </div>
+			  <div class="tab-pane fade" id="hot_art">
+			  	<volist name="hot_art" id="vo">
+				  	<li>
+						<a href="__URL__/showDetail?id={$vo.article_id}&table=Article">{$vo.title|msubstr=0,14,'utf-8',false}</a>
+					</li>
+			  	</volist>
+			  </div>
 			</div>
-	<div class="col-md-4">
-             	<div class="sidebar">
-                 	<div class="">
-                     	<form class="form-search">
-                             <input type="text" class="input-medium search-query">
-                             <button type="submit" class="btn dark_btn">搜索</button>
-                          </form>
-                     </div>
-                      <div class="widget">
-                     	<h2 class="title"><span>美文分类</span></h2>
-                     	<ul class="category">
-                             <li>
-                             	<div><img src="__IMG__/Home/widget_li_bg.jpg" alt="" />
-                                 <a href="#">爱情攻略</a></div>
-                             </li>
-                             <li>
-                             	<div><img src="__IMG__/Home/widget_li_bg.jpg" alt="" />
-                                 <a href="#">恋爱故事</a></div>
-                             </li>
-                             <li>
-                             	<div><img src="__IMG__/Home/widget_li_bg.jpg" alt="" />
-                                 <a href="#">美文欣赏</a></div>
-                             </li>
-                         </ul>                               
-                     </div>        
-                     <div class="widget kerwords">
-                     	<h2 class="kerwords-title"><span>关键字</span></h2>
-                     	<a href="#">Lorem ipsum</a>
-                         <a href="#">Dolor</a>
-                         <a href="#">Long established</a>
-                         <a href="#">Sit amet</a>
-                         <a href="#">Latin words</a>
-                         <a href="#">Excepteur sint</a>                                    
-                     </div>
-                     <div class="widget">
-                     	<h2 class="title"><span>最新美文</span></h2>
-                     	<ul class="recent_post">
-                         	<li>
-                             	<a href="#"><img src="img/img8.jpg" alt="" /></a>
-                                 <div><a href="#">It is a long established fact that a reader will be distracted </a></div>
-                                 16th July, 2020
-                             	<div class="clear"></div>
-                             </li>
-                             <li>
-                             	<a href="#"><img src="img/img9.jpg" alt="" /></a>
-                                 <div><a href="#">It is a long established fact that a reader will be distracted </a></div>
-                                 16th July, 2020
-                             	<div class="clear"></div>
-                             </li>
-                             <li>
-                             	<a href="#"><img src="img/img10.jpg" alt="" /></a>
-                                 <div><a href="#">It is a long established fact that a reader will be distracted </a></div>
-                                 16th July, 2020
-                             	<div class="clear"></div>
-                             </li>
-                         </ul>
-                     	<p><a href="#" class="arrow_link">Go to the portfolio</a></p>
-                     </div>
-             </div>  
+			<span><a href="#" class="arrow_link">更多欣赏</a></span>
+	</div>
 	  </div>
-	    </div>
-    </div>
+	 </div>
+</div>
 <include file="Common:foot" />
  </body>
 </html>
