@@ -17,6 +17,10 @@ textarea{
 	padding:0;
 	width:1000px;
 	margin-top:10px;
+	border:1px solid #ff99ff;
+}
+.col-md-6{
+	border:1px solid #ff99ff;
 }
 button{
 	background:#FF6699;
@@ -215,9 +219,17 @@ background:#FF99FF;
     background:#F8F8F8;
 	 }
 .item{
-	width:698px;
-	height:245px;
+		margin: 0;
+		padding:0;
+		width:698px;
+		height:245px;
+}	 
+.item div.carousel-caption p{
+	position: absolute;
+	margin-top:25px;
+
 }
+
 .item img{
 	width:698px;
 	height:245px;
