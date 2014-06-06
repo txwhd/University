@@ -29,25 +29,25 @@
 <div class="login" style="display:none;">
       <div class="modal-header" >
 		<ul class="nav nav-tabs" id="loginTab">
-		  <li class="active"><a href="#email" data-toggle="tab">邮箱登录</a></li>
+		  <li class="active"><a href="#tabemail" data-toggle="tab">邮箱登录</a></li>
 		  <li><a href="#mobile" data-toggle="tab">手机登录</li>
 		</ul>
       </div>
       <div class="login-layout">
 		<div class="tab-content" >
-			  <div class="tab-pane active" id="email">
+			  <div class="tab-pane active" id="tabemail">
 				<form role="form" action="__APP__/Login/checkLogin" method="post">
 				  <div class="form-group col-xs-10">
-				    <input type="email" class="form-control input-lg" id="exampleInputEmail1" placeholder="输入邮箱/姓名">
+				    <input type="email" class="form-control input-lg" id="emailInput" name="email" placeholder="输入邮箱">
 				  </div>
 				  <div class="form-group col-xs-10">
-				    <input type="password" class="form-control input-lg" id="exampleInputPassword1" placeholder="输入密码">
+				    <input type="password" class="form-control input-lg" id="passInput" name="password" placeholder="输入密码">
 				  </div>
 				   <input type="hidden" name="form_type" value="email">
 				  <div class="checkbox col-xs-10">
 					      <div class="">
 					       <ul class="tab-foot">
-		      					<li class="tab-foot-left" ><input type="radio"><small>记住我</small></li>
+		      					<li class="tab-foot-left" ><input type="radio" name="remember" value="1"><small>记住我</small></li>
 		      					<li class="tab-foot-right"><a id="forgetpass1" class="btns" href="javascript:;" onclick="layer.closeAll();"><small>忘记密码?</small></a></li>
 		      				</ul>
 					    </div>
@@ -60,10 +60,10 @@
 			<div class="tab-pane" id="mobile">
 				<form role="form"  action="__APP__/Login/checkLogin" method="post">
 				  <div class="form-group  col-xs-10">
-				    <input type="email" class="form-control input-lg" name=" mobile" id="exampleInputEmail1" placeholder="请输入手机号码">
+				    <input type="email" class="form-control input-lg" name="mobile" placeholder="请输入手机号码">
 				  </div>
 				  <div class="form-group  col-xs-10">
-				    <input type="password" class="form-control input-lg" name="password" id="exampleInputPassword1" placeholder="输入密码">
+				    <input type="password" class="form-control input-lg" name="password" placeholder="输入密码">
 				  </div>
 				   <div class="checkbox col-xs-10">
 				      <div class="tab-foot">
@@ -102,16 +102,14 @@
 </div><!-- login -->
 	<!-- forgetpass start-->
 <div class="forgetpass" style="display:none;">
-  <div class="tab-pane active" id="email">
 	<form role="form" action="__APP__/Register/index" method="post">
 	  <div class="form-group col-xs-10">
-	    <input type="email" class="form-control input-lg" id="exampleInputEmail1" placeholder="输入邮箱">
+	    <input type="email" class="form-control input-lg" name="email" placeholder="输入邮箱">
 	  </div>
 	 <div class="form-actions col-xs-10">
           <input type="submit" id="findPwdSubmit" class="btn btn-block btn-large btn-danger" value="提交" />
     </div>
 	</form>
-</div>
 </div>
 <!-- forgetpass end -->
 </header>
@@ -155,23 +153,42 @@ $(document).ready(function(){
 			});  
 	});
 	$(function(){
-	    $(".submit").click(function(){
-	        $("#op_type").val("1");
-	        if($("#email").val()==''||$("#pwd").val()==''||$("#verify_code").val()==''){
+	    $("#emailsubmit").click(function(){
+	        $("#form_type").val("1");
+	        if($("#email").val()==''||$("#password").val()==''){
+	        	layer.tips('提示错误信息', this, {
+	                guide: 1,
+	                time: 1,
+	                style: ['background-color:#F26C4F; color:#fff', '#F26C4F'],
+	                maxWidth:240
+	            });
+	            return false;
+	        }
+	        return true;
+	    });
+	    $("#mobileSubmit").click(function(){
+	        $("#form_type").val("2");
+	        if($("#email").val()==''||$("#pwd").val()==''){
 	            popup.alert("填写完整方可登陆");
 	            return false;
 	        }
-	        commonAjaxSubmit();
+	        return true;
 	    });
 	    $("#findPwdSubmit").click(function(){
-	        $("#op_type").val("2");
+	        $("#form_type").val("3");
 	        if($("#email").val()==''){
 	            popup.alert("填写了你的邮箱方可找回密码");
 	            return false;
 	        }
-	        commonAjaxSubmit();
+	        return true;
 	    });
 	});
-	$('#testqtip').qtip({content:'必优博客-技术源于实践，实践必然优秀! ', position:'center'}); 
+	/* $('#').qtip({content:'必优博客-技术源于实践，实践必然优秀! ', position:'center'});  */
+	$('#testqtip').on('click', function(){
+	    layer.tips('比如实现用户小名片什么的呀', this, {
+	        style: ['background-color:#0FA6D8; color:#fff', '#0FA6D8'],
+	        maxWidth:150
+	    });
+	});
 }); 
 </script>

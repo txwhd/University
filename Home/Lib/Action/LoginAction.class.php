@@ -12,20 +12,35 @@ class LoginAction extends CommonAction{
 			$this->redirect("Public/index");
 		}
 		return TRUE;
-	}
+	}/*  
+	
+	*1.提交判断什么登陆类型
+	*2.是否记住密码类型
+	*3.验证用户
+	*4.记录信息
+	*/
 	public function index(){
 		//检查用户是否登录
-		$username=$_POST['username'];
-		$this->loginMarked = md5($username);
+		/* if ($_POST['remember']="1") {
+			;
+		}
+		if ($_POST['form_type']="email") {
+			;
+		}elseif ($_POST['form_type']="mobile"){
+			
+		} */
+		$email=$_POST['email'];
+		$this->loginMarked = md5($email);
 		$this->checkLogin();
-		
-		if(empty($_SESSION['user_info'])){ //检查一下session是不是为空
-			if(empty($_COOKIE['username']) || empty($_COOKIE['password'])){ 
-				//如果session为空，并且用户没有选择记录登录状
-				header("location:login.php?req_url=".$_SERVER['REQUEST_URI']); //转到登录页面，记录请求的url，登录后跳转过去，用户体验好。
+		if ($result[0]['isLock']=="1") {
+			return $msn="您的账户没有通过审核，请核对后重新登录或者等待审核！";
+		}
+		if(empty($_SESSION['user_info'])){ 
+			//检查一下session是不是为空
+			if(empty($_COOKIE['email']) || empty($_COOKIE['password'])){ 
 			}else{ 
 				//用户选择了记住登录状态
-				$user = getUserInfo($_COOKIE['username'],$_COOKIE['password']); //去取用户的个人资料
+				$user =$this->getUserInfo($_COOKIE['email'],$_COOKIE['password']); //去取用户的个人资料
 				if(empty($user)){ 
 					//用户名密码不对没到取到信息，转到登录页面
 					header("location:login.php?req_url=".$_SERVER['REQUEST_URI']);
@@ -34,11 +49,13 @@ class LoginAction extends CommonAction{
 				}
 			}
 			}
-		/* if ($_POST['username'] == 'admin'){
-			$this->ajaxReturn($_POST['username'],'用户名正确~',1);
-		}else{
-			$this->ajaxReturn('','用户名错误！',0);
-		} */
+	}
+	public function getUserInfo($email,$password){
+		$member=M('Member');
+		$where['email']=$email;
+		$where['password']=md5($password);
+		$result=$member->where($where)->select();
+		return $result;
 	}
 	public function loginOut() {
 		setcookie("$this->loginMarked", NULL, -3600, "/");

@@ -89,13 +89,6 @@ class CommonAction extends Action {
 		$this->assign("list", D($name)->listNews($name,$page->firstRow, $page->listRows,$condition));
 		$this->display();
 	}
-	
-	//验证码
-	public function verify(){
-		$type = isset($_GET['type'])?$_GET['type']:'gif';
-        import("ORG.Util.Image");
-        Image::buildImageVerify(4,1,$type);
-    }
     //SEO赋值
     public function seo($title,$keywords,$description,$positioin){
     	$this->assign('title',$title);
