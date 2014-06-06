@@ -427,6 +427,8 @@ height:243px;
 .third-login div{
 	clear:both;
 }
+.tab-foot .tab-foot-left{float:left;}
+.tab-foot .tab-foot-right{float:right;}
 /*login end  */
 /*reg start  */
  em.error { float: none; color: red; padding-left: .5em; vertical-align: top; }

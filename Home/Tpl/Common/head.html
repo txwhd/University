@@ -12,11 +12,7 @@
         </div>
         <div class="collapse navbar-collapse navbar-header-collapse">
             <ul id="header_menu" class="nav navbar-nav">
-             	 <volist name="menu" id="vo">
-               		 <li>
-               		 
-                 	<a href="__APP__/{$vo['url']}">{$vo['menu_name']}</a>
-                 	</li>
+             	 <volist name="menu" id="vo"><li><a href="__APP__/{$vo['url']}">{$vo['menu_name']}</a></li>
                 </volist>
             </ul>
             <ul class="nav navbar-nav navbar-right ng-scope" ng-controller="user_ctrl" id="header_me">
@@ -34,50 +30,52 @@
       <div class="modal-header" >
 		<ul class="nav nav-tabs" id="loginTab">
 		  <li class="active"><a href="#email" data-toggle="tab">邮箱登录</a></li>
-		  <li><a href="#mobile" data-toggle="tab">手机登录/a></li>
+		  <li><a href="#mobile" data-toggle="tab">手机登录</li>
 		</ul>
       </div>
       <div class="login-layout">
 		<div class="tab-content" >
 			  <div class="tab-pane active" id="email">
-				<form role="form" action="" method="post">
+				<form role="form" action="__APP__/Login/checkLogin" method="post">
 				  <div class="form-group col-xs-10">
 				    <input type="email" class="form-control input-lg" id="exampleInputEmail1" placeholder="输入邮箱/姓名">
 				  </div>
 				  <div class="form-group col-xs-10">
 				    <input type="password" class="form-control input-lg" id="exampleInputPassword1" placeholder="输入密码">
 				  </div>
-				   <div class="checkbox col-xs-10">
-					    <div class="col-sm-offset-2">
-					       <ul class="list-inline">
-		      					<li><input type="checkbox">记住我</li>
-		      					<li><a id="forgetpass" class="btns" href="javascript:;" onclick="layer.closeAll();"><small>忘记密码?</small></a></li>
+				   <input type="hidden" name="form_type" value="email">
+				  <div class="checkbox col-xs-10">
+					      <div class="">
+					       <ul class="tab-foot">
+		      					<li class="tab-foot-left" ><input type="radio"><small>记住我</small></li>
+		      					<li class="tab-foot-right"><a id="forgetpass1" class="btns" href="javascript:;" onclick="layer.closeAll();"><small>忘记密码?</small></a></li>
 		      				</ul>
 					    </div>
 					</div>
 					 <div class="form-actions col-xs-10">
-                          <input type="submit" class="btn btn-block btn-large btn-danger" value="登陆" />
+                          <input type="submit" id="emailSubmit" class="btn btn-block btn-large btn-danger" value="登陆" />
                       </div>
 				</form>
 			</div>
 			<div class="tab-pane" id="mobile">
-				<form role="form"  action="" method="post">
+				<form role="form"  action="__APP__/Login/checkLogin" method="post">
 				  <div class="form-group  col-xs-10">
-				    <input type="email" class="form-control input-lg" id="exampleInputEmail1" placeholder="请输入手机号码">
+				    <input type="email" class="form-control input-lg" name=" mobile" id="exampleInputEmail1" placeholder="请输入手机号码">
 				  </div>
 				  <div class="form-group  col-xs-10">
-				    <input type="password" class="form-control input-lg" id="exampleInputPassword1" placeholder="输入密码">
+				    <input type="password" class="form-control input-lg" name="password" id="exampleInputPassword1" placeholder="输入密码">
 				  </div>
 				   <div class="checkbox col-xs-10">
-					      <div class="col-sm-offset-2">
-					       <ul class="list-inline">
-		      					<li><input type="checkbox">记住我</li>
-		      					<li><a id="forgetpass1" class="btns" href="javascript:;" onclick="layer.closeAll();"><small>忘记密码?</small></a></li>
-		      				</ul>
-					    </div>
+				      <div class="tab-foot">
+				       <ul>
+	      					<li class="tab-foot-left" ><input type="radio" name="remember" value="1"><small>记住我</small></li>
+	      					<li class="tab-foot-right"><a id="forgetpass" href="javascript:;" onclick="layer.closeAll();"><small>忘记密码?</small></a></li>
+	      				</ul>
+				   	 </div>
 					</div>
+					 <input type="hidden" name="form_type" value="mobile">
 				    <div class="form-actions col-xs-10">
-                          <input type="submit" class="btn btn-block btn-large btn-danger" value="登陆" />
+                          <input type="submit" id="mobileSubmit" class="btn btn-block btn-large btn-danger" value="登陆" />
                       </div>
 				</form>
 			  </div>
@@ -85,7 +83,7 @@
 		</div>
       <div class="modal-footer" id="login-footer" >
 	      <div class="third-login">
-	      		<span class="text-left"><strong>第三方登陆</strong></span>
+	      		<span class="text-left"><strong id="testqtip">第三方登陆</strong></span>
 	      		<div>
 		      		<ul class="list-inline">
 		      			<li><a href=""><img src="__IMG__/Home/qq_icon.png"/></a></li>
@@ -105,12 +103,12 @@
 	<!-- forgetpass start-->
 <div class="forgetpass" style="display:none;">
   <div class="tab-pane active" id="email">
-	<form role="form" action="" method="post">
+	<form role="form" action="__APP__/Register/index" method="post">
 	  <div class="form-group col-xs-10">
 	    <input type="email" class="form-control input-lg" id="exampleInputEmail1" placeholder="输入邮箱">
 	  </div>
 	 <div class="form-actions col-xs-10">
-          <input type="submit" class="btn btn-block btn-large btn-danger" value="提交" />
+          <input type="submit" id="findPwdSubmit" class="btn btn-block btn-large btn-danger" value="提交" />
     </div>
 	</form>
 </div>
@@ -118,41 +116,62 @@
 <!-- forgetpass end -->
 </header>
 <script language="JavaScript">
-//忘记密码弹窗
-$('#forgetpass').on('click', function(){
-	  $.layer({
-		    type: 1,
-		    title: '找回密码',
-		    offset: [($(window).height() - 200)/2+'px', ''],
-		    area: ['300px', '200px'],
-		    shade: [0.5, '#000'],
-		    page : {dom : '.forgetpass'}, success: function(){
-		        layer.shift('left'); //左边动画弹出
-		    }
-		});  
+$(document).ready(function(){ 
+	//忘记密码弹窗
+	$('#forgetpass').on('click', function(){
+		  $.layer({
+			    type: 1,
+			    title: '找回密码',
+			    offset: [($(window).height() - 200)/2+'px', ''],
+			    area: ['300px', '200px'],
+			    shade: [0.5, '#000'],
+			    page : {dom : '.forgetpass'}, success: function(){
+			        layer.shift('left'); //左边动画弹出
+			    }
+			});  
+	}); 
+	$('#forgetpass1').on('click', function(){
+		  $.layer({
+			    type: 1,
+			    title: '找回密码',
+			    offset: [($(window).height() - 200)/2+'px', ''],
+			    area: ['300px', '200px'],
+			    shade: [0.5, '#000'],
+			    page : {dom : '.forgetpass'}, success: function(){
+			        layer.shift('left'); //左边动画弹出
+			    }
+			});  
+	}); 
+	$('#login').on('click', function(){
+		  $.layer({
+			    type: 1,
+			    title: false,
+			    offset: [($(window).height() - 500)/2+'px', ''],
+			    area: ['300px', '500px'],
+			    shade: [0.5, '#000'],
+			    page : {dom : '.login'}, success: function(){
+			        layer.shift('left'); //左边动画弹出
+			    }
+			});  
+	});
+	$(function(){
+	    $(".submit").click(function(){
+	        $("#op_type").val("1");
+	        if($("#email").val()==''||$("#pwd").val()==''||$("#verify_code").val()==''){
+	            popup.alert("填写完整方可登陆");
+	            return false;
+	        }
+	        commonAjaxSubmit();
+	    });
+	    $("#findPwdSubmit").click(function(){
+	        $("#op_type").val("2");
+	        if($("#email").val()==''){
+	            popup.alert("填写了你的邮箱方可找回密码");
+	            return false;
+	        }
+	        commonAjaxSubmit();
+	    });
+	});
+	$('#testqtip').qtip({content:'必优博客-技术源于实践，实践必然优秀! ', position:'center'}); 
 }); 
-$('#forgetpass1').on('click', function(){
-	  $.layer({
-		    type: 1,
-		    title: '找回密码',
-		    offset: [($(window).height() - 200)/2+'px', ''],
-		    area: ['300px', '200px'],
-		    shade: [0.5, '#000'],
-		    page : {dom : '.forgetpass'}, success: function(){
-		        layer.shift('left'); //左边动画弹出
-		    }
-		});  
-}); 
-$('#login').on('click', function(){
-	  $.layer({
-		    type: 1,
-		    title: false,
-		    offset: [($(window).height() - 500)/2+'px', ''],
-		    area: ['300px', '500px'],
-		    shade: [0.5, '#000'],
-		    page : {dom : '.login'}, success: function(){
-		        layer.shift('left'); //左边动画弹出
-		    }
-		});  
-});
 </script>
