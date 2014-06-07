@@ -611,7 +611,7 @@ textarea{
 }
 
 .say-right img{
-width:240px;
+	width:240px;
 	height:100px;
 }
 .button-set{
@@ -620,15 +620,19 @@ width:240px;
 #person-centre-left{
 	float:left;
 	width:231px;
-	border:1px solid red;
 }
 #person-centre-right{
 	float:left;
-	width:680px;
-	margin-left:8px;
+	width:758px;
+	margin-left:3px;
+	border:1px solid #ff99ff;
 }
-
-
+#person-intro{
+	
+}
+.tablestyle{
+	width:758px;
+}
 
 
 
