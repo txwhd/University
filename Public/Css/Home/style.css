@@ -605,14 +605,14 @@ textarea{
 	float:left;
 }
 .say-right{
-	width:250px;
+	width:240px;
 	height:100px;
 	margin-left:8px;
 	float:left;
 }
 
 .say-right img{
-width:250px;
+width:240px;
 	height:100px;
 }
 .button-set{
@@ -629,11 +629,6 @@ width:250px;
 	margin-left:8px;
 }
 
-#message{
-		width:758px;
-	height:240px;
-	border:1px solid #ff99ff;
-}
 
 
 
