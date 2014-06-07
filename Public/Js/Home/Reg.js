@@ -26,39 +26,6 @@ Reg.length = function(obj){
 	}
 	 return true;
 };
-
-//判断输入的字符串是否是中文
-Reg.isChinese= function(obj){
-	var curVal = $(obj).val();
-	var str_name = $(obj).attr("name");
-	
-	// 正则表达式对象
-	 var re = new RegExp("^[\\u4e00-\\u9fa5]+$", "");
-	
-	if(!re.test(curVal)){
-		$("#"+str_name+"_message").html($(obj).attr("meg")+"请输入中文！");
-		return false;
-	}else{
-		$("#"+str_name+"_message").html("");
-		return true;
-	}
-	 return true;
-}
-
-/*Reg.id_card = function(obj){
-	var curVal = $(obj).val();
-	var str_name = $(obj).attr("name");
-	var reg=/^[1-9]\d{16}[\d|x|X]$/;
-	  if (!reg.test(curVal)) {
-		   $("#"+str_name+"_message").html($(obj).attr("meg")+"格式不正确！");
-		   return false;
-	  }else{
-		  $("#"+str_name+"_message").html("");
-		  return true;
-	  }
-	  return true;
-}*/
-
 Reg.email = function(obj){
 	 var curVal = $(obj).val();
 	 var str_name = $(obj).attr("name");
@@ -152,55 +119,6 @@ Reg.ifexit_idcard = function(obj){
 	}
 	 return true;
 };
-Reg.ifstudent = function(obj){
-	//注册看是否是本校研究生
-	var idcard = $(obj).val();
-	var id_card = $(obj).attr("name");
-	if($.trim(idcard)==""){
-		return false;
-	}else{
-		$.ajax({
-	        type: "post",
-	        dataType: "JSON",
-	        url: "ifstudent",//同模块url
-	        data:{"id_card":idcard},
-	        success: function (data) {
-	        	//data就是返回的那个字符串
-	        	if (data == "0") {
-	        		 $("#"+id_card+"_message").html("你不是本校研究生，不能注册！");
-	        		 return false;
-	            }else if(data == "1") {
-	            	 $("#"+id_card+"_message").html("");
-	            	 return true;
-	            }
-	        }
-		});
-		return true;
-	}
-};
-Reg.ifexit_code=function(obj){
-	var str_name = $(obj).attr("name");
-	var curVal = $(obj).val();
-	if ($.trim(curVal)==''){
-		return false;
-	}else{
-		$.ajax({
-	        type: "post",
-	        dataType: "JSON",
-	        url: "ifRegCode",
-	        data:{"company_code" : curVal},
-	        success: function (data) {//data就是返回的那个字符串
-	        	if (data == "0") {
-	        		 $("#"+str_name+"_message").html("");
-	        		  return true;
-	            }else {
-	            	 $("#"+str_name+"_message").html($(obj).attr("meg")+"已存在");
-	            	 return false;
-	            }
-	        }
-	    });
-	}
-};
 Reg.ifexit_email=function(obj){
 	var str_name = $(obj).attr("name");
 	var curVal = $(obj).val();
@@ -231,39 +149,29 @@ Reg.validate = function(obj){
 	var validateArr = validateTypes.split(",");
 	
 	var vRequired = true;
-	var ifexit_code = true;
 	var ifexit_email = true;
 	var vIllegal = true;
 	var vEmail = true;
 	var vEqual = true;
 	var vId_card = true;
-	var vIfexit_idcard = true;
-	var ifstudent = true;
 	var lengths = true;
-	var VisChinese = true;
 	
 	for(var i=0;i<validateArr.length;i++){
 		switch(validateArr[i]){
 			case "required" : vRequired = Reg.required(obj);if(!vRequired){return vRequired;}break;
 			case "illegal" : vIllegal = Reg.illegal(obj);if(!vIllegal){return vIllegal;}break;
 			case "length" : lengths = Reg.length(obj);if(!lengths){return lengths;}break;
-			case "id_card" : vId_card = Reg.id_card(obj);if(!vId_card){return vId_card;}break;
 			case "email" : vEmail = Reg.email(obj);if(!vEmail){return vEmail;}break;
-			case "isChinese":VisChinese = Reg.isChinese(obj);if(!VisChinese){return VisChinese;}break;
 			case "equal" : vEqual = Reg.equal(obj);if(!vEqual){return vEqual;}break;
-			case "ifexit_code" : ifexit_code = Reg.ifexit_code(obj);if(!ifexit_code){return ifexit_code;}break;
 			case "ifexit_email" :  ifexit_email = Reg.ifexit_email(obj);if(!ifexit_email){return ifexit_email;}break;
 			case "ifexit_idcard" : vIfexit_idcard = Reg.ifexit_idcard(obj);if(!vIfexit_idcard){return vIfexit_idcard;}break;
-			case "ifstudent" : ifstudent = Reg.ifstudent(obj);if(!ifstudent){return ifstudent;}break;
 		}
 	}
 	//return (vRequired && lengths && VisChinese && ifexit_code && vIfexit_idcard && ifstudent && vId_card && ifexit_email && vIllegal && vEmail && vEqual);
 	return true;
 };
-
 Reg.onsubmit = function(obj){
 	var result = 1;
-	
 	$(obj).find("[validate]").each(function(){
 		if(!Reg.validate($(this))){
 			result++;

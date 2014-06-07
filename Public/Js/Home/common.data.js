@@ -1,4 +1,3 @@
-alert("12");
 nationItems=[
 	{id:"01",name:"汉族"},
 	{id:"02",name:"蒙古族"},

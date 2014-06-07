@@ -59,12 +59,4 @@ class RegisterAction extends CommonAction{
 				//$this->error($model->getError());
 			}
 	}
-	//检验验证码是否正确
-	public function verifyCheck()
-	{
-		if (md5($_POST['verifyTest']) != Session::get('verify'))
-		{
-			die('验证码错误');  //如果验证码不对就退出程序
-		}
-	}
 }
