@@ -1,33 +1,12 @@
 <!DOCTYPE HTML>
 <html>
 <head >
-<include file="Common:intoHead" />
 <include file="Public:meta" />
 <!-- jquery ui -->
-<link type="text/css" href="__CSS__/Home/jquery-ui-1.10.0.custom.css" rel="Stylesheet" />	
-<script type="text/javascript" src="__JS__/Home/jquery-ui-1.9.2.custom.min.js"></script>
- <script type="text/javascript"  src="__JS__/Home/common.data.js"></script>
-<script type="text/javascript">
-/**
- * 添加民族选项
- */
-var addNationName=function(){
-	var tempArr = [];
-	tempArr.push('<select name="nationName" id="nationName">');
-	tempArr.push('<option value="0">---请选择---</option>');
-	for(var i=0;i<natureItems.length;i++){
-		tempArr.push('<option value="'+nationItems[i].name+'">'+nationItems[i].name+'</option>');
-	}
-	tempArr.push('</select>');
-	tempArr.push('<em><label class="field_notice">填写后不能更改</label></em>');
-	tempArr.push('<span id="error_span" class="help-block"></span>');
-	$("#nationNameContent").html(tempArr.join(""));
-	$("#nationName option[value='{$list[0]['nationName']}']").attr("selected",true);
-};
-</script>
 </head>
 <body>
 <include file="Common:head" />
+<include file="Common:intoHead" />
 <div class="container">
 	<div class="row">
         <div class="col-md-6">
@@ -193,14 +172,34 @@ var addNationName=function(){
 </div><!-- /.modal-dialog -->
 </div>
  </body>
- <script src="__JS__/Home/validate/jquery.validate.js"></script>
+<!--  <script src="__JS__/Home/validate/jquery.validate.js"></script>
  <script src="__JS__/Home/Reg.js"></script>
- <script src="__JS__/Home/validate/jquery.metadata.js"></script>
+ <script src="__JS__/Home/validate/jquery.metadata.js"></script> -->
+ <link type="text/css" href="__CSS__/Home/jquery-ui-1.10.0.custom.css" rel="Stylesheet" />	
+<script type="text/javascript" src="__JS__/Home/jquery-ui-1.9.2.custom.min.js"></script>
+     <script type="text/javascript"  src="__JS__/Home/common.data.js"></script>
  <script type="text/javascript">
-         $(document).ready(function() {
+ /**
+  * 添加民族选项
+  */
+ alert(dump(nationItems));
+ var addNationName=function(){
+ 	var tempArr = [];
+ 	tempArr.push('<select name="nationName" id="nationName">');
+ 	tempArr.push('<option value="0">---请选择---</option>');
+ 	for(var i=0;i<natureItems.length;i++){
+ 		tempArr.push('<option value="'+nationItems[i].name+'">'+nationItems[i].name+'</option>');
+ 	}
+ 	tempArr.push('</select>');
+ 	tempArr.push('<em><label class="field_notice">填写后不能更改</label></em>');
+ 	tempArr.push('<span id="error_span" class="help-block"></span>');
+ 	$("#nationNameContent").html(tempArr.join(""));
+ 	$("#nationName option[value='{$list[0]['nationName']}']").attr("selected",true);
+ 	 alert("3");
+ };
         	 addNationName();
                  // validate
-                 $('#form-validate').validate({
+                 /* $('#form-validate').validate({
                 	 errorPlacement: function(error, element){
                          var error_td = element.next('em');
             	           error_td.find('.field_notice').hide();
@@ -222,7 +221,6 @@ var addNationName=function(){
             	 var availableTags = ["ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++", "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran", "Groovy", "Haskell", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python", "Ruby", "Scala", "Scheme"];
             	 $("#email").autocomplete({
             	     source: availableTags
-            	 }); 
-            });
+            	 });  */
         </script>
 </html>
