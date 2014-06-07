@@ -3,6 +3,9 @@
 <div class="row">
 <div class="col-md-3">
         <ul>
+        <volist name="footMenu" id="vo">
+       	 	<li class="f20">{$vo.type_name}</li>
+        </volist>
             <li class="f20">网站简介</li>
            	<li><a href="__APP__/Commfoot/about?id=about">关于我们</a></li>
             <li><a href="__APP__/Commfoot/Contact?id=Contact">联系我们</a></li>

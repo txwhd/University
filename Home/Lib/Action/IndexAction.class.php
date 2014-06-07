@@ -7,14 +7,22 @@ class IndexAction extends CommonAction{
 		$this->assign('slide',D('Photo')->where('status=1 AND tid=5')->select());//幻灯片调用ID
 		$this->assign('video',D('Video')->where('status=1')->find(1));//视频调用ID
 		 */
+		//同校恋情
+		$schoolwhere['islock']="2";
+		$field=array('username,member_id,nationName,schoolName,age,height,cPoint,avatar,OnlineTF,loginCount');
+		$schoolyard = M()->table("mxczhyk_member r")->join("mxczhyk_member_detail s on r.member_id=s.member_id")->where($schoolwhere)->field($field)->order('OnlineTF DESC,schoolName,nationName,loginCount DESC,cPoint DESC')->limit(10)->select();
+	/* 	dump($schoolyard);
+	 * exit();
+	 */
+		//牵手恋人
+		$successwhere['status']="1";
+		$succcess = M("Success_object")->where($successwhere)->order('create_time DESC')->limit(10)->select();
+		$this->assign('schoolyard',$schoolyard);
 		//广告
 		$this->assign('ad_top',M('Advertisement')->where('type=1 AND available=1')->order('displayorder')->limit(4)->select());
 		//爱情攻略
-		//$where['type_name']="爱情攻略";
-		$this->getclass("爱情攻略", 'Article_class');
-		//$com['cid']=M('Article_class')->where($where)->select();
+		$com['cid']=$this->getclass('心情语录','Article');
 		$com['islock']="1";
-		//$com['cid'] = $this->getclass($id);
 		$this->assign('loveStrategy',M('Article')->where($com)->order('update_time DESC')->limit(6)->select());
 		//个人心情语录展示
 		$this->assign('mood',M('Mood')->where('status=1')->order('create_time DESC')->limit(3)->select());

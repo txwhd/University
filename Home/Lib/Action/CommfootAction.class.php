@@ -5,7 +5,7 @@
  *aothor:857773627@qq.com xiaocheng
  +----------------------------------------------------------
  */
-class CommfootAction extends Action{
+class CommfootAction extends CommonAction{
 	/**
 	 +----------------------------------------------------------
 	 * 公共menu
@@ -13,25 +13,17 @@ class CommfootAction extends Action{
 	 */
 	public function menu(){
 		//$model= 查到数据
-		$menu1=$this->FindMenu('网站简介');
+		$cid=$this->getclass('网站简介','Article');
 		$this->assign('menu1',$menu1);
 		
-		$menu2=$this->FindMenu('新手入门');
+		$menu2=$this->getclass('新手入门','Article');
 		$this->assign('menu2',$menu2);
 		
-		$menu3=$this->FindMenu('用户体验');
+		$menu3=$this->getclass('用户体验','Article');
 		$this->assign('menu3',$menu3);
 		
-		$menu4=$this->FindMenu('更多');
+		$menu4=$this->getclass('更多','Article');
 		$this->assign('menu4',$menu4);
-	}
-	public function FindMenu($data){
-		$m=M('Article_class');
-		$where['type_name']=$data;
-		$result=$m->where($where)->select();
-		$where1['cid']=$result[0]['cid'];
-		$menu=M('Article')->where($where1)->select();
-		return $menu;
 	}
 	/* public function right(){
 		//$model= 根据文章id->内容

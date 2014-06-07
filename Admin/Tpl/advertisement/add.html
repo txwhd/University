@@ -9,6 +9,8 @@
             $currentNav ='广告管理 > 添加编辑链接';
         </php>
         <include file="Common:intoHead" />
+            <!--日期控件-->
+	<script type="text/javascript" src="__JS__/My97DatePicker/WdatePicker.js"></script>
     </head>
     <body>
         <div class="wrap">
@@ -47,11 +49,11 @@
                             </tr>
                            <tr>
                                 <th width="100">广告开始时间：</th>
-                                <td><input id="starttime" type="text" class="input" size="60" name="title" value="{$info.starttime}"/> </td>
+                                <td><input id="starttime"  class="input Wdate" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})"size="60" name="starttime" value="{$info.starttime}"/> </td>
                             </tr>
                            <tr>
                                 <th width="100">广告结束时间：</th>
-                                <td><input id="endtime" type="text" class="input" size="60" name="title" value="{$info.endtime}"/> </td>
+                                <td><input id="endtime"class="input Wdate" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})"size="60" name="endtime" value="{$info.endtime}"/> </td>
                             </tr>
                            <tr>
                                 <th width="100">广告显示顺序：</th>
@@ -59,7 +61,7 @@
                             </tr>
                            <tr>
                                 <th width="100">广告参数：</th>
-                                <td><input id="parameters" type="text" class="input" size="60" name="title" value="{$info.parameters}"/> </td>
+                                <td><input id="parameters" type="text" class="input" size="60" name="parameters" value="{$info.parameters}"/> </td>
                             </tr>
                            <tr>
                                 <th width="100">广告图片地址：</th>

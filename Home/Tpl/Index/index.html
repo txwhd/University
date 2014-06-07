@@ -64,10 +64,17 @@
 		</div>						  
 			<div class="panel-body">
 			<div>
+				<volist name="schoolyard" id="vo">
+					<div class="boxgrid thecombo">
+					<empty name="$vo.avatar"><img class="cover" src="__IMG__/Home/001.jpg"/><else/><img class="cover" src="__ROOT__/{$vo.avatar}"/></empty> 
+					<h3>{$vo.username}</h3>
+					<p>{$vo.schoolName}|{$vo.nationName}|{$vo.age}|{$vo.height}|{$vo.cPoint}<br/><a href="{:U('Member/detail/',array('id'=>$vo['member_id']))}"target="_BLANK">详细</a></p>
+					</div>
+				</volist>
 				<div class="boxgrid thecombo">
 				<img class="cover" src="__IMG__/Home/001.jpg"/>
-				<h3>Florian Nicolle</h3>
-				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
+				<h3>姓名</h3>
+				<p><br/><a href="http://www.zzjs.net/" target="_BLANK">更多</a></p>
 				</div>
 				<div class="boxgrid thecombo">
 				<img class="cover" src="__IMG__/Home/001.jpg"/>

@@ -31,7 +31,6 @@ class RegisterAction extends CommonAction{
 	}
 	public  function dealReg(){
 		$model = D("Register");
-		if($_POST['submit']){
 			$vo = $model->create();
 			if(false === $vo){
 				$this->error($model->getError());
@@ -59,7 +58,6 @@ class RegisterAction extends CommonAction{
 			}else {
 				//$this->error($model->getError());
 			}
-		}
 	}
 	//检验验证码是否正确
 	public function verifyCheck()
