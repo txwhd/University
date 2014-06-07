@@ -13,14 +13,7 @@ h2{
 		padding:0;
 		
 }
-textarea{
-	margin: 0;
-	padding:0;
-	border:1px solid #ff99ff;
-	font-size:18px;
-	resize:none;
-	line-height:1.2;
-}
+
 .container{
 	padding:0;
 	width:1000px;
@@ -492,8 +485,20 @@ float:center-left;
 	float:right;
 }
 #person-nav{
-font-size:15px;
+width:230px;
+height:150px;
+	border:1px solid #ff99ff;
 }
+
+#person-nav li{
+		border:1px solid #ff99ff;
+	float:left;
+width:76px;
+height:74px;
+
+}
+
+
 .right-Recommend img{
 	width:66px;
 	height:66px;
@@ -582,7 +587,36 @@ float:left;
 /*-------------个人中心---------------*/
 #say{
 	width:758px;
+	height:140px;
+
+}
+textarea{
+	margin: 0;
+	padding:0;
+	border:1px solid #ff99ff;
+	font-size:18px;
+	resize:none;
+	line-height:1.2;	
 	height:100px;
+		width:500px;
+}
+.say-left{
+	width:500px;
+	float:left;
+}
+.say-right{
+	width:250px;
+	height:100px;
+	margin-left:8px;
+	float:left;
+}
+
+.say-right img{
+width:250px;
+	height:100px;
+}
+.button-set{
+	float:left;
 }
 #person-centre-left{
 	float:left;
@@ -595,7 +629,11 @@ float:left;
 	margin-left:8px;
 }
 
-
+#message{
+		width:758px;
+	height:240px;
+	border:1px solid #ff99ff;
+}
 
 
 

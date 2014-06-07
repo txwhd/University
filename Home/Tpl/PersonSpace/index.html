@@ -8,15 +8,25 @@
 <div id="person-centre">
 <div id="person-centre-left" >
 	<div id="person-head">
-	<div class="person-photo"><img class="img-thumbnail" src="__IMG__/Home/001.jpg"/></div>
+	<div class="person-photo">
+		<a href="__URL__/ListHeadPhoto" target="iframepage" title="点击修改头像">
+		<img class="img-thumbnail" src="__IMG__/Home/001.jpg"/>
+		</a>
+	</div>
 	<div>
 	<div class="person-name">{$Think.session.loginUserName}</div>
 	<div class="person-power">普通会员{$memberType}<span class="label label-warning"><a href="">升级会员</a></span></div>
 	</div>
 	</div>
-<div id="person-nav" class="panel">
-<img src="__IMG__/Home/888.jpg"/>
-<!-- 留言|访客|关注|好感|约会<span class="label label-warning">+10</span> -->
+<div id="person-nav">
+<ul class="">
+<li><a>心情</a></li>
+<li><a href="__URL__/ListPhoto" target="iframepage">相册</a></li>
+<li><a>其他</a></li>
+<li><a>邮件</a></li>
+<li><a>关注</a></li>
+<li><a>活动</a></li>
+</ul>
 </div>
 <div class="panel-group" id="accordion">
   <div class="panel">
@@ -27,12 +37,10 @@
         </a>
       </h4>
     </div>
-    <div id="collapsea" class="panel-collapse collapse ">
+    <div id="collapsea" class="panel-collapse collapse  in">
       <div class="panel-body">
       <ul class="nav nav-pills nav-stacked">
 		  <li><a href="__URL__/ListIntro" target="iframepage">个人资料  </a></li>
-		  <li><a href="__URL__/ListHeadPhoto" target="iframepage">我的头像</a></li>
-		  <li><a href="__URL__/ListPhoto" target="iframepage">我的相册</a></li>
 		  <li><a href="__URL__/ListTerm" target="iframepage">择偶条件</a></li>
 		  <li><a href="__URL__/ListApprove" target="iframepage">诚信验证</a></li>
 		</ul>
@@ -47,7 +55,7 @@
         </a>
       </h4>
     </div>
-    <div id="collapseb" class="panel-collapse collapse">
+    <div id="collapseb" class="panel-collapse collapse in ">
       <div class="panel-body">
 	      	<ul class="nav nav-pills nav-stacked">
 			  <li><a href="__URL__/ListMonologue" target="iframepage">我的爱情宣言</a></li>
@@ -65,12 +73,11 @@
         </a>
       </h4>
     </div>
-    <div id="collapsec" class="panel-collapse collapse">
+    <div id="collapsec" class="panel-collapse collapse in">
       <div class="panel-body">
 		<ul class="nav nav-pills nav-stacked">
 				<li><a href="__URL__/ListPay" target="iframepage">账号充值</a></li>
 			  	<li><a href="__URL__/ListVipUpgrade" target="iframepage">会员升级 </a></li>
-			 	<li><a href="__URL__/ListFriend" target="iframepage">交友特权 </a></li>
 			</ul>     
 	 </div>
     </div>
