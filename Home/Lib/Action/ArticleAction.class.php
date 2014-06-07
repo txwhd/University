@@ -60,6 +60,7 @@ class ArticleAction extends CommonAction{
 		}
 		$this->assign('msg_list',$message);//评论
 		$this->choosetpl($info);
+		$this->display();
 		
 	}
 	public function indexBlock(){

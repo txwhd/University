@@ -18,17 +18,6 @@ class LoginModel extends Model{
 			array('Mobile','number','手机格式不对'),
 			array("Mobile","require","手机必须填写"),
 	);
-	//自动填充
-	protected $_auto=array(
-			array("last_login_time",'time',3,'function') ,
-			array( 'getIp',"get_client_ip",3,'function') ,
-			array('OnlineTF','1'),//OnlineTF在线状态
-			/* 	array('ifadmin','0',self::MODEL_INSERT),
-	array("last_login_time","getTime",3,'callback'),
-	array("getIp","getIp",3,'callback'),
-	*/
-	
-	);
 	//自定义验证方法，来验证用户名的长度是否合法
 	//$date形参  可以写成任意如 $AA  $bb
 	function checkLength($data){
