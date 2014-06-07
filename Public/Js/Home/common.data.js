@@ -1,9 +1,4 @@
- var allSchool = {"schoollist":[{
-	 "a":"北京大学",
-	 "b":[{"c":"1yuan"},{"c":"2yuan"},
-	 "a":"中北大学大学",
-	 "b":[{"c":"1yuan"},{"c":"2yuan"},
- }
+alert("12");
 nationItems=[
 	{id:"01",name:"汉族"},
 	{id:"02",name:"蒙古族"},

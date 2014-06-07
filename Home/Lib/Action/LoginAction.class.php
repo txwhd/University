@@ -34,8 +34,7 @@ class LoginAction extends CommonAction{
 		$this->checkLogin();
 		if ($result[0]['isLock']=="1") {
 			$msn="您的账户没有通过审核，请核对后重新登录或者等待审核！";
-			echo json_encode($msn);
-			//echo json_encode(array('status' => 1, 'info' => $str . '已更新，你需要重新登录', 'url' => __APP__ . '?' . time()));
+			echo json_encode(array('status' => 1, 'info' => $str . $msn, 'url' => __APP__ . '?' . time()));
 		}
 		if(empty($_SESSION['user_info'])){ 
 			//检查一下session是不是为空

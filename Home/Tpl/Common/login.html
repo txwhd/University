@@ -1,0 +1,88 @@
+<!-- login -->
+<div class="login panel" style="display:none;">
+      <div class="modal-header" >
+		<ul class="nav nav-tabs" id="loginTab">
+		  <li class="active"><a href="#tabemail" data-toggle="tab">邮箱登录</a></li>
+		  <li><a href="#mobile" data-toggle="tab">手机登录</li>
+		</ul>
+      </div>
+      <div class="login-layout">
+		<div class="tab-content" >
+			  <div class="tab-pane active" id="tabemail">
+				<form role="form" action="__APP__/Login/checkLogin" method="post">
+				  <div class="form-group col-xs-10">
+				    <input type="email" class="form-control input-lg" id="emailInput" name="email" placeholder="输入邮箱">
+				  </div>
+				  <div class="form-group col-xs-10">
+				    <input type="password" class="form-control input-lg" id="passInput" name="password" placeholder="输入密码">
+				  </div>
+				  <div class="form-group"><label class="">buneng</label></div>
+				   <input type="hidden" name="form_type" value="email">
+				  <div class="checkbox col-xs-10">
+					      <div class="">
+					       <ul class="tab-foot">
+		      					<li class="tab-foot-left" ><input type="radio" name="remember" value="1"><small>记住我</small></li>
+		      					<li class="tab-foot-right"><a id="forgetpass1" class="btns" href="javascript:;" onclick="layer.closeAll();"><small>忘记密码?</small></a></li>
+		      				</ul>
+					    </div>
+					</div>
+					 <div class="form-actions col-xs-10">
+                          <input type="submit" id="emailSubmit" class="btn btn-block btn-large btn-danger" value="登陆" />
+                      </div>
+				</form>
+			</div>
+			<div class="tab-pane" id="mobile">
+				<form role="form"  action="__APP__/Login/checkLogin" method="post">
+				  <div class="form-group  col-xs-10">
+				    <input type="email" class="form-control input-lg" name="mobile" placeholder="请输入手机号码">
+				  </div>
+				  <div class="form-group  col-xs-10">
+				    <input type="password" class="form-control input-lg" name="password" placeholder="输入密码">
+				  </div>
+				   <div class="checkbox col-xs-10">
+				      <div class="tab-foot">
+				       <ul>
+	      					<li class="tab-foot-left" ><input type="radio" name="remember" value="1"><small>记住我</small></li>
+	      					<li class="tab-foot-right"><a id="forgetpass" href="javascript:;" onclick="layer.closeAll();"><small>忘记密码?</small></a></li>
+	      				</ul>
+				   	 </div>
+					</div>
+					 <input type="hidden" name="form_type" value="mobile">
+				    <div class="form-actions col-xs-10">
+                          <input type="submit" id="mobileSubmit" class="btn btn-block btn-large btn-danger" value="登陆" />
+                      </div>
+				</form>
+			  </div>
+			</div>
+		</div>
+      <div class="modal-footer" id="login-footer" >
+	      <div class="third-login">
+	      		<span class="text-left"><strong id="testqtip">第三方登陆</strong></span>
+	      		<div>
+		      		<ul class="list-inline">
+		      			<li><a href=""><img src="__IMG__/Home/qq_icon.png"/></a></li>
+		      			<li><a href=""><img src="__IMG__/Home/qq_icon.png"/></a></li>
+		      			<li><a href=""><img src="__IMG__/Home/qq_icon.png"/></a></li>
+		      			<li><a href=""><img src="__IMG__/Home/qq_icon.png"/></a></li>
+		      			<li><a href=""><img src="__IMG__/Home/qq_icon.png"/></a></li>
+		      		</ul>
+	      		</div>
+	      		<span class="text-left"><strong>还未加入邀99大学生恋爱网</strong></span>
+	      		<div>
+		      		<ul class="list-inline"><li><a href="__APP__/Register/index" >马上加入</a></li></ul>
+	      		</div>
+	      </div>
+      </div>
+</div><!-- login -->
+	<!-- forgetpass start-->
+<div class="forgetpass" style="display:none;">
+	<form role="form" action="__APP__/Register/index" method="post">
+	  <div class="form-group col-xs-10">
+	    <input type="email" class="form-control input-lg" name="email" placeholder="输入邮箱">
+	  </div>
+	 <div class="form-actions col-xs-10">
+          <input type="submit" id="findPwdSubmit" class="btn btn-block btn-large btn-danger" value="提交" />
+    </div>
+	</form>
+</div>
+<!-- forgetpass end -->
