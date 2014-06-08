@@ -1,6 +1,4 @@
-
 var Reg = {};
-
 Reg.required = function(obj){
 	var curVal = $(obj).val();
 	var str_name = $(obj).attr("name");
@@ -13,12 +11,11 @@ Reg.required = function(obj){
 	}
 	 return true;
 };
-
 Reg.length = function(obj){
 	var curVal = $(obj).val();
 	var str_name = $(obj).attr("name");
-	if($.trim(curVal).length<6 && $.trim(curVal).length>0){
-		$("#"+str_name+"_message").html($(obj).attr("meg")+"不能少于6位！");
+	if($.trim(curVal).length<5 && $.trim(curVal).length>0){
+		$("#"+str_name+"_message").html($(obj).attr("meg")+"不能少于5位！");
 		return false;
 	}else{
 		$("#"+str_name+"_message").html("");
@@ -43,7 +40,23 @@ Reg.email = function(obj){
 	 }
 	 return true;
 };
-
+Reg.Mobile = function(obj){
+	var curVal = $(obj).val();
+	var str_name = $(obj).attr("name");
+	if($.trim(curVal).length<1){
+		return false;
+	}else{
+		var pattern = /1[3-8]+\d{9}/;
+		if (!pattern.test(curVal)) {
+			$("#"+str_name+"_message").html($(obj).attr("meg")+"格式不正确！");
+			return false;
+		}else{
+			$("#"+str_name+"_message").html("");
+			return true;
+		}
+	}
+	return true;
+};
 Reg.equal = function(obj){
 	var curVal = $(obj).val();
 	var preVal=$('#password').val();
@@ -57,7 +70,6 @@ Reg.equal = function(obj){
 	}
 	return true;
 };
-
 Reg.illegal = function(obj){
 	  var InString = $(obj).val();
 	  var str_name = $(obj).attr("name");
@@ -91,35 +103,7 @@ Reg.illegal = function(obj){
 	       }
 	      return true;
 };
-
-Reg.ifexit_idcard = function(obj){
-	//用户名是否存在
-	var idcard = $(obj).val();
-	var id_card = $(obj).attr("name");
-	if($.trim(idcard)==""){
-		return false;
-	}else{
-		$.ajax({
-	        type: "post",
-	        dataType: "JSON",
-	        url: "ifHave",//同模块url
-	        data:{"id_card":idcard},
-	        success: function (data) {
-	        	//data就是返回的那个字符串
-	        	if (data == "0") {
-	        		 $("#"+id_card+"_message").html("");
-	        		 return true;
-	            }else if(data == "1") {
-	            	 $("#"+id_card+"_message").html("身份证已注册过！");
-	            	 return false;
-	            }
-	        }
-		});
-		return true;
-	}
-	 return true;
-};
-Reg.ifexit_email=function(obj){
+Reg.ifexit_Mobile=function(obj){
 	var str_name = $(obj).attr("name");
 	var curVal = $(obj).val();
 	if ($.trim(curVal)==''){
@@ -128,8 +112,8 @@ Reg.ifexit_email=function(obj){
 		$.ajax({
 	        type: "post",
 	        dataType: "JSON",
-	        url: "ifRegEmail",
-	        data:{"email" : curVal},
+	        url: "ifexit_Mobile",
+	        data:{"Mobile" : curVal},
 	        success: function (data) {//data就是返回的那个字符串
 	        	if (data == "0") {
 	        		 $("#"+str_name+"_message").html("");
@@ -140,10 +124,33 @@ Reg.ifexit_email=function(obj){
 	            }
 	        }
 	    });
-		 return true;
+		 return true;//$("#dName").html("<img src='image/check_right.gif'/>");});
 	}
 };
-
+Reg.ifexit_email=function(obj){
+	var str_name = $(obj).attr("name");
+	var curVal = $(obj).val();
+	if ($.trim(curVal)==''){
+		return false;
+	}else{
+		$.ajax({
+			type: "post",
+			dataType: "JSON",
+			url: "ifRegEmail",
+			data:{"email" : curVal},
+			success: function (data) {//data就是返回的那个字符串
+				if (data == "0") {
+					$("#"+str_name+"_message").html("");
+					return true;
+				}else {
+					$("#"+str_name+"_message").html($(obj).attr("meg")+"已存在");
+					return false;
+				}
+			}
+		});
+		return true;//$("#dName").html("<img src='image/check_right.gif'/>");});
+	}
+};
 Reg.validate = function(obj){
 	var validateTypes = $(obj).attr("validate");//required,email
 	var validateArr = validateTypes.split(",");
@@ -152,22 +159,23 @@ Reg.validate = function(obj){
 	var ifexit_email = true;
 	var vIllegal = true;
 	var vEmail = true;
+	var vMobile = true;
 	var vEqual = true;
-	var vId_card = true;
 	var lengths = true;
-	
+	var ifexit_Mobile = true;
 	for(var i=0;i<validateArr.length;i++){
 		switch(validateArr[i]){
 			case "required" : vRequired = Reg.required(obj);if(!vRequired){return vRequired;}break;
 			case "illegal" : vIllegal = Reg.illegal(obj);if(!vIllegal){return vIllegal;}break;
 			case "length" : lengths = Reg.length(obj);if(!lengths){return lengths;}break;
 			case "email" : vEmail = Reg.email(obj);if(!vEmail){return vEmail;}break;
+			case "Mobile" : vMobile = Reg.Mobile(obj);if(!vMobile){return vMobile;}break;
 			case "equal" : vEqual = Reg.equal(obj);if(!vEqual){return vEqual;}break;
 			case "ifexit_email" :  ifexit_email = Reg.ifexit_email(obj);if(!ifexit_email){return ifexit_email;}break;
-			case "ifexit_idcard" : vIfexit_idcard = Reg.ifexit_idcard(obj);if(!vIfexit_idcard){return vIfexit_idcard;}break;
+			case "ifexit_Mobile" : ifexit_Mobile = Reg.ifexit_Mobile(obj);if(!ifexit_Mobile){return ifexit_Mobile;}break;
 		}
 	}
-	//return (vRequired && lengths && VisChinese && ifexit_code && vIfexit_idcard && ifstudent && vId_card && ifexit_email && vIllegal && vEmail && vEqual);
+	//return (vRequired && lengths && VisChinese && ifexit_code && vifexit_Mobile && ifstudent && vId_card && ifexit_email && vIllegal && vEmail && vEqual);
 	return true;
 };
 Reg.onsubmit = function(obj){

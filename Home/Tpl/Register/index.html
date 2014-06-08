@@ -52,85 +52,80 @@
 	                <h3><a href="#" class="btn btn-large btn-primary disabled">注册新用户</a></h3>
 	            </div>
 	            <div class="single-panel-body">
-                    <form  class="form-horizontal"  id="form-validate" method="post"  action="__URL__/dealReg">
+                    <form  class="form-horizontal" onsubmit="return Reg.onsubmit(this);" method="post"  action="__URL__/dealReg">
 	                     <div class="form-group">
 	                           <label class="col-xs-3 control-label">我想找</label>
 	                           <div class="col-xs-6">
 	                           		<label class="checkbox-inline">
-									  <input type="radio" name="gender" id="gender"data-validate="{required: true, messages:{required:'请选择您的性别'}}"/>男朋友
+									  <input type="radio" name="gender" id="gender"/>男朋友
 									</label>
 									<label class="checkbox-inline">
-									 <input type="radio" name="gender" id="gender"data-validate="{required: true, messages:{required:'请选择您的性别'}}"/>女朋友
+									 <input type="radio" name="gender" id="gender"/>女朋友
 									</label>
-									<em><label class="field_notice"></label></em>
+									<span id="gender_message" class="myerror"></span>
 	                           </div>
 	                      </div>
 	                    <div class="form-group">
 	                           <label class="col-xs-3 control-label">民族：</label>
-                               <div id="nationNameContent"> 
+                               	<div id="nationNameContent"> 
 								</div>
+								<span id="nationName_message" class="myerror"></span>
+	                      </div>
+	                    <div class="form-group">
+	                           <label class="col-xs-3 control-label">城市：</label>
+                               <div id="city_2">
+							  		<select class="prov"></select> 
+							    	<select class="city" disabled="disabled"></select>
+							        <select class="dist" disabled="disabled"></select>
+							    </div>
 	                      </div>
                         <div class="form-group">
                             <label class="col-xs-3 control-label">出生年月：</label>
                             <div class="col-xs-6">
-                              <input type="text" class="form-control" name="birthday" id="datepicker" placeholder="请输入你的出生年月，填写后不能修改"
-                               data-validate="{required: true, messages:{required:'请输入出生年月'}"/>
-                               <em><label class="field_notice"></label></em> 填写后不能更改 
+                              <input type="text" class="form-control" name="birthday" meg="出生年月"id="birthday" validate="required" onblur="Reg.validate(this)"/>
+                               <span id="birthday_message" class="myerror"></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-xs-3 control-label">大学：</label>
                             <div class="col-xs-6">
-                               <input type="text" class="form-control" name="schoolName" id="schoolName" placeholder="请输入你的大学名称，填写后不能修改"
-                               data-validate="{required: true, minlength:2, messages:{required:'请输入大学名称'}}"/>
-                               <em><label class="field_notice"></label></em>后面有学院
+                               <input type="text" class="form-control" name="schoolName" id="schoolName" meg="大学名称" validate="required" onblur="Reg.validate(this)"/>
+                               <span id="schoolName_message" class="myerror"></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-xs-3 control-label">姓名：</label>
                             <div class="col-xs-6">
-                               <input type="text" class="form-control"name="username" id="username" placeholder="请输入你的真实姓名，本站承诺严格保护你的隐私"
-                               data-validate="{required: true, minlength:2, messages:{required:'请输入真实姓名', minlength:'长度至少是2个！'}}"/>
-                               <em><label class="field_notice"></label></em>
+                               <input type="text" class="form-control" name="username"  meg="姓名"validate="required" id="username" onblur="Reg.validate(this)"/>
+                               <span id="username_message" class="myerror"></span>
                             </div>
                         </div>
 						<div class="form-group">
                             <label class="col-xs-3 control-label">手机：</label>
                             <div class="col-xs-6">
-                               <input class="form-control required phone" type="text" onblur="Reg.ifexit_mobile" name="Mobile" id="Mobile" placeholder="你的真实手机号码将作为验证" />
-                                <em><label class="field_notice"></label></em>
-<!--                                <input class="form-control" type="text" name="Mobile" id="Mobile" 
-                                data-validate="{required: true, Mobile:true,messages:{required:'请输入手机号码！', Mobile:'请输入有效手机！！'}}"/>
-                                <em><label class="field_notice"></label></em> -->
+                               <input class="form-control" type="text" meg="手机" validate="required,Mobile,ifexit_Mobile" name="Mobile" id="Mobile" onblur="Reg.validate(this)" />
+                               <span id="Mobile_message" class="myerror"></span>
                             </div>
                         </div> 
                         <div class="form-group">
                             <label class="col-xs-3 control-label">邮箱：</label>
                             <div class="col-xs-6">
                                 <input type="text" class="form-control"  id="email" name="email" meg="邮箱" validate="required,email,ifexit_email" onblur="Reg.validate(this)" /> 
-<!--                                 <input type="text" class="form-control" onblur="Reg.ifexit_email" placeholder="请填写常用的邮箱" 
-                                data-validate="{required: true, email:true, messages:{required:'请输入邮箱！', email:'请输入有效邮箱！'}}"
-                                name="email" id="email" />  -->
-                               <!-- <em><label class="field_notice"></label></em> -->
                                 <span id="email_message" class="myerror"></span>
            				 </div>
                         </div>
                         <div class="form-group">
                             <label class="col-xs-3 control-label">密码：</label>
                             <div class="col-xs-6">
-                                <input  type="password" class="form-control" placeholder="请输入长度至少为6位的密码"
-                                 data-validate="{required: true, minlength:5, messages:{required:'请输入密码！',minlength:'长度至少为6位!'}}" 
-                                 name="password" id="password" />
-                              <em><label class="field_notice"></label></em>
+                                <input  type="password" class="form-control" validate="required"  meg="密码" onblur="Reg.validate(this)" name="password" id="password" />
+                              <span id="password_message" class="myerror"></span>
            					 </div>
                         </div>
                         <div class="form-group">
                             <label class="col-xs-3 control-label">重复密码：</label>
                             <div class="col-xs-6">
-                              <input type="password" class="form-control"  placeholder="请重新输入你的密码！"
-                               data-validate="{required: true, equalTo: '#password', messages:{required:'请输入重复密码！', equalTo: '确认密码与密码不匹配！'}}" 
-                               name="repass" id="repass" />
-                               <em><label class="field_notice"></label></em>
+                              <input type="password" class="form-control" validate="required,equal" meg="重复密码" onblur="Reg.validate(this)" name="repass" id="repass" />
+                               <span id="repass_message" class="myerror"></span>
          				   </div>
                         </div>
                         <div class="form-group">
@@ -146,7 +141,7 @@
                        		 <label class="col-xs-3 control-label"></label>
                         	<div class="form-actions col-xs-6">
 	                          <input type="submit" name="submit" class="btn btn-block btn-large btn-danger" value="开启爱情之门" />
-	                      	</div>
+	                      </div>
 	                    </div>
                     </form>
 	      </div>
@@ -174,12 +169,30 @@
 </div><!-- /.modal-dialog -->
 </div>
  </body>
- <script src="__JS__/Home/validate/jquery.validate.js"></script>
+<!--  <script src="__JS__/Home/validate/jquery.validate.js"></script>
  <script src="__JS__/Home/validate/jquery.metadata.js"></script> 
  <link type="text/css" href="__CSS__/Home/jquery-ui-1.10.0.custom.css" rel="Stylesheet" />
- <script type="text/javascript" src="__JS__/Home/jquery-ui-1.9.2.custom.min.js"></script>
+ <script type="text/javascript" src="__JS__/Home/jquery-ui-1.9.2.custom.min.js"></script> -->
  <script type="text/javascript"  src="__JS__/Home/common.data.js"></script>
  <script type="text/javascript">
+ $(function(){  
+	  
+     var tbody = "";  
+    
+   //------------遍历List集合 .each的使用-------------  
+    var obj =[{"name":"项海军","password":"123456"},{"name":"科比","password":"333333"}];  
+  $("#result").html("遍历List集合 .each的使用");  
+    alert(obj);//是个object元素  
+ //下面使用each进行遍历  
+ $.each(obj,function(n,value) {   
+         alert(n+' '+value);  
+     var trs = "";  
+           trs += "<tr><td>" +value.name+"</td> <td>" + value.password +"</td></tr>";  
+           tbody += trs;         
+         });  
+       $("#project").append(tbody);  
+     
+});  
  /**
   * 添加民族选项
   */
@@ -198,7 +211,7 @@
  };
         	 addNationName(); */
                  // validate
-               $('#form-validate').validate({
+            /*    $('#form-validate').validate({
                 	 errorPlacement: function(error, element){
                          var error_td = element.next('em');
             	           error_td.find('.field_notice').hide();
@@ -212,7 +225,7 @@
                	        var tel = /^(\d{3,4}-?)?\d{7,9}$/g;
                	        return this.optional(element) || (tel.test(val));
                	    }, "请正确填写您的电话号码");  
-                 });
+                 }); */
             	/*  $('#datepicker').datepicker({
          		    inline: true
          		});

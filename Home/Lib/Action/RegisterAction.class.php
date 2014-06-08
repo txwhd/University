@@ -19,15 +19,15 @@ class RegisterAction extends CommonAction{
 		}
 		echo json_encode($exit);
 	}
-	public function test(){
-			if(isset($_GET['ajax']) && $_GET['ajax'] == 1){
-			if($_GET['name'] == 'yes'){
-				echo 'true';
-			}else{
-				echo 'false';
-			}
-			return;
+	public function ifexit_Mobile(){
+		$where['Mobile']=$_POST['Mobile'];
+		$re=M('Member')->where($where)->field('Mobile')->select();
+		if($re){
+			$exit=1;
+		}else{
+			$exit=0;
 		}
+		echo json_encode($exit);
 	}
 	public  function dealReg(){
 		$model = D("Register");
