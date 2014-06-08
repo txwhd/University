@@ -175,27 +175,25 @@
  <script type="text/javascript" src="__JS__/Home/jquery-ui-1.9.2.custom.min.js"></script> -->
  <script type="text/javascript"  src="__JS__/Home/common.data.js"></script>
  <script type="text/javascript">
- $(function(){  
-	  
-     var tbody = "";  
-    
-   //------------遍历List集合 .each的使用-------------  
-    var obj =[{"name":"项海军","password":"123456"},{"name":"科比","password":"333333"}];  
-  $("#result").html("遍历List集合 .each的使用");  
-    alert(obj);//是个object元素  
- //下面使用each进行遍历  
- $.each(obj,function(n,value) {   
-         alert(n+' '+value);  
-     var trs = "";  
-           trs += "<tr><td>" +value.name+"</td> <td>" + value.password +"</td></tr>";  
-           tbody += trs;         
-         });  
-       $("#project").append(tbody);  
-     
-});  
+	 var nationNameContent = $('#nationNameContent'),
+	 html=[];
+	 html.push('<select name="nationName" id="nationName">');
+	 html.push('<option value="0">---请选择---</option>');
+	for(var i= 0,len = nationItems.length;i < len; i++){
+	 var nation = nationItems[i];
+	 var id = nation.id;
+	 var name = nation.name;
+	 html.push('<option value="'+nationItems[i].name+'">'+nationItems[i].name+'</option>');
+	}
+	 html.push('</select>');
+	html.length>0 && nationNameContent.append(html.join('')); 
  /**
   * 添加民族选项
-  */
+  */ //你要生成什么样的格式？我这里就搞个简单的span标签
+	 //拼装html
+	
+	/*  html.push('<span>民族编号：'+id+' </span>');
+	 html.push('<span>民族名称：'+name+' </span>'); */
  /* var addNationName=function(){
  	var tempArr = [];
  	tempArr.push('<select name="nationName" id="nationName">');
