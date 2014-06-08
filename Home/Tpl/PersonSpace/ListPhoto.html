@@ -1,43 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+<head>
 <include file="Common:intoHead" />
-<div id="content" class="span10">
-			<!-- content starts -->
-			<div class="row-fluid sortable">
-					<div class="box-content">
-						<ul class="thumbnails gallery">
-														<li id="image-1" class="thumbnail">
-								<a style="background:url(__IMG__/Home/001.jpg)" title="Sample Image 1" href="img/gallery/1.jpg"><img class="grayscale" src="img/gallery/thumbs/1.jpg" alt="Sample Image 1"></a>
-							</li>
-														<li id="image-1" class="thumbnail">
-								<a style="background:url(__IMG__/Home/001.jpg)" title="Sample Image 1" href="img/gallery/1.jpg"><img class="grayscale" src="img/gallery/thumbs/1.jpg" alt="Sample Image 1"></a>
-							</li>
-														<li id="image-1" class="thumbnail">
-								<a style="background:url(__IMG__/Home/001.jpg)" title="Sample Image 1" href="img/gallery/1.jpg"><img class="grayscale" src="img/gallery/thumbs/1.jpg" alt="Sample Image 1"></a>
-							</li>
-														<li id="image-1" class="thumbnail">
-								<a style="background:url(__IMG__/Home/001.jpg)" title="Sample Image 1" href="img/gallery/1.jpg"><img class="grayscale" src="img/gallery/thumbs/1.jpg" alt="Sample Image 1"></a>
-							</li>
-														<li id="image-1" class="thumbnail">
-								<a style="background:url(__IMG__/Home/001.jpg)" title="Sample Image 1" href="img/gallery/1.jpg"><img class="grayscale" src="img/gallery/thumbs/1.jpg" alt="Sample Image 1"></a>
-							</li>
-														<li id="image-1" class="thumbnail">
-								<a style="background:url(__IMG__/Home/001.jpg)" title="Sample Image 1" href="img/gallery/1.jpg"><img class="grayscale" src="img/gallery/thumbs/1.jpg" alt="Sample Image 1"></a>
-							</li>
-														<li id="image-1" class="thumbnail">
-								<a style="background:url(__IMG__/Home/001.jpg)" title="Sample Image 1" href="img/gallery/1.jpg"><img class="grayscale" src="img/gallery/thumbs/1.jpg" alt="Sample Image 1"></a>
-							</li>
-														<li id="image-1" class="thumbnail">
-								<a style="background:url(__IMG__/Home/001.jpg)" title="Sample Image 1" href="img/gallery/1.jpg"><img class="grayscale" src="img/gallery/thumbs/1.jpg" alt="Sample Image 1"></a>
-							</li>
-														<li id="image-1" class="thumbnail">
-								<a style="background:url(__IMG__/Home/001.jpg)" title="Sample Image 1" href="img/gallery/1.jpg"><img class="grayscale" src="img/gallery/thumbs/1.jpg" alt="Sample Image 1"></a>
-							</li>
-														<li id="image-1" class="thumbnail">
-								<a style="background:url(__IMG__/Home/001.jpg)" title="Sample Image 1" href="img/gallery/1.jpg"><img class="grayscale" src="img/gallery/thumbs/1.jpg" alt="Sample Image 1"></a>
-							</li>
-													</ul>
-					</div>
-				</div><!--/span-->
-			</div><!--/row-->
-					<!-- content ends -->
-			</div><!--/#content.span10-->
-				</div><!--/fluid-row-->
+<script type="text/javascript" src="__JS__/jquery.min.js"></script>
+</head>
+
+<body>
+<div id="person-photo">
+		<div>
+			<ul >
+			<li><button type="button" class="btn btn-sm">上传照片</button></li>
+			</ul>
+		</div>
+  <div id="col">
+        <ul id="pg" class="thumb">
+        <li>
+        <img src="__IMG__/Home/img-photo/main_image1.jpg" alt="images1" />
+        <p>阿里西西一号标题 <span><a> 删除</span></a></p>
+        </li>
+        <li>
+        <img src="__IMG__/Home/img-photo/main_image2.jpg" alt="images2" />
+        <p>阿里西西二号标题</p>
+        </li>
+        <li>
+        <img src="__IMG__/Home/img-photo/main_image3.jpg" alt="images3" />
+        <p>阿里西西三号标题</p>
+        </li>
+        <li>
+        <img src="__IMG__/Home/img-photo/main_image4.jpg" alt="images4" />
+        <p>阿里西西四号标题</p>
+        </li>
+        <li>
+        <img src="__IMG__/Home/img-photo/main_image5.jpg" alt="images5" />
+        <p>阿里西西五号标题</p>
+        </li>
+        <li>
+        <img src="__IMG__/Home/img-photo/main_image6.jpg" alt="images6" />
+        <p>阿里西西六号标题</p>
+        </li>
+        <li>
+        <img src="__IMG__/Home/img-photo/main_image7.jpg" alt="images7" />
+        <p>阿里西西七号标题</p>
+        </li>
+        <li>
+        <img src="__IMG__/Home/img-photo/main_image8.jpg" alt="images8" />
+        <p>阿里西西八号标题</p>
+        </li>
+        <li>
+        <img src="__IMG__/Home/img-photo/main_image9.jpg" alt="images9" />
+        <p>阿里西西九号标题</p>
+        </li>
+
+        </ul>
+    </div>			
+</div>
+</body>
+<script type="text/javascript">
+// <![CDATA[
+(function($) {
+	$.fn.jphotogrid = function(settings, callback) {
+		settings = $.extend(true, {
+			activeClass: 'active',
+			selectedClass: 'selected',
+			baseCSS: {},
+			selectedCSS: {}
+		}, settings);
+
+		var url = settings.flickrbase + settings.feedapi + '?';
+		var first = true;
+		
+		//Convert floats to absolute
+		function toAbsolute(el){
+			$(el).children().each(function(){
+				var pos = $(this).position();
+				$(this).data('ptop',Math.floor(Number(pos.top)) + 'px');
+				$(this).data('pleft',Math.floor(Number(pos.left)) + 'px');
+			}).each(function(){
+				placeOriginal(this);
+			});
+		}
+		
+		function placeOriginal(el, animate, callback){
+			var dtop = $(el).data('ptop');
+			var dleft = $(el).data('pleft');
+			var props = $.extend({
+				top: dtop,
+				left: dleft
+			}, settings.baseCSS);
+			if(animate){
+				$(el).animate(props, 'slow', function(){
+					if($.isFunction(callback)) callback();
+				});
+			}
+			else{
+				$(el).css($.extend(props, {position: 'absolute'}));
+			}
+		}
+		
+		function hideSelected(callback){
+			$container.find('.' + settings.selectedClass).each(function(){
+				$(this).removeClass(settings.selectedClass);
+				placeOriginal(this, true);
+			});
+			if($.isFunction(callback)) callback();
+		}
+		
+		function select(el){
+			hideSelected(function(){
+				$(el).addClass('selected').removeClass('active');
+				$(el).animate(settings.selectedCSS, 'slow');
+			});
+		}
+
+		for(var key in settings.qstrings){
+			if(!first)
+				url += '&';
+			url += key + '=' + settings.qstrings[key];
+			first = false;
+		}
+
+		return $(this).each(function(){
+			$container = $(this);
+			$(this).css('position','relative');
+			toAbsolute(this);
+			
+			$(this).children()
+				.css('cursor', 'pointer')
+				.hover(function(){
+					if(!$(this).hasClass(settings.selectedClass))
+						$(this).addClass(settings.activeClass);
+				},function(){
+					$(this).removeClass(settings.activeClass);
+				});
+			$('.' + settings.activeClass).live('click', function(){				
+				select(this);
+			});
+			$('.' + settings.selectedClass).live('click', function(){
+				hideSelected();
+			});
+			
+			$(this).find('div')
+				.hover(function(){
+					$(this).css('opacity', 0);
+				},function(){
+					$(this).css('opacity', 0.5);
+				})
+				.click(function(){
+					$(this).css('opacity', 1);
+					$li = $(this).parent();
+					$li.css("z-index", 99);
+					$li.animate({
+						top: 0,
+						left: 0,
+						width: '100%',
+						height: '400px'
+					}, 'slow');
+				});
+			});
+	}
+})(jQuery);
+
+$(document).ready(function(){
+	$('#pg').jphotogrid({
+		baseCSS: {
+			width: '230px',
+			height: '204px',
+			padding: '0px'
+		},
+		selectedCSS: {
+			top: '50px',
+			left: '100px',
+			width: '360px',
+			height: '217px',
+			padding: '25px'
+		}
+	});
+		
+});
+// ]]>
+</script>
+</html>
