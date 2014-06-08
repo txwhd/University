@@ -8,7 +8,6 @@
 <include file="Common:head" />
 <include file="Common:search" />
  <div class="container"><!-- 整体布局控制 -->
-<div id="articles" class="pull-left">
 		<div>
 		       <h2>{$info.title}</h2>
                 <p>{$info.content}</p>  
@@ -74,7 +73,7 @@
 	                     <label class="required">评论内容（必须）</label>
 	                </div>
 					<div>
-	                     <input type="submit" class="button" value="" onclick="return chksub()" />
+	                     <input type="submit" class="button" value="评论" onclick="return chksub()" />
 	           		</div>
 	       		</div>
             </div>
@@ -82,73 +81,7 @@
         </div><!--发表评论-->
 		</div>
 		</div>
-	<div id="classify" class="pull-right"> 
-	        <div class="panel">
-               	<form class="" role="search">
-                  <div class="input-group">
-		     	 <input type="text" class="form-control">
-		     	 <span class="input-group-btn">
-		        <button class="btn btn-danger" type="button">搜索</button>
-		      	</span>
-		 		</div>
-               </form>
-          </div>
-          <div class="panel">
-                   	<div class="panel-heading">美文分类</div>
-                   	<div class="panel-body">
-                    	<ul class="category">
-                    		<volist name="type" id="vo">
-                             <li><div><img src="__IMG__/Home/li_bg.jpg" alt="" /><a href="__URL__/type?id={$vo.cid}">
-
-{$vo.type_name}</a>
-                                 </div>
-                             </li>
-                            </volist>
-                        </ul> 
-                       </div>                              
-                   </div>  
-                   <div class="panel">      
-                    <div class="widget kerwords">
-                    	<div class="panel-heading">关键字</div>
-                    	<div class="panel-body">
-                     	<volist name="keywords" id="vo">
-                     		<span  class="btn btn-link"><a href="__URL__/keywords?id={$vo.article_id}">{$vo.keywords}
-
-</a></span>
-                     	</volist>
-                    </div>
-                    </div>
-                   </div>
-                 	<div class="panel">
-			<ul class="nav nav-tabs" id="myTab" >
-			  <li ><a href="#new_art" data-toggle="tab" class="title">最新美文</a></li>
-			  <li><a href="#hot_art" data-toggle="tab" class="title">最热美文</a></li>
-			</ul>
-			<div class="tab-content">
-			  <div class="tab-pane fade in active" id="new_art">
-			  	<volist name="new_art" id="vo">
-			  		<li>
-						<a href="__URL__/showDetail?id={$vo.article_id}&table=Article">{$vo.title|
-
-msubstr=0,14,'utf-8',false}</a>
-					</li>
-			  	</volist>
-			  </div>
-			  <div class="tab-pane fade" id="hot_art">
-			  	<volist name="hot_art" id="vo">
-				  	<li>
-						<a href="__URL__/showDetail?id={$vo.article_id}&table=Article">{$vo.title|
-
-msubstr=0,14,'utf-8',false}</a>
-					</li>
-			  	</volist>
-			  </div>
-			</div>
-			<span><a href="#" class="arrow_link">更多欣赏</a></span>
-	</div>
-	  </div>
-   	 </div>
-   	 </div>
+		<include file="Common:foot" />
    	 <script type="text/javascript">
     	var aid = "{$info.id}";        
         $(document).ready(function(){

@@ -24,14 +24,12 @@
 							<p>Riot设计师：细谈联盟系统及MMR系统的优缺点</p>
 						</div>
 					</div>
-					
 					<div class="item">
 						<img src="__IMG__/Home/photojs/02.jpg" alt="" />
 						<div class="carousel-caption">
 							<div><p>Riot设计师：细谈联盟系统及MMR系统的优缺点</p></div>
 						</div>
 					</div>
-				
 					<div class="item">
 						<img src="__IMG__/Home/photojs/03.jpg" alt="" />
 						<div class="carousel-caption">
@@ -287,7 +285,7 @@
 				<ul class="Finally_list"><!--一行可以写十四个字-->
 					<volist id="vo" name="loveStrategy">
 						<li>
-							<a href="__APP__/Article/showDetail?id={$vo.article_id}&table=Article">{$vo.title|msubstr=0,14,'utf-8',true}</a>
+							<a href="__APP__/Article/view?id={$vo.article_id}&table=Article">{$vo.title|msubstr=0,14,'utf-8',true}</a>
 							<span>{$vo.update_time|date="m-d",###}</span>
 						</li>
 					</volist>					
@@ -304,9 +302,19 @@
 		<div class="panel-heading">牵手恋情<span><a href="__APP__/Success/more?table=success_object">更多</a></span></div>
 		<div class="panel-body">
 <!-- 			<volist id="vo" name="success">
-				<div class="choose-people">
-					<a href="__APP__/Mood/showDetail?id={$vo.mood_id}&table=Mood"><img src="{$vo.img}"></a>
-				</div>		
+					<ul class="pull-left">
+						<li class="pull-left">
+							<div class="success-style" >
+								<div class="success-photo">
+									<a href="__APP__/Mood/showDetail?id={$vo.mood_id}&table=Mood"><img class="img-thumbnail" src="__IMG__/Home/success001.jpg"></a>
+								</div>
+								<div class="success-people">
+									<h5>文先生和马同学</h5>
+									<button type="button" id={$vo.mood_id} class="btn btn-sm">祝福</button>
+								</div>
+							</div>
+						</li>
+					</ul>
 			</volist>	 -->
 			<marquee  onmouseover="this.stop()" onmouseout="this.start()"  scrollamount="5"  scrolldelay="100"
 			direction="left"  loop="-1" behavior="scroll" >

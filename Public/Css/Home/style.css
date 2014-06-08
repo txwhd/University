@@ -2,7 +2,6 @@
 body {
 	margin: 0;
 	padding:0;
-
 }
 *{
 	margin: 0;
@@ -13,14 +12,12 @@ h2{
 		padding:0;
 		
 }
-
 .container{
 	padding:0;
 	width:1000px;
 	margin-top:10px;
 	border:1px solid #ff99ff;
 }
-
 button{
 	background:#FF6699;
 }
@@ -64,7 +61,6 @@ ul li{
 .pagination ul li a:hover{
 	background:#FF6699;
 }
-
 .pagination{
 		margin: 0;
 		padding:0;
@@ -261,15 +257,11 @@ background:#FF99FF;
 		font-weight:bold; 
 		font:10pt "Lucida Grande", Arial, sans-serif; 
 }
-
-
-
 #activity div.panel{
 width:290px;
 height:195px;
 float:left;
 }
-
 .tab-content li{
 	line-height:1.8;
 	list-style-type:none;
@@ -423,13 +415,8 @@ height:243px;
 .tab-foot .tab-foot-right{float:right;}
 /*login end  */
 /*reg start  */
- em.error { float: none; color: red; padding-left: .5em; vertical-align: top; }
- .field_notice{display:none;}
+.myerror { float: none;color: red;vertical-align: top;  padding-left: 0em; }
 /*reg end  */
- 
- 
- 
- 
 /*------------------------------首页完--------------------------------*/
 hr,panel{
 	margin: 0;

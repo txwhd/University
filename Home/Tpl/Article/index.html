@@ -13,7 +13,7 @@
 		<div id="articles" class="pull-left">
       <volist name="list" id="list">
       <div class="list">
-              	<h2 class="title"><span><a href="{:U('Article/aticleDetail/',array('id'=>$list['article_id']))}">{$list['title']}</a></span></h2><hr>
+              	<h2 class="title"><span><a href="{:U('Article/view/',array('id'=>$list['article_id']))}">{$list['title']}</a></span></h2><hr>
                   日期：<span>{$list.create_time|date="Y-m-d",###}</span> /作者： <a href="{$list[0]['username']}">{$list['username']}</a> 
                   	/关键字<a href="{}">{$list['kerwords']}</a>
                   	

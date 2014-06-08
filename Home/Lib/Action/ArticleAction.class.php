@@ -27,39 +27,38 @@ class ArticleAction extends CommonAction{
 		$this->display();
 	}
 	//查看文章详细信息
-	public function aticleDetail(){		
-		$id = $this->router();
-		D('Article')->setInc('apv',"id=$id",1);
-		$info = D('Article')->where("id=$id AND status=1")->find();
+	public function view(){		
+		$where['article_id']= $_GET['id'];
+		$id=$_GET[id];
+		$where['islock']="1";
+		$info = D('Article')->where($where)->find();
 		$this->assign('info',$info);
-		$this->seo($info['title'], $info['keywords'], $info['description'], D('Common')->getPosition($info['tid']));
+		//$this->seo($info['title'], $info['keywords'], $info['description'], D('Common')->getPosition($info['tid']));
 		
-		$art_pre = D('Article')->where("id<$id AND status=1")->order('id DESC')->field('id,title,apv')->find();
+		$art_pre = D('Article')->where("article_id<$id AND islock=1")->order('article_id DESC')->field('article_id,title,apv')->find();
 		$art_pre = $this->changurl($art_pre);
 		$this->assign('art_pre',$art_pre);//上一篇
 		
-		$art_next = D('Article')->where("id>$id AND status=1")->order('id')->field('id,title,apv')->find();
+		$art_next = D('Article')->where("article_id>$id AND islock=1")->order('article_id')->field('article_id,title,apv')->find();
 		$art_next = $this->changurl($art_next);
 		$this->assign('art_next',$art_next);//下一篇
 		
-		$art_rand = D('Article')->where("status=1")->order('rand()')->limit(8)->select();
+	/* 	$art_rand = D('Article')->where("status=1")->order('rand()')->limit(8)->select();
 		foreach ($art_rand as $key => $val){
 			$art_rand[$key] = $this->changurl($val);
 		}
-		$this->assign('art_rand',$art_rand);//随机8篇
+		$this->assign('art_rand',$art_rand);//随机8篇 */
 		
-		$message = D('Message')->where("aid=$id AND status=1 AND pid=0")->select();
+	 	$message = D('Article_discuss')->where("aid=$id AND status=1 AND parentId=0")->select();
 		if(is_array($message)){
 			foreach ($message as $key=>$val){
-				$message[$key] = $this->msgmodify($val);
-				$message[$key]['reply'] = D('Message')->where('status=1 AND pid='.$val['id'])->select();
+				$message[$key]['reply'] = D('Article_discuss')->where('status=1 AND parentId='.$val['id'])->select();
 				foreach ($message[$key]['reply'] as $key2 => $val2){
 					$message[$key]['reply'][$key2] = $this->msgmodify($val2);
 				}				
 			}
-		}
+		} 
 		$this->assign('msg_list',$message);//评论
-		$this->choosetpl($info);
 		$this->display();
 		
 	}
