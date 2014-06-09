@@ -28,8 +28,8 @@ class LoginAction extends CommonAction{
 		$email=$_POST['email'];
 		$password=$_POST['password'];
 		$result =$this->getUserInfo($email,$password); //去取用户的个人资料
-		dump($_POST);
-		exit();
+	/* 	dump($_POST);
+		exit(); */
 		if (!empty($result)) {
 			$this->error('登录账户和密码不符合！');
 		}
@@ -82,5 +82,25 @@ class LoginAction extends CommonAction{
 			session_destroy();
 		}
 		$this->redirect("Index/index");
+	}
+	public function emailCheck(){
+		$email = trim($_POST['email']);
+		$password = trim($_POST['password']);
+		$code = trim($_POST['code']);
+	
+		if ($_SESSION['verify']!==md5($code)) {
+			echo json_encode(1);
+			return;
+		}
+		$where['email']=$email;
+		$where['password']=md5($password);
+		$m=M('member');
+		$find =$m->where($where)->select();
+		if($find){
+			$re=2;
+		}else{
+			$re=3;
+		}
+		echo json_encode($re);
 	}
 }

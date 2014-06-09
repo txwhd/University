@@ -77,7 +77,7 @@
 				<div class="boxgrid thecombo">
 				<img class="cover" src="__IMG__/Home/001.jpg"/>
 				<h3>Florian Nicolle</h3>
-				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
+				<p>Graphic Designer<br/><a href="{:U('Member/detail/',array('id'=>$vo['member_id']))}"target="_BLANK">More Work</a></p>
 				</div>
 				<div class="boxgrid thecombo">
 				<img class="cover" src="__IMG__/Home/001.jpg"/>
@@ -411,7 +411,7 @@ $(document).ready(function(){
 	$(function(){
 	    $("#emailsubmit").click(function(){
 	        $("#form_type").val("1");
-	        if($("#email").val()==''||$("#password").val()==''){
+	        if($("#emailInput").val()==''||$("#passInput").val()==''){
 	        	layer.tips('提示错误信息', this, {
 	                guide: 1,
 	                time: 1,

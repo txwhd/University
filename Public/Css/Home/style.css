@@ -234,6 +234,9 @@ background:#FF99FF;
 	border:1px solid #ff99ff;
 	/*  background:url(Public/Img/Home/wishing.png) no-repeat center 280px; */
 }
+.wishing-form{
+	display:none;
+}
 /*---同校恋情+活动-----*/ 
 .boxgrid{ 
 	width: 125px; 

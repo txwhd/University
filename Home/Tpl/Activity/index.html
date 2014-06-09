@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>活动管理-{$site.SITE_INFO.name}</title>
+        <php>
+            $addCss="";
+            $addJs="";
+            $currentNav ='活动管理 >活动列表';
+        </php>
+        <include file="Common:intoHead" />
+    </head>
+    <body>
+        <div class="wrap">
+            <include file="Common:head" />
+            <div class="mainBody">
+                <include file="Common:left" />
+                <div id="Right">
+                    <div class="Item hr">
+                        <div class="current">活动列表</div>
+                        <!--查询搜索  -->
+                          <div class="current">
+                            <form action="__URL__/search" method="post">
+								活动名称 <input type="text" name="data[title]" size="30"/>
+								<button type="submit" class="btn btn-primary btn-xs">查询<tton>
+							</form>
+                          </div>
+                    </div>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
+                        <thead>
+                            <tr>
+                                <td>活动名称</td>
+                                <td>所属分类</td>
+                                <td>举办大学名称</td>
+                                <td>活动地址</td>
+                                <td>参与人员</td>
+                                <td>活动人数</td>
+                                <td>有效期</td>
+                                <td>活动花费</td> 
+                                <td>开始具体时间</td>
+                                <td>结束具体时间</td>
+                                <td>活动阐述</td>
+                                <td>审核状态</td>
+                                <td width="100">操作</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <volist name="list" id="vo">
+                            <tr align="center" id="{$vo.activity_id}">
+                                <td>{$vo.title|msubstr=0,6,'utf-8',true}</td>
+                                <td>{$vo.class}</td>
+                                <td>{$vo.schoolName}</td>
+                                <td>{$vo.place}</td>
+                                <td>{$vo.gender}</td>
+                                <td>{$vo.number}</td>
+                                <td>{$vo.expiration}</td>
+                                <td>{$vo.cost}</td>
+                                <td>{$vo.starttimefrom}</td>
+                                <td>{$vo.starttimeto}</td>
+                                <td><a  href="__URL__/show?id={$vo.activity_id}">查看详细</a>
+                                </td>
+                                <td>
+                                	<if condition="$vo.isLock eq 2 ">已经开启|<a href="__URL__/forbidden?id={$vo.activity_id}">禁用</a>
+									 <else /> 锁定|<a href="__URL__/checkPass?id={$vo.activity_id}">请审核</a>
+									</if>
+								</td>
+                                <td>[ <a href="__URL__/edit?id={$vo.activity_id}">编辑 </a> ] [ <a link="{:U('Activity/del/',array('id'=>$vo['activity_id']))}" href="javascript:void(0)" name="{$vo.title}" class="del">删除 </a> ]</td>
+                            </tr>
+                        </volist>
+                        </tbody>
+                            <tfoot align="center">
+                                <tr>
+                                 <td>活动名称</td>
+                                <td>所属分类</td>
+                                <td>举办大学名称</td>
+                                <td>活动地址</td>
+                                <td>参与人员</td>
+                                <td>活动人数</td>
+                                <td>有效期</td>
+                                <td>活动花费</td> 
+                                <td>开始具体时间</td>
+                                <td>结束具体时间</td>
+                                <td>活动阐述</td>
+                                <td>审核状态</td>
+                                <td width="100">操作</td>
+                            </tfoot>     
+                    </table> 
+                     <div class="commonBtnArea" >
+                        <button class="">{$page}</button>
+                    </div>               
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <include file="Common:foot" />
+        <script type="text/javascript">
+            $(function(){
+                $(".del").click(function(){
+                    var delLink=$(this).attr("link");
+                    popup.confirm('你真的打算删除【<b>'+$(this).attr("name")+'</b>】吗?','温馨提示',function(action){
+                        if(action == 'ok'){
+                            top.window.location.href=delLink;
+                        }
+                    });
+                    return false;
+                });
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>添加、编辑活动-后台管理-{$site.SITE_INFO.name}</title>
+        <php>
+            $addCss="";
+            $addJs="";
+            $currentNav ='活动管理 > 添加活动';
+        </php>
+        <include file="Common:intoHead" />
+       <!--日期控件-->
+	<script type="text/javascript" src="__JS__/My97DatePicker/WdatePicker.js"></script>
+    </head>
+    <body>
+        <div class="wrap">
+            <include file="Common:head" />
+            <div class="mainBody">
+                <include file="Common:left" />
+                <div id="Right">
+                    <div class="Item hr">
+                        <div class="current">添加编辑活动</div>
+                    </div>
+                    <form>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
+                            <tr>
+                                <th width="100">活动名称：</th>
+                                <td><input id="title" type="text" class="input" size="60" name="title" value="{$info.title}"/> <a href="javascript:void(0)" id="checkNewsTitle">检测是否重复</a></td>
+                            </tr>
+                            <tr>
+                                <th width="100">发起人：</th>
+                                <td><input id="member_id" type="text" class="input" size="60" name="member_id" value="{$info.member_id}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="100">性别：</th>
+                                <td><label><input type="radio" name="gender" value="1" <if condition="$info.status eq 1"> checked="checked"</if> />男</label> &nbsp; 
+                                    <label><input type="radio" name="gender" value="2" <if condition="$info.status eq 2"> checked="checked"</if> /> 女</label> </td>
+                            </tr>
+                            <tr>
+                                <th width="100">花费：</th>
+                                <td><input id="cost" type="text" class="input" size="60" name="cost" value="{$info.cost}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="100">开始时间：</th>
+                                <td><input  class="input Wdate" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" placeholder=" 请点击选择"size="60" name="starttimefrom" value="{$info.starttimefrom}"/></td>
+                            </tr><!-- datetime 数据字段 -->
+                            <tr>
+                                <th width="100">结束时间：</th>
+                                <td><input class="input Wdate" type="text" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" placeholder=" 请点击选择"size="60" name="starttimeto" value="{$info.starttimeto}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="100">地点：</th>
+                                <td><input id="place" type="text" class="input" size="60" name="place" value="{$info.place}"/></td>
+                            </tr>
+
+                             <tr>
+                                <th>活动分类：</th>
+                                <td><input id="class" type="text" class="input" size="60" name="class" value="{$info.class}"/> </td>
+                            </tr>
+                             <tr>
+                                <th>活动人数：</th>
+                                <td><input id="number" type="text" class="input" size="60" name="number" value="{$info.number}"/> </td>
+                            </tr>
+                             <tr>
+                                <th>有效期：</th>
+                                <td><input id="expiration" type="text" class="input" size="60" name="expiration" value="{$info.expiration}"/> </td>
+                            </tr>
+                             <tr>
+                                <th>举办大学：</th>
+                                <td><input id="schoolName" type="text" class="input" size="60" name="schoolName" value="{$info.schoolName}"/> </td>
+                            </tr>
+                            
+                            <tr>
+                                <th>活动描述：</th>
+                                <td><textarea id="content" class="input" style="height: 300px; width: 70%;" name="info[content]">{$info.content}</textarea></td>
+                            </tr>
+                            <tr>
+                                <th width="100">锁定：</th>
+                                <td><label><input type="radio" name="isLock" value="1" <if condition="$info.status eq 1"> checked="checked"</if> />开启</label> &nbsp; 
+                                    <label><input type="radio" name="isLock" value="2" <if condition="$info.status eq 2"> checked="checked"</if> /> 禁止</label> </td>
+                            </tr>
+                            
+                           
+                        </table>
+                        <input type="hidden" name="activity_id" value="{$info.activity_id}" />
+                    </form>
+                    <div class="commonBtnArea" >
+                        <button class="btn submit">提交</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <include file="Common:foot" />
+        <js href="__PUBLIC__/kindeditor/kindeditor.js,__PUBLIC__/kindeditor/lang/zh_CN.js"/>
+        <script type="text/javascript">
+            $(function(){var  content ;
+                KindEditor.ready(function(K) {
+                    content = K.create('#content');
+                });
+                $("#checkNewsTitle").click(function(){
+                    $.getJSON("__URL__/checkNewsTitle", { title:$("#title").val(),id:"{$info.id}"}, function(json){
+                        $("#checkNewsTitle").css("color",json.status==1?"#0f0":"#f00").html(json.info);
+                    });
+                });
+                $(".submit").click(function(){
+                    content.sync();
+                    commonAjaxSubmit();
+                    return false;
+                });
+            });
+        </script>
+    </body>
+</html>

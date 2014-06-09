@@ -191,7 +191,7 @@ class CommonAction extends Action {
 		$this->display();
 	}
 	//详细会员操作；根据传过来的表名和类型取数据
-	public function memberDetail(){
+	public function detail(){
 		$this->display();
 	}
 	//详细牵手恋人操作；根据传过来的表名取数据

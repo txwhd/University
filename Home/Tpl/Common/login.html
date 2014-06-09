@@ -3,19 +3,20 @@
       <div class="modal-header" >
 		<ul class="nav nav-tabs" id="loginTab">
 		  <li class="active"><a href="#tabemail" data-toggle="tab">邮箱登录</a></li>
-		  <li><a href="#tabmobile" data-toggle="tab">手机登录</li>
+		  <li><a href="#tabmobile" data-toggle="tab" >手机登录</a></li>
 		</ul>
       </div>
       <div class="login-layout">
 		<div class="tab-content" >
 			  <div class="tab-pane active" id="tabemail">
-				<form action="__APP__/Login/index" method="post">
+				<form action="__APP__/Login/index" method="post" onsubmit="return Login.onsubmit('__URL__');">
 				  <div class="form-group col-xs-10">
 				    <input type="email" class="form-control input-lg" id="emailInput" name="email" placeholder="输入邮箱">
 				  </div>
 				  <div class="form-group col-xs-10">
 				    <input type="password" class="form-control input-lg" id="passInput" name="password" placeholder="输入密码">
 				  </div>
+				  <div id="login_error" class="myerror"></div>
 				   <input type="hidden" name="form_type" value="email">
 				  <div class="checkbox col-xs-10">
 					      <div class="">
@@ -31,7 +32,7 @@
 				</form>
 			</div>
 			<div class="tab-pane" id="tabmobile">
-				<form role="form"  action="__APP__/Login/index" method="post">
+				<form role="form"  action="__APP__/Login/index" method="post" onsubmit="return home.s_onsubmit('__URL__');">
 				  <div class="form-group  col-xs-10">
 				    <input type="text" class="form-control input-lg" name="mobile" id="mobileInput" placeholder="请输入手机号码">
 				  </div>
@@ -77,7 +78,7 @@
 <div class="forgetpass" style="display:none;">
 	<form role="form" action="__APP__/Register/index" method="post">
 	  <div class="form-group col-xs-10">
-	    <input type="email" class="form-control input-lg" name="email" placeholder="输入邮箱">
+	    <input type="email" id="forgetEmail" class="form-control input-lg" name="email" placeholder="输入邮箱">
 	  </div>
 	 <div class="form-actions col-xs-10">
           <input type="submit" id="findPwdSubmit" class="btn btn-block btn-large btn-danger" value="提交" />
