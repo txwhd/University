@@ -1,6 +1,6 @@
 <div id="wishing-layout"  style="background:url(__IMG__/Home/wishing.png);background-repeat:no-repeat;"class="pull-right">
 <h3 class="text-center">许个愿开启美好的一天!</h3>
-<p class="text-danger">因为我知道你是个容易担心的小孩,所以我将线交你手中却也不敢飞的太远.不管我随着风飞翔到云间,我希望你能看得见,就算我偶尔会贪完玩迷了路,也知道你在等着我. ！</p>
+<volist name="wishing" id="vo"><p class="text-danger">{$vo.content}</p></volist>
 <button type="button" id="wish-button" onMouseOut=this.style.background-color="#FF6699" class="button button-pill button-caution">马上许愿</button>
 </div><!-- wishing-layout -->
 <div class="wishing-form">
@@ -8,14 +8,14 @@
 <h2>游客许愿</h2>
 <h2>会员许愿</h2>
 </div> -->
-	<form role="form" method="post">
+	<form role="form" action="__APP__/Wish/add" method="post">
 		 <div class="form-group">
 	    	<label for="exampleInputEmail1">你的邮箱</label>
-	   		 <input type="email" class="form-control" id="email" placeholder="">
+	   		 <input type="email" class="form-control  input-sm-8"  name="email"id="email" >
 	  	</div>
 		  <div class="form-group">
 	    	<label for="exampleInputEmail1">你的称呼</label>
-	   		 <input type="text" class="form-control" id="username" placeholder="">
+	   		 <input type="text" class="form-control input-sm-8" name="username" id="username" placeholder="">
 	  	</div>
 		  <div class="form-group">
 	    	<label for="exampleInputEmail1">你的愿望</label>
@@ -28,8 +28,8 @@
 $('#wish-button').on('click', function(){
 	$.layer({
 	    type: 1,
-	    title: false,
-	    area: ['420px', '260px'],
+	    title: '许愿盒子',
+	    area: ['420px', '350px'],
 	    shade: [0],
 	    page : {dom : '.wishing-form'}, success: function(){
 	        layer.shift('left'); //左边动画弹出

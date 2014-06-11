@@ -12,6 +12,7 @@ class CommonAction extends Action {
 		$systemConfig = include WEB_ROOT . 'Common/systemConfig.php';
 		F("systemConfig", $systemConfig, WEB_ROOT . "Common/");
 		$this->assign("site", $systemConfig);
+		$this->assign('wishing',M('Wish')->where('status=1')->order('create_time DESC')->limit(2)->select());//许愿框
 		//爱情攻略
 		$footwhere['sys_type']="2";
 		$findMenu=M('Article')->where($footwhere)->order('sort')->limit(4)->select();
@@ -192,6 +193,12 @@ class CommonAction extends Action {
 	}
 	//详细会员操作；根据传过来的表名和类型取数据
 	public function detail(){
+		$table=$_GET['table'];
+		$model=M($table);
+		$str=$model->getPk ();
+    	$where[$str]=(int) $_GET['id'];
+		$result=$model->where($where)->select();
+		$this->assign('detail',$result);
 		$this->display();
 	}
 	//详细牵手恋人操作；根据传过来的表名取数据

@@ -58,7 +58,7 @@
 		 <volist id="vo" name="label">
 			<p class="label"><a href="__APP__/label/showDetail?id={$vo.label_id}&table=Label">[{$vo.label_name}]</a></p>
 		</volist>	
-		<span><a href="#">换一换</a></span>
+		<span><a href="#" id="changeSchool">换一换</a></span>
 		</div>						  
 			<div class="panel-body">
 			<div>
@@ -247,8 +247,7 @@
 				<div class="panel-body">
 					<volist id="vo" name="overseas">
 						<div class="international-people">
-							<a href="__APP__/Mood/showDetail?id={$vo.mood_id}&table=Mood"><img src="{$vo.img}"></a>
-						</div>		
+							<a href="__APP__/Success/Detail?id={$vo.success_id}&table=Success_object"><img class="img-thumbnail" src="__IMG__/Home/success001.jpg"></a></div>		
 					</volist>						
 					<div class="boxgrid thecombo">
 				<img class="cover" src="__IMG__/Home/001.jpg"/>
@@ -306,12 +305,10 @@
 						<li class="pull-left">
 							<div class="success-style" >
 								<div class="success-photo">
-									<a href="__APP__/Mood/showDetail?id={$vo.mood_id}&table=Mood"><img class="img-thumbnail" src="__IMG__/Home/success001.jpg"></a>
-								</div>
+									<a href="__APP__/Success/Detail?id={$vo.success_id}&table=Success_object"><img class="img-thumbnail" src="__IMG__/Home/success001.jpg"></a></div>		
 								<div class="success-people">
 									<h5>文先生和马同学</h5>
-									<button type="button" id={$vo.mood_id} class="btn btn-sm">祝福</button>
-								</div>
+									<button type="button" class="btn btn-sm" link="1" id="blessing">祝福({$vo.blessingNum})</button></div>
 							</div>
 						</li>
 					</ul>
@@ -326,7 +323,7 @@
 							</div>
 							<div class="success-people">
 								<h5>文先生和马同学</h5>
-								<button type="button" class="btn btn-sm">祝福</button>
+								<button type="button" class="btn btn-sm" link="1" id="blessing">祝福({$vo.blessingNum})</button>
 							</div>
 						</div>
 					</li>
@@ -467,6 +464,99 @@ $(document).ready(function(){
 	}, function() {
 		$(".cover", this).stop().animate({top:'220px'},{queue:false,duration:160});
 	});
+	/*$("#blessing").click(function(obj){
+	 var delLink=$(this).attr("link");
+               popup.confirm('你真的打算删除【<b>'+$(this).attr("name")+'</b>】吗?','温馨提示',function(action){
+                   if(action == 'ok'){
+                       top.window.location.href=delLink;
+                   }
+               });  
+	 var curVal = $(this).attr("link");
+		$.ajax({
+	        type: "post",
+	        dataType: "JSON",
+	        url: "addBlessing",
+	        data:{"id" : curVal},
+	        success: function (data) {//data就是返回的那个字符串
+	        	if (data == "1") {
+	        		// $("#"+str_name+"_message").html("");
+	        		layer.tips('祝福成功！', this, {
+               guide: 1,
+               time: 1,
+               style: ['background-color:#F26C4F; color:#fff', '#F26C4F'],
+               maxWidth:240
+           });
+	        		  return true;
+	            }else {
+	            	// $("#"+str_name+"_message").html($(obj).attr("meg")+"已存在");
+	            	layer.tips('祝福出错，重新祝福！', this, {
+               guide: 1,
+               time: 1,
+               style: ['background-color:#F26C4F; color:#fff', '#F26C4F'],
+               maxWidth:240
+           });
+	            	 return false;
+	            }
+	        }
+	    });
+});
+$("#changeSchool").click(function(){
+	$.ajax({
+       type: "post",
+       dataType: "JSON",
+       url: "schoolyard",
+       data:{"id" : curVal},
+       success: function (data) {//data就是返回的那个字符串
+       	  alert(data);
+       	if (data == "1") {
+       		// $("#"+str_name+"_message").html("");
+       });
+       		  return true;
+           }else {
+           	// $("#"+str_name+"_message").html($(obj).attr("meg")+"已存在");
+       });
+           	 return false;
+           }
+       }
+});
+$("#praise").click(function(){
+	$.ajax({
+       type: "post",
+       dataType: "JSON",
+       url: "praise",
+       data:{"id" : curVal},
+       success: function (data) {//data就是返回的那个字符串
+       	  alert(data);
+       	if (data == "1") {
+       		// $("#"+str_name+"_message").html("");
+       });
+       		  return true;
+           }else {
+           	// $("#"+str_name+"_message").html($(obj).attr("meg")+"已存在");
+       });
+           	 return false;
+           }
+       }
+});
+$("#attention").click(function(){
+	$.ajax({
+       type: "post",
+       dataType: "JSON",
+       url: "praise",
+       data:{"id" : curVal},
+       success: function (data) {//data就是返回的那个字符串
+       	  alert(data);
+       	if (data == "1") {
+       		// $("#"+str_name+"_message").html("");
+       });
+       		  return true;
+           }else {
+           	// $("#"+str_name+"_message").html($(obj).attr("meg")+"已存在");
+       });
+           	 return false;
+           }
+       }
+}); */
 });
 </script>
 

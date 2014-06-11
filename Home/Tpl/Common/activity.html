@@ -8,14 +8,14 @@
 				  <div class="tab-pane fade in active" id="schoolyard">
 				  	<volist name="Activity1" id="vo">
 				  		<li>
-							<a href="__APP__/Activity/showDetail?id={$vo.activity_id}&table=activity">{$vo.title|msubstr=0,14,'utf-8',false}</a>
+							<a href="__APP__/Activity/detail?id={$vo.activity_id}&table=activity">{$vo.title|msubstr=0,14,'utf-8',false}</a>
 						</li>
 				  	</volist>
 				  </div>
 				  <div class="tab-pane fade" id="cityActivity">
 				  	<volist name="Activity2" id="vo">
 					  	<li>
-							<a href="__APP__/Activity/showDetail?id={$vo.activity_id}&table=activity">{$vo.title|msubstr=0,14,'utf-8',false}</a>
+							<a href="__APP__/Activity/detail?id={$vo.activity_id}&table=activity">{$vo.title|msubstr=0,14,'utf-8',false}</a>
 						</li>
 				  	</volist>
 				  </div>

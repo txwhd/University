@@ -21,7 +21,7 @@ class IndexAction extends CommonAction{
 		//广告
 		$this->assign('ad_top',M('Advertisement')->where('type=1 AND available=1')->order('displayorder')->limit(4)->select());
 		//爱情攻略
-		$com['cid']=$this->getclass('心情语录','Article');
+		$com['cid']=$this->getclass('爱情攻略','Article');
 		$com['islock']="1";
 		$this->assign('loveStrategy',M('Article')->where($com)->order('update_time DESC')->limit(6)->select());
 		//个人心情语录展示
@@ -76,4 +76,5 @@ class IndexAction extends CommonAction{
 		$this->seo('搜索'.$data.'结果', C('SITE_KEYWORDS'), C('SITE_DESCRIPTION'), 0);
 		$this->display();
 	}
+	
 }

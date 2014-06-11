@@ -187,6 +187,11 @@
 	}
 	 html.push('</select>');
 	html.length>0 && nationNameContent.append(html.join('')); 
+	 html.push('<span id="nationName_message" class="myerror"></span>');
+		/* html.length>0 && nationNameContent.append(html.join(''));  */
+		$("#nationNameContent").html(html.join(""));
+	 	$("#nationName option[value='{$list[0]['nationName']}']").attr("selected",true);
+		
  /**
   * 添加民族选项
   */ //你要生成什么样的格式？我这里就搞个简单的span标签

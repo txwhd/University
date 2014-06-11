@@ -9,14 +9,14 @@
 <include file="Common:search" />
  <div class="container"><!-- 整体布局控制 -->
 		<div>
-		       <h2>{$info.title}</h2>
+		       <div class="article"><h2 class="pull-center">{$info.title}</h2></div>
                 <p>{$info.content}</p>  
 		      <div class="rbox5_center">
                 <div class="pre">上一篇：<notempty name="art_pre"><a href="{$art_pre.url}">{$art_pre.title}</a><else/>无上一篇</notempty></div>
                 <div class="next">下一篇：<notempty name="art_next"><a href="{$art_next.url}">{$art_next.title}</a><else/>无一下篇</notempty></div>
             </div>
             
-        <div class="rbox5">
+       <div class="article-discuss">
             <div class="rbox5_top"></div>
             <div class="rbox5_center">
                 <notempty name="msg_list">

@@ -1,26 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head >
 <include file="Common:intoHead" />
 <!-- 处处体现分享的思想 -->
 <include file="Public:meta" />
-<body>
 <include file="Common:head" />
+</head>
+<body>
 <include file="Common:search" />
 <div class="container" >
 <div id="person-centre">
 <div id="person-centre-left" >
 	<div id="person-head">
-	<div class="person-photo">
-		<a href="__URL__/ListHeadPhoto" target="iframepage" title="点击修改头像">
-		<img class="img-thumbnail" src="__IMG__/Home/001.jpg"/>
-		</a>
-	</div>
-	<div>
-	<div class="person-name">{$Think.session.loginUserName}</div>
-	<div class="person-power">普通会员{$memberType}<span class="label label-warning"><a href="">升级会员</a></span></div>
-	</div>
+		<div class="person-photo">
+			<empty name="$Headphoto.Headphoto"><a href="__URL__/ListHeadPhoto" target="iframepage" title="点击修改头像">
+				<img class="img-thumbnail" src="__IMG__/Home/defaultHead.jpg"/>
+				</a>
+				<else/>
+				 <a href="__URL__/ListHeadPhoto" target="iframepage" title="点击修改头像">
+					<img class="img-thumbnail" src="$Headphoto[0]['Headphoto']"/>
+				</a>
+			</empty>
+		</div>
+		<div>
+			<div class="account-details">
+				<span class="account-name">{$Think.session.loginUserName}</span>
+				<div>
+				<span class="account-role">
+					<a href="__URL__/Vip?id={$Viptype[0]['vip_type_id']}">{$Viptype[0]['vip_name']}</a>
+					<if condition="$Viptype.vip_name eq 钻石级会员 ">
+					<else/><span class="label label-warning">
+					<a href="__URL__/ListVipUpgrade" target="iframepage">升级会员</a>
+					</span>
+					</if>
+				</span>
+				</div>
+				<div>
+				<span class="account-actions">
+					<a href="javascript:;">个人资料</a> |
+					<a href="javascript:;">编辑资料</a>
+				</span>
+				</div>
+			</div> 
+		</div>
 	</div>
 <div id="person-nav">
 <ul class="">
-<li><a href="__URL__/personMain" target="iframepage">心情</a></li>
+<li><span class="label label-important pull-right">04</span><a href="__URL__/personMain" target="iframepage"><i class="batch plane"></i><br />心情</a></li>
 <li><a href="__URL__/ListPhoto" target="iframepage">照片</a></li>
 <li><a href="__URL__/ListArticleAdd" target="iframepage">写写爱情</a></li>
 <li ><a href="__URL__/ListPhoto" target="iframepage">邮件</a></li>
@@ -33,8 +59,7 @@
     <div class="panel-heading">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapsea">
-          		个人档案
-        </a>
+          	个人档案</a>
       </h4>
     </div>
     <div id="collapsea" class="panel-collapse collapse  in">
@@ -82,9 +107,8 @@
 	</script> 
 </div>
 </div>
-
-
 </div>
 </div>
 <include file="Common:foot" />
  </body>
+ </html>
