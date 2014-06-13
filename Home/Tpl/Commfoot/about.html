@@ -5,15 +5,16 @@
 <div class="row">
 	<div class="col-sm-3" >
 		<div id="" class="panel panel-success">
-		<div class="panel-heading"><b>网站简介</b></div>
-		<div class="panel-body">	
-		<ul class="nav nav-pills nav-stacked">
-		  <li><a href="__APP__/index.php/Commfoot/about?id=about">关于我们</a></li>
-		  <li><a href="__URL__/ListHeadPhoto" target="iframepage">我的头像</a></li>
-		  <li><a href="__URL__/ListPhoto" target="iframepage">我的相册</a></li>
-		  <li><a href="__URL__/ListPhoto" target="iframepage">择偶条件</a></li>
-		</ul>
-		</div>
+			<volist name="menu" id="menu1">
+				<div class="panel-heading"><b>{$menu1['type_name']}</b></div>
+				<div class="panel-body">	
+				<ul class="nav nav-pills nav-stacked">
+				  <volist name="menu1['data']" id="menu2">
+				 	 <li><a href="__APP__/index.php/Commfoot/about?id=about">{$menu2['title']}</a></li>
+				  </volist>
+				</ul>
+				</div>
+			</volist>
 		</div>
 	</div><!--/.col-sm-3  -->
 	<div class="col-sm-6">

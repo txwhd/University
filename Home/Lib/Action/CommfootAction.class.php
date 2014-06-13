@@ -13,17 +13,15 @@ class CommfootAction extends CommonAction{
 	 */
 	public function menu(){
 		//$model= 查到数据
-		$cid=$this->getclass('网站简介','Article');
-		$this->assign('menu1',$menu1);
 		
-		$menu2=$this->getclass('新手入门','Article');
-		$this->assign('menu2',$menu2);
-		
-		$menu3=$this->getclass('用户体验','Article');
-		$this->assign('menu3',$menu3);
-		
-		$menu4=$this->getclass('更多','Article');
-		$this->assign('menu4',$menu4);
+		$m=M('Article_class');
+		$where['sys_type']=2;
+		$datas=$m->where($where)->select();
+		foreach($datas as $k=>$v){
+			$map['cid']=$v['cid'];
+			$datas[$k]['data']=M('Article')->where($map)->select();
+		}
+		return $datas;
 	}
 	/* public function right(){
 		//$model= 根据文章id->内容
@@ -44,13 +42,14 @@ class CommfootAction extends CommonAction{
 	 +----------------------------------------------------------
 	 */
 	public function about(){
-		$this->menu();
+		$datas=$this->menu();
 		//右边内容
 		$id=$_GET['id'];
 		$m=M('Article');
 		$str=$m->getPk ();
 		$where[$str]=$id;
 		$result=$m->where($where)->select();
+		$this->assign('menu',$datas);
 		$this->assign('article',$result);
 		$this->display();
 	

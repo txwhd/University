@@ -1,19 +1,24 @@
 <footer>
 <div class="container">
 <div class="row">
-<div class="col-md-3">
-        <ul>
-        <volist name="footMenu" id="vo">
-       	 	<li class="f20">{$vo.type_name}</li>
+       <volist name="menu" id="menu1">
+       		<div class="col-md-3">
+       		 <ul>
+       	 		<li class="f20">{$menu1.type_name}</li>
+       	 	 <volist name="menu1['data']" id="menu2">
+       	 		 <li><a href="__APP__/Commfoot/about?id=about">{$menu2['title']}</a></li>
+       	 	 	</volist>
+       	 	 </ul>
+       	 	 </div>
         </volist>
-            <li class="f20">网站简介</li>
-           	<li><a href="__APP__/Commfoot/about?id=about">关于我们</a></li>
+            
+          <!--  	<li><a href="__APP__/Commfoot/about?id=about">关于我们</a></li>
             <li><a href="__APP__/Commfoot/Contact?id=Contact">联系我们</a></li>
             <li><a href="__APP__/Security/right">权利保护</a></li>
             <li><a href="__APP__/Security/privacy">隐私声明</a></li>
             <li><a href="__APP__/Security/terms">服务条款</a></li>
             <li><a href="__APP__/Payment/plan">付费方案</a></li>
-        </ul>
+      
 </div>	
 <div class="col-md-3" >
         <ul >
@@ -31,8 +36,8 @@
            <li class="f20">用户体验</li>
              <li><a href="__APP__/Mobile/index">移动版本体验</a></li>
              <li><a href="https://worktile.com/press">参加交友活动</a></li>
-           <!--  <li><a href="__APP__/Videos/index">帮助视频</a></li>
-            <li><a href="__APP__/Blog/index">官方博客</a></li> -->
+            <li><a href="__APP__/Videos/index">帮助视频</a></li>
+            <li><a href="__APP__/Blog/index">官方博客</a></li>
             <li><a href="__APP__/Feedback/index">在线反馈</a></li>
         </ul>
 </div>	
@@ -40,9 +45,9 @@
         <ul >
             <li class="f20">更多</li>
              <li><a href="__APP__/Nonprofit/index">公益计划</a></li>
-           <!--  <li><a href="__APP__/Blog/index">媒体节目合作</a></li>
-            <li><a href="__APP__/Nonprofit/index">媒体报道</a></li> -->
-        </ul>
+            <li><a href="__APP__/Blog/index">媒体节目合作</a></li>
+            <li><a href="__APP__/Nonprofit/index">媒体报道</a></li>
+        </ul> -->
 </div>		
 </div>		
 </div>		

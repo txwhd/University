@@ -12,7 +12,6 @@ class CommonAction extends Action {
 		$systemConfig = include WEB_ROOT . 'Common/systemConfig.php';
 		F("systemConfig", $systemConfig, WEB_ROOT . "Common/");
 		$this->assign("site", $systemConfig);
-		$this->assign('wishing',M('Wish')->where('status=1')->order('create_time DESC')->limit(2)->select());//许愿框
 		//爱情攻略
 		$footwhere['sys_type']="2";
 		$findMenu=M('Article')->where($footwhere)->order('sort')->limit(4)->select();
@@ -20,19 +19,6 @@ class CommonAction extends Action {
 			$new_comment[$key] = $this->msgmodify($val);
 		}
 		$this->assign('footMenu',$findMenu);
-		
-		//个人心情语录展示
-		$this->assign('mood',M('Mood')->where('status=1')->order('create_time DESC')->limit(3)->select());
-		$this->assign('label',M('Label')->where('status=1')->order('sort DESC')->limit(9)->select());//标签展示（置顶的永远显示）
-		//友情链接
-		$this->assign('link',M('Link')->where('status=1')->order('sort DESC')->select());
-		//首页活动
-		$Activity=M('Activity');
-		/* $ip=get_client_ip();
-		 $country=$this->getCity($ip);
-		where('class=1 AND isLock=1') */
-		$this->assign('Activity1',$Activity->where('isLock=1')->limit(5)->order('activity_id desc')->select());
-		$this->assign('Activity2',$Activity->where('isLock=1')->limit(5)->order('activity_id desc')->select());
 		/* 
 		//最新留言
 		$new_leave = D('Message')->where('status=1 AND pid=0 AND aid=0')->order('add_time DESC')->limit(5)->select();
@@ -205,17 +191,27 @@ class CommonAction extends Action {
 		$this->display();
 	}
 	//详细会员操作；根据传过来的表名和类型取数据
-	public function detail(){
-		$table=$_GET['table'];
-		$model=M($table);
-		$str=$model->getPk ();
-    	$where[$str]=(int) $_GET['id'];
-		$result=$model->where($where)->select();
-		$this->assign('detail',$result);
+	public function memberDetail(){
 		$this->display();
 	}
 	//详细牵手恋人操作；根据传过来的表名取数据
 	public function SuccessDetail(){
 		$this->display();
 	}
+	
+	public function foot(){
+		//$model= 查到数据
+	
+		$m=M('Article_class');
+		$where['sys_type']=2;
+		$datas=$m->where($where)->select();
+		foreach($datas as $k=>$v){
+			$map['cid']=$v['cid'];
+			$datas[$k]['data']=M('Article')->where($map)->select();
+		}
+		$this->assign('menu',$datas);
+		$this->display();
+	}
+	
+	
 }
