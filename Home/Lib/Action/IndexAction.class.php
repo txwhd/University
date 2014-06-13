@@ -24,19 +24,6 @@ class IndexAction extends CommonAction{
 		$com['cid']=$this->getclass('爱情攻略','Article');
 		$com['islock']="1";
 		$this->assign('loveStrategy',M('Article')->where($com)->order('update_time DESC')->limit(6)->select());
-		//个人心情语录展示
-		$this->assign('mood',M('Mood')->where('status=1')->order('create_time DESC')->limit(3)->select());
-		$this->assign('label',M('Label')->where('status=1')->order('sort DESC')->limit(9)->select());//标签展示（置顶的永远显示）
-		//友情链接
-		$this->assign('link',M('Link')->where('status=1')->order('sort DESC')->select());
-		//首页活动
-		$Activity=M('Activity');
-		/* $ip=get_client_ip();
-		$country=$this->getCity($ip);
-		where('class=1 AND isLock=1') */
-		$this->assign('Activity1',$Activity->where('isLock=1')->limit(5)->order('activity_id desc')->select());
-		$this->assign('Activity2',$Activity->where('isLock=1')->limit(5)->order('activity_id desc')->select());
-		R('Article/indexBlock');
 		$this->display();
     }
     /*  

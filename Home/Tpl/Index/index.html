@@ -465,12 +465,6 @@ $(document).ready(function(){
 		$(".cover", this).stop().animate({top:'220px'},{queue:false,duration:160});
 	});
 	/*$("#blessing").click(function(obj){
-	 var delLink=$(this).attr("link");
-               popup.confirm('你真的打算删除【<b>'+$(this).attr("name")+'</b>】吗?','温馨提示',function(action){
-                   if(action == 'ok'){
-                       top.window.location.href=delLink;
-                   }
-               });  
 	 var curVal = $(this).attr("link");
 		$.ajax({
 	        type: "post",
@@ -479,26 +473,34 @@ $(document).ready(function(){
 	        data:{"id" : curVal},
 	        success: function (data) {//data就是返回的那个字符串
 	        	if (data == "1") {
-	        		// $("#"+str_name+"_message").html("");
-	        		layer.tips('祝福成功！', this, {
-               guide: 1,
-               time: 1,
-               style: ['background-color:#F26C4F; color:#fff', '#F26C4F'],
-               maxWidth:240
-           });
+	        		 $("#"+str_name+"_message").html("");
 	        		  return true;
 	            }else {
-	            	// $("#"+str_name+"_message").html($(obj).attr("meg")+"已存在");
-	            	layer.tips('祝福出错，重新祝福！', this, {
-               guide: 1,
-               time: 1,
-               style: ['background-color:#F26C4F; color:#fff', '#F26C4F'],
-               maxWidth:240
-           });
+	            	 $("#"+str_name+"_message").html($(obj).attr("meg")+"已存在");
+	            	
 	            	 return false;
 	            }
 	        }
 	    });
+	/* /*
+		 var delLink=$(this).attr("link");
+               popup.confirm('你真的打算删除【<b>'+$(this).attr("name")+'</b>】吗?','温馨提示',function(action){
+                   if(action == 'ok'){
+                       top.window.location.href=delLink;
+                   }
+               }); 
+	layer.tips('祝福成功！', this, {
+               guide: 1,
+               time: 1,
+               style: ['background-color:#F26C4F; color:#fff', '#F26C4F'],
+               maxWidth:240  */
+               layer.tips('祝福出错，重新祝福！', this, {
+                   guide: 1,
+                   time: 1,
+                   style: ['background-color:#F26C4F; color:#fff', '#F26C4F'],
+                   maxWidth:240
+               });
+               */
 });
 $("#changeSchool").click(function(){
 	$.ajax({
@@ -520,6 +522,7 @@ $("#changeSchool").click(function(){
        }
 });
 $("#praise").click(function(){
+ var curVal = $(this).attr("link");
 	$.ajax({
        type: "post",
        dataType: "JSON",
@@ -528,11 +531,11 @@ $("#praise").click(function(){
        success: function (data) {//data就是返回的那个字符串
        	  alert(data);
        	if (data == "1") {
-       		// $("#"+str_name+"_message").html("");
+       		// 想用弹窗告诉他成功
        });
        		  return true;
            }else {
-           	// $("#"+str_name+"_message").html($(obj).attr("meg")+"已存在");
+        	// 想用弹窗告诉他失败
        });
            	 return false;
            }

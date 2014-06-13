@@ -7,6 +7,15 @@ class PersonSpaceAction extends CommonAction{
 		$member_id=$_SESSION[C('USER_AUTH_KEY')];
 		$this->assign('Viptype',M('Viptype')->where($where)->select());//确定会员类型
 		$this->assign('Headphoto',M('Member')->where($member_id)->select());//头像
+		//全部好友状态
+		$mood=M()->table("mxczhyk_mood r")->join("mxczhyk_member s on r.member_id=s.member_id")->where('status=1')->order('create_time DESC')->select();
+		$this->assign('mood',$mood);
+		//我的状态
+		$mymood=M('Mood')->where($member_id)->order('create_time DESC')->select();
+		$this->assign('mymood',$mymood);
+		//关注好友动态(逻辑实现)
+		$attention=M('attention')->where($member_id)->select();
+		$attMood=M('Mood')->where('status=1')->order('create_time DESC')->select();
 		$this->display();
 	}
 	public function personMain(){
@@ -16,8 +25,34 @@ class PersonSpaceAction extends CommonAction{
 		//显示基本信息页面
 		$this->display();
 	}	
+	public function addMood(){
+		$data['content']=$_POST['content'];
+		$data['create_time']=time();
+		$data['username']=$_SESSION['loginUserName'];
+		$data['member_id']=$_SESSION[C('USER_AUTH_KEY')];
+		$result=M('Mood')->add($data);
+		if($result){
+			$this->success('发表成功');
+		}else {
+			$this->error('发表失败！请重新发表！');
+		}
+		
+	}
 	public function ListTerm(){
 		//显示择偶条件表
+		$member_id=$_SESSION[C('USER_AUTH_KEY')];
+		$marriage_term=M('marriage_term');
+		if (IS_POST) {
+			$data=$marriage_term->create();
+			$result=$marriage_term->where($member_id)->save($data);
+			if($result){
+				$this->success('修改成功');
+			}else {
+				$this->error('修改失败！请重新修改！');
+			}
+		}
+		$result=$marriage_term->where($member_id)->select();
+		$this->assign('list',$result);
 		$this->display();
 	}	 
 	public function ListMonologue(){

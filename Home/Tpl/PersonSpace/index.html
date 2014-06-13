@@ -14,26 +14,29 @@
 	<div id="person-head">
 		<div class="person-photo">
 			<empty name="$Headphoto.Headphoto"><a href="__URL__/ListHeadPhoto" target="iframepage" title="点击修改头像">
-				<img class="img-thumbnail" src="__IMG__/Home/defaultHead.jpg"/>
+				<img class="img-thumbnail" src="__IMG__/Home/defaultHead.png"/>
 				</a>
 				<else/>
-				 <a href="__URL__/ListHeadPhoto" target="iframepage" title="点击修改头像">
-					<img class="img-thumbnail" src="$Headphoto[0]['Headphoto']"/>
-				</a>
+					<div class="item active">
+						<img class="img-thumbnail" src="$Headphoto[0]['Headphoto']"/>
+					<div class="carousel-caption">
+							<p><a href="__URL__/ListHeadPhoto" target="iframepage">点击修改头像</a></p>
+						</div>
+					</div>
 			</empty>
 		</div>
 		<div>
 			<div class="account-details">
 				<span class="account-name">{$Think.session.loginUserName}</span>
 				<div>
-				<span class="account-role">
-					<a href="__URL__/Vip?id={$Viptype[0]['vip_type_id']}">{$Viptype[0]['vip_name']}</a>
-					<if condition="$Viptype.vip_name eq 钻石级会员 ">
-					<else/><span class="label label-warning">
-					<a href="__URL__/ListVipUpgrade" target="iframepage">升级会员</a>
+					<span class="account-role">
+						<a href="__URL__/Vip?id={$Viptype[0]['vip_type_id']}">{$Viptype[0]['vip_name']}</a>
+						<if condition="$Viptype.vip_name eq 钻石级会员 ">
+						<else/><span class="label label-warning">
+						<a href="__URL__/ListVipUpgrade" target="iframepage">升级会员</a>
+						</span>
+						</if>
 					</span>
-					</if>
-				</span>
 				</div>
 				<div>
 				<span class="account-actions">
