@@ -19,6 +19,19 @@ class CommonAction extends Action {
 			$new_comment[$key] = $this->msgmodify($val);
 		}
 		$this->assign('footMenu',$findMenu);
+		$this->assign('wishing',M('Wish')->where('status=1')->order('create_time DESC')->limit(2)->select());//许愿框
+		//个人心情语录展示
+		$this->assign('mood',M('Mood')->where('status=1')->order('create_time DESC')->limit(3)->select());
+		$this->assign('label',M('Label')->where('status=1')->order('sort DESC')->limit(9)->select());//标签展示（置顶的永远显示）
+		//友情链接
+		$this->assign('link',M('Link')->where('status=1')->order('sort DESC')->select());
+		//首页活动
+		$Activity=M('Activity');
+		/* $ip=get_client_ip();
+		 $country=$this->getCity($ip);
+		where('class=1 AND isLock=1') */
+		$this->assign('Activity1',$Activity->where('isLock=1')->limit(5)->order('activity_id desc')->select());
+		$this->assign('Activity2',$Activity->where('isLock=1')->limit(5)->order('activity_id desc')->select());
 		/* 
 		//最新留言
 		$new_leave = D('Message')->where('status=1 AND pid=0 AND aid=0')->order('add_time DESC')->limit(5)->select();
@@ -47,7 +60,15 @@ class CommonAction extends Action {
 		$map = D('Common')->getCategoryMap($id);*/
 		
 	}
-	
+	//详细会员操作；根据传过来的表名和类型取数据
+	public function detail(){
+		$table=$_GET['table'];
+		$model=M($table);
+		$str=$model->getPk ();
+		$where[$str]=(int) $_GET['id'];
+		$result=$model->where($where)->select();
+		$this->assign('detail',$result);
+	}
 	//根据分类名获取分类id
 	public function getclass($class_name,$action_name){
 		$m=M($action_name.'_class');
