@@ -83,6 +83,7 @@ $config_arr2 = array(
             'index' => '支付方式列表',
     	 	'payRecord'=>'支付记录列表',
             'add' => '增加支付方式',
+            'coinType' => '币种管理',
             'addRecord' => '增加支付记录',
             'cardManager' => '充值卡管理',
             'setPoint' => '点数购买设置',

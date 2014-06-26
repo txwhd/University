@@ -58,7 +58,7 @@
 		 <volist id="vo" name="label">
 			<p class="label"><a href="__APP__/label/showDetail?id={$vo.label_id}&table=Label">[{$vo.label_name}]</a></p>
 		</volist>	
-		<span><a href="#" id="changeSchool">换一换</a></span>
+		<span><a href="" id="changeSchool">换一换</a></span>
 		</div>						  
 			<div class="panel-body">
 			<div>
@@ -305,7 +305,7 @@
 						<li class="pull-left">
 							<div class="success-style" >
 								<div class="success-photo">
-									<a href="__APP__/Success/Detail?id={$vo.success_id}&table=Success_object"><img class="img-thumbnail" src="__IMG__/Home/success001.jpg"></a></div>		
+									<a href="__APP__/Success/detail?id={$vo.success_id}&table=Success_object"><img class="img-thumbnail" src="__IMG__/Home/success001.jpg"></a></div>		
 								<div class="success-people">
 									<h5>文先生和马同学</h5>
 									<button type="button" class="btn btn-sm" link="1" id="blessing">祝福({$vo.blessingNum})</button></div>
@@ -365,7 +365,7 @@
 </div>
 <include file="Common:link" />
 <include file="Common:foot" />
- </body>
+</body>
 <script type="text/javascript">
 $(document).ready(function(){
 	//忘记密码弹窗

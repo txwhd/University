@@ -8,26 +8,24 @@
 <include file="Common:head" />
 <include file="Common:search" />
  <div class="container"><!-- 整体布局控制 -->
-	
-	
-		<div id="articles" class="pull-left">
-      <volist name="list" id="list">
-      <div class="list">
-              	<h2 class="title"><span><a href="{:U('Article/view/',array('id'=>$list['article_id']))}">{$list['title']}</a></span></h2><hr>
-                  日期：<span>{$list.create_time|date="Y-m-d",###}</span> /作者： <a href="{$list[0]['username']}">{$list['username']}</a> 
-                  	/关键字<a href="{}">{$list['kerwords']}</a>
-                  	
-                     <a href="{:U('Article/SearchKeywords/',array('id'=>$list['gift_id']))}">{$list['title']}</a> 评论                <hr>                   
-                  <h4>{$list['content']|msubstr=0,200,'utf-8',true}</h4>
-                  <a href="{:U('Article/aticleDetail/',array('id'=>$list['article_id']))}" class="arrow_link">read  more</a>  
-          </div>
-               
-           </volist>
-     			<ul class="pagination">
-				  <li><a href="#">{$page}</a></li>
-				</ul>
+		<div id="article-layout" class="pull-left">
+	      <volist name="list" id="list">
+	      	<div class="article-list">
+					<div class="article-title-2">
+						<h2 class="title"><span><a href="{:U('Article/view/',array('id'=>$list['article_id']))}">{$list['title']}</a></span></h2><hr>
+				     	   日期：<span>{$list.create_time|date="Y-m-d",###}</span>
+				     	  /作者：{$list['username']}
+				     	  /关键字<a href="{:U('Article/SearchKeywords/',array('id'=>$list['article_id']))}">{$list['kerwords']}</a>
+				          <span class="article-discuss-title"><a href="{:U('Article/discuss/',array('id'=>$list['article_id']))}">{$countDiscuss}</a>评论</span>  <hr>                   
+			        </div>
+	          	 	<h5>{$list['content']|msubstr=0,200,'utf-8',true}</h5>
+	              <span><a href="{:U('Article/aticleDetail/',array('id'=>$list['article_id']))}" class="arrow_link">详细点击</a></span> 
+	          </div>
+	         </volist>
+    		<ul class="pagination">
+			  <li><a href="#">{$page}</a></li>
+			</ul>
 		</div>
-		
 	<div id="classify" class="pull-right"> 
 	        <div class="panel">
                	<form class="" role="search">

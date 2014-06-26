@@ -553,26 +553,27 @@ height:74px;
 .success-weight img{
 	width:190px;
 	height:229px;
-	
 }
 .top20{
 	margin-top:20px;
 }
-
-
 /* ------------------爱情之语 start-----------------*/
-#articles{
+#article-layout{
 	float:left;
 	width:700px;
-	border:1px solid red;
 }
-
 #classify{
 float:left;
 }
-.list{
+.article-list{
 	margin-bottom: 30px;
 }
+.article-discuss-title{float:right;}
+.article-discuss-layout{margin-top:20px;}
+.article-detail-title{margin-bottom:30px;margin-left:20px;}
+.article-detail-foot{margin-left:20px;margin-top:20px;}
+.bottom-20{margin-bottom:20px;}
+.next{float:right;}
 /* 爱情之语 end*/
 
 /*-------------个人中心---------------*/

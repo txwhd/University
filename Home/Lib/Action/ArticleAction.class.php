@@ -10,17 +10,19 @@ class ArticleAction extends CommonAction{
 		$Page = new Page($count,3);
 		$show = $Page->show(); 
 		$list = $Article->where($map)->order('sort DESC,update_time DESC')->limit($Page->firstRow.','.$Page->listRows)->select();
+		$whereDiscuss['aid']=$list[0]['article_id'];
+		$countDiscuss = M('Article_discuss')->where($whereDiscuss)->count();
+		$this->assign('list',$list);
+		$this->assign('countDiscuss',$countDiscuss);
+		//$this->assign('type',$type);
+		$this->assign('keywords',$Article->where($map)->order('sort DESC,update_time DESC')->limit(7)->field('keywords')->select());
+		$this->assign('page',$show);
 		//最热文章数据组装
 		$hot_art = D('Article')->where($map)->order('apv DESC')->limit(5)->select();
 		$this->assign('hot_art',$hot_art);
 		//最新文章数据组装
 		$new_art = D('Article')->where($map)->order('add_time DESC')->limit(5)->select();
 		$this->assign('new_art',$new_art);
-		//赋值给模板
-		$this->assign('list',$list);
-		//$this->assign('type',$type);
-		$this->assign('keywords',$Article->where($map)->order('sort DESC,update_time DESC')->limit(7)->field('keywords')->select());
-		$this->assign('page',$show);
 		//赋值文章类型
 		$this->assign('type',D('Article_class')->where('sys_type=1')->limit(5)->select());
 		//$this->seo($type['title'], $type['keywords'], $type['description'], D('Common')->getPosition($id));
@@ -34,7 +36,6 @@ class ArticleAction extends CommonAction{
 		$info = D('Article')->where($where)->find();
 		$this->assign('info',$info);
 		//$this->seo($info['title'], $info['keywords'], $info['description'], D('Common')->getPosition($info['tid']));
-		
 		$art_pre = D('Article')->where("article_id<$id AND islock=1")->order('article_id DESC')->field('article_id,title,apv')->find();
 		$art_pre = $this->changurl($art_pre);
 		$this->assign('art_pre',$art_pre);//上一篇

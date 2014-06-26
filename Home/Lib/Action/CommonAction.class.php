@@ -15,9 +15,6 @@ class CommonAction extends Action {
 		//爱情攻略
 		$footwhere['sys_type']="2";
 		$findMenu=M('Article')->where($footwhere)->order('sort')->limit(4)->select();
-		foreach ($findMenu as $key => $val){
-			$new_comment[$key] = $this->msgmodify($val);
-		}
 		$this->assign('footMenu',$findMenu);
 		$this->assign('wishing',M('Wish')->where('status=1')->order('create_time DESC')->limit(2)->select());//许愿框
 		//个人心情语录展示
@@ -222,7 +219,6 @@ class CommonAction extends Action {
 	
 	public function foot(){
 		//$model= 查到数据
-	
 		$m=M('Article_class');
 		$where['sys_type']=2;
 		$datas=$m->where($where)->select();
