@@ -9,15 +9,26 @@ class IndexAction extends CommonAction{
 		 */
 		//同校恋情
 		$schoolwhere['islock']="2";
-		$field=array('username,member_id,nationName,schoolName,age,height,cPoint,avatar,OnlineTF,loginCount');
-		$schoolyard = M()->table("mxczhyk_member r")->join("mxczhyk_member_detail s on r.member_id=s.member_id")->where($schoolwhere)->field($field)->order('OnlineTF DESC,schoolName,nationName,loginCount DESC,cPoint DESC')->limit(10)->select();
-	/* 	dump($schoolyard);
-	 * exit();
-	 */
+		$field=array('username,r.member_id,nationName,schoolName,age,height,cPoint,headphoto,OnlineTF,loginCount');
+		$schoolyard = M()->table("mxczhyk_member r")->join("mxczhyk_member_detail s on r.member_id=s.member_id")->where($schoolwhere)->field($field)->order('OnlineTF DESC,loginCount DESC,cPoint DESC')->limit(10)->select();
+		//dump($schoolyard);
+		$this->assign('schoolyard',$schoolyard);
+		//民族恋情
+		$nationwhere['islock']="2";
+		$nationwhere['nationName']!="汉族";
+		$nationfield=array('username,r.member_id,nationName,schoolName,age,height,cPoint,headphoto,OnlineTF,loginCount');
+		$nation = M()->table("mxczhyk_member r")->join("mxczhyk_member_detail s on r.member_id=s.member_id")->where($nationwhere)->field($nationfield)->order('OnlineTF DESC,nationName,cPoint DESC')->limit(10)->select();
+		$this->assign('nation',$nation);
+		//留学生恋情
+		$overseaswhere['islock']="2";
+		$nationwhere['nationName']!="汉族";
+		$overseasfield=array('username,r.member_id,nationName,schoolName,age,height,cPoint,headphoto,OnlineTF,loginCount');
+		$overseas = M()->table("mxczhyk_member r")->join("mxczhyk_member_detail s on r.member_id=s.member_id")->where($nationwhere)->field($nationfield)->order('OnlineTF DESC,nationName,cPoint DESC')->limit(5)->select();
+		$this->assign('overseas',$overseas);
 		//牵手恋人
 		$successwhere['status']="1";
-		$succcess = M("Success_object")->where($successwhere)->order('create_time DESC')->limit(10)->select();
-		$this->assign('schoolyard',$schoolyard);
+		$succcess = M("Success_object")->where($successwhere)->order('create_time DESC')->limit(5)->select();
+		$this->assign('success',$overseas);
 		//广告
 		$this->assign('ad_top',M('Advertisement')->where('type=1 AND available=1')->order('displayorder')->limit(4)->select());
 		//爱情攻略
@@ -63,5 +74,26 @@ class IndexAction extends CommonAction{
 		$this->seo('搜索'.$data.'结果', C('SITE_KEYWORDS'), C('SITE_DESCRIPTION'), 0);
 		$this->display();
 	}
-	
+	/* 加入关注 */
+	public function addAttention(){
+		$model=M('Attention');
+		$member_id = trim($_POST['fid']);
+		//判断是否登录
+		if ($member_id==$_SESSION['USER_AUTH_KEY']) {
+			//判断是否关注达到上线；
+			/* if ($_SESSION['vipType']=="普通会员") {
+			 $re=1;
+			} */
+			$re=$model->where($member_id)->add();
+			if($re){
+				$re=6;
+			}else{
+				$re=5;
+			}
+			//关注过不能够关注；
+		}else{
+			$re=0;
+		}
+		echo json_encode($re);
+	}
 }

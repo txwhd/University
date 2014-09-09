@@ -7,6 +7,7 @@ class CommonAction extends Action {
 		//文章取出5条
 		//同校活动取出5条
 		Load('extend');
+		import("ORG.Util.Page");       //载入分页类
 		$this->assign('menu',M('menu')->where('parentid=0 AND type=1')->order('sort')->limit(8)->select());//导航数据组装
 		//seo
 		$systemConfig = include WEB_ROOT . 'Common/systemConfig.php';
@@ -19,7 +20,8 @@ class CommonAction extends Action {
 		$this->assign('wishing',M('Wish')->where('status=1')->order('create_time DESC')->limit(2)->select());//许愿框
 		//个人心情语录展示
 		$this->assign('mood',M('Mood')->where('status=1')->order('create_time DESC')->limit(3)->select());
-		$this->assign('label',M('Label')->where('status=1')->order('sort DESC')->limit(9)->select());//标签展示（置顶的永远显示）
+		//标签展示（置顶的永远显示）
+		$this->assign('label',M('Label')->where('status=1')->order('sort DESC')->limit(8)->select());
 		//友情链接
 		$this->assign('link',M('Link')->where('status=1')->order('sort DESC')->select());
 		//首页活动
@@ -57,6 +59,12 @@ class CommonAction extends Action {
 		$map = D('Common')->getCategoryMap($id);*/
 		
 	}
+	/* public function listNews($firstRow = 0, $listRows = 20,$where) {
+		$name=$this->getModelName();
+		$M = M($name);
+		$list = $M->where($where)->limit("$firstRow , $listRows")->select();
+		return $list;
+	} */
 	//详细会员操作；根据传过来的表名和类型取数据
 	public function detail(){
 		$table=$_GET['table'];
@@ -65,6 +73,7 @@ class CommonAction extends Action {
 		$where[$str]=(int) $_GET['id'];
 		$result=$model->where($where)->select();
 		$this->assign('detail',$result);
+		$this->display();
 	}
 	//根据分类名获取分类id
 	public function getclass($class_name,$action_name){
@@ -94,15 +103,10 @@ class CommonAction extends Action {
 	public function search(){
 		//搜索会员信息
 		$action_name=$this->getActionName();
-		$M = M('Member_detail');
-		$data = $_POST['data'];
+		$model=D('Member_detail');
+		$data = $model->create();
 		$condition = array();
-		foreach ($data as $k => $v) {
-			if(!empty($v)){
-				$condition[$k]= array('like',"%".trim($v)."%");
-			}
-		}
-		$this->assign("list", D('Member_detail')->listNews('Member_detail',$page->firstRow, $page->listRows,$condition));
+		$this->assign("list", $model->listNews('Member_detail',$page->firstRow, $page->listRows,$condition));
 		$this->display($action_name);
 	}
 	
@@ -229,6 +233,23 @@ class CommonAction extends Action {
 		$this->assign('menu',$datas);
 		$this->display();
 	}
-	
+	/* +++++++++++++++字符串处理++++
+	 * 
+	 * eg: chgtitles($classList[$i]['name'],1);
+	 * +++++++++++ */
+	function chgtitle($title,$length){
+		$encoding='utf-8';
+		if(mb_strlen($title,$encoding)>$length){
+			$title=mb_substr($title,0,$length,$encoding).'...';
+		}
+		return $title;
+	}
+	function chgtitles($title,$length){
+		$encoding='utf-8';
+		if(mb_strlen($title,$encoding)>$length){
+			$title=mb_substr($title,0,$length,$encoding);
+		}
+		return $title;
+	}
 	
 }

@@ -4,6 +4,9 @@
  */
 class LoginAction extends CommonAction{
 	public $loginMarked;
+	public function login(){
+		$this->display();
+	}
 	public function checkLogin() {
 		if (isset($_COOKIE[$this->loginMarked])) {
 			$cookie = $_COOKIE[$this->loginMarked];
@@ -12,7 +15,7 @@ class LoginAction extends CommonAction{
 		}
 		return TRUE;
 	}
-	public function login($email,$password){
+	public function dealLogin($email,$password){
 		//正常操作登陆
 		
 	}
@@ -24,20 +27,23 @@ class LoginAction extends CommonAction{
 				//用户选择了记住登录状态
 				//$user =$this->getUserInfo($_COOKIE['email'],$_COOKIE['password']); //去取用户的个人资料
 		$model = M("member");
-		$email=$_POST['email'];
+		if ($_POST['form_type']=="email") {
+			$name=$_POST['email'];
+		}else {
+			$name=$_POST['mobile'];
+		}
+		if (empty($name)) {
+			$this->error('亲爱的邀99会员，你还没有填写账户呢！');
+		}
 		$password=$_POST['password'];
 		if (empty($password)) {
 			$this->error('亲爱的邀99会员，你还没有填写密码呢！');
 		}
-		if (empty($email)) {
-			$this->error('亲爱的邀99会员，你还没有填写账户呢！');
-		}
-		$result =$this->getUserInfo($email,$password); //去取用户的个人资料
+		$result =$this->getUserInfo($name,$password); //去取用户的个人资料
 		if (empty($result)) {
 			$this->error('亲爱的邀99会员，登录账户和密码没有符合哎！，如果忘记密码可以点击登录，修改密码');
 		}
 		if ($result[0]['isLock']=="1") {
-			$this->error('您的账户没有通过审核，请核对后重新登录或者等待审核！');
 			$this->error('亲爱的会员，您的账户没有通过审核，请核对后重新登录或者等待审核！');
 		}
 		//保存会员登录信息
@@ -45,10 +51,10 @@ class LoginAction extends CommonAction{
 		if ($saveResult){
 			if ($_POST['remeber']=="1") {
 				//检查用户是否愿意记住密码,保存登录cookies
-				$_COOKIE['email']=$email;
+				$_COOKIE['zhanghu']=$name;
 				$_COOKIE['password']=MD5($password);
 			}
-			$_SESSION['email']	=$email;
+			$_SESSION['zhanghu']	=$name;
 			$_SESSION['loginUserName']=$result[0]['username'];
 			$_SESSION[C('USER_AUTH_KEY')]=$result[0]['member_id'];
 			$_SESSION['memberType']=$result[0]['role_id'];

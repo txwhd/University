@@ -12,8 +12,9 @@
 					<p><a href="__APP__/Mood/showDetail?id={$vo.mood_id}&table=Mood">{$vo.content|msubstr=0,20,'utf-8',false}</a><span>——{$vo.create_time|date="m-d",###}</span></p>
 				</div>
 				<div class="Causerie-discuss">
-					<a id="praise" href="" link="{$vo.mood_id}" >点赞</a>
-					<a id="attention" href="" link="{$vo.mood_id}">关注</a>
+					<a id="praise" href="" link="{$vo.mood_id}" >赞</a>
+					<a href="javascript:void(0);" id="attention" onclick="hd_add_follow({$vo.mood_id});">关注</a>
+					<!-- <a id="attention" href="" link="{$vo.mood_id}">关注</a> -->
 				</div>
 			</div>
 		</div> 

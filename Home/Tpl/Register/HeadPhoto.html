@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+<head >
+<include file="Public:meta" />
+<include file="Common:head" />
+<include file="Common:intoHead" />
+<script type="text/javascript">
+  </script>
+  <script type="text/javascript" src="__JS__/Home/webcam.js"></script>
+  <script type="text/javascript" src="__JS__/Home/Reg.js"></script>
+</head>
+<body>
+<include file="Common:search" />
+<div class="index-body">
+	<div class="index-site"> 
+		<i class="glyphicon icon-tags"></i>首页-> 会员注册->上传头像
+	</div>
+	<div class="reg-margin">
+		 <div class="welcome">
+	          <h3><a href="#" class="btn btn-large btn-primary disabled">欢迎您加入邀99恋爱大家庭！</a></h3>
+	          <span class="right-login">亲，马上就要进入爱的港湾了啊！</span>
+	      </div>
+	        <hr class="bg-horizontal">
+          <div class="headphoto-body">
+          <!-- <div id="cam"> 
+	          <script language="JavaScript"> 
+	          /* webcam.set_api_url用来设置图像上传交互的php路径，
+	          set_quality可设置图像质量，set_shutter_sound设置声音，
+	          get_html输出摄像组件，参数即宽度、高度、上传后宽度、上传后高度 */
+				webcam.set_api_url( '__URL__/Upload' );  
+				webcam.set_quality( 90 ); // 图像质量(1 - 100) 
+				webcam.set_shutter_sound( true ); // 拍照时播放声音 
+				document.write( webcam.get_html(320, 240, 160,120) ); 
+				</script> 
+			  调用摄像组件并显示图像 
+			  <input type=button value="点击这里拍照" class="btn" onclick="take_snapshot()"> 
+		</div> 
+		<script language="JavaScript"> 
+		webcam.set_hook( 'onComplete', 'my_completion_handler' ); 
+		function take_snapshot() { 
+		    document.getElementById('results').innerHTML = '<h4>正在上传...</h4>'; 
+		    webcam.snap(); 
+		} 
+		function my_completion_handler(msg) { 
+		    if (msg.match(/(http\:\/\/\S+)/)) { 
+		        var image_url = RegExp.$1; 
+		        document.getElementById('results').innerHTML =  
+		                    '<h4>上传成功!</h4>' +  
+		                    '<img src="' + image_url + '">'; 
+		        webcam.reset(); 
+		    } 
+		    else alert("PHP Error: " + msg); 
+		} 
+		</script> 
+		<div id="results"> 
+		   显示上传结果 
+		</div> 
+    </div> -->
+		 <div class="localphoto">
+		 <form  class="form-horizontal" enctype="multipart/form-data"  method="post"  action="__URL__/HeadPhoto">
+               	 <div class="form-group">
+                    <label class="col-xs-3 control-label">上传本地照片</label>
+                    <div class="col-xs-6">
+                       <input type="file" name="img" />
+                    </div>
+                    </div>
+                     <input type="hidden" name="formType" value="1"/>
+                     <div class="form-group">
+                       		 <label class="col-xs-3 control-label"></label>
+                        	<div class="form-actions col-xs-6">
+	                          <input type="submit" name="submit" class="btn btn-large btn-danger" value="开始上传" />
+	                      </div>
+	                    </div>
+                 </form>
+           </div>
+           <hr class="bg-horizontal">
+       <div class="Headphoto-foot"><span id="nextStep"><small><a href="__APP__/PersonSpace/index">跳过</a></small></span></div>
+       </div>
+  </div>
+  </div>
+<include file="Common:foot" />
+ </body>
+</html>

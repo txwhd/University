@@ -1,182 +1,216 @@
-
 <div id="search">
-<div class="container">
-<div class="search-all">
-
-<div class="panel panel-info">
-<form class="form-inline">
-我要找
- <select class="span2">   
- 		<option value="2">女朋友</option>   
-		<option value="1">男朋友</option>   
- </select>   
-年龄在
- <select class="span2">   
-		<option value="1">18</option>   
-		<option value="2">19</option>   
-		<option value="2">20</option>   
-		<option value="2">21</option>   
-		<option value="2">22</option>   
-		<option value="2">23</option>   
- </select> 到
-  <select class="span2">   
-		<option value="1">18</option>   
-		<option value="2">19</option>   
-		<option value="2">20</option>   
-		<option value="2">21</option>   
-		<option value="2">22</option>   
-		<option value="2">23</option>   
- </select>之间
- 地区
- <select class="span2">   
-		<option value="1">北京市</option>   
-		<option value="2">上海市</option>   
-		<option value="2">天津市</option>   
-		<option value="2">重庆市</option>   
-		<option value="2">香港</option>   
-		<option value="2">山西省</option>   
- </select> 
-
-<select class="span2">   
-		<option value="1">中北大学</option>   
-		<option value="2">理工大学</option>   
- </select> 
- 
- <label class="checkbox inline">
-  <input type="checkbox" id="inlineCheckbox1" value="option1"/> 少数民族
-</label>
-<label class="checkbox inline">
-  <input type="checkbox" id="inlineCheckbox2" value="option2"/> 有照片
-</label>
-
- <button type="button " class="btn btn-sm">搜索</button>
-  <button type="button" class="btn btn-sm" data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">更多搜索
-  </button>
-</form>
-</div>
-</div><!--/.searchall-->
-</div><!--/.container-->
-
-<div id="collapseOne" class="panel-collapse collapse" >
-<div class="container">   
-<div class="panel panel-info">
-<div class="container">   
-		<div class="base">
-		<span class="f20">基本检索:</span><hr>
-		<div class="moresearch" >
-	         <div class="row">
-	         <div class="col-sm-4">
-	        	 身高在:
-				<select name="selectAge" id="selectAge">   
-						<option value="1">18</option>   
-						<option value="2">19</option>   
-						<option value="2">20</option>   
-						<option value="2">21</option>   
-						<option value="2">22</option>   
-				 </select> 到
-				 <select name="selectAge" id="selectAge">   
-						<option value="1">18</option>   
-						<option value="2">19</option>   
-						<option value="2">20</option>   
-						<option value="2">21</option>   
-						<option value="2">22</option>   
-				 </select> 厘米<br>
-				 学院:	<select name="selectAge" id="selectAge">   
-						<option value="1">软件学院</option>   
-						<option value="2">经济与管理学院</option>   <!--  js加载-->
-				 		</select><br>
-	         </div>
-	         <div class="col-sm-4">
-	         籍贯: <select name="selectAge" id="selectAge">   
-					<option value="1">北京市</option>   
-					<option value="2">上海市</option>   
-					<option value="2">天津市</option>   
-					<option value="2">重庆市</option>   
-					<option value="2">香港</option>   
-					<option value="2">山西省</option>   
-			 </select> 
-			  <select name="selectAge" id="selectAge">   
-					<option value="1">太原</option>   
-					<option value="2">运城</option>    
-			 </select> <!--  js加载-->
-			  <br>
-			 是否吸烟：<select name="selectAge" id="selectAge">   
-					<option value="1">从不</option>   
-					<option value="2">偶尔</option>   
-					<option value="2">有时</option>   
-					<option value="2">经常</option>   
-					<option value="2">每天</option>   
-					<option value="2">不限</option>   
-			 </select> 
-			  <br>
-			
-	         </div>
-	         <div class="col-sm-4">
-	     		   学历:<select name="selectAge" id="selectAge">   
-						<option value="1">本科</option>   
-						<option value="2">研究生</option>   
-						<option value="2">博士</option>   
-			 		</select> <input type="checkbox" id="inlineCheckbox3" value="option3"/> 以上
-	          <br>
-	        	 是否喝酒：<select name="selectAge" id="selectAge">   
-					<option value="1">从不</option>   
-					<option value="2">偶尔</option>   
-					<option value="2">有时</option>   
-					<option value="2">经常</option>   
-					<option value="2">每天</option>   
-					<option value="2">不限</option>   
-			 </select> 
-	         </div>
-	         <div class="col-sm-4">
-	        	 是否手机认证：<select name="selectAge" id="selectAge">   
-	        		 <option value="2">不限</option>  
-					<option value="1">是</option>   
-					<option value="2">否</option>   
-			 </select> 
-	         </div>
-	         </div>  
+		<div class="container">
+			<div class="panel panel-info">
+			<form action="__APP__/Member/search" method="post">
+				<div class="search-head-conditions">
+						<p class="fitem">
+							<span class="glyphicon glyphicon-search title" id="search-icon"></span>
+							<label class="title">性别：</label>
+							<input type="radio" name="gender" value="1" ><label class="title">男</label>
+							<input type="radio" name="gender"  value="2" checked="checked"><label class="title">女</label>
+						</p>
+						<p class="fitem">
+							<label class="title">年龄：</label>
+							<select name="age" id="age">
+										<option value="18~19">18~19</option>
+									<optgroup label="20~29">
+										<option value="20~25">20~25</option>
+										<option value="26~29">26~29</option>
+									</optgroup>
+									<optgroup label="30~39">
+										<option value="30~35">30~35</option>
+										<option value="36~39">36~39</option>
+									</optgroup>
+							</select>
+						</p>
+					<p class="fitem">
+						<label class="title">大学:</label>
+						<select name="province" >   
+							<option value="1">北京市</option>   
+							<option value="2">上海市</option>   
+							<option value="2">天津市</option>   
+							<option value="2">重庆市</option>   
+							<option value="2">香港</option>   
+							<option value="2">山西省</option>   
+						</select> 
+						<select name="schoolName">   
+								<option value="1">中北大学</option>   
+								<option value="2">理工大学</option>   
+						</select> 
+					 </p>
+					 <p class="fitem" >
+						 <label class="title">少数民族</label>
+						  <input type="checkbox" name="if_shaoNation" value="2"/>
+					</p>
+					<p class="fitem">
+						<label class="title">有形象照</label>
+					  <input type="checkbox" name="ifHeadImg" value="2"/>
+					</p>
+					<p class="fitem">
+					 <input type="submit" class="btn btn-ls btn-danger" value="找-找" />
+					  <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">更多搜索 &gt;&gt;</a>
+					</p>
+				</div>
+				</form>
+			</div>
+		</div><!--/.1container-->
+		<div id="collapseOne" class="panel-collapse collapse" >
+			<div class="container">   
+			<form action="__APP__/Member/search" method="post">
+					<div class="base">
+						<span class="f20">基本检索:</span><hr>
+						<div class="moresearch" >
+					        	<p class="fitem">
+									<label class="title">身高：</label>
+								 	<span id="hightContent"> 
+									</span>
+								</p>
+					   	 		<p class="fitem">
+										<label class="title">籍贯：</label>
+										<select name="nativeProvince" id="suform-nativeprovince" class="native">
+										</select>
+									</p>
+									<p class="fitem">
+										<label for="suform-smoke" class="title">吸烟：</label>
+										<select name="smoke" id="suform-smoke">
+											<option value="0">从不</option>
+											<option value="1">偶尔</option>
+											<option value="2">有时</option>
+											<option value="3">经常</option>
+											<option value="4">每天</option>
+											<option value="-1">不限</option>
+										</select>
+									</p>
+									<p class="fitem">
+										<label for="suform-drink" class="title">喝酒：</label>
+										<select name="drinking">
+										<option value="0">不喝</option>
+										<option value="1">很少喝</option>
+										<option value="2">应酬才喝</option>
+										<option value="3">经常喝</option>
+										<option value="4">很能喝</option>
+										<option value="-1">不限</option>
+										</select>
+									</p>
+					     		  <p class="fitem">
+										<label for="suform-degree" class="title">学历：</label>
+											<select name="degree" id="suform-degree">
+											<option value="1">专科</option>
+											<option value="2">本科</option>
+											<option value="3">硕士</option>
+											<option value="4">博士</option>
+											<option value="0">不限</option>
+										</select>
+									</p>
+									<div class="clear"></div>
+		        			 <p class="fitem yanzhengicon">
+								<label class="title">手机验证：</label>
+								<input type="checkbox" name="hasMobile" id="suform-hasmobile" value="1"  >
+							</p>
+							<p class="fitem yanzhengicon">
+							<label for="suform-hascamera" class="title">视频验证：</label>
+								<input type="checkbox" name="hasCamera" id="suform-hascamera" value="1"  >
+							</p>
+							<p class="fitem yanzhengicon">
+								<label for="suform-hascamera" class="title">证件验证：</label>
+								<input type="checkbox" name="hasCert" id="suform-hascert" value="1"  >
+							</p>
+					      </div>  
+					</div><!--/.base-->	
+					<div class="base" >
+						<span class="f20">缘分检索:</span><br><hr>
+						<div class="moresearch" >
+						    <p class="fitem">
+								<label for="suform-constellation" class="title">星座：</label>
+								<select name="constellation" id="suform-constellation">
+									<option value="0">不限</option>
+								  <option  value="1">水瓶座 1月20日---2月18日  </option>
+								  <option  value="2">双鱼座 2月19日---3月20日 </option>
+								  <option  value="3">白羊座 3月21日---4月19日 </option>
+								  <option  value="4">金牛座 4月20日---5月20日  </option>
+								  <option  value="5">双子座 5月21日---6月21日  </option>
+								  <option  value="6">巨蟹座 6月22日---7月22日  </option>
+								  <option  value="7"> 狮子座 7月23日---8月22日  </option>
+								  <option  value="8">天秤座 9月23日--10月23日   </option>
+								  <option  value="9">处女座 8月23日---9月22日   </option>
+								  <option  value="10">射手座 11月22日---12月21日 </option>
+								  <option  value="11">双子座 5月21日---6月21日  </option>
+								  <option  value="12">摩羯座 12月22日 ---1月19日</option>
+								</select>
+							</p>
+							<p class="fitem">
+								<label  class="title">生日：</label>
+								<input type="text" name="birthday" onClick="WdatePicker()" />
+							</p>
+						</div>
+					</div><!--/.base-->
+					<div class="base" >
+						<span class="f20">兴趣爱好:</span><br><hr>
+						<div class="moresearch" >
+						  <p class="fitem" >
+								 <label class="title">运动</label>
+								  <input type="checkbox" name="if_sport" value="2"/>
+							</p>
+						  <p class="fitem" >
+								 <label class="title">棋类</label>
+								  <input type="checkbox" name="if_chess"    value="2"/>
+							</p>
+						  <p class="fitem" >
+								 <label class="title">艺术</label>
+								  <input type="checkbox" name="if_art"    value="2"/>
+							</p>
+						  <p class="fitem" >
+								 <label class="title">阅读</label>
+								  <input type="checkbox" name="if_read"    value="2"/>
+							</p>
+						  <p class="fitem" >
+								 <label class="title">旅游</label>
+								  <input type="checkbox" name="if_tour"    value="2"/>
+							</p>
+						  <p class="fitem" >
+								 <label class="title">武术</label>
+								  <input type="checkbox" name="if_martial_art"    value="2"/>
+							</p>
+						  <p class="fitem" >
+								 <label class="title">演讲</label>
+								  <input type="checkbox" name="if_speech"    value="2"/>
+							</p>
+						  <p class="fitem" >
+								 <label class="title">唱歌</label>
+								  <input type="checkbox" name="if_sing"    value="2"/>
+							</p>
+						  <p class="fitem" >
+								 <label class="title">舞蹈</label>
+								  <input type="checkbox" name="if_dance"    value="2"/>
+							</p>
+						</div>
+					</div><!--/."base"-->
+					<div class="base advsearchbtn">
+						 <input type="submit" class="btn btn-lm btn-danger" value="找会员" />
+					</div>
+					</form>
+				</div><!--/.container-->
 		</div>
-			</div><!--/.base-->	
-</div><!--/.container-->	
-<div class="container">   
-			<div class="luck" >
-		<span class="f20">缘分检索:</span><br><hr>
-	<div class="moresearch" >
-	    我要找:<select name="selectAge" id="selectAge">   
-					<option value="1">白羊座</option>   
-					<option value="2">射手座</option>   
-					<option value="2">狮子座</option>   
-					<option value="2">摩羯座</option>   
-	</select> <br>
-	我要找生日在：<select name="selectAge" id="selectAge">   
-					<option value="1">1</option>   
-					<option value="2">2</option>   
-					<option value="2">3</option>   
-					<option value="2">4</option>   
-	</select>月<select name="selectAge" id="selectAge">   
-					<option value="1">1</option>   
-					<option value="2">2</option>   
-					<option value="2">3</option>   
-					<option value="2">4</option>   
-	</select>日
-	</div>
-			</div><!--/.luck-->
-</div><!--/.container-->
-<div class="container">   
-			<div class="luck" >
-		<span class="f20">兴趣爱好:</span><br><hr>
-	<div class="moresearch" > 擅长运动，棋类，阅读，艺术，旅游；武术；演讲；唱歌；舞蹈；
-	  
-	</div>
-			</div><!--/.luck-->
-</div><!--/.container-->
-	</div>
-	</div>
-
-</div><!--/.search-->
-
+	</form>
 </div><!--/.id.search-->
-   
+ <script type="text/javascript"  src="__JS__/Home/common.data.js"></script>
+   <script type="text/javascript">
+   var hightContent = $('#hightContent'),
+	 html=[];
+	 html.push('<select name="hight">');
+	 html.push('<option value="0">---请选择---</option>');
+	for(var i= 0,len = statureItems.length;i < len; i++){
+	 var hight = statureItems[i];
+	 var id = hight.id;
+	 var name = hight.name;
+	 html.push('<option value="'+statureItems[i].name+'">'+statureItems[i].name+'</option>');
+	}
+	 html.push('</select>');
+	html.length>0 && hightContent.append(html.join('')); 
+	 html.push('<span class="text">厘米</span>');
+		$("#hightContent").html(html.join(""));
+	 	//$("#hightContent option[value='{$list[0]['hight']}']").attr("selected",true);
+   </script>
 
 
 

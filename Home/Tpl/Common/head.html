@@ -22,20 +22,27 @@
 					</if> -->
                 </volist> 
             </ul>
-            <ul class="nav navbar-nav navbar-right ng-scope" ng-controller="user_ctrl" id="header_me">
+            <ul class="nav navbar-nav navbar-right ng-scope" id="header_me">
                <if condition="$Think.session.loginUserName eq '' ">
-            	<li><a id="login" >登录</a></li>
-               	<li><a href="__APP__/Register/index">注册</a></li> 
+            	<li><a  href="__APP__/Login/login"><i class="glyphicon glyphicon-log-in"></i>登录</a></li>
+               	<li><a href="__APP__/Register/index"><i class="glyphicon glyphicon-plus"></i>注册</a></li> 
+               <!-- 	<li><div class="top_link">
+				<a href="javascript:" onclick="hd_addfavorite();">加入收藏&nbsp;</a>
+				<a href="javascript:" onclick="hd_sethomepage(this,window.location);">设为首页&nbsp;</a>
+				<a href="/member/test.php" target="_blank" style="border:0px;">心理测试</a>
+		    </div></li>  -->
                <else />
-	            <li class="dropdown">
-					<a data-toggle="dropdown" class="dropdown-toggle " href="#">
-						{$Think.session.loginUserName} <b class="caret"></b>							
+	            <li class="dropdown" id="menu-messages">
+					<a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle">
+						<i class="glyphicon glyphicon-user"></i>
+						 <span class="text">{$Think.session.loginUserName}</span> 
+						 <span class="label label-important">3</span><b class="caret"></b>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="./account.html"><i class="icon-user"></i>查看个人资料</a></li>
-						<li><a href="./change_password.html"><i class="icon-lock"></i>修改密码</a></li>
+						<li><a href="__APP__/PersonSpace/index"><span class="glyphicon glyphicon-edit"></span><span>个人资料</span></a></li>
+						<li><a href="__APP__/PersonSpace/changePass"><span class="glyphicon glyphicon-wrench"></span><span>修改密码</span></a></li>
 						<li class="divider"></li>
-						<li><a href="__APP__/Login/loginOut"><i class="icon-off"></i>退出</a></li>
+						<li><a  href="__APP__/Login/loginOut"><span class="glyphicon glyphicon-off"></span><span>退出</span></a></li>
 					</ul>
 					</li>
 				</if>
@@ -43,6 +50,3 @@
         </div>
 	</nav>
 </header>
-<include file="Common:login" />
-<script language="JavaScript">
-</script>

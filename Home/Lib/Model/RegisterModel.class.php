@@ -9,6 +9,7 @@ class RegisterModel extends Model{
 	 //自动验证
 	 protected $_validate=array(
 	 		//每个字段的详细验证内容
+	 		array("terms","require","没有同意服务条款不能够注册"),
 	 		array("username","require","用户名不能为空"),//默认情况下用正则进行验证
 	 		//array("username","checkLength","用户名长度不符合要求",0,'callback'),
 	 		array('username','','帐号名称已经存在！',0,'unique',1), // 在新增的时候验证name字段是否唯一
@@ -32,6 +33,7 @@ class RegisterModel extends Model{
 	 		array("last_login_time",'time',3,'function') ,
 	 		array( 'getIp',"get_client_ip",3,'function') ,
 	 		array('OnlineTF','1'),//OnlineTF在线状态
+	 		array('loginCount','1'),//登陆次数
 	 		/* 	array('ifadmin','0',self::MODEL_INSERT),
 	 		 array( 'ip','get_client_ip',3,'function') ,
 	 		 array("last_login_time","getTime",3,'callback'),

@@ -3,21 +3,50 @@
 <html>
 <head>
 <include file="Common:intoHead" />
+<style>
+.input-file {
+display:inline-block;
+width:100px;
+height:30px;
+line-height:30px;
+background:#ddd;
+text-align:center;
+overflow:hidden;
+position:relative;
+}
+.input-file:hover {
+background:#ccc;
+}
+.input-file input {
+opacity:0;
+filter:alpha(opacity=0);
+font-size:100px;
+position:absolute;
+top:0;
+right:0;
+}
+</style>
 <script type="text/javascript" src="__JS__/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="__JS__/Home/layer/extend/layer.ext.js"></script> -->
 </head>
-
 <body>
 <div id="person-photo">
 		<div>
 			<ul >
-			<li><button type="button" class="btn btn-sm">上传照片</button></li>
+			<li><button id="upload" type="button" class="btn btn-sm">上传照片</button></li>
 			</ul>
+		</div>
+		<div id="showUpload" style="display:none;">
+			<form action="__URL__/UploadPhoto" method="post">
+				<input type="file">
+			 <input class="btn btn-large" type="submit" value="开始上传">
+			</form>
 		</div>
   <div id="col">
         <ul id="pg" class="thumb">
         <li>
-        <img src="__IMG__/Home/img-photo/main_image1.jpg" alt="images1" />
-        <p>阿里西西一号标题 <span><a> 删除</span></a></p>
+         <img class="img-thumbnail" alt="{$photoDetail[0]['intro']}" src="__UPLOAD__/photo/{$photoDetail[0]['imgsite']}" />
+        <p>{$photoDetail[0]['image_name']}<a id="delete" link="{$photoDetail[0]['image_id']}"><span>删除</span></a></p>
         </li>
         <li>
         <img src="__IMG__/Home/img-photo/main_image2.jpg" alt="images2" />
@@ -51,11 +80,28 @@
         <img src="__IMG__/Home/img-photo/main_image9.jpg" alt="images9" />
         <p>阿里西西九号标题</p>
         </li>
-
         </ul>
     </div>			
 </div>
 </body>
+<!-- <script>
+(function(){
+	layer.use('extend/layer.ext.js'); //载入拓展模块
+	//文件上传
+	$('#upload').on('click',function(event){
+	layer.prompt({title: '随便上传个东东，并确认',type: 2}, function(file){
+	    alert(file);
+	});
+	});
+	})();
+</script> -->
+<script>
+$(document).ready(function(){
+	  $("#upload").click(function(){
+	  $("#showUpload").toggle();
+	  });
+	});
+</script>
 <script type="text/javascript">
 // <![CDATA[
 (function($) {
@@ -176,7 +222,26 @@ $(document).ready(function(){
 			padding: '25px'
 		}
 	});
-		
+	 //删出
+	 $("#delete").click(function(obj){
+		 var curVal = $(this).attr("link");
+			$.ajax({
+		        type: "post",
+		        dataType: "JSON",
+		        url: "deletePhoto",
+		        data:{"id" : curVal},
+		        success: function (data) {//data就是返回的那个字符串
+		        	if (data == "1") {
+		        		 $("#"+str_name+"_message").html("");
+		        		  return true;
+		            }else {
+		            	 $("#"+str_name+"_message").html($(obj).attr("meg")+"已存在");
+		            	
+		            	 return false;
+		            }
+		        }
+		    });
+	 
 });
 // ]]>
 </script>

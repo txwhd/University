@@ -3,6 +3,7 @@
 <head >
 <include file="Common:intoHead" />
 <include file="Public:meta" />
+ <script language="javascript" type="text/javascript" src="__JS__/My97DatePicker/WdatePicker.js"></script>
 </head>
 <body>
 <include file="Common:head" />
@@ -50,80 +51,33 @@
 <include file="Common:wishing"/>
 </div><!--./container  -->
 <!--同校恋情+活动-->
-<div class="container">
+<div class="container" >
 <div id="choose-activity">
-	<div id="choose" class="pull-left">
-			<div class="panel">
-		 <div class="panel-heading">同校恋情
-		 <volist id="vo" name="label">
-			<p class="label"><a href="__APP__/label/showDetail?id={$vo.label_id}&table=Label">[{$vo.label_name}]</a></p>
-		</volist>	
-		<span><a href="" id="changeSchool">换一换</a></span>
-		</div>						  
+	<div id="choose" class="pull-left" >
+		<div class="panel">
+			 <div class="panel-heading">同校恋情
+				 <volist id="vo" name="label">
+					<p class="label"><a href="__APP__/label/showDetail?id={$vo.label_id}&table=Label">[{$vo.label_name}]</a></p>
+				</volist>	
+				<span><a href="" id="changeSchool">换一换</a></span>
+			</div>						  
 			<div class="panel-body">
-			<div>
-				<volist name="schoolyard" id="vo">
-					<div class="boxgrid thecombo">
-					<empty name="$vo.avatar"><img class="cover" src="__IMG__/Home/001.jpg"/><else/><img class="cover" src="__ROOT__/{$vo.avatar}"/></empty> 
-					<h3>{$vo.username}</h3>
-					<p>{$vo.schoolName}|{$vo.nationName}|{$vo.age}|{$vo.height}|{$vo.cPoint}<br/><a href="{:U('Member/detail/',array('id'=>$vo['member_id']))}"target="_BLANK">详细</a></p>
-					</div>
-				</volist>
-				<div class="boxgrid thecombo">
-				<img class="cover" src="__IMG__/Home/001.jpg"/>
-				<h3>姓名</h3>
-				<p><br/><a href="http://www.zzjs.net/" target="_BLANK">更多</a></p>
-				</div>
-				<div class="boxgrid thecombo">
-				<img class="cover" src="__IMG__/Home/001.jpg"/>
-				<h3>Florian Nicolle</h3>
-				<p>Graphic Designer<br/><a href="{:U('Member/detail/',array('id'=>$vo['member_id']))}"target="_BLANK">More Work</a></p>
-				</div>
-				<div class="boxgrid thecombo">
-				<img class="cover" src="__IMG__/Home/001.jpg"/>
-				<h3>Florian Nicolle</h3>
-				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
-				</div>
-				<div class="boxgrid thecombo">
-				<img class="cover" src="__IMG__/Home/001.jpg"/>
-				<h3>Florian Nicolle</h3>
-				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
-				</div>
-				<div class="boxgrid thecombo">
-				<img class="cover" src="__IMG__/Home/001.jpg"/>
-				<h3>Florian Nicolle</h3>
-				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
-				</div>
-				<div class="boxgrid thecombo">
-				<img class="cover" src="__IMG__/Home/001.jpg"/>
-				<h3>Florian Nicolle</h3>
-				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
-				</div>
-				<div class="boxgrid thecombo">
-				<img class="cover" src="__IMG__/Home/001.jpg"/>
-				<h3>Florian Nicolle</h3>
-				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
-				</div>
-				<div class="boxgrid thecombo">
-				<img class="cover" src="__IMG__/Home/001.jpg"/>
-				<h3>Florian Nicolle</h3>
-				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
-				</div>
-				<div class="boxgrid thecombo">
-				<img class="cover" src="__IMG__/Home/001.jpg"/>
-				<h3>Florian Nicolle</h3>
-				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
-				</div>
-				<div class="boxgrid thecombo">
-				<img class="cover" src="__IMG__/Home/001.jpg"/>
-				<h3>Florian Nicolle</h3>
-				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
+				<div class="index-block index-big-height">
+					<volist name="schoolyard" id="vo">
+						<div class="boxgrid thecombo">
+							<img class="cover" <empty name="$vo.headphoto"> src="__IMG__/Home/001.jpg"
+							<else/>src="__ROOT__/{$vo.headphoto}"
+							</empty> />
+							<h3>{$vo.username}</h3>
+							<p>{$vo.schoolName}|{$vo.nationName}|{$vo.age}|{$vo.height}|{$vo.cPoint}</p>
+							<p><a href="{:U('Member/detail/',array('id'=>$vo['member_id']))}"target="_BLANK">详细</a>
+						</div>
+					</volist>
 				</div>
 			</div>
 		</div>
-		</div>
 	</div>
-	<include file="Common:activity" /><!-- 活动右侧展示 -->
+<include file="Common:activity" /><!-- 活动右侧展示 -->
 <div id="constellation" class="pull-right">
 	<div class="panel">
 		<ul class="nav nav-tabs" id="myTab">
@@ -134,19 +88,20 @@
 		  <div class="tab-pane fade in active" id="constellation-tab">
 		  	<div class="constellation_layout">
 			  <form class="form-inline">
-					  <select class="input-xlarge">
-						  <option>白羊座 3月21日---4月19日 </option>
-						  <option>水瓶座 1月20日---2月18日  </option>
-						  <option>双鱼座 2月19日---3月20日 </option>
-						  <option>金牛座 4月20日---5月20日  </option>
-						  <option>双子座 5月21日---6月21日  </option>
-						  <option>巨蟹座 6月22日---7月22日  </option>
-						  <option>狮子座 7月23日---8月22日  </option>
-						  <option>天秤座 9月23日--10月23日   </option>
-						  <option>处女座 8月23日---9月22日   </option>
-						  <option>射手座 11月22日---12月21日 </option>
-						  <option>双子座 5月21日---6月21日  </option>
-						  <option>摩羯座 12月22日 ---1月19日</option>
+					  <select class="input-xlarge" name="constellation">
+						  <option  value="1">水瓶座 1月20日---2月18日  </option>
+						  <option  value="2">双鱼座 2月19日---3月20日 </option>
+						  <option  value="3">白羊座 3月21日---4月19日 </option>
+						  <option  value="4">金牛座 4月20日---5月20日  </option>
+						  <option  value="5">双子座 5月21日---6月21日  </option>
+						  <option  value="6">巨蟹座 6月22日---7月22日  </option>
+						  <option  value="7"> 狮子座 7月23日---8月22日  </option>
+						  <option  value="8">天秤座 9月23日--10月23日   </option>
+						  <option  value="9">处女座 8月23日---9月22日   </option>
+						  <option  value="10">射手座 11月22日---12月21日 </option>
+						  <option  value="11">双子座 5月21日---6月21日  </option>
+						  <option  value="12">摩羯座 12月22日 ---1月19日</option>
+						  <option value="0">不限</option>
 						</select>		
 			  </form>
 			  </div>
@@ -182,56 +137,16 @@
 			<div class="panel-heading">民族风情<span><a href="__APP__/Member/index?table=Member" >更多</a></span></div>		
 			<div class="panel-body">
 			<div>
-				<div class="boxgrid thecombo">
-				<img class="cover" src="__IMG__/Home/001.jpg"/>
-				<h3>Florian Nicolle</h3>
-				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
-				</div>
-				<div class="boxgrid thecombo">
-				<img class="cover" src="__IMG__/Home/001.jpg"/>
-				<h3>Florian Nicolle</h3>
-				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
-				</div>
-				<div class="boxgrid thecombo">
-				<img class="cover" src="__IMG__/Home/001.jpg"/>
-				<h3>Florian Nicolle</h3>
-				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
-				</div>
-				<div class="boxgrid thecombo">
-				<img class="cover" src="__IMG__/Home/001.jpg"/>
-				<h3>Florian Nicolle</h3>
-				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
-				</div>
-				<div class="boxgrid thecombo">
-				<img class="cover" src="__IMG__/Home/001.jpg"/>
-				<h3>Florian Nicolle</h3>
-				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
-				</div>
-				<div class="boxgrid thecombo">
-				<img class="cover" src="__IMG__/Home/001.jpg"/>
-				<h3>Florian Nicolle</h3>
-				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
-				</div>
-				<div class="boxgrid thecombo">
-				<img class="cover" src="__IMG__/Home/001.jpg"/>
-				<h3>Florian Nicolle</h3>
-				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
-				</div>
-				<div class="boxgrid thecombo">
-				<img class="cover" src="__IMG__/Home/001.jpg"/>
-				<h3>Florian Nicolle</h3>
-				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
-				</div>
-				<div class="boxgrid thecombo">
-				<img class="cover" src="__IMG__/Home/001.jpg"/>
-				<h3>Florian Nicolle</h3>
-				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
-				</div>
-				<div class="boxgrid thecombo">
-				<img class="cover" src="__IMG__/Home/001.jpg"/>
-				<h3>Florian Nicolle</h3>
-				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
-				</div>
+			<volist name="nation" id="vo">
+					<div class="boxgrid thecombo">
+						<img class="cover" <empty name="$vo.headphoto"> src="__IMG__/Home/001.jpg"
+						<else/>src="__ROOT__/{$vo.headphoto}"
+						</empty> />
+						<h3>{$vo.username}</h3>
+						<p>{$vo.schoolName}|{$vo.nationName}|{$vo.age}|{$vo.height}|{$vo.cPoint}</p>
+						<p><a href="{:U('Member/detail/',array('id'=>$vo['member_id']))}"target="_BLANK">详细</a>
+					</div>
+				</volist>
 			</div>	
 			</div>
 		</div>
@@ -242,40 +157,22 @@
 <div id="international-Finally"><!-- Finally爱情攻略 -->
 <div class="container">
 <div id="international">
-			<div class="panel">
-				<div class="panel-heading">留学生恋情<span><a href="__APP__/Overseas/index?table=Member_detail&type=oversea">更多</a></span></div>
-				<div class="panel-body">
-					<volist id="vo" name="overseas">
-						<div class="international-people">
-							<a href="__APP__/Success/Detail?id={$vo.success_id}&table=Success_object"><img class="img-thumbnail" src="__IMG__/Home/success001.jpg"></a></div>		
-					</volist>						
-					<div class="boxgrid thecombo">
-				<img class="cover" src="__IMG__/Home/001.jpg"/>
-				<h3>Florian Nicolle</h3>
-				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
-				</div>
-				<div class="boxgrid thecombo">
-				<img class="cover" src="__IMG__/Home/001.jpg"/>
-				<h3>Florian Nicolle</h3>
-				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
-				</div>
-				<div class="boxgrid thecombo">
-				<img class="cover" src="__IMG__/Home/001.jpg"/>
-				<h3>Florian Nicolle</h3>
-				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
-				</div>
-				<div class="boxgrid thecombo">
-				<img class="cover" src="__IMG__/Home/001.jpg"/>
-				<h3>Florian Nicolle</h3>
-				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
-				</div>
-				<div class="boxgrid thecombo">
-				<img class="cover" src="__IMG__/Home/001.jpg"/>
-				<h3>Florian Nicolle</h3>
-				<p>Graphic Designer<br/><a href="http://www.zzjs.net/" target="_BLANK">More Work</a></p>
-				</div>
-			</div>
-</div>
+	<div class="panel">
+		<div class="panel-heading">留学生恋情<span><a href="__APP__/Overseas/index?table=Member_detail&type=oversea">更多</a></span></div>
+		<div class="panel-body">
+			<volist id="vo" name="overseas">
+			<div class="boxgrid thecombo">
+				<div class="international-people">
+					<a href="__APP__/Member/detail?id={$vo.member_id}&table=Member_detail">
+						<img class="img-thumbnail" <empty name="$vo.headphoto"> src="__IMG__/Home/001.jpg"
+						<else/> src="__ROOT__/{$vo.headphoto}"
+						</empty> />
+					</a>
+				</div>		
+				</div>		
+			</volist>						
+		</div>
+	</div>
 </div>
 	<div id="Finally">
 		<div class="panel ">
@@ -297,9 +194,9 @@
 <!--成功案例+服务+投票-->
 <div class="container">
 <div id="success">
-	<div class="panel ">
+	<div class="panel">
 		<div class="panel-heading">牵手恋情<span><a href="__APP__/Success/more?table=success_object">更多</a></span></div>
-		<div class="panel-body">
+		<div class="panel-body index-block-height">
 <!-- 			<volist id="vo" name="success">
 					<ul class="pull-left">
 						<li class="pull-left">
@@ -315,42 +212,30 @@
 			</volist>	 -->
 			<marquee  onmouseover="this.stop()" onmouseout="this.start()"  scrollamount="5"  scrolldelay="100"
 			direction="left"  loop="-1" behavior="scroll" >
-				<ul class="pull-left">
-					<li class="pull-left">
-						<div class="success-style" >
-							<div class="success-photo">
-								<img class="img-thumbnail" src="__IMG__/Home/success001.jpg">
+			<volist id="vo" name="success">
+					<ul class="pull-left">
+						<li class="pull-left">
+							<div class="success-style" >
+								<div class="success-photo">
+									<a href="__APP__/Success/detail?id={$vo.success_id}&table=Success_object"><img class="img-thumbnail" src="__IMG__/Home/success001.jpg"></a>		
+								</div>
+								<div class="success-people">
+									<h5>文先生和马同学</h5>
+									<button type="button" class="btn btn-sm" link="1" id="blessing">祝福({$vo.blessingNum})</button>
+								</div>
 							</div>
-							<div class="success-people">
-								<h5>文先生和马同学</h5>
-								<button type="button" class="btn btn-sm" link="1" id="blessing">祝福({$vo.blessingNum})</button>
-							</div>
-						</div>
-					</li>
-				</ul>
-				<ul class="pull-left">
-					<li class="pull-left">
-						<div class="success-style" >
-							<div class="success-photo">
-								<img class="img-thumbnail" src="__IMG__/Home/success001.jpg">
-							</div>
-							<div class="success-people">
-								<h5>文先生和马同学</h5>
-								<button type="button" class="btn btn-sm">祝福</button>
-							</div>
-						</div>
-					</li>
-				</ul>
+						</li>
+					</ul>
+			</volist>
 			</marquee>
 		</div>
-		
 	</div>
 	</div>
-
 	<div id="vote" class="pull-right">
 	<div class="panel ">
-		 <div class="panel-heading">投票---你觉得本站那些地方需要修改<span><a href="#">更多</a></span></div>
-		 <div class="panel-body">
+		 <div class="panel-heading" style="background:__IMG__/Home/ggb1.gif;">本站调查-投票<span><a href="#">更多</a></span></div>
+		 <div class="panel-body" >
+		 <form action="__APP__/Vote/index" method="post" target="_blank">
 		 	 <input type="radio" name="" value="2" > 网页特效<BR>
             <input type="radio" name="" value="3" > 网页素材<BR>
             <input type="radio" name="" value="4" > 网页主色<BR>
@@ -358,7 +243,14 @@
             <input type="radio" name="" value="4" > 诚信认证<BR>
             <input type="radio" name="" value="4" > 内容真实<BR>
             <input type="radio" name="" value="4" > 广告管理<BR>
-            <input type="radio" name="" value="4" > 整体布局<BR>
+            <input type="radio" name="" value="4" > 整体布局<BR><!--速度非常快
+ 速度还可以
+ 比以前的快
+ 经常连不上
+ 速度太慢了
+ 不值得一提  -->
+            <input type="submit" value="投票"  class="btn btn-sm" name="Submit"style="background-color: #FFFFFF; color: #ff4444; font-family: Verdana;" > 
+            </form>
 		</div>
 	</div>
 </div>	
@@ -368,74 +260,6 @@
 </body>
 <script type="text/javascript">
 $(document).ready(function(){
-	//忘记密码弹窗
-	$('#forgetpass').on('click', function(){
-		  $.layer({
-			    type: 1,
-			    title: '找回密码',
-			    offset: [($(window).height() - 200)/2+'px', ''],
-			    area: ['300px', '200px'],
-			    shade: [0.5, '#000'],
-			    page : {dom : '.forgetpass'}, success: function(){
-			        layer.shift('left'); //左边动画弹出
-			    }
-			});  
-	}); 
-	$('#forgetpass1').on('click', function(){
-		  $.layer({
-			    type: 1,
-			    title: '找回密码',
-			    offset: [($(window).height() - 200)/2+'px', ''],
-			    area: ['300px', '200px'],
-			    shade: [0.5, '#000'],
-			    page : {dom : '.forgetpass'}, success: function(){
-			        layer.shift('left'); //左边动画弹出
-			    }
-			});  
-	}); 
-	$('#login').on('click', function(){
-		  $.layer({
-			    type: 1,
-			    title: false,
-			    offset: [($(window).height() - 500)/2+'px', ''],
-			    area: ['300px', '500px'],
-			    shade: [0.5, '#000'],
-			    page : {dom : '.login'}, success: function(){
-			        layer.shift('left'); //左边动画弹出
-			    }
-			});  
-	});
-	$(function(){
-	    $("#emailsubmit").click(function(){
-	        $("#form_type").val("1");
-	        if($("#emailInput").val()==''||$("#passInput").val()==''){
-	        	layer.tips('提示错误信息', this, {
-	                guide: 1,
-	                time: 1,
-	                style: ['background-color:#F26C4F; color:#fff', '#F26C4F'],
-	                maxWidth:240
-	            });
-	            return false;
-	        }
-	        return true;
-	    });
-	    $("#mobileSubmit").click(function(){
-	        $("#form_type").val("2");
-	        if($("#email").val()==''||$("#pwd").val()==''){
-	            popup.alert("填写完整方可登陆");
-	            return false;
-	        }
-	        return true;
-	    });
-	    $("#findPwdSubmit").click(function(){
-	        $("#form_type").val("3");
-	        if($("#email").val()==''){
-	            popup.alert("填写了你的邮箱方可找回密码");
-	            return false;
-	        }
-	        return true;
-	    });
-	});
 	/* $('#').qtip({content:'必优博客-技术源于实践，实践必然优秀! ', position:'center'});  */
 	$('#testqtip').on('click', function(){
 		ajaxreturn('url') 
@@ -494,14 +318,14 @@ $(document).ready(function(){
                time: 1,
                style: ['background-color:#F26C4F; color:#fff', '#F26C4F'],
                maxWidth:240  */
-               layer.tips('祝福出错，重新祝福！', this, {
+              /*  layer.tips('祝福出错，重新祝福！', this, {
                    guide: 1,
                    time: 1,
                    style: ['background-color:#F26C4F; color:#fff', '#F26C4F'],
                    maxWidth:240
                });
-               */
-});
+               */ 
+/* });
 $("#changeSchool").click(function(){
 	$.ajax({
        type: "post",

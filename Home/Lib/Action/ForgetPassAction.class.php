@@ -1,5 +1,9 @@
 <?php
 class  ForgetPassAction extends Action{
+	public function index(){
+		$this->display();
+	}
+	
 	public function findPwd() {
 		$M = M("Admin");
 		if (IS_POST) {

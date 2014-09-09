@@ -1,1 +1,18 @@
 <include file="Common:intoHead" />
+<div id="article-layout" class="pull-left">
+     <volist name="list" id="list">
+     	<div class="article-list">
+			<div class="article-title-2">
+				<h2 class="title"><span><a href="{:U('Article/view/',array('id'=>$list['article_id']))}">{$list['title']}</a></span></h2><hr>
+		     	   日期：<span>{$list.create_time|date="Y-m-d",###}</span>
+		     	  /关键字<a href="{:U('Article/SearchKeywords/',array('id'=>$list['article_id']))}">{$list['kerwords']}</a>
+		          <span class="article-discuss-title"><a href="{:U('Article/discuss/',array('id'=>$list['article_id']))}">{$countDiscuss}</a>评论</span>  <hr>                   
+	        </div>
+         	 	<h5>{$list['content']|msubstr=0,200,'utf-8',true}</h5>
+             <span><a href="{:U('Article/view/',array('id'=>$list['article_id']))}">详细点击</a></span> 
+         </div>
+        </volist>
+  		<ul class="pagination">
+	  <li><a href="#">{$page}</a></li>
+	</ul>
+</div>

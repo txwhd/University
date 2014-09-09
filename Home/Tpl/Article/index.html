@@ -19,7 +19,7 @@
 				          <span class="article-discuss-title"><a href="{:U('Article/discuss/',array('id'=>$list['article_id']))}">{$countDiscuss}</a>评论</span>  <hr>                   
 			        </div>
 	          	 	<h5>{$list['content']|msubstr=0,200,'utf-8',true}</h5>
-	              <span><a href="{:U('Article/aticleDetail/',array('id'=>$list['article_id']))}" class="arrow_link">详细点击</a></span> 
+	              <span><a href="{:U('Article/view/',array('id'=>$list['article_id']))}">详细点击</a></span> 
 	          </div>
 	         </volist>
     		<ul class="pagination">
@@ -42,10 +42,11 @@
                    	<div class="panel-body">
                     	<ul class="category">
                     		<volist name="type" id="vo">
-                             <li><div><img src="__IMG__/Home/li_bg.jpg" alt="" /><a href="__URL__/type?id={$vo.cid}">
-
-{$vo.type_name}</a>
-                                 </div>
+                             <li>
+                             <div>
+                             	<img src="__IMG__/Home/li_bg.jpg" alt="" />
+                            	 <a href="__URL__/type?id={$vo.cid}">{$vo.type_name}</a>
+                                </div>
                              </li>
                             </volist>
                         </ul> 
@@ -72,7 +73,7 @@
 			  <div class="tab-pane fade in active" id="new_art">
 			  	<volist name="new_art" id="vo">
 			  		<li>
-						<a href="__URL__/showDetail?id={$vo.article_id}&table=Article">{$vo.title|
+						<a href="__URL__/view?id={$vo.article_id}">{$vo.title|
 
 msubstr=0,14,'utf-8',false}</a>
 					</li>
@@ -81,7 +82,7 @@ msubstr=0,14,'utf-8',false}</a>
 			  <div class="tab-pane fade" id="hot_art">
 			  	<volist name="hot_art" id="vo">
 				  	<li>
-						<a href="__URL__/showDetail?id={$vo.article_id}&table=Article">{$vo.title|
+						<a href="__URL__/view?id={$vo.article_id}">{$vo.title|
 
 msubstr=0,14,'utf-8',false}</a>
 					</li>
@@ -92,9 +93,5 @@ msubstr=0,14,'utf-8',false}</a>
 	</div>
 	  </div>
    	 </div>
-	
-	  
-	 </div>
-
  </body>
 </html>

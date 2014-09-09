@@ -1,149 +1,203 @@
 <include file="Common:intoHead" />
+ <php>
+			  dump($allmood);
+			  echo"d";
+			  </php>
 <div id="person-centre-right">
-<div id="say"><!-- 说说 -->
-<div class="say-left">
-	<form action="__URL__/addMood">
-		<textarea name="content" ></textarea>
-	</form>
-</div>
-<div class="say-right">
-<img src="__IMG__/Home/xingzuo.jpg">
-</div>
-<div class="button-set">
-<button type="button" class="btn btn-sm">表情</button>
-<button type="button" class="btn btn-sm">发表</button>
-</div>
-</div><!-- 说说 -->
-<div><!-- 好友动态 -->
-<div class="panel top10">
-		<ul class="nav nav-tabs" id="#">
-		  <li ><a href="#001" data-toggle="tab">关注动态</a></li>
-		  <li><a href="#002" data-toggle="tab">全部动态</a></li>
-		  <li><a href="#003" data-toggle="tab">我的动态</a></li>
-		</ul>
-		<div class="tab-content">
-		  <div class="tab-pane fade in active" id="001">
-		 		 <div class="border" style="margin:10 10 10 10 ;border:1px solid #ff99ff;">
-					<div style="height:120px;">
-					<img style="width:113px; height:113px;float:left;" src="__IMG__/Home/001.jpg">
-					<div >
-					<p>李姑娘 <span style="float:right;">17:26</span></p>
+	<div id="say"><!-- 说说 -->
+			<div class="say-left">
+				<form action="__URL__/addMood" method="post">
+					<div><img src="__IMG__/Home/mood_01.gif"/></div>
+					<textarea name="content" id="publish-mood"></textarea>
+					<div class="button-set panel">
+						 <p id="post_limit">能输入200字</p>
+						 <p class="miniblog-button">
+							 <a href="javascript:void(0);">
+								 <img src="__IMG__/Home/button_release.gif?t=2" onclick="post_do()" id="post_do_button" border="0">
+							 </a>
+						 </p>
 					</div>
-					<hr>
-					<div style="height:60px;">
-					<p>爱你没差</p>
-					</div>
-					<div>
-					<hr>
-					<button type="button" class="btn btn-sm">点赞(10)</button>
-					<button type="button" class="btn btn-sm">关注</button>
-					</div>
-					</div>
-				 </div>
-				 	 <div class="border" style="margin:10 10 10 10 ;border:1px solid #ff99ff;">
-					<div style="height:120px;">
-					<img style="width:113px; height:113px;float:left;" src="__IMG__/Home/001.jpg">
-					<div >
-					<p>李姑娘 <span style="float:right;">17:26</span></p>
-					</div>
-					<hr>
-					<div style="height:60px;">
-					<p>爱你没差</p>
-					</div>
-					<div>
-					<hr>
-					<button type="button" class="btn btn-sm">点赞(10)</button>
-					<button type="button" class="btn btn-sm">关注</button>
-					</div>
-					</div>
-				 </div>
-				 	 <div class="border" style="margin:10 10 10 10 ;border:1px solid #ff99ff;">
-					<div style="height:120px;">
-					<img style="width:113px; height:113px;float:left;" src="__IMG__/Home/001.jpg">
-					<div >
-					<p>李姑娘 <span style="float:right;">17:26</span></p>
-					</div>
-					<hr>
-					<div style="height:60px;">
-					<p>爱你没差</p>
-					</div>
-					<div>
-					<hr>
-					<button type="button" class="btn btn-sm">点赞(10)</button>
-					<button type="button" class="btn btn-sm">关注</button>
-					</div>
-					</div>
-				 </div>
-				 	 <div class="border" style="margin:10 10 10 10 ;border:1px solid #ff99ff;">
-					<div style="height:120px;">
-					<img style="width:113px; height:113px;float:left;" src="__IMG__/Home/001.jpg">
-					<div >
-					<p>李姑娘 <span style="float:right;">17:26</span></p>
-					</div>
-					<hr>
-					<div style="height:60px;">
-					<p>爱你没差</p>
-					</div>
-					<div>
-					<hr>
-					<button type="button" class="btn btn-sm">点赞(10)</button>
-					<button type="button" class="btn btn-sm">关注</button>
-					</div>
-					</div>
-				 </div>
-				 	 <div class="border" style="margin:10 10 10 10 ;border:1px solid #ff99ff;">
-					<div style="height:120px;">
-					<img style="width:113px; height:113px;float:left;" src="__IMG__/Home/001.jpg">
-					<div >
-					<p>李姑娘 <span style="float:right;">17:26</span></p>
-					</div>
-					<hr>
-					<div style="height:60px;">
-					<p>爱你没差</p>
-					</div>
-					<div>
-					<hr>
-					<button type="button" class="btn btn-sm">点赞(10)</button>
-					<button type="button" class="btn btn-sm">关注</button>
-					</div>
-					</div>
-				 </div>
-				 	 <div class="border" style="margin:10 10 10 10 ;border:1px solid #ff99ff;">
-					<div style="height:120px;">
-					<img style="width:113px; height:113px;float:left;" src="__IMG__/Home/001.jpg">
-					<div >
-					<p>李姑娘 <span style="float:right;">17:26</span></p>
-					</div>
-					<hr>
-					<div style="height:60px;">
-					<p>爱你没差</p>
-					</div>
-					<div>
-					<hr>
-					<button type="button" class="btn btn-sm">点赞(10)</button>
-					<button type="button" class="btn btn-sm">关注</button>
-					</div>
-					</div>
-						<ul class="pagination">
-						  <li><a href="#">&laquo;</a></li>
-						  <li><a href="#">1</a></li>
-						  <li><a href="#">2</a></li>
-						  <li><a href="#">3</a></li>
-						  <li><a href="#">4</a></li>
-						  <li><a href="#">5</a></li>
-						  <li><a href="#">&raquo;</a></li>
-						</ul>
-				 </div>
-</div>	<!-- ./关注动态 -->
-		  <div class="tab-pane fade" id="002">
-			恨你不下
-		  </div><!-- ./全部动态 -->
-		    <div class="tab-pane fade" id="003">
-			与我相关
-		  </div><!-- ./我的动态 -->
-		</div>			
-	</div>	
-	</div>	
-
-</div>	<!-- 好友动态 -->
-</div><!-- ./personmain -->
+				</form>
+			</div>
+			<div class="say-right">
+				<div class="myhome-qiandao">
+					 <p>签到一次+10淘点</p>
+					 <p>
+					  <input type="button" class="btn_7" style="background: url(__IMG__/Home/btn_7.gif?1020) 0px 0px no-repeat;" value="签到" id="checkInButton" name="checkInButton" onclick="checkin()">
+					 </p>
+					 <p><a style="font-size:12px;color:#e62044;" href="">做任务赚淘点</a></p>
+					 <script type="text/javascript">
+					 function checkin() {
+					 var mywindow = _window.Alert('提交中，请稍候...',"",'loading',"",600);
+					 var url = '__URl__/qiandao';
+					 $.post(url,null,function(t){
+					 if(t==1){
+					 _window.Alert("今日签到成功！","","success");
+					 }else if(t == -1){
+					 _window.Alert("今日已签到过！","","alert");
+					 }else{
+					 _window.Alert("签到失败，请重试！","","alert");
+					 }
+					 });
+					 }
+					 </script>
+ 				</div>
+			</div>
+	</div><!-- 说说 -->
+	<div class="friend-mood" ><!-- 好友动态 -->
+	<div class="panel top10">
+			<ul class="nav nav-tabs" id="#">
+			  <li ><a href="#myAttentionMood" data-toggle="tab">关注动态</a></li>
+			  <li><a href="#allmood" data-toggle="tab">全部动态</a></li>
+			  <li><a href="#mymood" data-toggle="tab">我的动态</a></li>
+			</ul>
+			<div class="tab-content">
+			  <div class="tab-pane fade in active" id="myAttentionMood">
+			   <volist name="mymood" id="vo">
+					  <div class="mood-layout">
+							<!-- <img class="cover"  <empty name="$vo.headphoto"> src="__IMG__/Home/001.jpg"
+							<else/>src="__ROOT__/{$vo.headphoto}"
+							</empty> /> -->
+								<div class="mood-username" >
+									<p>{$vo.username}<span>{$vo.create_time|date="Y-m-d",###}</span></p>
+								</div>
+								<hr>
+								<div class="mood-content text-center" >
+									<p>{$vo.content}</p> 
+								</div>
+							<!-- 	<div>
+									<hr>
+									<button type="button" class="btn btn-sm">点赞(10)</button>
+									<button type="button" class="btn btn-sm">关注</button>
+								</div> -->
+						</div>
+				  </volist>
+				 <div class="pagination">
+					{$mymoodpage}
+				</div> 
+			</div>	<!-- ./关注动态 -->
+			  <div class="tab-pane fade" id="allmood">
+				 <volist name="allmood" id="vo">
+					  <div class="mood-layout">
+								<div class="mood-username" >
+									<p>{$vo.username}<span>{$vo.create_time|date="Y-m-d",###}</span></p>
+								</div>
+								<hr>
+								<div class="mood-content text-center" >
+									<p>{$vo.content}</p>
+								</div>
+							<!-- 	<div>
+									<hr>
+									<button type="button" class="btn btn-sm">点赞(10)</button>
+									<button type="button" class="btn btn-sm">关注</button>
+								</div> -->
+						</div>
+				  </volist>
+				 <div class="pagination">
+					{$allmoodpage}
+				</div> 
+			  </div><!-- ./全部动态 -->
+			    <div class="tab-pane fade" id="mymood">
+					<volist id="vo" name="allmood">
+						  <div class="mood-layout">
+									<div class="mood-username" >
+										<p><a href="{:U('Member/detail/',array('id'=>$vo['member_id']))}"target="_BLANK">{$vo.username}</a><span>{$vo.create_time|date="Y-m-d",###}</span></p>
+									</div>
+									<hr>
+									<div class="mood-content text-center" >
+										<p>{$vo.content}</p>
+									</div>
+							</div>
+					  </volist>
+				 <div class="pagination">
+					{$allmoodpage}
+				</div> 
+			  </div><!-- ./全部动态end -->
+			</div>			
+		</div>	
+		</div>	
+	</div>	<!-- 好友动态 -->
+	<script>
+	 var guideArr_content = '愿得一人心，白头终不离……';
+	 $().ready(function(){
+		 post_limit_notice();
+		 $("#publish-mood").keypress(function(){post_limit_notice();});
+		 $("#publish-mood").keydown(function(){post_limit_notice();});
+		 $("#publish-mood").keyup(function(){post_limit_notice();});
+		 $("#publish-mood").focus(function(){post_limit_notice();});
+		 });
+		 function quick_enter(event,button_id) {
+		 var ev = null;
+		 if (window.event){
+		 ev = window.event;
+		 }
+		 else{
+		 ev = event;
+		 }
+		 if (ev != null && ev.ctrlKey && ev.keyCode == 13) {
+		 if(document.all){
+		 document.getElementById(button_id).click();
+		 }else{
+		 $("#"+button_id).click();
+		 }
+		 }
+		 }
+		 //提示字数剩余
+		 function post_limit_notice(){
+		 var obj=$("#publish-mood");
+		 if(typeof(obj[0])!="undefined"){
+		 var input_length=obj.val().length;
+		 var max_length=200;
+		 if(input_length<=max_length){
+		 $("#post_limit").html("还能输入"+(max_length-input_length)+"字").removeClass("red");
+		 }else{
+		 $("#post_limit").html("已经超出"+(input_length-max_length)+"字").addClass("red");
+		 }
+		 }
+		 }
+		 function post_cancel(text){
+		 if($("#publish-mood").val()=='' || $("#publish-mood").val()==guideArr_content){
+		 $("#publish-mood").css('color','#454545').val(text);
+		 }
+		 if($("#publish-mood").val()==guideArr_content){
+		 $("#publish-mood").css('color','#717171');
+		 }
+		 }
+		 function post_cancel_force() {
+		 $("#publish-mood").css('color','#717171').val("").focus();
+		 }
+		 function post_do(){
+		 var post_content = Utils.trim($("#publish-mood").val());
+		 if(post_content.length<=0){
+		 _window.Alert("请输入您的心情！","提示");
+		 return false;
+		 }
+		 if(post_content.length>200){
+		 var str=$("#post_limit").html();
+		 $("#post_limit").html("");
+		 setTimeout(function(){$("#post_limit").html(str);},200);
+		 return false;
+		 }
+		 var update_mood_cookie = getCookie("user_update_mood_stats_"+login_usr_id);
+		 var update_mood_cookie = 0;
+		 if(update_mood_cookie==1){
+		 _window.Alert("啊哦！您的心情变化太快了，请休息2分钟再来吧！","提示");
+		 return false;
+		 }
+		 else{
+		 var mywindow = _window.Alert('数据提交中，请稍候...',"",'loading',"",600);
+		 $("#post_do_button").attr("onclick","");
+		 $.post("__URL__/addMood",{content:post_content},
+		 function(txt){
+		 if(txt=='success'){
+		 SetCookie("user_update_mood_stats_"+login_usr_id,1,2*60*1000);
+		 _window.Alert("心情发表成功！","提示","success");
+		 $('#publish-mood').css('color','#717171').val(guideArr_content);
+		 }
+		 else{
+		 _window.Alert("心情发表失败！","提示");
+		 }
+		 });
+		 }
+	 }
+ </script>

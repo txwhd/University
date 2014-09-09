@@ -1,16 +1,235 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<frameset>
-    <frame>
-    <frame>
-    <noframes>
-    <body>
-    <p>This page uses frames. The current browser you are using does not support frames.</p>
-    </body>
-    </noframes>
-</frameset>
-</html>
+<div id="page-charge" class="page">
+	<article class="paper paper-wob">
+		<h1 class="hidden">充值</h1>
+				<section class="chargeblock">
+			<h1 class="hidden">充值方式</h1>
+			<div class="tabrow">
+				<ul id="cmlist-tabwrap" class="tabwrap">
+					<li class="active tab-w5"><a href="#">网上银行<span class="wordicon">赠</span></a></li>
+					<li class="inactive tab-w4"><a href="#">支付宝<span class="wordicon">赠</span></a></li>
+					<li class="inactive tab-w5"><a href="#">手机充值卡</a></li>
+										<li class="inactive tab-w6"><a href="#">移动手机支付</a></li>
+					<li class="inactive tab-w6"><a href="#">联通手机支付</a></li>
+										<li class="inactive tab-w7"><a href="#">网易宝快捷支付</a></li>
+					<li class="inactive tab-w4" yhclickid="charge.switch2ECardTab"><a href="#">网易点卡</a></li>				</ul>
+			</div>
+			<div id="cmlist-contentwrap" class="contentwrap tabcontentwrap">
+				<section class="active">
+					<h1 class="hidden">网上银行</h1>
+					<form id="pform-nb" action="/dousercharge.jsp" method="post" target="_blank" class="form-l">
+						<p class="steptitle">请选择要充值的金额：</p>
+						<p class="fitem">
+							<input type="radio" name="amount" id="pform-amount-nb-100" value="100" checked="checked" yhtotal="1150"><label for="pform-amount-nb-100"><span class="amount">100 元</span><span class="coins">获得 <span class="num num-w5">1150</span> 金币</span><em class="note">（含 <span class="num num-w4">150</span> 赠币）</em></label>
+						</p>
+						<p class="fitem">
+							<input type="radio" name="amount" id="pform-amount-nb-200" value="200" yhtotal="2350"><label for="pform-amount-nb-200"><span class="amount">200 元</span><span class="coins">获得 <span class="num num-w5">2350</span> 金币</span><em class="note">（含 <span class="num num-w4">350</span> 赠币）</em></label>
+						</p>
+						<p class="fitem">
+							<input type="radio" name="amount" id="pform-amount-nb-300" value="300" yhtotal="3600"><label for="pform-amount-nb-300"><span class="amount">300 元</span><span class="coins">获得 <span class="num num-w5">3600</span> 金币</span><em class="note">（含 <span class="num num-w4">600</span> 赠币）</em></label>
+						</p>
+						<p class="fitem">
+							<input type="radio" name="amount" id="pform-amount-nb-500" value="500" yhtotal="6200"><label for="pform-amount-nb-500"><span class="amount">500 元</span><span class="coins">获得 <span class="num num-w5">6200</span> 金币</span><em class="note">（含 <span class="num num-w4">1200</span> 赠币）</em></label>
+						</p>
+						<p class="fitem">
+							<input type="radio" name="amount" id="pform-amount-nb-1000" value="1000" yhtotal="13000"><label for="pform-amount-nb-1000"><span class="amount">1000 元</span><span class="coins">获得 <span class="num num-w5">13000</span> 金币</span><em class="note">（含 <span class="num num-w4">3000</span> 赠币）</em></label>
+						</p>
+												<p class="steptitle step-bank">请选择银行：</p>
+						<p class="fitem fitem-bank">
+							<input type="radio" name="bankCode" id="pform-bank-nb-0001" value="0001" class="radio" checked="checked"><label for="pform-bank-nb-0001"><span class="banklogo banklogo-icbc"></span></label>
+							<input type="radio" name="bankCode" id="pform-bank-nb-0002" value="0002" class="radio"><label for="pform-bank-nb-0002"><span class="banklogo banklogo-abc"></span></label>
+							<input type="radio" name="bankCode" id="pform-bank-nb-0007" value="0007" class="radio"><label for="pform-bank-nb-0007"><span class="banklogo banklogo-cib"></span></label>
+						</p>
+						<p class="fitem fitem-bank">
+							<input type="radio" name="bankCode" id="pform-bank-nb-0004" value="0004" class="radio"><label for="pform-bank-nb-0004"><span class="banklogo banklogo-ccb"></span></label>
+							<input type="radio" name="bankCode" id="pform-bank-nb-0003" value="0003" class="radio"><label for="pform-bank-nb-0003"><span class="banklogo banklogo-cmb"></span></label>
+							<input type="radio" name="bankCode" id="pform-bank-nb-0014" value="0014" class="radio"><label for="pform-bank-nb-0014"><span class="banklogo banklogo-bcm"></span></label>
+						</p>
+						<p class="fitem fitem-bank">
+							<input type="radio" name="bankCode" id="pform-bank-nb-0009" value="0009" class="radio"><label for="pform-bank-nb-0009"><span class="banklogo banklogo-boc"></span></label>
+							<input type="radio" name="bankCode" id="pform-bank-nb-0005" value="0200" class="radio"><label for="pform-bank-nb-0005"><span class="banklogo banklogo-citic"></span></label>
+							<a id="charge-morebank" href="#" class="morebank" yhclickid="charge.showMoreBank"><span class="imgarr imgarr-f-d"></span>更多银行</a>
+						</p>
+						<div id="charge-mbwrap">
+							<p class="fitem fitem-bank">
+								<input type="radio" name="bankCode" id="pform-bank-nb-0006" value="0006" class="radio"><label for="pform-bank-nb-0006"><span class="banklogo banklogo-psbc"></span></label>
+								<input type="radio" name="bankCode" id="pform-bank-nb-0008" value="0008" class="radio"><label for="pform-bank-nb-0008"><span class="banklogo banklogo-ceb"></span></label>
+								<input type="radio" name="bankCode" id="pform-bank-nb-0010" value="0010" class="radio"><label for="pform-bank-nb-0010"><span class="banklogo banklogo-sdb"></span></label>
+							</p>
+							<p class="fitem fitem-bank">
+								<input type="radio" name="bankCode" id="pform-bank-nb-0011" value="0011" class="radio"><label for="pform-bank-nb-0011"><span class="banklogo banklogo-spdb"></span></label>
+								<input type="radio" name="bankCode" id="pform-bank-nb-0013" value="0013" class="radio"><label for="pform-bank-nb-0013"><span class="banklogo banklogo-cmbc"></span></label>
+								<input type="radio" name="bankCode" id="pform-bank-nb-0016" value="0016" class="radio"><label for="pform-bank-nb-0016"><span class="banklogo banklogo-hxb"></span></label>
+							</p>
+							<p class="fitem fitem-bank">
+								<input type="radio" name="bankCode" id="pform-bank-nb-0017" value="0017" class="radio"><label for="pform-bank-nb-0017"><span class="banklogo banklogo-wzcb"></span></label>
+								<input type="radio" name="bankCode" id="pform-bank-nb-0019" value="0019" class="radio"><label for="pform-bank-nb-0019"><span class="banklogo banklogo-cbhb"></span></label>
+								<input type="radio" name="bankCode" id="pform-bank-nb-0021" value="0021" class="radio"><label for="pform-bank-nb-0021"><span class="banklogo banklogo-hkb"></span></label>
+							</p>
+							<p class="fitem fitem-bank">
+								<input type="radio" name="bankCode" id="pform-bank-nb-0022" value="0022" class="radio"><label for="pform-bank-nb-0022"><span class="banklogo banklogo-cgb"></span></label>
+								<input type="radio" name="bankCode" id="pform-bank-nb-0034" value="0034" class="radio"><label for="pform-bank-nb-0034"><span class="banklogo banklogo-njcb"></span></label>
+								<input type="radio" name="bankCode" id="pform-bank-nb-0301" value="0301" class="radio"><label for="pform-bank-nb-0301"><span class="banklogo banklogo-bos"></span></label>
+							</p>
+							<p class="fitem fitem-bank">
+								<input type="radio" name="bankCode" id="pform-bank-nb-0204" value="0204" class="radio"><label for="pform-bank-nb-0204"><span class="banklogo banklogo-pingan"></span></label>
+								<input type="radio" name="bankCode" id="pform-bank-nb-0155" value="0155" class="radio"><label for="pform-bank-nb-0155"><span class="banklogo banklogo-hzb"></span></label>
+								<input type="radio" name="bankCode" id="pform-bank-nb-0032" value="0032" class="radio"><label for="pform-bank-nb-0032"><span class="banklogo banklogo-czb"></span></label>
+							</p>
+							<p class="fitem fitem-bank">
+								<input type="radio" name="bankCode" id="pform-bank-nb-0036" value="0036" class="radio"><label for="pform-bank-nb-0036"><span class="banklogo banklogo-hkbea"></span></label>
+								<input type="radio" name="bankCode" id="pform-bank-nb-0033" value="0033" class="radio"><label for="pform-bank-nb-0033"><span class="banklogo banklogo-nbcb"></span></label>
+							</p>
+						</div>
+						<p class="fitem"><button type="submit" class="button button-major button-w4">确定充值</button></p>
+						<input type="hidden" name="paytype" value="bank">
+						<input type="hidden" name="account" value="f1bb2ebe5c4f3d5de6f4308946e16e4a@tencent.163.com">
+																		<input type="hidden" name="servicetype" value="-1">
+					</form>
+					<p class="cswrap"><a href="http://yuehui.163.com/helparticle.do?id=131" target="_blank">网上银行使用帮助</a> 如有疑问，请 <a href="#" yhclickid="win.showContactCS" yhdata="8">联系客服</a></p>
+				</section>
+				<section class="inactive">
+					<h1 class="hidden">支付宝</h1>
+					<form id="pform-ap" action="/dousercharge.jsp" method="post" target="_blank" class="form-l">
+						<p class="steptitle">请选择要充值的金额：</p>
+						<p class="fitem">
+							<input type="radio" name="amount" id="pform-amount-ap-100" value="100" checked="checked" yhtotal="1150"><label for="pform-amount-ap-100"><span class="amount">100 元</span><span class="coins">获得 <span class="num num-w5">1150</span> 金币</span><em class="note">（含 <span class="num num-w4">150</span> 赠币）</em></label>
+						</p>
+						<p class="fitem">
+							<input type="radio" name="amount" id="pform-amount-ap-200" value="200" yhtotal="2350"><label for="pform-amount-ap-200"><span class="amount">200 元</span><span class="coins">获得 <span class="num num-w5">2350</span> 金币</span><em class="note">（含 <span class="num num-w4">350</span> 赠币）</em></label>
+						</p>
+						<p class="fitem">
+							<input type="radio" name="amount" id="pform-amount-ap-300" value="300" yhtotal="3600"><label for="pform-amount-ap-300"><span class="amount">300 元</span><span class="coins">获得 <span class="num num-w5">3600</span> 金币</span><em class="note">（含 <span class="num num-w4">600</span> 赠币）</em></label>
+						</p>
+						<p class="fitem">
+							<input type="radio" name="amount" id="pform-amount-ap-500" value="500" yhtotal="6200"><label for="pform-amount-ap-500"><span class="amount">500 元</span><span class="coins">获得 <span class="num num-w5">6200</span> 金币</span><em class="note">（含 <span class="num num-w4">1200</span> 赠币）</em></label>
+						</p>
+						<p class="fitem">
+							<input type="radio" name="amount" id="pform-amount-ap-1000" value="1000" yhtotal="13000"><label for="pform-amount-ap-1000"><span class="amount">1000 元</span><span class="coins">获得 <span class="num num-w5">13000</span> 金币</span><em class="note">（含 <span class="num num-w4">3000</span> 赠币）</em></label>
+						</p>
+												<p class="fitem"><button type="submit" class="button button-major button-w4">确定充值</button></p>
+						<input type="hidden" name="paytype" value="alipay">
+						<input type="hidden" name="account" value="f1bb2ebe5c4f3d5de6f4308946e16e4a@tencent.163.com">
+																		<input type="hidden" name="servicetype" value="-1">
+					</form>
+					<p class="cswrap">支付宝客服电话：0571-88156688 <a href="http://yuehui.163.com/helparticle.do?id=130" target="_blank">支付宝使用帮助</a> 如有疑问，请 <a href="#" yhclickid="win.showContactCS" yhdata="8">联系客服</a></p>
+				</section>
+				<section class="inactive">
+					<h1 class="hidden">手机充值卡</h1>
+					<form id="pform-sz" action="/dousercharge.jsp" method="post" target="_blank" class="form-l">
+						<p class="steptitle">请选择充值金额：<span class="tips">买手机充值卡在本页面充值，请勿充到手机内</span></p>
+						<p class="fitem">
+							<input type="radio" name="amount" id="pform-amount-sz-50" value="50"><label for="pform-amount-sz-50"><span class="amount">50 元</span><span class="coins">获得 <span class="num num-w5">500</span> 金币</span></label>
+						</p>
+						<p class="fitem">
+							<input type="radio" name="amount" id="pform-amount-sz-100" value="100" checked="checked"><label for="pform-amount-sz-100"><span class="amount">100 元</span><span class="coins">获得 <span class="num num-w5">1000</span> 金币</span></label>
+						</p>
+						<p class="fitem">
+							<input type="radio" name="amount" id="pform-amount-sz-200" value="200" checked="checked"><label for="pform-amount-sz-200"><span class="amount">200 元</span><span class="coins">获得 <span class="num num-w5">2000</span> 金币</span></label>
+						</p>
+						<p class="fitem">
+							<input type="radio" name="amount" id="pform-amount-sz-300" value="300"><label for="pform-amount-sz-300"><span class="amount">300 元</span><span class="coins">获得 <span class="num num-w5">3000</span> 金币</span></label>
+						</p>
+						<p class="fitem">
+							<input type="radio" name="amount" id="pform-amount-sz-500" value="500"><label for="pform-amount-sz-500"><span class="amount">500 元</span><span class="coins">获得 <span class="num num-w5">5000</span> 金币</span></label>
+						</p>
+												<p class="fitem"><button type="submit" class="button button-major button-w4">确定充值</button></p>
+						<input type="hidden" name="paytype" value="mobile">
+						<input type="hidden" name="account" value="f1bb2ebe5c4f3d5de6f4308946e16e4a@tencent.163.com">
+																		<input type="hidden" name="servicetype" value="-1">
+					</form>
+					<p class="cswrap"><a href="http://yuehui.163.com/helparticle.do?id=128" target="_blank">手机充值卡使用帮助</a> 如有疑问，请 <a href="#" yhclickid="win.showContactCS" yhdata="8">联系客服</a></p>
+				</section>
+								<section class="inactive">
+					<h1 class="hidden">移动手机支付</h1>
+					<form id="pform-cm" action="/dousercharge.jsp" method="post" target="_blank" class="form-l" fid="form-268360">
+						<p class="steptitle">充值金额：<em>30</em> 元　获得 <em>200</em> 金币</p>
+						<p class="fitem">即<strong>中国移动通信账户支付</strong>，可使用中国移动全球通、动感地带和神州行手机话费充值</p>
+						<p class="fitem"><label for="pform-usermobile-cm">手机号码：</label><input type="text" name="usermobile" id="pform-usermobile-cm"><span class="verisign" style="display: none;"><span class="icon32 icon32-ok-s"></span><span class="text text-ok"></span></span></p>
+												<p class="fitem"><button type="submit" class="button button-major button-w4">确定充值</button></p>
+						<input type="hidden" name="paytype" value="nmpp">
+						<input type="hidden" name="amount" value="3000">
+						<input type="hidden" name="account" value="f1bb2ebe5c4f3d5de6f4308946e16e4a@tencent.163.com">
+																		<input type="hidden" name="servicetype" value="-1">
+					</form>
+					<p class="cswrap">用移动手机发个短信即可完成充值 <a href="http://yuehui.163.com/helparticle.do?id=129" target="_blank">中国移动通信帐户支付使用帮助</a> 如有疑问，请 <a href="#" yhclickid="win.showContactCS" yhdata="8">联系客服</a></p>
+				</section>
+				<section class="inactive">
+					<h1 class="hidden">联通手机支付</h1>
+					<form id="pform-cu" action="/unicomcharge.do" method="post" class="form-l" fid="form-85978">
+						<p class="steptitle">充值金额：<em>50</em> 元　获得 <em>350</em> 金币</p>
+						<p class="fitem">即<strong>中国联通账户支付</strong>，可使用联通手机话费充值</p>
+						<p class="fitem"><label for="pform-mobile-cu">手机号码：</label><input type="text" name="mobile" id="pform-mobile-cu"><span class="verisign" style="display: none;"><span class="icon32 icon32-ok-s"></span><span class="text text-ok"></span></span></p>
+						<p class="fitem"><label for="pform-authcode-cu">验证码：</label><button type="button" class="js-get-authcode button button-minor button-s" yhcbtntxt="$0 秒后重新获取" yhcbtnsec="60">免费获取验证码</button><input type="text" name="authCode" id="pform-authcode-cu"><span class="verisign" style="display: none;"><span class="icon32 icon32-ok-s"></span><span class="text text-ok"></span></span></p>
+												<p class="fitem"><button type="submit" class="js-submit button button-major button-w4">确定充值</button></p>
+						<input type="hidden" name="paytype" value="cupay">
+						<input type="hidden" name="orderId" value="">
+						<input type="hidden" name="account" value="f1bb2ebe5c4f3d5de6f4308946e16e4a@tencent.163.com">
+					</form>
+					<p class="cswrap">输入手机号码和验证码即可完成充值 <a href="http://yuehui.163.com/helparticle.do?id=5155" target="_blank">中国联通账户支付使用帮助</a> 如有疑问，请 <a href="#" yhclickid="win.showContactCS" yhdata="8">联系客服</a></p>
+				</section>
+								<section class="inactive">
+					<h1 class="hidden">网易宝快捷支付</h1>
+					<form id="pform-ep" action="/dousercharge.jsp" method="post" target="_blank" class="form-l">
+						<p class="steptitle">请选择要充值的金额：<span class="tips">支持 180 多家银行的借记卡和信用卡，无网银也可以轻松付款咯！</span></p>
+						<p class="fitem">
+							<input type="radio" name="amount" id="pform-amount-ep-50" value="50"><label for="pform-amount-ep-50"><span class="amount">50 元</span><span class="coins">获得 <span class="num num-w5">500</span> 金币</span></label>
+						</p>
+						<p class="fitem">
+							<input type="radio" name="amount" id="pform-amount-ep-100" value="100" checked="checked"><label for="pform-amount-ep-100"><span class="amount">100 元</span><span class="coins">获得 <span class="num num-w5">1000</span> 金币</span></label>
+						</p>
+						<p class="fitem">
+							<input type="radio" name="amount" id="pform-amount-ep-200" value="200" checked="checked"><label for="pform-amount-ep-200"><span class="amount">200 元</span><span class="coins">获得 <span class="num num-w5">2000</span> 金币</span></label>
+						</p>
+						<p class="fitem">
+							<input type="radio" name="amount" id="pform-amount-ep-300" value="300"><label for="pform-amount-ep-300"><span class="amount">300 元</span><span class="coins">获得 <span class="num num-w5">3000</span> 金币</span></label>
+						</p>
+						<p class="fitem">
+							<input type="radio" name="amount" id="pform-amount-ep-500" value="500"><label for="pform-amount-ep-500"><span class="amount">500 元</span><span class="coins">获得 <span class="num num-w5">5000</span> 金币</span></label>
+						</p>
+												<p class="fitem"><button type="submit" class="button button-major button-w4">确定充值</button></p>
+						<input type="hidden" name="paytype" value="epay">
+						<input type="hidden" name="account" value="f1bb2ebe5c4f3d5de6f4308946e16e4a@tencent.163.com">
+																		<input type="hidden" name="servicetype" value="-1">
+					</form>
+					<p class="cswrap">网易宝客服电话：020-83918160-2 <a href="http://yuehui.163.com/helparticle.do?id=132" target="_blank">网易宝使用帮助</a> 如有疑问，请 <a href="#" yhclickid="win.showContactCS" yhdata="8">联系客服</a></p>
+				</section>
+								<section class="inactive">
+					<h1 class="hidden">网易点卡</h1>
+					<form id="pform-ec" action="/cardcharge.do" method="post" target="_blank" class="form-l" fid="form-846045">
+						<p class="steptitle">请选择要充值的金额：</p>
+						<p class="fitem">
+							<input type="radio" name="amount" id="pform-amount-ec-300" value="300" checked="checked" yhtotal="300"><label for="pform-amount-ec-300"><span class="amount">300 点</span><span class="coins">获得 <span class="num num-w4">300</span> 金币</span></label>
+						</p>
+						<p class="fitem">
+							<input type="radio" name="amount" id="pform-amount-ec-500" value="500" yhtotal="500"><label for="pform-amount-ec-500"><span class="amount">500 点</span><span class="coins">获得 <span class="num num-w4">500</span> 金币</span></label>
+						</p>
+						<p class="fitem">
+							<input type="radio" name="amount" id="pform-amount-ec-1000" value="1000" yhtotal="1000"><label for="pform-amount-ec-1000"><span class="amount">1000 点</span><span class="coins">获得 <span class="num num-w4">1000</span> 金币</span></label>
+						</p>
+												<div id="pform-ec-tips-need" class="fitem dottedline">
+							<p>您的通行证帐户余额是 <em><span class="js-pform-ec-balance">0</span> 点</em>，还需要支付 <em><span id="pform-ec-points"></span> 点</em></p>
+													</div>
+						<div id="pform-ec-tips-enough" class="fitem dottedline">
+							<p>您的通行证帐户余额是 <em><span class="js-pform-ec-balance">0</span> 点</em>，需要支付 <em><span id="pform-ec-points-enough"></span> 点</em></p>
+													</div>
+						<div id="pform-ec-bnewrap">
+							<p class="fitem">请输入网易点卡的卡号和密码：</p>
+							<p class="fitem">
+								<label for="pform-cardno-ec">卡号：</label>
+								<input type="text" name="cardno" id="pform-cardno-ec">
+							<span class="verisign" style="display: none;"><span class="icon32 icon32-ok-s"></span><span class="text text-ok"></span></span></p>
+							<p class="fitem">
+								<label for="pform-cardpass-ec">密码：</label>
+								<input type="text" name="cardpa" id="pform-cardpass-ec">
+							<span class="verisign" style="display: none;"><span class="icon32 icon32-ok-s"></span><span class="text text-ok"></span></span></p>
+						</div>
+						<p class="fitem"><button type="submit" class="button button-major button-w4">确定充值</button></p>
+						<input type="hidden" name="paytype" value="paycard">
+						<input type="hidden" name="account" value="f1bb2ebe5c4f3d5de6f4308946e16e4a@tencent.163.com">
+																		<input type="hidden" name="servicetype" value="-1">
+					</form>
+				</section>
+							</div>
+		</section>
+	</article>
+</div>

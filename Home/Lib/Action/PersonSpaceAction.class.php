@@ -1,23 +1,59 @@
 <?php
-class PersonSpaceAction extends CommonAction{
+class PersonSpaceAction extends  CommonAction{
+	/* //初始化
+	function _initialize(){
+		//友情链接全部取出
+		//文章取出5条
+		//同校活动取出5条
+		Load('extend');
+		import("ORG.Util.Page");       //载入分页类
+	} */
 	public function index(){
 		//姓名分配
 		//引进约会功能（引诱）
 		$where['vip_type_id']=$_SESSION['vipType'];
-		$member_id=$_SESSION[C('USER_AUTH_KEY')];
+		$member_id=$_SESSION['USER_AUTH_KEY'];
 		$this->assign('Viptype',M('Viptype')->where($where)->select());//确定会员类型
-		$this->assign('Headphoto',M('Member')->where($member_id)->select());//头像
-		//全部好友状态
-		$mood=M()->table("mxczhyk_mood r")->join("mxczhyk_member s on r.member_id=s.member_id")->where('status=1')->order('create_time DESC')->select();
-		$this->assign('mood',$mood);
+		
+		$photowhere['member_id']=$member_id;
+		$photoresult['headphoto']=M('Member')->where($photowhere)->field('headphoto')->select();
+		$this->assign('headphoto',$photoresult['headphoto']);//头像
 		//我的状态
-		$mymood=M('Mood')->where($member_id)->order('create_time DESC')->select();
+		$mymoodmodel=M('Mood');
+		$mymood=$mymoodmodel->where($member_id)->order('create_time DESC')->select();
+		$mymoodCount=$mymoodmodel->where($member_id)->count();
+		$mymoodpage = new Page($mymoodCount, 5);
+		$mymoodshowPage = $mymoodpage->show();
+		$this->assign("mymoodpage", $mymoodshowPage);
 		$this->assign('mymood',$mymood);
-		//关注好友动态(逻辑实现)
-		$attention=M('attention')->where($member_id)->select();
+		
+		//关注好友动态(逻辑没有实现)
+		$attentionModel=M('Attention');
 		$attMood=M('Mood')->where('status=1')->order('create_time DESC')->select();
+		$attCount=$attentionModel->where($member_id)->count();
+		$attpage = new Page($attentionModel, 5);
+		$myattshowPage = $attpage->show();
+		$this->assign("myattshowPag", $mymoodshowPage);
+		//jiujiu币(默认10)
+		$wherepoint['id']=$member_id;
+		$this->assign('mypoint',M('Member_detail')->where($wherepoint)->field('iPoint')->select());
+		
+		//全部动态
+		$Allmodel=M('Mood');
+		$allmood=$Allmodel->where('status=1')->order('create_time DESC')->select();
+		$countallmood=$Allmodel->where('status=1')->order('create_time DESC')->count();
+		$pageallmood = new Page($countallmood, 5);
+		$showAllMoodPage = $pageallmood->show();
+		$this->assign("allmoodpage", $showAllMoodPage);
+		$this->assign("allmood",$allmood);
+		
 		$this->display();
 	}
+	//public function allmood(){
+		//全部好友状态
+		/* $count = M()->table("mxczhyk_mood r")->join("mxczhyk_member s on r.member_id=s.member_id")->where('status=1')->count();
+		$mood=M()->table("mxczhyk_mood r")->join("mxczhyk_member s on r.member_id=s.member_id")->where('status=1')->order('create_time DESC')->select(); */
+		
 	public function personMain(){
 		$this->display();
 	}	
@@ -28,19 +64,28 @@ class PersonSpaceAction extends CommonAction{
 	public function addMood(){
 		$data['content']=$_POST['content'];
 		$data['create_time']=time();
-		$data['username']=$_SESSION['loginUserName'];
+		$data['username']=$_SESSION['USER_AUTH_KEY'];
 		$data['member_id']=$_SESSION[C('USER_AUTH_KEY')];
 		$result=M('Mood')->add($data);
 		if($result){
+			$exit=success;
+		}else{
+			$exit=0;
+		}
+		echo json_encode($exit);
+		/* if($result){
 			$this->success('发表成功');
 		}else {
 			$this->error('发表失败！请重新发表！');
-		}
+		} */
 		
+	}
+	public function qiandao(){
+		$model=M('');
 	}
 	public function ListTerm(){
 		//显示择偶条件表
-		$member_id=$_SESSION[C('USER_AUTH_KEY')];
+		$member_id=$_SESSION['USER_AUTH_KEY'];
 		$marriage_term=M('marriage_term');
 		if (IS_POST) {
 			$data=$marriage_term->create();
@@ -59,6 +104,23 @@ class PersonSpaceAction extends CommonAction{
 		//显示爱情宣言
 		$this->display();
 	}	 
+	public function changePass(){
+		//修改密码
+		$id  =  $_POST['id'];
+        $password = $_POST['password'];
+        if(''== trim($password)) {
+        	$this->error('密码不能为空！');
+        }
+        $User = M('User');
+		$User->password	=	md5($password);
+		$User->id =	$id;
+		$result	=	$User->save();
+        if(false !== $result) {
+            $this->success("密码修改为$password");
+        }else {
+        	$this->error('重置密码失败！');
+        }
+	}	 
 	public function ListBelief(){
 		//显示信仰
 		$this->display();
@@ -76,7 +138,18 @@ class PersonSpaceAction extends CommonAction{
 		$this->display();
 	}	
 	public function ListPhoto(){
-		//显示相册页面
+		//显示相册页面(相册没有完成，只是照片)
+		$where['member_id']=$_SESSION['USER_AUTH_KEY'];
+		$where['status']="1";
+		$photo=M('Photo')->where($where)->select();
+		if (!empty($photo)) {
+			$wherePhoto['photo_id']=$photo[0]['photo_id'];
+			$wherePhoto['status']="1";
+			$photo_detail=M('Photo_detail')->where($where)->select();
+			$this->assign('photoDetail',$photo_detail);
+		}else {
+			$this->assign('photoDetail','你的相册中暂时还没有照片，为了让大家尽快认识你，尽快上传啊！');
+		}
 		$this->display();
 	}	
 	public function ListVipUpgrade(){
@@ -95,7 +168,21 @@ class PersonSpaceAction extends CommonAction{
 		//处理升级管理
 	}
 	public function ListArticle(){
-		//显示推荐文章
+		//显示文章
+		$map['islock'] = array('eq',1);			
+		//分页取数据
+		import("ORG.Util.Page");
+		$Article = D("Article");			
+		$count = $Article->where($map)->count(); 
+		$Page = new Page($count,3);
+		$show = $Page->show(); 
+		$list = $Article->where($map)->order('sort DESC,update_time DESC')->limit($Page->firstRow.','.$Page->listRows)->select();
+		$whereDiscuss['aid']=$list[0]['article_id'];
+		$countDiscuss = M('Article_discuss')->where($whereDiscuss)->count();
+		$this->assign('list',$list);
+		$this->assign('countDiscuss',$countDiscuss);
+		$this->assign('keywords',$Article->where($map)->order('sort DESC,update_time DESC')->limit(7)->field('keywords')->select());
+		$this->assign('page',$show);
 		$this->display();
 	}	
 	public function ListArticleAdd(){
@@ -103,10 +190,14 @@ class PersonSpaceAction extends CommonAction{
 		$this->display();
 	}	
 	public function ListActivity(){
-		//显示活动
-		$where['member_id']=$_SESSION[C('USER_AUTH_KEY')];
-		$list=M('Activity')->where($where)->select();
-		$this->assign('list',$list);
+		//显示我的活动
+		$where['member_id']=$_SESSION['USER_AUTH_KEY'];
+		$where['isLock']="1";
+		$mylistAct=M('Activity')->where($where)->select();
+		$this->assign('mylistAct',$mylistAct);
+		//全部活动
+		$alllistAct=M('Activity')->where('isLock=1')->select();
+		$this->assign('alllistAct',$alllistAct);
 		$this->display();
 	}	
 	public function upfileHeadPhoto(){

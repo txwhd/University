@@ -1,0 +1,61 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+ <html>
+ <head>
+ <include file="Common:intoHead" />
+ </head>
+ <body>
+ <div id="Right">
+                    <div class="Item hr">
+                        <div class="current">择偶条件信息</div>
+                    </div>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
+                            <tr>
+                                <th width="100">城市要求：</th>
+                                <td><input id="city" type="text" class="input" size="60" name="city" value="{$info[0]['city']}"/></td>
+                            </tr>
+                             <div class="form-group">
+	                           <label class="col-xs-3 control-label">城市：</label>
+							    <div class="form-group">
+									<select id="s_province" name="province"></select>&nbsp;&nbsp;
+								    <select id="s_city" name="city" ></select>&nbsp;&nbsp;
+								    <!-- <select id="s_county" name="s_county"></select> -->
+								    <script type="text/javascript">_init_area();</script>
+								    </div>
+								    <div id="show"></div>
+	                    	  </div>
+                           <!--  <tr>
+                                <th width="100">年龄范围：</th>
+                                <td><input id="old" type="text" class="input" size="60" name="old" value="{$info[0]['old']}"/></td>
+                            </tr> -->
+                            <tr>
+                                <th width="100">身高范围：</th>
+                                <td><input id="high" type="text" class="input" size="60" name="high" value="{$info[0]['high']}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="100">性格要求：</th>
+                                <td><input id="character" type="text" class="input" size="60" name="character" value="{$info[0]['character']}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="100">用户爱好：</th>
+                                <td><input id="objectFan" type="text" class="input" size="60" name="objectFan" value="{$info[0]['objectFan']}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="100">民族要求：</th>
+                                <td><input id="Nation" type="text" class="input" size="60" name="Nation" value="{$info[0]['Nation']}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="100">学历要求：</th>
+                                <td><input id="academy" type="text" class="input" size="60" name="academy" value="{$info[0]['academy']}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="100">国籍：</th>
+                                <td><input id="nationality" type="text" class="input" size="60" name="nationality" value="{$info[0]['nationality']}"/></td>
+                            </tr>
+                            <tr>
+                                <th width="100">创建时间：</th>
+                                <td><input id="create_time" type="text" class="input" size="60" name="create_time" value="{$info[0]['create_time']|date="Y-m-d H:i:s",###}"/></td>
+                            </tr>
+                        </table>
+                </div>
+ </body>
+ </html>

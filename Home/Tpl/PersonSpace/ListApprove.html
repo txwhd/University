@@ -1,23 +1,37 @@
 <include file="Common:intoHead" />
 <div class="panel panel-info">
 	<ul class="nav nav-tabs" id="myTab">
-	  <li ><a href="#mobile" data-toggle="tab">手机验证</a></li>
+	  <li class="active"><a href="#mobile"  data-toggle="tab">手机验证</a></li>
 	  <li ><a href="#email" data-toggle="tab">邮箱验证 </a></li>
-	  <li><a href="#video" data-toggle="tab">视频验证</a></li>
+	 <!--  <li><a href="#video" data-toggle="tab">视频认证</a></li> -->
+	  <li><a href="#trueName" data-toggle="tab">实名认证</a></li>
 	</ul>
 	<div class="tab-content">
 	  <div class="tab-pane fade in active" id="mobile">
-	  	<volist name="Activity1" id="vo">
-		  	<p>{$vo.title}</p>
-	  	</volist>
-	  	<p>sadfadsfasf</p>
+	  	<p>请填写你的真实手机号码，点击"免费获取验证码"，填写验证码后再提交！</p>
+	  	<form action="" method="post">
+	  	<div class="form-group">
+            <label class="col-xs-3 control-label">手机：</label>
+            <div class="col-xs-6">
+               <input class="form-control" type="text" meg="手机" validate="required,Mobile,ifexit_Mobile" name="Mobile" id="Mobile"/><a href="" >免费获取验证码</a>
+               <span id="Mobile_message" class="myerror"></span>
+            </div>
+        </div> 
+	  	<div class="form-group">
+            <label class="col-xs-3 control-label">验证码：</label>
+            <div class="col-xs-6">
+               <input class="form-control" type="text" meg="手机" validate="required,Mobile,ifexit_Mobile" name="Mobile" id="Mobile"/><a href="" >免费获取验证码</a>
+               <span id="Mobile_message" class="myerror"></span>
+            </div>
+        </div> 
+		 </form>
 	  </div>
-	  <div class="tab-pane fade in active" id="email">
-	  		<p>sadfadsfasf</p>
+	  <div class="tab-pane fade " id="email">
+	  		<p>你的注册邮箱是<span class="reg_email">123</span>目前还没有通过邮箱验证，请确认你的邮箱地址是否正确，再进行验证！</p>
+	  		<p><a href="" class="btn btn-large btn-primary">马上验证邮箱</a></p>
+	  		<p>如果邮箱地址不正确或者不是常用邮箱，<span><a href="">请点击修改</a></span></p>
 	  </div>
 	  <div class="tab-pane fade" id="video">
-	  	<volist name="Activity2" id="vo">
-		  	<p>{$vo.title}</p>
 		  	<!-- 
 		  	确认您的视频设备已与电脑连接好，并能正常使用
 当网页弹出“yuehui.163.com 正在请求使用您的摄像头和麦克风”时，请选择“允许”
@@ -25,7 +39,11 @@
 查看照片效果，如果满意请点“保存”，不满意请点“重拍”
 如果多次拍摄，新保存的照片将覆盖旧的照片
 		  	 -->
-	  	</volist>
+	  </div>
+	  <div class="tab-pane fade" id="trueName">
+		  	<p>为了给你一个安全，诚信的交友环境，邀99大学生恋爱网施行实名制注册及其认证</p>
+		  	<p>你只有一次验证的机会，请核对真实的信息再提交！</p>
+		  	<p><a href="" class="btn btn-large btn-primary">免费认证</a></p>
 	  </div>
 	</div>
 </div>

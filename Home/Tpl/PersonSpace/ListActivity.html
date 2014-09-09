@@ -7,17 +7,17 @@
 	</ul>
 	<div class="tab-content">
 	  <div class="tab-pane fade in active" id="myActivity">
-	  	<volist name="Activity1" id="vo">
-		  	<p>{$vo.title}</p>
+	  	<volist name="mylistAct" id="vo">
+		  	<p><span>{$vo.title}</span><span>{$vo.create_time}</span><span><a href="#" id="editAct">[修改]</a></span><span><a href="#" id="editAct">[删除]</a></span></p>
 	  	</volist>
-	  	<p>sadfadsfasf</p>
 	  </div>
 	  <div class="tab-pane fade in active" id="joinActivity">
-	  		<p>sadfadsfasf</p>
+	  <volist name="alllistAct" id="vo">
+		  	<p><span>{$vo.title}</span><span>{$vo.create_time}</span><span><a href="" id="joinAct">[我要参加]</a></span></p>
+	  	</volist>
 	  </div>
 	  <div class="tab-pane fade" id="addActivity">
-	  	<volist name="Activity2" id="vo">
-		  	<p>{$vo.title}</p>
+	  	<volist name="Activity1" id="vo">
 	  	</volist>
 	  </div>
 	</div>

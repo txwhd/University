@@ -9,107 +9,102 @@
 <body>
 <include file="Common:search" />
 <div class="container" >
-<div id="person-centre">
-<div id="person-centre-left" >
-	<div id="person-head">
-		<div class="person-photo">
-			<empty name="$Headphoto.Headphoto"><a href="__URL__/ListHeadPhoto" target="iframepage" title="点击修改头像">
-				<img class="img-thumbnail" src="__IMG__/Home/defaultHead.png"/>
-				</a>
-				<else/>
-					<div class="item active">
-						<img class="img-thumbnail" src="$Headphoto[0]['Headphoto']"/>
-					<div class="carousel-caption">
-							<p><a href="__URL__/ListHeadPhoto" target="iframepage">点击修改头像</a></p>
-						</div>
-					</div>
-			</empty>
-		</div>
-		<div>
-			<div class="account-details">
-				<span class="account-name">{$Think.session.loginUserName}</span>
-				<div>
-					<span class="account-role">
-						<a href="__URL__/Vip?id={$Viptype[0]['vip_type_id']}">{$Viptype[0]['vip_name']}</a>
+ <div id="person-center-left" >
+			<div id="person-head" >
+			    <div class="img-right">
+			      <a href="__URL__/ListHeadPhoto" target="iframepage" >
+			       <img class="img-thumbnail" alt="点击修改头像" <empty name="headphoto">src="__IMG__/Home/defaultHead.png"
+					<else/> src="__UPLOAD__/HeadPhoto/thumb/{$headphoto[0]['headphoto']}"
+					</empty> />
+			      </a>
+			    </div>
+			     <div class="img-left">
+			    	<p class="account-name text-center"><a href="{:U('Member/detail/',array('id'=>$Think.session.USER_AUTH_KEY))}" >{$Think.session.loginUserName}</a>
+					<a href="__URL__/ListVipUpgrade" target="iframepage" title="升级VIP"><span class="no-vip" style="background:url(__IMG__/Home/vip.png)"></span></a>
+					</p>
+					 <p class="account-name text-center">
+					 <a href="__URL__/ListHeadPhoto" target="iframepage" >上传形象照片</a>
+					</p> 
+					 <p class="account-name text-center">
+					  <a href="__URL__/Vip?id={$Viptype[0]['vip_type_id']}">{$Viptype[0]['vip_name']}</a>
 						<if condition="$Viptype.vip_name eq 钻石级会员 ">
-						<else/><span class="label label-warning">
-						<a href="__URL__/ListVipUpgrade" target="iframepage">升级会员</a>
-						</span>
+							<else/><span class="label label-warning">
+							<a href="__URL__/ListVipUpgrade" target="iframepage">升级会员</a>
+							</span>
 						</if>
-					</span>
-				</div>
-				<div>
-				<span class="account-actions">
-					<a href="javascript:;">个人资料</a> |
-					<a href="javascript:;">编辑资料</a>
-				</span>
-				</div>
-			</div> 
-		</div>
+					</p> 
+			  	 </div>
+			</div>
+	<div id="person-nav">
+		<ul class="">
+		<!-- 	<li><a href="__URL__/pers"  target="iframepage"><strong class="label label-important  pull-right">6</strong><span class="glyphicon glyphicon-heart"></span>心情</a></li> -->
+		<li><a href="__URL__/share"  target="iframepage"><strong class="label label-important  pull-right">6</strong><span class="glyphicon glyphicon-share"></span>分享</a></li> 
+			<li><a href="__URL__/ListPhoto" target="iframepage"><strong class="label label-important pull-right">6</strong><span class="glyphicon glyphicon-picture"></span>照片</a></li>
+			<li><a href="__URL__/ListArticle" target="iframepage"><strong class="label label-important pull-right">6</strong><span class="glyphicon glyphicon-pencil"></span>写写爱情</a></li>
+			<li><a href="__URL__/ListArticleAdd" target="iframepage"><strong class="label label-important pull-right">6</strong><span class="glyphicon glyphicon-envelope"></span>发邮件</a></li>
+			<li><a href="__URL__/Mailbox" target="iframepage"><strong class="label label-important pull-right">6</strong><span class="glyphicon glyphicon-plus"></span>关注</a></li>
+			<li><a href="__URL__/ListActivity" target="iframepage"><strong class="label label-important pull-right">6</strong><span class="glyphicon glyphicon-new-window"></span>校园活动</a></li>
+		</ul>
 	</div>
-<div id="person-nav">
-<ul class="">
-<li><span class="label label-important pull-right">04</span><a href="__URL__/personMain" target="iframepage"><i class="batch plane"></i><br />心情</a></li>
-<li><a href="__URL__/ListPhoto" target="iframepage">照片</a></li>
-<li><a href="__URL__/ListArticleAdd" target="iframepage">写写爱情</a></li>
-<li ><a href="__URL__/ListPhoto" target="iframepage">邮件</a></li>
-<li ><a href="__URL__/ListPhoto" target="iframepage">关注</a></li>
-<li><a href="__URL__/ListActivity" target="iframepage">活动</a></li>
-</ul>
-</div>
-<div class="panel-group" id="accordion">
-  <div class="panel">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapsea">
-          	个人档案</a>
-      </h4>
-    </div>
-    <div id="collapsea" class="panel-collapse collapse  in">
-      <div class="panel-body">
-      <ul class="nav nav-pills nav-stacked">
-		  <li><a href="__URL__/ListIntro" target="iframepage">个人资料  </a></li>
-		  <li><a href="__URL__/ListTerm" target="iframepage">择偶条件</a></li>
-		  <li><a href="__URL__/ListApprove" target="iframepage">诚信验证</a></li>
-		</ul>
-      </div>
-    </div>
-  </div>
-  <div class="panel">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapsec">
-         服务中心
-        </a>
-      </h4>
-    </div>
-    <div id="collapsec" class="panel-collapse collapse in">
-      <div class="panel-body">
-		<ul class="nav nav-pills nav-stacked">
-				<li><a href="__URL__/ListPay" target="iframepage">账号充值</a></li>
-			  	<li><a href="__URL__/ListVipUpgrade" target="iframepage">会员升级 </a></li>
-		</ul>
-    </div>
-  </div>
-</div>
-</div>
-</div>
+	<div class="panel-group">
+	  <div class="panel">
+	      <h6 class="jiujiubi text-center">
+   				<a href="__URL__/jiujiubi" ><span>我的久久币</span>{$mypoint[0]['mypoint']}</a>
+   				<a href="__URL__/pay"><span>充值</span></a>
+   				<a href="__URL__/ListVipUpgrade" target="iframepage"><span id="shengji">升级VIP</span></a>
+	      </h6>
+	  </div>
+	  <div class="panel">
+	    <div class="panel-heading">
+	      <h4 class="panel-title">
+	        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapsea">
+	          	个人档案</a>
+	      </h4>
+	    </div>
+	    <div id="collapsea" class="panel-collapse collapse  in">
+	      <div class="panel-body">
+	      <ul class="nav nav-pills nav-stacked">
+			  <li><a href="__URL__/ListIntro" target="iframepage"><span class="glyphicon glyphicon-edit"></span><span>个人资料</span></a></li>
+			  <li><a href="__URL__/ListTerm" target="iframepage"><span class="glyphicon glyphicon-tasks"></span><span>择偶条件</span></a></li>
+			</ul>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="panel">
+	    <div class="panel-heading">
+	      <h4 class="panel-title">
+	        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapsec">
+	         服务中心
+	        </a>
+	      </h4>
+	    </div>
+	    <div id="collapsec" class="panel-collapse collapse in">
+	      <div class="panel-body">
+			<ul class="nav nav-pills nav-stacked">
+					<li><a href="__URL__/ListPay" target="iframepage"><span class="glyphicon glyphicon-usd"></span><span>账号充值</span></a></li>
+				  	<li><a href="__URL__/ListVipUpgrade" target="iframepage"><span class="glyphicon glyphicon-share-alt"></span><span>会员升级</span> </a></li>
+				  	 <li><a href="__URL__/ListApprove" target="iframepage"><span class="glyphicon glyphicon-heart"></span><span>诚信验证</span></a></li>
+			</ul>
+	    </div>
+	  </div>
+	</div>
+	</div>
+	</div>
 <div id="person-centre-right" class="panel">
-<div id="leamain">
-     <iframe src="__URL__/personMain"style="width:758px;"" marginheight="0" marginwidth="0" frameborder="0" scrolling="no" width="758px" height=100% id="iframepage" name="iframepage" onLoad="iFrameHeight()" ></iframe>
-	<script type="text/javascript" language="javascript">
-	    function iFrameHeight() {
-	        var ifm= document.getElementById("iframepage");
-	       // var ifm= 700px;怎么设置一个最小的高度呢
-	        var subWeb = document.frames ? document.frames["iframepage"].document :
-			ifm.contentDocument;
-	            if(ifm != null && subWeb != null) {
-	            ifm.height = subWeb.body.scrollHeight;
-	        }
-	    }
-	</script> 
-</div>
-</div>
+	<div id="leamain">
+	     <iframe src="__URL__/personMain"style="width:766px;marginheight="0" marginwidth="0" frameborder="0" scrolling="no" height=100% id="iframepage" name="iframepage" onLoad="iFrameHeight()" ></iframe>
+		<script type="text/javascript" language="javascript">
+		    function iFrameHeight() {
+		        var ifm= document.getElementById("iframepage");
+		       // var ifm= 700px;怎么设置一个最小的高度呢
+		        var subWeb = document.frames ? document.frames["iframepage"].document :
+				ifm.contentDocument;
+		            if(ifm != null && subWeb != null) {
+		            ifm.height = subWeb.body.scrollHeight;
+		        }
+		    }
+		</script> 
+	</div>
 </div>
 </div>
 <include file="Common:foot" />

@@ -67,4 +67,15 @@ class ArticleAction extends CommonAction{
 		//首页显示的一小块
 		$this->assign('loveStrategy',M('Article')->where("islock=1 AND cid=1")->order('update_time DESC')->limit(5)->select());
 	}
+	//发表留言
+	public function add(){
+			$data = $_POST;
+			$data['ip'] = get_client_ip();
+			$data['add_time'] = time();
+			if(D('Message')->add($data)){
+				echo '<div class="pop">发表成功，请等待审核！</div>';
+			}else{
+				echo '<div class="pop">发表失败！</div>';
+			}
+		}
 }

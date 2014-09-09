@@ -4,65 +4,32 @@
 <include file="Public:meta" />
 <include file="Common:head" />
 <include file="Common:intoHead" />
-<!-- jquery ui -->
+<script type="text/javascript" src="__JS__/Home/Reg.js"></script>
+ <script language="javascript" type="text/javascript" src="__JS__/My97DatePicker/WdatePicker.js"></script>
 </head>
 <body>
-<script type="text/javascript" src="__JS__/Home/Reg.js"></script>
-<div class="container">
-	<div class="row">
-        <div class="col-md-6">
-  <div id="carousel-example-generic" class="carousel slide">
-	  <ol class="carousel-indicators">
-	    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-	    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-	    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-	  </ol>
-		<div class="carousel-inner">
-			<div class="item active">
-				<img src="__IMG__/Home/photojs/01.jpg" alt="" />
-				<div class="carousel-caption">
-					<p>Riot设计师：细谈联盟系统及MMR系统的优缺点</p>
-				</div>
-			</div>
-			<div class="item">
-				<img src="__IMG__/Home/photojs/02.jpg" alt="" />
-				<div class="carousel-caption">
-					<div><p>Riot设计师：细谈联盟系统及MMR系统的优缺点</p></div>
-				</div>
-			</div>
-		
-			<div class="item">
-				<img src="__IMG__/Home/photojs/03.jpg" alt="" />
-				<div class="carousel-caption">
-					<p>Riot设计师：细谈联盟系统及MMR系统的优缺点</p>
-				</div>
-			</div>				
-
-		</div>
-  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left">&lsaquo;</span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right">&rsaquo;</span>
-  </a>
-			</div>
-		</div>
-		<div class="col-md-6">
-	            <div class="single-panel-header">
-	                <h3><a href="#" class="btn btn-large btn-primary disabled">注册新用户</a></h3>
-	            </div>
-	            <div class="single-panel-body">
-                    <form  class="form-horizontal" onsubmit="return Reg.onsubmit(this);" method="post"  action="__URL__/dealReg">
+<include file="Common:search" />
+<div class="index-body">
+	<div class="index-site"> 
+		<i class="glyphicon icon-tags"></i>首页-> 会员注册
+	</div>
+	<div class="reg-margin">
+		 <div class="welcome">
+	          <h3><a href="#" class="btn btn-large btn-primary disabled">欢迎您加入邀99恋爱大家庭！</a></h3>
+	          <span class="right-login">已经有账户：<a  href="__APP__/Login/login"><i class="glyphicon glyphicon-log-in"></i>立即登录</a></span>
+	      </div>
+	        <hr class="bg-horizontal">
+		<div class="reg-body">
+              <form  class="form-horizontal" onsubmit="return Reg.onsubmit(this);" method="post"  action="__URL__/dealReg">
 	                     <div class="form-group">
-	                           <label class="col-xs-3 control-label">我想找</label>
+	                           <label class="col-xs-3 control-label">我是：</label>
 	                           <div class="col-xs-6">
-	                           		<label class="checkbox-inline">
-									  <input type="radio" name="gender" id="gender"/>男朋友
+										<label class="checkbox-inline">
+										 <input type="checkbox" name="gender" value="2" id="gender"/>女同学
+										</label>
+										<label class="checkbox-inline">
+									  <input type="checkbox" name="if_overseas" value="2" id="if_overseas"/>留学生
 									</label>
-									<label class="checkbox-inline">
-									 <input type="radio" name="gender" id="gender"/>女朋友
-									</label>
-									<span id="gender_message" class="myerror"></span>
 	                           </div>
 	                      </div>
 	                    <div class="form-group">
@@ -73,16 +40,18 @@
 	                      </div>
 	                    <div class="form-group">
 	                           <label class="col-xs-3 control-label">城市：</label>
-                               <div id="city_2">
-							  		<select class="prov"></select> 
-							    	<select class="city" disabled="disabled"></select>
-							        <select class="dist" disabled="disabled"></select>
-							    </div>
+							    <div class="form-group">
+									<select id="s_province" name="province"></select>&nbsp;&nbsp;
+								    <select id="s_city" name="city" ></select>&nbsp;&nbsp;
+								    <!-- <select id="s_county" name="s_county"></select> -->
+								    <script type="text/javascript">_init_area();</script>
+								    </div>
+								    <div id="show"></div>
 	                      </div>
                         <div class="form-group">
                             <label class="col-xs-3 control-label">出生年月：</label>
                             <div class="col-xs-6">
-                              <input type="text" class="form-control" name="birthday" meg="出生年月"id="birthday" validate="required" onblur="Reg.validate(this)"/>
+                              <input type="text" class="form-control" name="birthday" meg="出生年月" id="birthday" onblur="Reg.validate(this)" onClick="WdatePicker()" />
                                <span id="birthday_message" class="myerror"></span>
                             </div>
                         </div>
@@ -132,7 +101,7 @@
 						    <div class="col-sm-offset-3 col-sm-10">
 						      <div class="checkbox">
 						        <label>
-						          <input type="checkbox">同意我们的<a href="#terms" data-toggle="modal" data-target="#terms">服务条款</a>
+						          <input type="checkbox" name="terms" id="radioTerm" checked >同意我们的<a href="#terms" data-toggle="modal" data-target="#terms">服务条款</a>
 						        </label>
 						      </div>
 						    </div>
@@ -144,11 +113,10 @@
 	                      </div>
 	                    </div>
                     </form>
-	      </div>
 	     </div>
 	</div>  
-</div>  
-					<!-- Modal -->
+		</div>			
+		<!-- Modal -->
 <div class="modal fade" id="terms" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -167,7 +135,8 @@
 	  </div>
 </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
-</div>
+</div>  
+<include file="Common:foot" />
  </body>
 <!--  <script src="__JS__/Home/validate/jquery.validate.js"></script>
  <script src="__JS__/Home/validate/jquery.metadata.js"></script> 
@@ -175,6 +144,13 @@
  <script type="text/javascript" src="__JS__/Home/jquery-ui-1.9.2.custom.min.js"></script> -->
  <script type="text/javascript"  src="__JS__/Home/common.data.js"></script>
  <script type="text/javascript">
+	 $(function(){
+	    $("#radioTerm").click(function(){
+	        if($(this).attr('checked')){
+	                $("#radioTerm").not($(this)).attr('checked',false);
+	         }       
+	    });
+	});
 	 var nationNameContent = $('#nationNameContent'),
 	 html=[];
 	 html.push('<select name="nationName" id="nationName">');
@@ -191,6 +167,7 @@
 		/* html.length>0 && nationNameContent.append(html.join(''));  */
 		$("#nationNameContent").html(html.join(""));
 	 	$("#nationName option[value='{$list[0]['nationName']}']").attr("selected",true);
+
 		
  /**
   * 添加民族选项
@@ -237,5 +214,13 @@
             	 $("#email").autocomplete({
             	     source: availableTags
             	 });   */
+            	 /* 省份 */
+            	 var Gid  = document.getElementById ;
+					var showArea = function(){
+						Gid('show').innerHTML = "<h3>省" + Gid('s_province').value + " - 市" + 	
+						Gid('s_city').value + " - 县/区" + 
+						Gid('s_county').value + "</h3>"
+												}
+					Gid('s_county').setAttribute('onchange','showArea()');
         </script>
 </html>
