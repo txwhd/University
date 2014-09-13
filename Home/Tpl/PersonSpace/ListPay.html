@@ -1,3 +1,10 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ <include file="Common:intoHead" />
+</head>
+<body>
 <div id="page-charge" class="page">
 	<article class="paper paper-wob">
 		<h1 class="hidden">充值</h1>
@@ -5,16 +12,17 @@
 			<h1 class="hidden">充值方式</h1>
 			<div class="tabrow">
 				<ul id="cmlist-tabwrap" class="tabwrap">
-					<li class="active tab-w5"><a href="#">网上银行<span class="wordicon">赠</span></a></li>
+					<!-- <li class="active tab-w5"><a href="#">网上银行<span class="wordicon">赠</span></a></li> -->
 					<li class="inactive tab-w4"><a href="#">支付宝<span class="wordicon">赠</span></a></li>
-					<li class="inactive tab-w5"><a href="#">手机充值卡</a></li>
-										<li class="inactive tab-w6"><a href="#">移动手机支付</a></li>
+					<!-- <li class="inactive tab-w5"><a href="#">手机充值卡</a></li> -->
+					<li class="inactive tab-w6"><a href="#">移动手机支付</a></li>
 					<li class="inactive tab-w6"><a href="#">联通手机支付</a></li>
-										<li class="inactive tab-w7"><a href="#">网易宝快捷支付</a></li>
-					<li class="inactive tab-w4" yhclickid="charge.switch2ECardTab"><a href="#">网易点卡</a></li>				</ul>
+					<!-- <li class="inactive tab-w7"><a href="#">网易宝快捷支付</a></li>
+					<li class="inactive tab-w4" yhclickid="charge.switch2ECardTab"><a href="#">网易点卡</a></li>	
+				</ul> -->
 			</div>
 			<div id="cmlist-contentwrap" class="contentwrap tabcontentwrap">
-				<section class="active">
+				<!-- <section class="active">
 					<h1 class="hidden">网上银行</h1>
 					<form id="pform-nb" action="/dousercharge.jsp" method="post" target="_blank" class="form-l">
 						<p class="steptitle">请选择要充值的金额：</p>
@@ -86,7 +94,7 @@
 																		<input type="hidden" name="servicetype" value="-1">
 					</form>
 					<p class="cswrap"><a href="http://yuehui.163.com/helparticle.do?id=131" target="_blank">网上银行使用帮助</a> 如有疑问，请 <a href="#" yhclickid="win.showContactCS" yhdata="8">联系客服</a></p>
-				</section>
+				</section> -->
 				<section class="inactive">
 					<h1 class="hidden">支付宝</h1>
 					<form id="pform-ap" action="/dousercharge.jsp" method="post" target="_blank" class="form-l">
@@ -113,7 +121,7 @@
 					</form>
 					<p class="cswrap">支付宝客服电话：0571-88156688 <a href="http://yuehui.163.com/helparticle.do?id=130" target="_blank">支付宝使用帮助</a> 如有疑问，请 <a href="#" yhclickid="win.showContactCS" yhdata="8">联系客服</a></p>
 				</section>
-				<section class="inactive">
+				<!-- <section class="inactive">
 					<h1 class="hidden">手机充值卡</h1>
 					<form id="pform-sz" action="/dousercharge.jsp" method="post" target="_blank" class="form-l">
 						<p class="steptitle">请选择充值金额：<span class="tips">买手机充值卡在本页面充值，请勿充到手机内</span></p>
@@ -138,8 +146,8 @@
 																		<input type="hidden" name="servicetype" value="-1">
 					</form>
 					<p class="cswrap"><a href="http://yuehui.163.com/helparticle.do?id=128" target="_blank">手机充值卡使用帮助</a> 如有疑问，请 <a href="#" yhclickid="win.showContactCS" yhdata="8">联系客服</a></p>
-				</section>
-								<section class="inactive">
+				</section> -->
+				<section class="inactive">
 					<h1 class="hidden">移动手机支付</h1>
 					<form id="pform-cm" action="/dousercharge.jsp" method="post" target="_blank" class="form-l" fid="form-268360">
 						<p class="steptitle">充值金额：<em>30</em> 元　获得 <em>200</em> 金币</p>
@@ -167,7 +175,7 @@
 					</form>
 					<p class="cswrap">输入手机号码和验证码即可完成充值 <a href="http://yuehui.163.com/helparticle.do?id=5155" target="_blank">中国联通账户支付使用帮助</a> 如有疑问，请 <a href="#" yhclickid="win.showContactCS" yhdata="8">联系客服</a></p>
 				</section>
-								<section class="inactive">
+								<!-- <section class="inactive">
 					<h1 class="hidden">网易宝快捷支付</h1>
 					<form id="pform-ep" action="/dousercharge.jsp" method="post" target="_blank" class="form-l">
 						<p class="steptitle">请选择要充值的金额：<span class="tips">支持 180 多家银行的借记卡和信用卡，无网银也可以轻松付款咯！</span></p>
@@ -228,8 +236,10 @@
 						<input type="hidden" name="account" value="f1bb2ebe5c4f3d5de6f4308946e16e4a@tencent.163.com">
 																		<input type="hidden" name="servicetype" value="-1">
 					</form>
-				</section>
-							</div>
+				</section> -->
+		</div>
 		</section>
 	</article>
 </div>
+</body>
+</html>

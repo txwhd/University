@@ -10,7 +10,10 @@ class MemberAction extends  CommonAction{
     	$list   =  $M->relation(true)->where($where)->select();
     	/* dump($list);
     	exit(); */
-    	$this->assign('detail',$list);
-    	$this->display();
+    	$this->assign('info',$list);
+	}
+	//约会
+	public function appointment(){
+		$this->display();
 	}
 }
