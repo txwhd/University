@@ -35,7 +35,11 @@ h2{
 button{
 	background:#FF6699;
 }
-p{ text-indent:2em; padding:0px; margin:0px; }
+p{ 
+	text-indent:2em; 
+	padding:0px; 
+	margin:0px;
+}
 /* button的样式自定义 */
 .button-caution{
 	background:#FF6699 repeat-x;
