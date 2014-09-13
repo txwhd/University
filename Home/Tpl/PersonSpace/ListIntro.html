@@ -13,6 +13,18 @@
 			<th>昵称</th>
 			<td><input type="text" /></td>
 			<th>英文名字</th>
+			<div class="col-form">
+					<label>我的学历：</label>
+					<dl class="za-selector" id="MyEducation" style="width: 162px; position: relative;">
+						<dt class="arrow">高中及以下</dt>
+						<dd style="display: block;">
+							<input data-check="#MyEducationCheck" id="MyEducationInput" type="hidden" name="baseInfo.education" value="3">
+						<a data-value="3" href="javascript:;">高中及以下</a><a data-value="2" href="javascript:;">中专</a><a data-value="4" href="javascript:;">大专</a><a data-value="5" href="javascript:;">大学本科</a><a data-value="6" href="javascript:;">硕士</a><a data-value="7" href="javascript:;">博士</a></dd>
+					</dl>
+					<div id="MyEducationCheck" class="check-form check-form-ok" data-tip="此项注册后不可修改，请慎重填写" data-worning="请选择&quot;学历&quot;" style="display: block;">
+						<i></i><span>此项注册后不可修改，请慎重填写</span><b></b><em></em>
+					</div>
+				</div>
 			<td><input type="text" /></td>
 			</tr>
 			<tr class="success">
@@ -217,6 +229,33 @@
 
 					</td>
 			</tr>
+			<div class="tody-reg-stutas">
+					今天已有 <span id="CurRegNum">32265</span> 位新会员加入珍爱网
+				</div>
+				<!-- .tody-reg-stutas {
+margin: 0 15px 15px;
+padding-left: 110px;
+color: #666;
+font-size: 12px;
+background-image: url("http://images.zastatic.com/zhenai3/zhenai2012/img/layer/entry/border.png");
+background-repeat: repeat-x;
+padding-top: 15px;
+background-position: 0 5px;
+}
+.tody-reg-stutas span {
+font-weight: 700;
+font-size: 14px;
+color: #FF6000;
+}
+ -->
+ <script type="text/javascript">
+				(function(){
+					var D = new Date(),
+						h = D.getHours(),
+						m = D.getMinutes();
+					$('#CurRegNum').html( (h*60+m)*27 );
+				})();
+				</script>
 				<tr class="info">
 				<th>个性签名</th>
 				<td  colspan="4"><textarea name="#" ></textarea></td>
@@ -229,7 +268,156 @@
 		</div>
 	</div>
 </div>
-
-</div>
  </body>
+<script>
+	new ZARadio({
+		id: '#SexRadio',
+		value: '',
+		data: [[0,'男士'],[1,'女士']]
+	});
+	new ZABirthdaySelector({
+		id:'#BirthdaySelector'
+	});
+	new ZAdistrictSelector({
+		id:'#DistrictSelector'
+	});
+	new ZARadio({
+		id: '#MaritalStatus',
+		value: $("#tempMarriage").val()==''?1:$("#tempMarriage").val(),
+		data: [[1,'未婚'],[3,'离婚'],[4,'丧偶']]
+	});
+	ZAHeightRuler('HeightRuler','小于140');
+	new ZASelector({
+		id:'#MyEducation',
+		data:[
+			['3','高中及以下'],
+			['2','中专'],
+			['4','大专'],
+			['5','大学本科'],
+			['6','硕士'],
+			['7','博士']
+		],
+		value:$("#tempEducation").val()==''?5:$("#tempEducation").val(),
+		width:162
+	});	
+	new ZASelector({
+		id:'#MySalary',
+		data:[
+		    ['-1','请选择'],
+			['1','1000元以下'],
+			['2','1001-2000元'],
+			['3','2001-3000元'],
+			['4','3001-5000元'],
+			['5','5001-8000元'],
+			['6','8001-10000元'],
+			['7','10001-20000元'],
+			['8','20001-50000元'],
+			['9','50000元以上']
+		],
+		value:$("#tempSalary").val()==''?-1:$("#tempSalary").val(),
+		width:162
+	});	
+	$('#BirthdaySelector input').val( -1 );
+	$('#DistrictSelector input').val( -1 );
+	// 表单验证
+    $('.input-text').bind('focus', function () {
+    	var check = $($(this).attr('data-check'));
+    	check.show().removeClass('check-form-ok').find('span').html( $(check).attr('data-tip') );
+    	$(this).css({border:'1px solid #00A5DB'});
+    })
+    .bind('blur', function(){
+    	$(this).css({border:'1px solid #C9C9C9'});
+    });
+    $('#MyPhoneInputID').bind('blur',function(){
+    	ZACheckInput.phone(this);
+    });
+    $('#MyPassword').bind('blur', function(){
+    	ZACheckInput.password(this);
+    });
+    $('#CheckMyPSW').bind('blur', function(){
+    	ZACheckInput.checkPSW(this, '#MyPassword');
+    });
+    $('#NickName').bind('blur', function(){
+    	ZACheckInput.nickname(this);
+    });
+
+    $('#MyEducation').bind('mouseover', function(){
+    	var check = $('#MyEducationCheck');
+    	check.show().find('span').html($(check).attr('data-tip'));
+    }).bind('mouseout', function(){
+    	var check = $('#MyEducationCheck');
+    	if(!ZACheckInput.selector( $('#MyEducation input') ))check.hide();
+    });
+    $('#MyEducation a').bind('click', function(){
+    	ZACheckInput.selector( $('#MyEducation input') );
+    });
+
+
+    $('#MySalary').bind('mouseover', function(){
+    	var check = $('#MySalaryCheck');
+    	check.show().find('span').html($(check).attr('data-tip'));
+    }).bind('mouseout', function(){
+    	var check = $('#MySalaryCheck');
+    	if(!ZACheckInput.selector( $('#MySalary input') ))check.hide();
+    });
+    $('#MySalary a').bind('click', function(){
+    	ZACheckInput.selector( $('#MySalary input') );
+    });
+
+    $('#SexRadio').bind('mouseover', function(){
+    	$('#SexRadioCheck').show();
+    })
+    .bind('mouseout', function(){
+    	$('#SexRadioCheck').hide();
+    });
+
+    $('#BirthdaySelector').bind('mouseover', function(){
+    	var check = $('#BirthdayCheck');
+    	check.show().find('span').html($(check).attr('data-tip'));
+    });
+    $('#BirthdaySelector .day-selector a').live('click', function(){
+    	ZACheckInput.birthday();
+    });
+
+    $('#DistrictSelector').bind('mouseover', function(){
+    	var check = $('#DistrictCheck');
+    	check.show().find('span').html($(check).attr('data-tip'));
+    });
+    $('#DistrictSelector .province-selector a').live('click', function(){
+    	var check = $('#DistrictCheck');
+    	$('#DistrictCheck').removeClass('check-form-ok').find('span').html( $(check).attr('data-worning') );
+    });    
+    $('#DistrictSelector .city-selector a').live('click', function(){
+    	var input = $('#DistrictSelector input');
+    	var check = $('#DistrictCheck');
+    	if(ZAdistrictMap['c'+input.eq(0).val()].d==1&&input.eq(2)!=-1){
+    		$('#DistrictCheck').addClass('check-form-ok');
+    	}else{
+    		$('#DistrictCheck').removeClass('check-form-ok').find('span').html( $(check).attr('data-worning') );
+    	}
+    });
+    $('#DistrictSelector .county-selector a').live('click', function(){
+    	var input = $('#DistrictSelector input');
+    	if(input.eq(0)!=-1&&input.eq(1)!=-1&&input.eq(2)!=-1){
+    		$('#DistrictCheck').addClass('check-form-ok');
+    	}
+    });
+    $('#MaritalStatus').bind('mouseover', function(){
+    	$('#MaritalStatusCheck').show();
+    })
+    .bind('mouseout', function(){
+    	$('#MaritalStatusCheck').hide();
+    }); 
+
+    $('#HeightRuler').bind('mouseover', function(){
+    	$('#HeightRulerCheck').show();
+    })
+    .bind('mouseout', function(){
+    	$('#HeightRulerCheck').hide();
+    });
+    $('#AgreementInput').bind('click', function() {
+    	ZACheckInput.agreement('#AgreementInput');
+    });
+    $('#SexRadioInput').val('');
+    </script>
  </html>

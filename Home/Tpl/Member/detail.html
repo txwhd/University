@@ -12,7 +12,7 @@
 	<div class="person-detail-head">	
 		<div class="person-detail-left" >
 			<div class="detail-photo">
-				<empty name="$Headphoto.Headphoto">
+				<empty name="$info.Headphoto">
 					<div class="accordion-group">
 					    <div class="accordion-heading">
 					      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#editImgTip">
@@ -26,47 +26,55 @@
 					    </div>
 						 </div>
 					<else/>
-					<img class="img-thumbnail" src="$Headphoto[0]['Headphoto']"/>
+					<img class="img-thumbnail" src="$info[0]['Headphoto']"/>
 				</empty>
 			</div>
 			<div class="photo-foot text-center">
 				<ul class="list-inline">
-					<li>点赞</li>
-				   <li>关注</li>
-				   <li><strong>1234</strong>次浏览</li>
+					<li>魅力值<small><a>{$info[0]['cPoint']}</a></small></li>
+				   <li>活跃值<small><a>{$info[0]['aPoint']}</a></small></li>
+				   <li>人气值<small><a>{$info[0]['ePoint']}</a></small></li>
 				</ul>
 			</div>
 		</div>
 		<div class="person-detail-right">
-			<h4>燕燕
-				<span><a>{$info[0]['ePoint']}12</a></span><small>人气值</small> 
-				<span><a>{$info[0]['cPoint']}123</a></span><small>魅力值</small> 
-				<span><a>{$info[0]['aPoint']}332</a></span><small>活跃值</small> 
-			</h4>
+			<h4>{$info[0]['username']}</h4>
 			<div class="detailinfo">
 				<ul>
 				<li>认证等级：<a href="">实名认证</a></li>
-				<li>会员类型：<a href="">高级会员</a></li>
+				<!-- <li>会员类型：<a href="">{$info[0]['vip_type_id']}</a></li> -->
 				</ul>
 				<ul>
-					<li>性别：女</li>
-					<li>民族：回族</li>
-					<li>大学：天津武警指挥学院</li>
-					<li>学院：经济与管理学院</li>
-					<li>学历：研究生</li>
-					<li>年龄：18岁</li>
-					<li>身高：176cm</li>
-					<li>体重：60kg</li>
-					<li>家乡：宁夏</li>
+					<li>性别：{$info[0]['username']}</li>
+					<li>民族：<a>{$info[0]['nationName']}</a></li>
+					<li>大学：{$info[0]['schoolName']}</li>
+					<li>学院：{$info[0]['academy']}</li>
+					<li>学历：{$info[0]['degree']}</li>
+					<li>年龄：{$info[0]['age']}</li>
+					<li>身高：{$info[0]['height']}</li>
+					<li>体重：{$info[0]['weight']}</li>
+					<li>家乡：{$info[0]['province']}</li>
 				</ul>
 			</div>
 			<div class="sign">
 				<h4>个性签名</h4>
 				<p >
-					我喜欢这样的自然社会功能或，你喜欢就加入我们吧！
+					{$info[0]['username']}
 				</p>
 				<!-- <a href="" ><img src="__IMG__/Home/yuehui.png" style="hight:40px;"/></a> -->
 			</div>
+			<div class="mbtnwrap">
+					<!-- <button type="button" class="button button-mesg-red" yhclickid="win.showMesg" yhdata="2189721">
+					<span class="ico"></span>发留言</button> -->
+					<!---->
+					<a href="__URL__/appointment?yh={$info[0]['member_id']}" target="_blank" class="btn btn-danger">
+					<span class="glyphicon glyphicon-fire"></span>&nbsp;&nbsp;约会她
+					</a>
+					<!-- <button type="button" class="button button-gift" yhclickid="win.showGift" yhdata="{uinfo:{id:2189721, nick:'香水百合', sex:0}}">
+					<span class="ico">
+					</span>送礼物
+					</button> -->
+				</div>
 		</div>
 	</div>
 	<hr>
@@ -75,34 +83,40 @@
 			<h4 class="infotitle">详细资料：</h4>
 			<hr>
 			<ul class="detailinfo">
-				<li><span class="txt">国籍：</span>美国</li>
-				<li><span class="txt">英文名字：</span>asdfas</li>
-				<li><span class="txt">是否吸烟：</span>偶尔</li>
-				<li><span class="txt">是否喝酒：</span>应酬才喝</li>
-				<li><span class="txt">是否留学生：</span>是</li>
-				<li><span class="txt">血型：</span>其他</li>
-				<li><span class="txt">掌握语言：普通话</span></li>
-				<li><span class="txt">体型：</span>中等体形</li>
+				<li><span class="txt">国籍：</span>{$info[0]['nationality']}</li>
+				<li><span class="txt">英文名字：</span>{$info[0]['english_name']}</li>
+				<li><span class="txt">是否吸烟：</span>
+				<if condition="$info.drinking  eq  1 ">否
+				    <else />是
+				</if>
+				</li>
+				<li><span class="txt">是否喝酒：</span>
+				<if condition="$info.drinking  eq  1 ">否
+				    <else />是
+				</if>
+				<li><span class="txt">是否留学生：</span>
+				<if condition="$info.if_overseas  eq  1 ">否
+				    <else />是
+				</if>
+				</li>
+				<li><span class="txt">血型</span>
+				<if condition="$info.blood eq 'A'"> A
+				<elseif condition="$info.blood eq 'AB'"/>AB
+				<elseif condition="$info.blood eq 'B'"/>B
+				<elseif condition="$info.blood eq 'O'"/>O
+				<else />其他
+				</if>
+				</li>
 			</ul>
-			<h4 class="infotitle">择偶条件：</h4>
+			<!-- <h4 class="infotitle">择偶条件：</h4>
 			<hr>
 			<ul class="detailinfo">
-				<empty name="$info.marriage_id">
+				<empty name="$info.monologue>
 					<li class="empty">未透露</li>
 				<else />
-					<li>城市要求：{$info[0]['city']}银川</li>  
-					<li>省份要求：{$info[0]['province']}宁夏</li>  
-					<li>年龄范围：研究生</li>  
-					<li>年龄：18岁{$info[0]['old']}</li> 
-					<li>身高：176cm{$info[0]['high']}</li>
-					<li>体重：60kg</li>
-					<li>性格要求：</li>
-					<li>民族要求：{$info[0]['Nation']}</li>
-					<li>用户爱好：{$info[0]['character']}{$info[0]['objectFan']}跳舞</li>
-					<li>学历要求：{$info[0]['academy']}</li>
-					<li>国籍：{$info[0]['nationality']}</li>
+				<li class="empty">{$info[0]['monologue']}</li>
 				</empty>
-			</ul>
+			</ul> -->
 		<!-- 	<h4 class="infotitle">个人喜好：</h4>
 			<hr>
 			<ul class="detailinfo">
@@ -114,20 +128,20 @@
 			<h4 class="infotitle">我的爱情宣言：</h4>
 			<hr>
 			<ul class="detailinfo">
-				<empty name="$info.marriage_id">
+				<empty name="$info.monologue ">
 					<li class="empty">未透露</li>
 				<else />
-					<li class="empty">哦我的阿斯顿发松岛枫地方</li>
+					<li class="empty">{$info[0]['monologue']}</li>
 				</empty>
 			</ul>
 			
 			<h4 class="infotitle">我的信仰：</h4>
 			<hr>
 			<ul class="detailinfo">
-				<empty name="$info.marriage_id">
+				<empty name="$info.belif_state">
 					<li class="empty">未透露</li>
 				<else />
-					<li class="empty">哦我的阿斯顿发松岛枫地方</li>
+					<li class="empty">{$info[0]['belif_state']}</li>
 				</empty>
 			</ul>
 		</div>

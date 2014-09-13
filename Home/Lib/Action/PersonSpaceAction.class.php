@@ -83,6 +83,7 @@ class PersonSpaceAction extends  CommonAction{
 	public function qiandao(){
 		$model=M('');
 	}
+	
 	public function ListTerm(){
 		//显示择偶条件表
 		$member_id=$_SESSION['USER_AUTH_KEY'];
@@ -131,6 +132,10 @@ class PersonSpaceAction extends  CommonAction{
 	}	 
 	public function ListApprove(){
 		//显示诚信认证页面
+		$where['member_id']=$_SESSION['USER_AUTH_KEY'];
+		$email=M('Member')->where($where)->field('email,emailpass')->select();
+		$this->assign('email',$email);//分配注册的邮箱
+		
 		$this->display();
 	}	 
 	public function ListHeadPhoto(){

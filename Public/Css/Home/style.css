@@ -5,9 +5,15 @@ body {
 	font-family: Verdana,"宋体", Arial,Sans;
 	font-size:14px;
 }
+script {
+display: none;
+}
 *{
 	margin: 0;
 	padding:0;
+}
+.hidden {
+display: none;
 }
 h2{
 	margin: 0 ;
@@ -713,6 +719,18 @@ float:center-left;
 	overflow: hidden; 
 	position: relative;	
 }
+/*详细页面  */
+.mbtnwrap {
+margin-top: 10px;
+text-align: center;
+}
+/*  .mbtnwrap .button-mesg-red {
+margin-left: 0;
+}
+.button-gift {
+background: #eadfdf;
+color: #8e5a5c;
+} */
 /*---------------------牵手恋人-----------------------*/
 .success-weight img{
 	width:190px;
@@ -977,6 +995,146 @@ ul.thumb {
 	margin: 4px 0 5px 0; 
 	font-size: 12px;
 }
+/*约会  */
+#page-pdate {
+padding-top: 20px;
+}
+.page-w {
+margin-top: -1px;
+}
+.paper {
+background: #fff;
+border: 1px solid #e6e1e2;
+margin-left: auto;
+margin-right: auto;
+-moz-box-shadow: 0 1px 0 rgba(230,225,226,0.4);
+-webkit-box-shadow: 0 1px 0 rgba(230,225,226,0.4);
+box-shadow: 0 1px 0 rgba(230,225,226,0.4);
+width: 948px;
+}
+.uinfosec {
+border-bottom: 1px dotted #f0f0f0;
+overflow: hidden;
+-zoom: 1;
+padding: 20px;
+}
+.uinfosec .diwrap {
+display: inline;
+float: left;
+font-size: 14px;
+margin-left: 20px;
+min-height: 139px;
+height: auto!important;
+height: 139px;
+position: relative;
+width: 763px;
+}
+.portrait .pr {
+display: inline-block;
+vertical-align: top;
+}
+::selection {
+background: #c70067;
+color: #fff;
+}
+.papershadow {
+background: url("http://photo.idate.163.com/static/cdn20140904121234/v2/images/papershadow.png") no-repeat 0 0;
+margin-left: auto;
+margin-right: auto;
+clear: both;
+overflow: hidden;
+}
+.papershadow2 {
+background-position: 0 -12px;
+height: 8px;
+width: 946px;
+}
+.papershadow1 {
+margin-bottom: -10px;
+height: 10px;
+width: 980px;
+}
+step1 .plansec .fitem-themelist {
+padding: 10px 0 20px;
+}
+step1 .plansec .fitem-themelist .themelist {
+display: inline;
+float: left;
+overflow: hidden;
+}
+step1 .plansec .fitem-themelist .themelist li {
+border: 4px solid #fff;
+display: inline;
+float: left;
+position: relative;
+text-align: center;
+}
+step1 .plansec .fitem-textarea {
+display: inline;
+float: left;
+margin-bottom: 20px;
+position: relative;
+}
+step1 .demandsec {
+margin-top: 20px;
+}
+/* 约会结束 */
+/* 充值 */
+.chargeblock .contentwrap {
+padding: 20px 20px 14px;
+}
+.chargeblock .tabrow {
+background: #f0edeb;
+border-bottom: 1px solid #cdcbca;
+_border-bottom: 0;
+height: 36px;
+}
+ul.tabwrap {
+overflow: hidden;
+-zoom: 1;
+font-size: 14px;
+}
+.chargeblock .tabrow .tabwrap .active {
+background: #fff;
+border-left: 1px solid #cdcbca;
+border-right: 1px solid #cdcbca;
+border-top: 3px solid #d83473;
+height: 22px;
+margin-left: -1px;
+padding: 6px 0;
+}
+charge .wordicon, #page-charge .wordicon {
+background: #fbb300;
+color: #fff;
+font-size: 12px;
+font-weight: normal;
+padding: 0 2px 2px;
+-moz-border-radius: 2px;
+-webkit-border-radius: 2px;
+border-radius: 2px;
+}
+.chargeblock .tabrow .tabwrap .tab-w4 {
+width: 80px;
+}
+.chargeblock .tabrow .tabwrap .inactive {
+background: #f0edeb;
+border-bottom: 1px solid #cdcbca;
+height: 20px;
+padding: 10px 0 6px;
+}
+.chargeblock .contentwrap .steptitle {
+border-bottom: 1px dotted #e4e2df;
+margin-bottom: 10px;
+padding-bottom: 8px;
+}
+.chargeblock .contentwrap .fitem {
+padding: 6px 0;
+}
+.chargeblock .contentwrap .step-bank {
+margin-top: 24px;
+}
+
+/* 充值 end*/
 /*==========个人中心end==============  */
 /*==========会员详细页面==============  */
 .detail-photo img{
@@ -1034,3 +1192,21 @@ padding: 16px 20px;
 	
 }
 /*==========activity detail endt==============  */
+/*==========升级服务开始==============  */
+.panel .control-margin{
+	margin-top:30px;
+	margin-bottom:30px;
+	width:600px;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:#FFFCF0;
+}
+.margin-bottom-30{
+	margin-bottom:30px;
+	height:20px;
+}
+
+
+/*==========升级服务结束==============  */
+/*========================  */
+
