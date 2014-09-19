@@ -59,7 +59,7 @@
 			<div class="sign">
 				<h4>个性签名</h4>
 				<p >
-					{$info[0]['username']}
+					{$info[0]['sightml']}
 				</p>
 				<!-- <a href="" ><img src="__IMG__/Home/yuehui.png" style="hight:40px;"/></a> -->
 			</div>
@@ -99,7 +99,7 @@
 				    <else />是
 				</if>
 				</li>
-				<li><span class="txt">血型</span>
+				<li><span class="txt">血型：</span>
 				<if condition="$info.blood eq 'A'"> A
 				<elseif condition="$info.blood eq 'AB'"/>AB
 				<elseif condition="$info.blood eq 'B'"/>B
@@ -108,41 +108,15 @@
 				</if>
 				</li>
 			</ul>
-			<!-- <h4 class="infotitle">择偶条件：</h4>
-			<hr>
-			<ul class="detailinfo">
-				<empty name="$info.monologue>
-					<li class="empty">未透露</li>
-				<else />
-				<li class="empty">{$info[0]['monologue']}</li>
-				</empty>
-			</ul> -->
-		<!-- 	<h4 class="infotitle">个人喜好：</h4>
-			<hr>
-			<ul class="detailinfo">
-				<li ><span class="txt">喜欢地方：</span><div class="value"><ul><li>乡村度假</li><li>名胜古迹</li><li>湖光山色</li></ul></div></li>
-				<li ><span class="txt">兴趣爱好：</span><div class="value"><ul><li>电脑</li><li>游戏</li><li>运动</li><li>旅游</li></ul></div></li>
-				<li ><span class="txt">喜爱的菜：</span><div class="value"><ul><li>川菜</li><li>粤菜</li></ul></div></li>
-				<li ><span class="txt">喜爱运动：</span><div class="value"><ul><li>游泳</li><li>乒乓球</li><li>登山</li></ul></div></li>
-			</ul> -->
 			<h4 class="infotitle">我的爱情宣言：</h4>
 			<hr>
 			<ul class="detailinfo">
-				<empty name="$info.monologue ">
-					<li class="empty">未透露</li>
-				<else />
-					<li class="empty">{$info[0]['monologue']}</li>
-				</empty>
+				<li class="empty">{$info[0]['monologue']|default="未透露"}</li>
 			</ul>
-			
 			<h4 class="infotitle">我的信仰：</h4>
 			<hr>
 			<ul class="detailinfo">
-				<empty name="$info.belif_state">
-					<li class="empty">未透露</li>
-				<else />
-					<li class="empty">{$info[0]['belif_state']}</li>
-				</empty>
+					<li class="empty">{$info[0]['belif_state']|default="未透露"}</li>
 			</ul>
 		</div>
 	</div>

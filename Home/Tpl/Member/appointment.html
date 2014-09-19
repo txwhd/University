@@ -6,160 +6,87 @@
 <include file="Common:head" />
 </head>
 <body>
-<div id="page-pdate" class="page-w">
+<div id="page-pdate" class="container">
+<div class="index-site"> 
+		<i class="glyphicon icon-tags"></i>首页-> 会员约会->我要约会
+	</div>
 	<article class="paper">
 		<section class="uinfosec">
 			<h1 class="hidden">私人约会邀请对象资料</h1>
 			<aside class="uiwrap">
 				<h1 class="hidden">邀请对象的头像</h1>
 				<div class="portrait portrait-125">
-					<a href="http://yuehui.163.com/viewuser.do?id=2189721" target="_blank" class="pr">
-					<img src="http://yuehui2.nos.netease.com/9/21/97/f258fe61a6943935fd543f208a570b95/2189721/1331883145000_9_10" width="125" height="139" alt="">
+					<a href="" target="_blank" class="pr">
+					<img>
 					</a>
+					<empty name="$appointment.Headphoto">
+					<div class="accordion-group">
+					    <div class="accordion-heading">
+					       <img class="img-thumbnail" alt="暂时保密哟" src="__IMG__/Home/defaultHead.png"/>
+					    </div>
+						 </div>
+					<else/>
+					<a  href="" target="_blank" class="pr">
+					<img class="img-thumbnail"  src="$appointment[0]['Headphoto']" width="125" height="139" alt="$appointment[0]['username']"/>
+					</a>
+				</empty>
 				</div>
 			</aside>
 			<article class="diwrap">
 				<h1 class="hidden">邀请对象的信息</h1>
-				<p class="title">To <span class="label label-info">香水百合</span></p>
-				<p class="js-content content content-part">爱情宣言：一起参加户外运动！也可以在咖啡厅聊天。</p>
+				<p class="title"><strong>To</strong><span class="label label-info">{$appointment[0]['username']|msubstr=0,2,'utf-8',false}同学</span></p>
+				<p class="js-content content content-part"><strong>爱情宣言：</strong>一起参加户外运动！也可以在咖啡厅聊天。{$appointment[0]['username']}</p>
 			</article>
 		</section>
 		<section class="formsec">
 			<h1 class="hidden">发布约会表单</h1>
-			<form id="pdateform-step1" action="" method="post" class="pdateform">
-	<section class="plansec">
-		<div id="say"><!-- 说说 -->
-			<div class="say-left">
-					<form action="__URL__/addMood" method="post">
-						<div><img src="__IMG__/Home/mood_01.gif"/></div>
-						<textarea name="content" id="publish-mood"></textarea>
-						<div class="button-set panel">
-							 <p id="post_limit">能输入200字</p>
-							 <p class="miniblog-button">
-								 <a href="javascript:void(0);">
-									 <img src="__IMG__/Home/button_release.gif?t=2" onclick="post_do()" id="post_do_button" border="0">
-								 </a>
-							 </p>
+				<section class="plansec">
+					<form action="__URL__/dateDeal" method="post">
+					<input type="hidden" value="{$appointment[0]['member_id']}" name="id" />
+						<!-- <div><img src="__IMG__/Home/mood_01.gif"/></div> -->
+						<div><strong>告诉您的安排：</strong>
+							<div id="yuehui-arra">
+								<textarea name="arra" ></textarea>
+								<div class="button-set panel yuehui-arra-foot">
+								 <p id="post_limit">能输入200字</p>
+								 <p id="yuehui-demand"><small>可以写下您的要求：费用安排，地点，时间等其他要求；</small></p>
+								 <p class="miniblog-button">
+									 <input  type=image src="__IMG__/Home/button_release.gif?t=2"  border=0 name=yue-arra onclick="post_do()" id="post_do_button" border="0">
+								 </p>
+								 </div>
+							</div>
 						</div>
 					</form>
-				</div>
-			</div>
-	</section>
-	<section class="demandsec">
-		<h2 class="title hidden">我对约会的要求</h2>
-		<div class="fitem">
-			<p class="titlebar"><span class="title">其　他：</span><a href="#" yhclickid="pdate.showHideSelect" yhdata="{index:3, status:1}"><span id="js-pdform-sresult-3" class="txt" yhvalue="约会地点在 $0，费用 $1">约会地点在 太原，费用 我支付</span><span class="icon24 icon24-answer"></span></a></p>
-			<div id="js-pdform-swrap-3" class="selectwrap" style="display: block;">
-				<span class="arrowbor"><span></span></span>
-				<p class="fditem">
-					<label for="pdform-dprovince" class="slabel">约会地点：</label>
-					<select id="pdform-dprovince" name="DProvince"><option value="0">北京</option><option value="1">上海</option><option value="2">天津</option><option value="3">重庆</option><option value="4">河北</option><option value="5">山西</option><option value="6">内蒙古</option><option value="7">辽宁</option><option value="8">吉林</option><option value="9">黑龙江</option><option value="10">江苏</option><option value="11">浙江</option><option value="12">安徽</option><option value="13">福建</option><option value="14">江西</option><option value="15">山东</option><option value="16">河南</option><option value="17">湖北</option><option value="18">湖南</option><option value="19">广东</option><option value="20">广西</option><option value="21">海南</option><option value="22">四川</option><option value="23">贵州</option><option value="24">云南</option><option value="25">西藏</option><option value="26">陕西</option><option value="27">甘肃</option><option value="28">青海</option><option value="29">宁夏</option><option value="30">新疆</option><option value="31">香港</option><option value="32">澳门</option><option value="33">台湾</option></select>
-					<select id="pdform-dcity" name="DCity" class="dselect"><option value="0">太原</option><option value="1">大同</option><option value="2">朔州</option><option value="3">阳泉</option><option value="4">长治</option><option value="5">晋城</option><option value="6">忻州</option><option value="7">晋中</option><option value="8">临汾</option><option value="9">运城</option><option value="10">吕梁</option></select>
-				</p>
-				<p class="fditem">
-					<label for="pdform-feeassign" class="slabel">费用：</label>
-					<select id="pdform-feeassign" name="feeAssign"><option value="0">我支付</option><option value="1">你支付</option><option value="2">各付各的</option><option value="3">再商定</option></select>
-				</p>
-				<p class="buttonbar">
-					<button type="button" class="button button-s button-major button-w2" yhclickid="pdate.setSelectResult" yhdata="3">确定</button><a href="#" class="cancelbtn" yhclickid="pdate.showHideSelect" yhdata="{index:3, status:0}">取消</a>
-				</p>
-			</div>
-		</div>
-	</section>
-	<p class="buttonbar"><button type="submit" class="button button-major button-w3">下一步</button></p>
-	<input type="hidden" name="kind" value="2">
-	<input type="hidden" name="soleEmbracer" value="2189721">
-</form>
-
+				</section>
+			<!-- 	<section class="demandsec">
+					<form id="pdateform-step1" action="__URL__/appointAsk" method="post" class="pdateform">
+						<h3 class="">我对约会的要求</h3>
+						<div class="fitem">
+							<p class="titlebar"><span class="title">其　他：</span><a href="#" yhclickid="pdate.showHideSelect" yhdata="{index:3, status:1}"><span id="js-pdform-sresult-3" class="txt" yhvalue="约会地点在 $0，费用 $1">约会地点在 太原，费用 我支付</span><span class="icon24 icon24-answer"></span></a></p>
+							<div id="js-pdform-swrap-3" class="selectwrap" style="display: block;">
+								<span class="arrowbor"><span></span></span>
+								<p class="fditem">
+									<label for="pdform-dprovince" class="slabel">约会地点：</label>
+									<select id="pdform-dprovince" name="DProvince"><option value="0">北京</option><option value="1">上海</option><option value="2">天津</option><option value="3">重庆</option><option value="4">河北</option><option value="5">山西</option><option value="6">内蒙古</option><option value="7">辽宁</option><option value="8">吉林</option><option value="9">黑龙江</option><option value="10">江苏</option><option value="11">浙江</option><option value="12">安徽</option><option value="13">福建</option><option value="14">江西</option><option value="15">山东</option><option value="16">河南</option><option value="17">湖北</option><option value="18">湖南</option><option value="19">广东</option><option value="20">广西</option><option value="21">海南</option><option value="22">四川</option><option value="23">贵州</option><option value="24">云南</option><option value="25">西藏</option><option value="26">陕西</option><option value="27">甘肃</option><option value="28">青海</option><option value="29">宁夏</option><option value="30">新疆</option><option value="31">香港</option><option value="32">澳门</option><option value="33">台湾</option></select>
+									<select id="pdform-dcity" name="DCity" class="dselect"><option value="0">太原</option><option value="1">大同</option><option value="2">朔州</option><option value="3">阳泉</option><option value="4">长治</option><option value="5">晋城</option><option value="6">忻州</option><option value="7">晋中</option><option value="8">临汾</option><option value="9">运城</option><option value="10">吕梁</option></select>
+								</p>
+								<p class="fditem">
+									<label for="pdform-feeassign" class="slabel">费用：</label>
+									<select id="pdform-feeassign" name="feeAssign"><option value="0">我支付</option><option value="1">你支付</option><option value="2">各付各的</option><option value="3">再商定</option></select>
+								</p>
+								<p class="buttonbar">
+									<button type="button" class="button button-s button-major button-w2" yhclickid="pdate.setSelectResult" yhdata="3">确定</button><a href="#" class="cancelbtn" yhclickid="pdate.showHideSelect" yhdata="{index:3, status:0}">取消</a>
+								</p>
+							</div>
+						</div>
+						<p class="buttonbar"><button type="submit" class="button button-major button-w3">下一步</button></p>
+						<input type="hidden" name="kind" value="2">
+						<input type="hidden" name="soleEmbracer" value="2189721">
+						</form>
+				</section> -->
 </section>
 	</article>
-	<div class="papershadow papershadow2"></div>
-	<div class="papershadow papershadow1"></div>
 </div>
-<script>
-var guideArr_content = '愿得一人心，白头终不离……';
-$().ready(function(){
-	 post_limit_notice();
-	 $("#publish-mood").keypress(function(){post_limit_notice();});
-	 $("#publish-mood").keydown(function(){post_limit_notice();});
-	 $("#publish-mood").keyup(function(){post_limit_notice();});
-	 $("#publish-mood").focus(function(){post_limit_notice();});
-	 });
-	 function quick_enter(event,button_id) {
-	 var ev = null;
-	 if (window.event){
-	 ev = window.event;
-	 }
-	 else{
-	 ev = event;
-	 }
-	 if (ev != null && ev.ctrlKey && ev.keyCode == 13) {
-	 if(document.all){
-	 document.getElementById(button_id).click();
-	 }else{
-	 $("#"+button_id).click();
-	 }
-	 }
-	 }
-	 //提示字数剩余
-	 function post_limit_notice(){
-	 var obj=$("#publish-mood");
-	 if(typeof(obj[0])!="undefined"){
-	 var input_length=obj.val().length;
-	 var max_length=200;
-	 if(input_length<=max_length){
-	 $("#post_limit").html("还能输入"+(max_length-input_length)+"字").removeClass("red");
-	 }else{
-	 $("#post_limit").html("已经超出"+(input_length-max_length)+"字").addClass("red");
-	 }
-	 }
-	 }
-	 function post_cancel(text){
-	 if($("#publish-mood").val()=='' || $("#publish-mood").val()==guideArr_content){
-	 $("#publish-mood").css('color','#454545').val(text);
-	 }
-	 if($("#publish-mood").val()==guideArr_content){
-	 $("#publish-mood").css('color','#717171');
-	 }
-	 }
-	 function post_cancel_force() {
-	 $("#publish-mood").css('color','#717171').val("").focus();
-	 }
-	 function post_do(){
-	 var post_content = Utils.trim($("#publish-mood").val());
-	 if(post_content.length<=0){
-	 _window.Alert("请输入您的心情！","提示");
-	 return false;
-	 }
-	 if(post_content.length>200){
-	 var str=$("#post_limit").html();
-	 $("#post_limit").html("");
-	 setTimeout(function(){$("#post_limit").html(str);},200);
-	 return false;
-	 }
-	 var update_mood_cookie = getCookie("user_update_mood_stats_"+login_usr_id);
-	 var update_mood_cookie = 0;
-	 if(update_mood_cookie==1){
-	 _window.Alert("啊哦！您的心情变化太快了，请休息2分钟再来吧！","提示");
-	 return false;
-	 }
-	 else{
-	 var mywindow = _window.Alert('数据提交中，请稍候...',"",'loading',"",600);
-	 $("#post_do_button").attr("onclick","");
-	 $.post("__URL__/addMood",{content:post_content},
-	 function(txt){
-	 if(txt=='success'){
-	 SetCookie("user_update_mood_stats_"+login_usr_id,1,2*60*1000);
-	 _window.Alert("心情发表成功！","提示","success");
-	 $('#publish-mood').css('color','#717171').val(guideArr_content);
-	 }
-	 else{
-	 _window.Alert("心情发表失败！","提示");
-	 }
-	 });
-	 }
-}
-</script>
 <include file="Common:foot" />
 </body>
 <!-- <h2 class="title hidden">浪漫约会计划</h2>
