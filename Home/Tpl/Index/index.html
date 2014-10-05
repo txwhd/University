@@ -127,7 +127,12 @@
 </div><!-- ./container -->
 <!--中部广告-->
 <div class="container">
-<div class="ad"><img src="__IMG__/Home/ad.jpg"></div>
+   <div class="ad">
+   <img src="__IMG__/Home/ad.jpg">
+	   <a href="{$ad1[0]['ad_link']}" target="_blank">
+	   	<img src="__ROOT__/{$ad1[0]['image_site_thumb']}{$ad1[0]['ad_name']}" alt="{$ad1[0]['ad_description']}" title="{$ad1[0]['ad_description']}"/>
+	   </a>
+   </div>
 </div>
 <!--中部广告结束  -->
 <!-- 民族风情+心情语录 -->

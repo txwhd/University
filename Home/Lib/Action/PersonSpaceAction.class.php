@@ -86,9 +86,11 @@ class PersonSpaceAction extends  CommonAction{
 	
 	public function ListTerm(){
 		//显示择偶条件表
-		$member_id=$_SESSION['USER_AUTH_KEY'];
+		$member_id="1";
 		$marriage_term=M('marriage_term');
 		if (IS_POST) {
+			dump($_POST);
+			exit();
 			$data=$marriage_term->create();
 			$result=$marriage_term->where($member_id)->save($data);
 			if($result){
@@ -98,29 +100,36 @@ class PersonSpaceAction extends  CommonAction{
 			}
 		}
 		$result=$marriage_term->where($member_id)->select();
-		$this->assign('list',$result);
+		$genderResult=M('Member')->where($member_id)->field('gender')->find();
+		$this->assign('genderlist',$genderResult);
+		$this->assign('Termlist',$result);
 		$this->display();
-	}	 
+	}
 	public function ListMonologue(){
 		//显示爱情宣言
 		$this->display();
 	}	 
 	public function changePass(){
 		//修改密码
-		$id  =  $_POST['id'];
-        $password = $_POST['password'];
-        if(''== trim($password)) {
-        	$this->error('密码不能为空！');
-        }
-        $User = M('User');
-		$User->password	=	md5($password);
-		$User->id =	$id;
-		$result	=	$User->save();
-        if(false !== $result) {
-            $this->success("密码修改为$password");
-        }else {
-        	$this->error('重置密码失败！');
-        }
+		if (IS_POST) {
+			$id  =  $_POST['id'];
+	        $password = $_POST['password'];
+	        if(''== trim($password)) {
+	        	$this->error('密码不能为空！');
+	        }
+	        $User = M('User');
+			$User->password	=	md5($password);
+			$User->id =	$id;
+			$result	=	$User->save();
+	        if(false !== $result) {
+	            $this->success("密码修改为$password");
+	        }else {
+	        	$this->error('重置密码失败！');
+	        }
+		}else {
+			$this->display();
+		}
+		
 	}	 
 	public function ListBelief(){
 		//显示信仰
@@ -266,5 +275,48 @@ print json_encode($rs);
 		print json_encode($rs);
 	 */
 }
+
+
+public function Mailbox(){
+	//发送邮件
+	$this->display();
+}
+public function sendEmail(){
+	//发送邮件
+	$this->display();
+}
+/* 关注 开始*/
+/* 加入关注 */
+public function Attention(){
+	$model=M('Attention');
+	$member_id = trim($_POST['fid']);
+	//判断是否登录
+	if ($member_id==$_SESSION['USER_AUTH_KEY']) {
+	}
+	$this->display();
+	
+}
+public function addAttention(){
+	$model=M('Attention');
+	$member_id = trim($_POST['fid']);
+	//判断是否登录
+	if ($member_id==$_SESSION['USER_AUTH_KEY']) {
+		//判断是否关注达到上线；
+		/* if ($_SESSION['vipType']=="普通会员") {
+		 $re=1;
+		} */
+		$re=$model->where($member_id)->add();
+		if($re){
+			$re=6;
+		}else{
+			$re=5;
+		}
+		//关注过不能够关注；
+	}else{
+		$re=0;
+	}
+	echo json_encode($re);
+}
+/* 关注 结束*/
 }
 

@@ -4,16 +4,16 @@
  <include file="Common:intoHead" />
  </head>
  <body>
-<div id="person-centre-right">
- <div class="person-intro">
-		<div  class="tablestyle">
-			<table class="table table-hover " >
-			<tbody>
-			<tr>
-			<th>昵称</th>
-			<td><input type="text" /></td>
-			<th>英文名字</th>
-			<div class="col-form">
+ <div class="panel panel-info">
+	<ul class="nav nav-tabs" id="myTab">
+	  <li class="active"><a href="#basicIntro"  data-toggle="tab">基本资料</a></li>
+	  <li ><a href="#sign" data-toggle="tab">个性签名 </a></li>
+	  <!-- <li><a href="#monologue" data-toggle="tab">爱情独白</a></li> -->
+	  <li><a href="#religion" data-toggle="tab">我的信仰</a></li>
+	 <!--  <li><a href="#trueName" data-toggle="tab">免扰设置</a></li> -->
+	  <li><a href="__URL__/changePass" target="_blank" >修改密码</a></li>
+	</ul>
+	<!-- 	<div class="col-form">
 					<label>我的学历：</label>
 					<dl class="za-selector" id="MyEducation" style="width: 162px; position: relative;">
 						<dt class="arrow">高中及以下</dt>
@@ -24,104 +24,48 @@
 					<div id="MyEducationCheck" class="check-form check-form-ok" data-tip="此项注册后不可修改，请慎重填写" data-worning="请选择&quot;学历&quot;" style="display: block;">
 						<i></i><span>此项注册后不可修改，请慎重填写</span><b></b><em></em>
 					</div>
+				</div> 
+				
+				现居城市位置，性别可以在这里做一个提示；
+				-->
+	<div class="tab-content">
+	  <div class="tab-pane fade in active" id="basicIntro">
+             <div class="tody-reg-stutas">
+					今天已有 <span id="CurRegNum">32265</span> 位新会员加入邀99大学生恋爱网
 				</div>
-			<td><input type="text" /></td>
+	  <div  class="tablestyle">
+			<table class="table table-hover " >
+			<tbody>
+			<tr>
+				 <th>昵称</th>
+				<td>123</td>
+				<th>真实姓名</th>
+				<td>
+					<input type="text"/>
+				</td>
+		
 			</tr>
 			<tr class="success">
-			<th>性别</th>
-			<td> <select class="input"><option>男</option><option>女</option></select></td>
-			<th>年龄</th>
-			<td>           <select class="input-xlarge">
-						      <option>18</option>
-						      <option>19</option>
-						      <option>20</option>
-						      <option>21</option>
-						      <option>22</option>
-						      <option>23</option>
-						      <option>24</option>
-						      <option>25</option>
-						      <option>26</option>
-						      <option>27</option>
-						      <option>28</option>
-						      <option>29</option>
-						      <option>30</option>
-						      </select>
-			</td>
+				<th>性别</th>
+				<td>{$intro[0]['gender']}</td>
+				<th>生日</th>
+				<td>123123
+				</td>
 			</tr>
 			<tr class="error">
-			<th>生日</th>
-			<td>
-		        <select class="input-xlarge">
-			      <option>1</option>
-			      <option>2</option>
-			      <option>3</option>
-			      <option>4</option>
-			      <option>5</option>
-			      <option>6</option>
-			      <option>7</option>
-			      <option>8</option>
-			      <option>9</option>
-			      <option>10</option>
-			      <option>11</option>
-			      <option>12</option>
-			      </select>月
-			   <select class="input-xlarge">
-			      <option>1</option>
-			      <option>2</option>
-			      <option>3</option>
-			      <option>4</option>
-			      <option>5</option>
-			      <option>6</option>
-			      <option>7</option>
-			      <option>8</option>
-			      <option>9</option>
-			      <option>10</option>
-			      <option>11</option>
-			      <option>12</option>
-			      <option>13</option>
-			      <option>14</option>
-			      <option>15</option>
-			      <option>16</option>
-			      <option>7</option>
-			      <option>18</option>
-			      <option>19</option>
-			      <option>20</option>
-			      <option>21</option>
-			      <option>22</option>
-			      <option>23</option>
-			      <option>24</option>
-			      <option>25</option>
-			      <option>26</option>
-			      <option>27</option>
-			      <option>28</option>
-			      <option>29</option>
-			      <option>30</option></select>日
-			</td>
-			<th>星座</th>
-			<td>
-			  <select class="input-xlarge">
-			      <option>白羊</option>
-			      <option>2</option>
-			      <option>3</option>
-			      <option>4</option>
-			      <option>5</option>
-			      <option>6</option>
-			      <option>7</option>
-			      <option>8</option>
-			      <option>9</option>
-			      <option>10</option>
-			      <option>11</option>
-			      <option>12</option>
-			      </select></td>
+				<th>星座</th>
+				<td>
+				  <select class="input-xlarge">
+				      <option>白羊</option>
+				      <option>12</option>
+				      </select></td>
+				 <th>民族</th>
+				<td>huizu</td>
 			</tr>
 			<tr class="warning">
-			<th>身高</th>
-			<td><input type="text" />cm</td>
-			<th>民族</th>
-			<td><input type="text" /></td>
-			</tr>
-			<tr class="info">
-			<th>血型</th>
+				<th>身高</th>
+				<td><input type="text" />cm</td>
+				<th>血型</th>
 			<td>
 			<select class="input-xlarge">
 			      <option>A</option>
@@ -130,47 +74,19 @@
 			      <option>O</option>
 			      </select>
 			</td>
-			<th>真实姓名</th>
-			<td>
-				<input type="text"/>
-			</td>
 			</tr>
-			<tr>
+			<tr class="info">
 				<th>学校</th>
 					<td>
-					<select class="input-xlarge">
-					      <option>北京大学</option>
-					      <option>中北大学</option>
-					      </select>
+					qwer
 					</td>
-						<th>专业</th>
+					<th>专业</th>
 					<td>
-					<select class="input-xlarge">
-					      <option>人文科学</option>
-					      <option>软件工程</option>
-					      </select>
+					人文科学
 					</td>
 			</tr>
 			<tr class="warning">
-					<th>现居城市</th>
-					<td>
-					<select class="input-xlarge">
-					      <option>北京</option>
-					      <option>太原</option>
-					      </select>
-					</td>
-						<th>籍贯</th>
-					<td>
-					<select class="input-xlarge">
-					      <option>上海</option>
-					      <option>运城</option>
-					      </select>
-					</td>
-			
-	<!-- 		<td  colspan="3">PHP课程的周期，费用及优惠政策？</td>
-			<td  colspan="2">PHP课程的周期，费用及优惠政策？</td> -->
 			</tr>
-		
 			<tr class="error">
 			<th>喜欢的明星</th>
 					<td>
@@ -179,25 +95,6 @@
 						<th>兴趣爱好</th>
 					<td>
 					<input type="text"/>
-					</td>
-			</tr>
-			<tr class="info">
-					<th>交友目标</th>
-					<td>
-					<select class="input-xlarge">
-					      <option>恋爱交友</option>
-					      <option>激情交友</option>
-					      <option>征婚</option>
-					      </select>
-					</td>
-							<th>宗教信仰</th>
-					<td>
-					<select class="input-xlarge">
-					      <option>伊斯兰</option>
-					      <option>佛教</option>
-					      <option>道教</option>
-					      <option>基督教</option>
-					      </select>
 					</td>
 			</tr>
 			<tr class="info">
@@ -212,7 +109,7 @@
 		        <input type="checkbox" value="否">否
 					</td>
 			</tr>
-				<tr class="info">
+				<tr class="">
 					<th>是否留学生</th>
 					<td>
 		        <input type="checkbox" value="是"> 是
@@ -229,25 +126,6 @@
 
 					</td>
 			</tr>
-			<div class="tody-reg-stutas">
-					今天已有 <span id="CurRegNum">32265</span> 位新会员加入珍爱网
-				</div>
-				<!-- .tody-reg-stutas {
-margin: 0 15px 15px;
-padding-left: 110px;
-color: #666;
-font-size: 12px;
-background-image: url("http://images.zastatic.com/zhenai3/zhenai2012/img/layer/entry/border.png");
-background-repeat: repeat-x;
-padding-top: 15px;
-background-position: 0 5px;
-}
-.tody-reg-stutas span {
-font-weight: 700;
-font-size: 14px;
-color: #FF6000;
-}
- -->
  <script type="text/javascript">
 				(function(){
 					var D = new Date(),
@@ -256,18 +134,47 @@ color: #FF6000;
 					$('#CurRegNum').html( (h*60+m)*27 );
 				})();
 				</script>
-				<tr class="info">
-				<th>个性签名</th>
-				<td  colspan="4"><textarea name="#" ></textarea></td>
-					</tr>
-					<tr class="info">
-				<th>我的爱情宣言</th>
-				<td  colspan="4"><textarea name="#" ></textarea></td>
-					</tr>
 			</table>
 		</div>
+		 </div>
+	  <div class="tab-pane fade " id="sign">
+	 			 <div class="mail_subnav">
+		                    <span>
+		                    </span>
+		                      <p>个性的签名将会增加你的另一半到来的几率！</p>
+                		</div>
+				<textarea name="#" ></textarea>
+				<div class="mail_subnav mail_subnavtwo">
+	           </div>
+	  </div>
+	  <div class="tab-pane fade " id="religion">
+	  <div class="mail_subnav">
+		                    <span>
+		                    </span>
+		                    <p>宗教信仰</p>
+                		</div>
+                		<form>
+							<select class="input-xlarge">
+						      <option>伊斯兰</option>
+						      <option>佛教</option>
+						      <option>道教</option>
+						      <option>基督教</option>
+						      </select>
+					      </form>
+					 <div class="mail_subnav mail_subnavtwo">
+	                	</div>
+	  </div>
+	  <div class="tab-pane fade " id="monologue">
+		 <div class="mail_subnav">
+                  <span></span>
+                  <p>个性的签名将会增加你的另一半到来的几率！</p>
+            		</div>
+		<textarea name="#" ></textarea>
+		 <div class="mail_subnav mail_subnavtwo">
+          	</div>
+	  </div>
 	</div>
-</div>
+	</div>
  </body>
 <script>
 	new ZARadio({

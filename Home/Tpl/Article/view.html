@@ -9,12 +9,31 @@
 <include file="Common:search" />
  <div class="container"><!-- 整体布局控制 -->
 		<div class="article-detail">
-		       <div class="article-detail-title"><h2 class="pull-center">{$info.title}</h2><div class="bdsharebuttonbox bdshare-button-style0-32" data-bd-bind="1404121752514"><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_more" data-cmd="more"></a></div></div>
-               <div class="body-text"><p>{$info.content}</p></div>
+			<div class="article_top">
+			       <div class="article-detail-title">{$info.title}
+			       </div>
+			       <div  class="article-detail-subtitle">
+					<span>作者：{$info[0]['author']}</span>
+					<span>来源：{$info[0]['content_source']}</span>
+					<span>更新时间：{$info[0]['published']|date='Y-m-d',###}</span>
+				</div>
+			</div>
+		        <!-- 分享代码 <div class="bdsharebuttonbox bdshare-button-style0-32" data-bd-bind="1404121752514">
+			       <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
+			       <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
+			       <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+			       <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+			       <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">
+			       </a><a href="#" class="bds_more" data-cmd="more"></a>
+			       </div> -->
+               <div class="article-detail-content">
+				<div>{$info.content}</div>
+				</div>
 		      <div class="article-detail-foot">
                 <div class="pre">上一篇：<notempty name="art_pre"><a href="{$art_pre.url}">{$art_pre.title}</a><else/>无上一篇</notempty></div>
                 <div class="next">下一篇:<notempty name="art_next"><a href="{$art_next.url}">{$art_next.title}</a><else/>无一下篇</notempty></div>
-            </div>
+            </div> 
+		
        <div class="article-discuss-layout">
             <div class="article-discuss-detail">
                 <notempty name="msg_list">

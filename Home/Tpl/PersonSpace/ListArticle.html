@@ -1,6 +1,14 @@
 <include file="Common:intoHead" />
-<div id="article-layout" class="pull-left">
-     <volist name="list" id="list">
+<body>
+ <div class="panel panel-info">
+	<ul class="nav nav-tabs" id="myTab">
+	  <li ><a href="#myArticle" data-toggle="tab">我的爱情之语 </a></li>
+	  <li><a href="#addArticle" data-toggle="tab">发布爱情之语</a></li>
+	  <li ><a href="__APP__/Article/Index" data-toggle="tab">看看其他的人的爱情之语 </a></li>
+	</ul>
+	<div class="tab-content">
+	  <div class="tab-pane fade in active" id="myArticle">
+	   <volist name="list" id="list">
      	<div class="article-list">
 			<div class="article-title-2">
 				<h2 class="title"><span><a href="{:U('Article/view/',array('id'=>$list['article_id']))}">{$list['title']}</a></span></h2><hr>
@@ -8,11 +16,64 @@
 		     	  /关键字<a href="{:U('Article/SearchKeywords/',array('id'=>$list['article_id']))}">{$list['kerwords']}</a>
 		          <span class="article-discuss-title"><a href="{:U('Article/discuss/',array('id'=>$list['article_id']))}">{$countDiscuss}</a>评论</span>  <hr>                   
 	        </div>
-         	 	<h5>{$list['content']|msubstr=0,200,'utf-8',true}</h5>
-             <span><a href="{:U('Article/view/',array('id'=>$list['article_id']))}">详细点击</a></span> 
+         	 	<h5>{$list['content']|msubstr=0,100,'utf-8',true}</h5>
+            <p> <span><a href="{:U('Article/view/',array('id'=>$list['article_id']))}">详细点击</a></span><span><a href="#" id="editAct">[修改]</a></span><span><a href="#" id="editAct">[删除]</a></span></p>
          </div>
         </volist>
-  		<ul class="pagination">
-	  <li><a href="#">{$page}</a></li>
-	</ul>
+	  </div>
+	  <div class="tab-pane fade" id="addArticle">
+	   <div  class="tablestyle">
+	   <div class="mail_subnav">
+		                    <span>
+		                    </span>
+		                    <p>
+		                    </p>
+                		</div>
+	  			 <form>
+                    	<input type="hidden" name="article_id" value="{$info.article_id}"></input>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-hover " >
+                            <tr>
+                                <th>爱情之语标题：</th>
+                                <td><input id="title" type="text" class="input" size="60" name="title" value="{$info.title}"/> <a href="javascript:void(0)" id="checkNewsTitle">检测是否重复</a></td>
+                            </tr>
+                            <tr>
+                                <th width="100">发布状态：</th>
+                                <td><label><input type="radio" name="status" value="0" <if condition="$info.status eq 0"> checked="checked"</if> /> 文章审核状态</label> &nbsp; <label><input type="radio" name="status" value="1" <if condition="$info.status eq 1"> checked="checked"</if> /> 文章已发布状态</label> </td>
+                            </tr>
+                            <tr>
+                                <th>爱情之语所属分类：</th>
+                                <td>
+                                    <select name="cid">
+                                        <volist name="list" id="vo">
+                                            <if condition="$vo[cid] eq $info[cid]">
+                                                <option value="{$vo.cid}" selected="selected">{$vo.type_name}</option>
+                                                <else/>
+                                                <option value="{$vo.cid}">{$vo.type_name}</option>
+                                            </if>
+                                        </volist>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <th>爱情之语关键词：</th>
+                                <td><input type="text" class="input" size="60" name="keywords" value="{$info.keywords}"/> 多关键词间用半角逗号（,）分开，可用于做爱情之语关联阅读条件</td>
+                            </tr>
+                            <tr>
+                                <th>爱情之语描述：</th>
+                                <td><textarea class="input" style="height: 60px; width: 600px;" name="description">{$info.description}</textarea> 用于SEO的description</td>
+                            </tr>
+                            <tr>
+                                <th>爱情之语摘要：</th>
+                                <td><textarea class="input" style="height: 60px; width: 600px;" name="summary">{$info.summary}</textarea> 如果不填写则系统自动截取爱情之语前200个字符</td>
+                            </tr>
+                            <tr>
+                                <th>爱情之语内容：</th>
+                                <td><textarea id="content" class="input" style="height: 300px; width: 100%;" name="content">{$info.content}</textarea></td>
+                            </tr>
+                        </table>
+                         <button class="btn submit">提交</button>
+                    </form>
+                    </div>
+	  </div>
+	</div>
 </div>
+</body>

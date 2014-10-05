@@ -2,60 +2,187 @@
  <html>
  <head>
  <include file="Common:intoHead" />
+ <script type="text/javascript" src="__JS__/Home/syscodeapi.js?v20130725" charset="utf-8"></script>
  </head>
  <body>
- <div id="Right">
-                    <div class="Item hr">
-                        <div class="current">择偶条件信息</div>
-                    </div>
-                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
-                            <tr>
-                                <th width="100">城市要求：</th>
-                                <td><input id="city" type="text" class="input" size="60" name="city" value="{$info[0]['city']}"/></td>
-                            </tr>
-                             <div class="form-group">
-	                           <label class="col-xs-3 control-label">城市：</label>
-							    <div class="form-group">
-									<select id="s_province" name="province"></select>&nbsp;&nbsp;
-								    <select id="s_city" name="city" ></select>&nbsp;&nbsp;
-								    <!-- <select id="s_county" name="s_county"></select> -->
-								    <script type="text/javascript">_init_area();</script>
-								    </div>
-								    <div id="show"></div>
-	                    	  </div>
-                           <!--  <tr>
-                                <th width="100">年龄范围：</th>
-                                <td><input id="old" type="text" class="input" size="60" name="old" value="{$info[0]['old']}"/></td>
-                            </tr> -->
-                            <tr>
-                                <th width="100">身高范围：</th>
-                                <td><input id="high" type="text" class="input" size="60" name="high" value="{$info[0]['high']}"/></td>
-                            </tr>
-                            <tr>
-                                <th width="100">性格要求：</th>
-                                <td><input id="character" type="text" class="input" size="60" name="character" value="{$info[0]['character']}"/></td>
-                            </tr>
-                            <tr>
-                                <th width="100">用户爱好：</th>
-                                <td><input id="objectFan" type="text" class="input" size="60" name="objectFan" value="{$info[0]['objectFan']}"/></td>
-                            </tr>
-                            <tr>
-                                <th width="100">民族要求：</th>
-                                <td><input id="Nation" type="text" class="input" size="60" name="Nation" value="{$info[0]['Nation']}"/></td>
-                            </tr>
-                            <tr>
-                                <th width="100">学历要求：</th>
-                                <td><input id="academy" type="text" class="input" size="60" name="academy" value="{$info[0]['academy']}"/></td>
-                            </tr>
-                            <tr>
-                                <th width="100">国籍：</th>
-                                <td><input id="nationality" type="text" class="input" size="60" name="nationality" value="{$info[0]['nationality']}"/></td>
-                            </tr>
-                            <tr>
-                                <th width="100">创建时间：</th>
-                                <td><input id="create_time" type="text" class="input" size="60" name="create_time" value="{$info[0]['create_time']|date="Y-m-d H:i:s",###}"/></td>
-                            </tr>
-                        </table>
-                </div>
+ <div class="Term-content">
+    <div class="title">
+	    <div class="panel-heading nav nav-tabs">
+		    <h2>择偶条件</h2>
+		    <!-- <div class="progressBox" id="set_count">
+		    <p>资料完整度：<em>40%</em></p>
+	   	 </div> -->
+	   	 </div>
+    <div class="Term-content-box">
+    <form action="__URL__/ListTerm" method="post" onsubmit="return checkForm();">
+    <ul class="dataList">
+    <!--  objectInfo_age1' => string '23' (length=2)
+  'objectInfo_age2' => string '33' (length=2)
+  'province' => string '省份' (length=6)
+  'city' => string '地级市' (length=9)
+  's_county' => string '市、县级市' (length=15)
+  'objectInfo_education' => string '-1' (length=2)
+  'objectInfo_height1' => string '-1' (length=2)
+  'objectInfo_height2' => string '-1' (length=2)
+  'objectInfo_hasphoto' => string '2' (length=1)
+  'objectInfo_body' => string '-1' (length=2)
+  'objectInfo_occupation' => string '-1' (length=2)
+  'objectInfo_stock' => string '-1' (length=2)
+  'objectInfo_isdrinking' => string '-1' (length=2)
+  'objectInfo_issmoking' => string '-1' (length=2)-->
+      <li>
+      	<strong class="ml">性&nbsp;&nbsp;&nbsp;&nbsp;别：</strong>
+     	 <select class="newselect" id="objectSex" name="objectInfo.gender" disabled="">
+     	    	<if condition="$genderlist eq 1"><option value="0" selected="selected">男</option>
+				<elseif condition="$genderlist eq 2"/><option value="2">女</option>
+				<else /><option value="-1" selected="selected">不限</option>
+				</if>
+		   </select>
+      </li>
+      <li>
+      	<strong class="ml">年&nbsp;&nbsp;&nbsp;&nbsp;龄：</strong>
+      	<script>syscode.select('newage','age1','old','23','19',syscode.age,syscode.buxian);</script>
+       <script>syscode.select('newage','age2','objectInfo.age2','33','25',syscode.age,syscode.buxian);</script> 岁
+      </li>
+      <li>
+    <!--   //生成下拉框
+	/*
+	* classStyle 样式
+	* id select的id名称
+	* name select的name名称
+	* realValue 当前选项，用于数据回填
+	* arrayObj 对应的数组
+	* title 下拉框标题
+	* event 选择框改变事件
+	* isDisabled 是否禁用
+	*/
+	syscode.selectHtml=function(classStyle,id,name,realValue,defaultValue,options,title,event,isDisabled){ -->
+    	  <strong class="ml">城市要求</strong>
+			<select id="s_province" name="province"></select>&nbsp;&nbsp;
+		    <select id="s_city" name="city" ></select>&nbsp;&nbsp;
+		    <select id="s_county" name="s_county"></select>
+		     <script type="text/javascript"  src="__JS__/Home/common.data.js"></script>
+		    <script type="text/javascript">_init_area();
+		    /* 省份 */
+       			 var Gid  = document.getElementById ;
+				var showArea = function(){
+					Gid('show').innerHTML = "<h3>省" + Gid('s_province').value + " - 市" + 	
+					Gid('s_city').value + " - 县/区" + 
+					Gid('s_county').value + "</h3>"
+											}
+				Gid('s_county').setAttribute('onchange','showArea()');
+		    </script>
+		    <div id="show"></div>
+      </li>
+      <li>
+      <strong class="ml">学&nbsp;&nbsp;&nbsp;&nbsp;历：</strong>
+      <script>syscode.select('newselect','education','academy','{$Termlist['academy']}','-1',syscode.education,syscode.buxian);</script>
+      </li>
+     <!--  <li><strong class="ml">月&nbsp;收&nbsp;入：</strong><script>syscode.select('newage','salary1','objectInfo.salary1','105','-1',syscode.salary2,syscode.buxian);</script><select class="newage" id="salary1" name="objectInfo.salary1">
+        <script>syscode.select('newage','salary2','objectInfo.salary2','-1','-1',syscode.salary2,syscode.buxian);</script>
+      </li> -->
+      <li><strong class="ml">身&nbsp;&nbsp;&nbsp;&nbsp;高：</strong>
+      <script>syscode.select('newage','height1','high','{$Termlist['academy']}','-1',syscode.height,syscode.buxian);</script>
+      <script>syscode.select('newage','height2','objectInfo.height2','','-1',syscode.height,syscode.buxian);</script>
+      </li>
+    </ul>
+    <div id="moreconditions" style="margin-top:10px">
+      <ul class="dataList">
+        <li><strong class="ml">有无照片：</strong>
+     <input type="radio" value="1" name="hasphoto" id="hasphoto1">
+          有<input name="objectInfo.hasphoto" type="radio" value="2" id="hasphoto3" checked="checked">不限 </li>
+        <li>
+        	<strong class="ml">体&nbsp;&nbsp;&nbsp;&nbsp;型：</strong>
+            <script>syscode.select('newselect','bodybt','body','{$Termlist['academy']}','-1',syscode.body0,syscode.buxian);</script>
+        </li>
+        <!-- <li><strong class="ml">职&nbsp;&nbsp;&nbsp;&nbsp;业：</strong>
+         <script>syscode.select('newselect','occupation','objectInfo.occupation','','-1',syscode.occupation,syscode.buxian);</script>
+        </li> -->
+        <li>
+        <strong class="ml">民&nbsp;&nbsp;&nbsp;&nbsp;族：</strong>
+        <script>syscode.select('newselect','stock','Nation','{$Termlist['academy']}','-1',syscode.stock,syscode.buxian);</script>
+        </li>
+       <!--  <li><strong class="ml">你在意Ta喝酒吗：</strong>
+        <script>syscode.select('newselect','isdrinking','objectInfo.isdrinking','','-1',syscode.drinking,syscode.buxian);</script>
+        </li>
+        <li><strong class="ml">你在意Ta抽烟吗：</strong>
+         <script>syscode.select('newselect','issmoking','objectInfo.issmoking','','-1',syscode.smoking,syscode.buxian);</script>
+        </li> -->
+      </ul>
+    </div>
+      <div class="ml">
+     <input name="" type="submit" value="保存"  class=" btn btn-danger btn-lg" >
+     </div>
+     </form>
+      </div>
+    </div>
+    <script language="javascript">
+function strLength(s){
+	return  s.replace(/[^\x00-\xff]/gi,'hi').length;
+}
+function textCounter(field,countfieldId,leavingsfieldId,maxlimit) {
+    var countfield = document.getElementById(countfieldId);
+    var leavingsfield = document.getElementById(leavingsfieldId);
+	if (field.value.length > maxlimit) {// if too long...trim it!
+	  field.value = field.value.substring(0, maxlimit);
+	  alert(" 限" + maxlimit + "字内！");
+	} else { 
+	  leavingsfield.innerHTML=maxlimit - field.value.length;
+	  countfield.innerHTML=field.value.length;
+	}
+} 
+function checkForm() {
+	var patrnE=/[\"\'\\\/\*<>\|]/ig;
+	//var salary1 = document.getElementById("salary1").value;
+	//var salary2 = document.getElementById("salary2").value;
+	var age1 = document.getElementById("age1").value;
+	var age2 = document.getElementById("age2").value;
+	var height1 = document.getElementById("height1").value;
+	var height2 = document.getElementById("height2").value;
+	
+	
+	if(age1 != -1 && age2 != -1 && age1 > age2) {
+		alert("您选择的“年龄”范围不正确");
+		document.getElementById("age1").focus();
+		return false;
+	}
+	
+	/* if(salary1 != -1 && salary2 != -1 && salary1 > salary2) {
+		alert("您选择的“月收入”范围不正确");
+		document.getElementById("salary1").focus();
+		return false;
+	} */
+	
+	if(height1 != -1 && height2 != -1 && height1 > height2) {
+		alert("您选择的“身高”范围不正确");
+		document.getElementById("height1").focus();
+		return false;
+	}
+	return true;
+}
+
+function diableObjectSex() {
+	var obj = document.getElementById("objectSex");
+	obj.disabled = "disabled";
+}
+diableObjectSex();  
+/* //工作地提示
+$(function(){
+	var workCitStr='-1';
+	if(!syscode.cityFloorValue(workCitStr)){
+		var workcityTips=$('<div class="tip155"><div class="cls">×</div><div class="txt"><p>籍贯精确到区县级别啦！</p></div></div>');
+		workcityTips.find('.cls').click(function(){$(this).parent().hide();});
+		$("#hastipDDHome").addClass("hastip").append(workcityTips);
+		
+	}
+	var workCitStr2=getCookieWorkCity();
+	if(!syscode.cityFloorValue(workCitStr2)){
+		var workcityTips=$('<div class="tip155"><div class="cls">×</div><div class="txt"><p>工作地精确到区县级别啦！</p></div></div>');
+		workcityTips.find('.cls').click(function(){$(this).parent().hide();});
+		$("#hastipDDInfo").addClass("hastip").append(workcityTips);
+	}
+}) */
+</script>
+</div>
  </body>
  </html>

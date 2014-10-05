@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+<include file="Common:intoHead" />
+<include file="Public:meta" />
+<include file="Common:head" />
+</head>
+<body>
+<div id="page-pdate" class="container">
+<div class="index-site"> 
+		<i class="glyphicon icon-tags"></i>首页-> 会员约会->我要约会
+	</div>
+	<article class="paper">
+		<section class="uinfosec">
+			<h1 class="hidden">私人约会邀请对象资料</h1>
+			<aside class="uiwrap">
+				<h1 class="hidden">邀请对象的头像</h1>
+				<div class="portrait portrait-125">
+					<a href="" target="_blank" class="pr">
+					<img>
+					</a>
+					<empty name="$appointment.Headphoto">
+					<div class="accordion-group">
+					    <div class="accordion-heading">
+					       <img class="img-thumbnail" alt="暂时保密哟" src="__IMG__/Home/defaultHead.png"/>
+					    </div>
+						 </div>
+					<else/>
+					<a  href="" target="_blank" class="pr">
+					<img class="img-thumbnail"  src="$appointment[0]['Headphoto']" width="125" height="139" alt="$appointment[0]['username']"/>
+					</a>
+				</empty>
+				</div>
+			</aside>
+			<article class="diwrap">
+				<h1 class="hidden">邀请对象的信息</h1>
+				<p class="title"><strong>To</strong><span class="label label-info">{$appointment[0]['username']|msubstr=0,2,'utf-8',false}同学</span></p>
+				<p class="js-content content content-part"><strong>爱情宣言：</strong>一起参加户外运动！也可以在咖啡厅聊天。{$appointment[0]['username']}</p>
+			</article>
+		</section>
+		<section class="formsec">
+			<h1 class="hidden">发布约会表单</h1>
+				<section class="plansec">
+					<form action="__URL__/dateDeal" method="post">
+					<input type="hidden" value="{$appointment[0]['member_id']}" name="id" />
+						<!-- <div><img src="__IMG__/Home/mood_01.gif"/></div> -->
+						<div><strong>告诉您的安排：</strong>
+							<div id="yuehui-arra">
+								<textarea name="arra" ></textarea>
+								<div class="button-set panel yuehui-arra-foot">
+								 <p id="post_limit">能输入200字</p>
+								 <p id="yuehui-demand"><small>可以写下您的要求：费用安排，地点，时间等其他要求；</small></p>
+								 <p class="miniblog-button">
+									 <input  type=image src="__IMG__/Home/button_release.gif?t=2"  border=0 name=yue-arra onclick="post_do()" id="post_do_button" border="0">
+								 </p>
+								 </div>
+							</div>
+						</div>
+					</form>
+				</section>
+</section>
+	</article>
+</div>
+<include file="Common:foot" />
+</body>
+</html>

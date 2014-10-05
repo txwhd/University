@@ -22,9 +22,7 @@
 	              <span><a href="{:U('Article/view/',array('id'=>$list['article_id']))}">详细点击</a></span> 
 	          </div>
 	         </volist>
-    		<ul class="pagination">
-			  <li><a href="#">{$page}</a></li>
-			</ul>
+	       <include file="Common:pagination" />
 		</div>
 	<div id="classify" class="pull-right"> 
 	        <div class="panel">

@@ -46,6 +46,48 @@ p{
 	padding:0px; 
 	margin:0px;
 }
+/* 分页的CSS代码 */
+.pre{
+	float:left;margin-right:400px;
+}
+.next{
+	
+}
+ .pagination {
+	width:680px;
+	padding:10px 0 10px 0;
+	margin:0px;
+	text-align:center;
+ 	float:left;
+	font-size:13px;
+}
+.pagination a {
+	padding: 2px 5px 2px 5px;
+	margin-right: 2px;
+	border: 1px solid #FF99FF;
+	text-decoration: none; 
+	color: #FF99FF;
+}
+	.pagination a:hover, div.pagination a:active {
+		border:1px solid #FF99FF;
+		color: #fff;
+		background-color: #FF99FF;
+		}
+.pagination span.current {
+		padding: 2px 5px 2px 5px;
+		margin-right: 2px;
+		border: 1px solid #FF99FF;
+		font-weight: bold;
+		background-color: #FF99FF;
+		color: #FFF;
+		}
+.pagination span.disabled {
+	padding: 2px 5px 2px 5px;
+	margin-right: 2px;
+	border: 1px solid #f3f3f3;
+	color: #ccc;
+	} */
+/* 分页的CSS代码 结束*/
 /* button的样式自定义 */
 .button-caution{
 	background:#FF6699 repeat-x;
@@ -756,13 +798,29 @@ float:left;
 }
 .article-discuss-title{float:right;}
 .article-discuss-layout{margin-top:20px;}
-.article-detail-title{margin-bottom:30px;margin-left:20px;}
+.article_top{
+    text-align:center;
+	border-bottom:1px solid #dfdfdf;
+}
+.article_top .article-detail-title{
+	height:32px;
+	line-height:32px;
+	font-size:16px;
+}
+.article_top .article-detail-subtitle{
+	height:32px;
+	line-height:32px;
+	font-size:12px;
+}
+.article-detail-content{
+	padding: 10px 10px;
+   	border:1px solid #dfdfdf;
+   	background: #F0F0F0;
+}
 .article-detail-foot{margin-left:20px;margin-top:20px;}
 .bottom-20{margin-bottom:20px;}
-.pre{float:left;margin-right:400px;}
 /* 爱情之语 end*/
-
-/*-------------个人中心---------------*/
+/*-------------个人中心开始---------------*/
 #person-head{
 	height:110px;
 	border:1px solid #ff99ff;
@@ -895,9 +953,6 @@ height:150px;
 	width:758px;
 	margin-left:3px;
 	border:1px solid #ff99ff;
-}
-#person-intro{
-	
 }
 #person-nav ul li{
 	text-align: center;
@@ -1072,6 +1127,23 @@ vertical-align: top;
 	float:left;
 	text-indent:0;
 }
+/*个人资料开始  */
+.tody-reg-stutas {
+margin: 0 15px 15px;
+padding-left: 110px;
+color: #666;
+font-size: 12px;
+background-image: url("http://images.zastatic.com/zhenai3/zhenai2012/img/layer/entry/border.png");
+background-repeat: repeat-x;
+padding-top: 15px;
+background-position: 0 5px;
+}
+.tody-reg-stutas span {
+font-weight: 700;
+font-size: 14px;
+color: #FF6000;
+}
+/*个人资料结束 */
 /*
 step1 .plansec .fitem-themelist {
 padding: 10px 0 20px;
@@ -1092,6 +1164,145 @@ text-align: center;
 margin-top: 20px;
 } */
 /* 约会结束 */
+/* 邮件开始 */
+.mail_subnav {
+	width: 756px;
+	height: 40px;
+	background: #f7f7f7;
+	line-height: 40px;
+	padding: 0 0 0 20px;
+	border-bottom: 1px solid #e5e5e5;
+	border-top: 1px solid #e5e5e5;
+	overflow: hidden;
+}
+.mail_subnav span label, .mail_subnav span {
+	float: left;
+}
+.mail_subnav span input {
+	margin: 13px 0 0 0;
+	float: left;
+}
+.mail_subnav span label {
+	margin: 0 9px;
+}
+.mail_subnav span a {
+padding: 0 5px 0 6px;
+height: 20px;
+display: block;
+background: #f9f9f9;
+text-align: center;
+line-height: 20px;
+float: left;
+margin: 9px 0 0 0;
+color: #999;
+border: 1px solid #d3d3d3;
+}
+.mail_subnav p {
+width: 153px;
+float: right;
+margin: 8px 18px 0 0;
+}
+.mail_list ul {
+width: 756px;
+height: 90px;
+border-bottom: 1px solid #EEE;
+padding: 0 0 0 20px;
+cursor: pointer;
+}
+.mail_list ul .li01, .mail_list ul .li02 {
+	width: 34px;
+}
+.mail_list ul li {
+float: left;
+}
+.mail_list ul .li01 input {
+	margin: 39px 0 0 0;
+	_margin: 36px 0 0 0;
+}
+.mail_list ul .li02 b {
+width: 14px;
+height: 12px;
+display: block;
+background: url(Img/index-icons.png) -425px -190px no-repeat;
+margin: 40px 0 0 0;
+}
+.mail_list ul .li03 {
+width: 515px;
+}
+.mail_list ul li dl {
+width: 515px;
+margin: 20px 0 0 0;
+}
+.mail_list ul li dl dt {
+width: 41px;
+height: 49px;
+float: left;
+border: 1px solid #e5e5e5;
+margin: 0 10px 0 0;
+cursor: pointer;
+}
+.mail_list ul li dl dd {
+width: 400px;
+float: left;
+margin: 5px 0 0 0;
+}
+
+.mail_list ul li dl dt img {
+float: left;
+margin: 2px 0 0 2px;
+}
+.mail_list ul li dl dd .vip {
+color: #ff7127;
+float: left;
+margin: 0 10px 0 0;
+}
+font {
+margin: 0 5px 0 0;
+cursor: pointer;
+float: left;
+}
+.mail_list ul li dl dd .vip_top {
+width: 19px;
+height: 17px;
+background: url(Img/top.gif) no-repeat;
+display: block;
+float: left;
+margin: -1px 0 0 10px;
+cursor: pointer;
+}
+.mail_list ul li dl .dd_number {
+margin: 15px 0 0 0;
+}
+strong {
+color: #FF99FF;
+}
+.mail_list ul .li04 {
+float: right;
+}
+.mail_list ul .li04 a {
+width: 100px;
+height: 38px;
+display: block;
+background: url(Img/index-icons.png) -878px 0 no-repeat;
+text-align: center;
+line-height: 38px;
+color: #fff;
+font-weight: bold;
+margin: 27px 19px 0 0;
+}
+.mail_subnavtwo {
+border: 0;
+}
+#mbox_outbox .mail_list dl dd a {
+width: 98px;
+height: 31px;
+display: block;
+background: url(Img/index-icons.png) -878px -124px no-repeat;
+border: 0;
+}
+
+/* 邮件结束 */
+
 /* 充值 */
 .chargeblock .contentwrap {
 padding: 20px 20px 14px;
@@ -1148,6 +1359,55 @@ margin-top: 24px;
 }
 
 /* 充值 end*/
+/* 择偶条件开始*/
+.Term-content {
+	background-color: #fff;
+	border-bottom: 0px;
+}
+.Term-content .title {
+	border-bottom: 0px;
+	position: relative;
+}
+.Term-content .title h2 {
+	float: left;
+	font-size: 18px;
+	color: #0861A2;
+	display: inline;
+}
+.Term-content .progressBox {
+	float: left;
+	height: 14px;
+	line-height: 14px;
+	overflow: hidden;
+	margin-top: 3px;
+}
+.progressBox p {
+display: inline;
+margin-right: 5px;
+float: left;
+	border:1px solid red;
+}
+.progressBox p em {
+font-style: normal;
+font-family: Verdana;
+	
+}
+.Term-content-box {
+padding: 30px 35px;
+min-height: 500px;
+_height: 500px;
+}
+.Term-content-box .dataList {
+padding-left: 30px;
+}
+.Term-content-box .dataList li {
+margin-bottom: 15px;
+font-size: 14px;
+}
+.dataList li strong.ml {
+margin-left: 42px;
+}
+/* 择偶条件结束*/
 /*==========个人中心end==============  */
 /*==========会员详细页面==============  */
 .detail-photo img{

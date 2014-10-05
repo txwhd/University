@@ -210,6 +210,11 @@ class CommonAction extends Action {
 	}
 	//更多操作;根据传过来的表名取数据；导航栏有数据库的直接连接到导航栏方法；
 	public function listMore(){
+		$name=$this->getActionName();
+		$M = M($name);
+		$this->assign("list", D($name)->listNews($page->firstRow, $page->listRows));
+		$list=M($name)->select();
+		$this->assign('list',$list);
 		$this->display();
 	}
 	//详细会员操作；根据传过来的表名和类型取数据
