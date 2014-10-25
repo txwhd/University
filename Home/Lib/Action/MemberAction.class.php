@@ -14,19 +14,20 @@ class MemberAction extends  CommonAction{
 	}
 	//约会
 	public function appointment(){
-		$M = D('Member');
+		$M = D('Member');//(逻辑有问题)
 		$where['member_id']=(int)$_GET['id'];
 		$list   =  $M->relation(true)->where($where)->field('member_id,headphoto,username,sightml,monologue')->select();
 		$this->assign('appointment',$list);
 		$this->display();
 	}
 	public function dateDeal(){
-		//约会安排(逻辑有问题)
-		$arra=M('arra');
+		//约会安排
+		$arra=M('appointment');
 		if (empty($_POST['id'])) {
 			$this->error('约会安排必须填写啊，请重新填写吧！');
 		}
-		$data['from_name']=(int)$_POST['id'];
+		$data['from_name']=$_SESSION['USER_AUTH_KEY'];//发送约会的人
+		$data['to_name']=(int)$_POST['id'];//被约会的人
 		$data['arra']=$_POST['arra'];
 		$data['create_time']=time();
 		$result=$arra->add($data);

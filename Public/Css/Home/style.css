@@ -1475,8 +1475,401 @@ padding: 16px 20px;
 	margin-bottom:30px;
 	height:20px;
 }
-
-
 /*==========升级服务结束==============  */
-/*========================  */
+/*===========充值中心开始=============  */
+.topic {
+	border-left: 1px solid #c6c6c6;
+	color: #999;
+	font-size: 28px;
+	line-height: 10px;
+	font-weight: bold;
+	margin: 27px 0px 20px 20px;
+	padding-left: 20px;
+}
+.payment_panel .payment_menu {
+float: left;
+}
+.details_panel {
+margin: 20px auto;
+width: 998px;
+height: 98px;
+border: 1px solid #e7e7e7;
+background: #fff;
+}
+.details_panel .left {
+float: left;
+width: 734px;
+padding: 0 15px;
+}
+.details_panel .left .pay_items {
+	position: relative;
+height: 48px;
+line-height: 48px;
+border-bottom: 1px dashed #ddd;
+}
+.details_panel .left .price {
+float: right;
+	line-height: 28px;
+}
+.details_panel .left .price em {
+padding-right: 5px;
+font-size: 14px;
+font-family: Verdana, Geneva, sans-serif;
+color: #f60;
+font-weight: bold;
+}
+.details_panel .left .pay_items strong {
+padding-right: 6px;
+font-size: 16px;
+font-family: Arial, Helvetica, sans-serif;
+}
+.details_panel .left .discount {
+height: 30px;
+line-height: 30px;
+margin-top: 10px;
+}
+.details_panel .left .discount input {
+margin-right: 3px;
+_margin-right: 0;
+}
+.details_panel .left .discount label {
+display: inline-block;
+vertical-align: middle;
+}
+.details_panel .right {
+position: relative;
+float: left;
+width: 233px;
+height: 100%;
+border-left: 1px solid #e7e7e7;
+text-align: center;
+line-height: 98px;
+color: #666;
+font-family: "Simsun";
+}
+.details_panel .right .arrow {
+position: absolute;
+left: -1px;
+top: 50%;
+margin-top: -9px;
+width: 12px;
+height: 18px;
+background: url(./Img/pay/arrow.png) no-repeat;
+}
+.details_panel .right strong {
+display: inline-block;
+vertical-align: -5px;
+font-size: 30px;
+color: #f60;
+font-family: Verdana, Geneva, sans-serif;
+font-weight: normal;
+}
+.payment_panel .payment_menu ul li strong {
+display: inline-block;
+padding-left: 60px;
+width: 88px;
+height: 50px;
+line-height: 50px;
+background: url(./Img/pay/items_8.png) no-repeat;
+font-weight: normal;
+}
+.payment_panel .payment_menu ul li .icon1 {
+background-position: 16px 8px;
+}
+.payment_panel {
+position: relative;
+	width: 998px;
+margin: 20px auto 0;
+border: 1px solid #d9d9d9;
+background: url(./Img/pay/c_bg.png) center repeat-y;
+}
+.payment_panel .payment_menu {
+float: left;
+}
+.payment_panel .payment_menu ul li.cur {
+font-weight: bold;
+color: #f60;
+background: #fff;
+border-right: 1px solid #fff;
+cursor: default;
+}
+.payment_panel .payment_menu ul li {
+position: relative;
+height: 50px;
+width: 148px;
+line-height: 50px;
+cursor: pointer;
+border-bottom: 1px solid #d6d6d6;
+border-right: 1px solid #ddd;
+font-size: 14px;
+background: url(./Img/pay/bg3.png) center repeat-x;
+}
+.payment_panel .payment_menu ul li.cur .em {
+	position: absolute;
+	left: -9px;
+	top: -1px;
+	width: 8px;
+	height: 50px;
+	background: #FF23FF;
+	border: 1px solid #e86c00;
+	border-right: none;
+}
+.payment_panel .payment_menu ul li .tips {
+position: absolute;
+left: 80px;
+top: -10px;
+width: 48px;
+height: 21px;
+text-align: center;
+color: #fff;
+font-weight: normal;
+font-size: 12px;
+line-height: 16px;
+background: url(./Img/pay/tips_1.png) center no-repeat;
+}
+.payment_panel .payment_container {
+float: left;
+min-height: 500px;
+_height: 500px;
+width: 849px;
+}
+#okpField {
+padding: 20px 24px;
+font-size: 14px;
+}
+.sle_txt {
+width: 800px;
+height: 40px;
+position: relative;
+	padding-bottom: 20px;
+}
+.btn_okp {
+display: inline-block;
+vertical-align: middle;
+width: 150px;
+height: 50px;
+background: url(./Img/pay/afb_okp2.png) no-repeat;
+}
+#okpField .txt1 {
+padding-left: 10px;
+font-weight: bold;
+}
+iframe[Attributes Style] {
+border-top-width: 0px;
+border-right-width: 0px;
+border-bottom-width: 0px;
+border-left-width: 0px;
+width: 800px;
+height: 420px;
+}
+.payment_container .itemsfield .intro {
+padding: 10px 0 0 0;
+margin-top: 20px;
+font-size: 12px;
+line-height: 18px;
+color: #999;
+border-top: 1px dashed #eee;
+}
+.payment_container .itemsfield .intro dt {
+font-weight: bold;
+}
+.payment_container .itemsfield {
+display: none;
+padding: 20px 30px;
+}
+.payment_container .itemsfield h3 {
+font-size: 14px;
+color: #666;
+}
+.bankList {
+padding: 20px 0 0 0;
+clear: both;
+}
+.bankList li {
+position: relative;
+float: left;
+width: 156px;
+height: 34px;
+margin-bottom: 15px;
+margin-right: 20px;
+}
+.bankList li input {
+vertical-align: middle;
+float: left;
+_display: inline;
+margin-top: 10px;
+_margin-top: 5px;
+margin-right: 3px;
+}
+.bankList .current {
+border: 2px solid #f60;
+margin: 0px 0 0 2px;
+}
+.bankList .icon-box {
+position: relative;
+cursor: pointer;
+border: 1px solid #ddd;
+width: 125px;
+float: left;
+margin: 1px 0 0 3px;
+}
+box .icon {
+display: block;
+height: 30px;
+background-repeat: no-repeat;
+}
+.ICBC {
+background-position: 0 -40px;
+}
+.icon {
+text-indent: -9999px;
+}
+#webbankField .icon {
+background: url(./Img/pay/bankicon.png) no-repeat;
+}
+.bankList .current .coner {
+position: absolute;
+right: 0;
+_right: -1px;
+top: 0;
+width: 20px;
+height: 20px;
+background: url(./Img/pay/coner.png) no-repeat;
+z-index: 1;
+}
+.more {
+display: block;
+font-size: 14px;
+color: #0077c3;
+clear: both;
+}
+.nobank_tips {
+clear: both;
+position: relative;
+margin-top: 20px;
+padding: 0 10px;
+height: 28px;
+line-height: 28px;
+border: 1px solid #fbe5b6;
+background: #fffae3;
+color: #666;
+}
+.nobank_tips .close {
+float: right;
+color: #666;
+font-family: "Simsun";
+}
+.payment_container .itemsfield .btn_pay {
+display: block;
+margin-top: 30px;
+font-size: 16px;
+font-weight: bold;
+width: 148px;
+height: 48px;
+line-height: 48px;
+background: #f57403;
+border: 1px solid #d66500;
+text-align: center;
+color: #fff;
+text-decoration: none;
+}
+#zfbField {
+position: relative;
+font-size: 14px;
+}
+.btn_zfb {
+display: inline-block;
+vertical-align: middle;
+width: 150px;
+height: 60px;
+background: url(./Img/pay/zfb.png) no-repeat;
+}
+#zfbField .txt1 {
+padding-left: 10px;
+font-weight: bold;
+}
+#zfbField .txt3 {
+position: absolute;
+top: 20px;
+right: 30px;
+text-align: center;
+font-size: 12px;
+width: 120px;
+height: 120px;
+}
+.ZaPayTips {
+position: relative;
+width: 108px;
+left: 20px;
+_left: 25px;
+margin-top: -4px;
+_margin-top: -7px;
+}
+.ZaPayTips {
+position: relative;
+width: 108px;
+left: 20px;
+_left: 25px;
+margin-top: -4px;
+_margin-top: -7px;
+}
+.mpay_main {
+margin-top: 10px;
+}
+.mpay_table {
+padding: 10px 0;
+font-size: 14px;
+}
+.mpay_th {
+display: inline-block;
+zoom: 1;
+_display: inline;
+vertical-align: middle;
+width: 100px;
+text-align: right;
+color: #666;
+}
+.mpay_td {
+display: inline-block;
+zoom: 1;
+_display: inline;
+vertical-align: middle;
+}
+.clearfix:after {
+content: ".";
+height: 0;
+line-height: 0;
+font-size: 0;
+display: block;
+clear: both;
+visibility: hidden;
+}
+.payBox.payBox_ban {
+background: url(./Img/pay/ban.png) 80px 25px no-repeat;
+}
+.action {
+padding: 20px 0 0 0;
+}
+.btn_O, .payBox .btn_G {
+display: inline-block;
+width: 120px;
+height: 38px;
+line-height: 38px;
+background: #f57403;
+border: 1px solid #d66500;
+text-align: center;
+color: #fff;
+font-size: 14px;
+}
+.btn_G {
+margin-left: 20px;
+width: 160px;
+background: #f0f0f0;
+color: #666;
+border: 1px solid #ddd;
+}
+.payBox.payBox_success {
+background: url(../img/pay2014/pass.png) 80px 20px no-repeat;
+}
+/*===========充值中心结束=============  */
 

@@ -1,0 +1,444 @@
+<!DOCTYPE HTML>
+<html>
+<head >
+<include file="Common:intoHead" />
+<include file="Public:meta" />
+<meta charset="utf-8"/>
+<title>{$site.SITE_INFO.site_name}</title>
+<!-- 移动版支持 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="{$site.SITE_INFO.keywords}" />
+<meta name="description" content="{$site.SITE_INFO.description}" />
+ <script language="javascript" type="text/javascript" src="__JS__/My97DatePicker/WdatePicker.js"></script>
+</head>
+<body>
+<!--导航栏-->
+<header id="header">
+    <nav id="header_outer" class="navbar navbar navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+       		 <div class="logo"><img src="__IMG__/Home/logo.png" /></div>    
+        </div>
+        <div class="collapse navbar-collapse navbar-header-collapse">
+            <ul id="header_menu" class="nav navbar-nav">
+             	 <li class="topic">充值中心</li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right ng-scope" id="header_me">
+               <if condition="$Think.session.loginUserName eq '' ">
+            	<li><a  href="__APP__/Login/login"><i class="glyphicon glyphicon-log-in"></i>登录</a></li>
+               	<li><a href="__APP__/Register/index"><i class="glyphicon glyphicon-plus"></i>注册</a></li> 
+               <else />
+	            <li class="dropdown" id="menu-messages">
+					<a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle">
+						<i class="glyphicon glyphicon-user"></i>
+						 <span class="text">{$Think.session.loginUserName}</span> 
+						 <span class="label label-important">3</span><b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="__APP__/PersonSpace/index"><span class="glyphicon glyphicon-edit"></span><span>个人资料</span></a></li>
+						<li><a href="__APP__/PersonSpace/changePass"><span class="glyphicon glyphicon-wrench"></span><span>修改密码</span></a></li>
+						<li class="divider"></li>
+						<li><a  href="__APP__/Login/loginOut"><span class="glyphicon glyphicon-off"></span><span>退出</span></a></li>
+					</ul>
+					</li>
+				</if>
+            </ul>
+        </div>
+	</nav>
+</header>
+<div class="container">
+<div class="details_panel">
+	<div class="left">
+    	<div class="pay_items">
+        	<span class="price"><em>20</em>元</span>
+        	<strong>久久币10个</strong>
+        </div>
+        <div class="discount">
+        	<span class="price"><em>-0</em>元</span>
+        	<input id="coinFlag" type="checkbox" disabled="disabled"><label for="coinFlag">使用剩余的<strong class="">0.0</strong>个珍爱币</label>        
+        </div>
+    </div>
+    <div class="right">
+    	<span class="arrow"></span>
+    	应付：<strong id="realMoney">20.0</strong>元
+    </div>
+</div>
+<div class="payment_panel clearfix">
+	<div id="jaPaymentMenu" class="payment_menu">
+    	<ul class="nav-tabs">
+        	<li class="okp active" data-field="okpField"><strong class="icon1"><a href="#okpField" data-toggle="tab">一键支付</a></strong><span class="em"></span><span class="tips">立减5元</span></li>
+            <li class="webbank cur" data-field="webbankField"><strong class="icon2">网上银行</strong><span class="em"></span></li>
+            <li class="zfb" data-field="zfbField"><strong class="icon3">支付宝</strong><span class="em"></span></li>
+           <!--  <li class="platform" data-field="platformField"><strong class="icon4">支付平台</strong><span class="em"></span></li>
+            <li class="mobile" data-field="mobileField"><strong class="icon5">手机话费</strong><span class="em"></span></li> -->
+		</ul>
+    </div>
+   
+    <div id="jcPaymentContainer" class="payment_container">
+     <div class="tab-content">
+  <!--一键支付begin-->
+    	<div class="tab-pane active itemsfield" id="okpField">
+    		<div class="sle_txt">
+	        	<span class="btn_okp"></span><span class="txt1">无需网银/支付宝，有卡就能付！</span>
+	        	<!--
+	            <p class="txt2">开通即可抵扣：<em>5</em>元（订单金额≥10元才可使用）</p>
+	            -->
+            </div>
+            <div><iframe frameborder="0" width="800" height="420" id="alipayIframe" src=""></iframe></div>
+            <dl class="intro">
+           		<dt>一键支付优势：</dt>
+               	<dd>1. 无需网银/支付宝，支持储蓄卡（即借记卡）和信用卡。</dd>
+                <dd>2. 珍爱网与支付宝双重保障，付费环境安全。</dd>
+            </dl>
+        </div>
+        <!--一键支付结束-->
+  <div class="tab-pane" id="profile">...</div>
+  <div class="tab-pane" id="messages">...</div>
+  <div class="tab-pane" id="settings">...</div>
+</div>
+        
+        <!--网上银行begin-->
+    	<div id="webbankField" class="itemsfield" style="display: block;">
+        	<h3>选择银行（支持储蓄卡和信用卡）：</h3>
+            <div class="bankList clearfix">
+                <ul>
+                   <li>
+                     <input type="radio" name="channelToken" checked="checked" id="ICBCB2C" value="ICBCB2C">
+                     <label class="icon-box current" for="ICBCB2C">
+                      <span class="icon ICBC" title="中国工商银行">中国工商银行</span><span class="coner"></span>
+                     </label>
+                   </li>
+                  <!--  <li>
+                     <input type="radio" name="channelToken" id="CCB" value="CCB">
+                     <label class="icon-box" for="CCB">
+                      <span class="icon CCB" title="中国建设银行">中国建设银行</span><span class="coner"></span>
+                     </label>
+                   </li>
+                   <li>
+                     <input type="radio" name="channelToken" id="ABC" value="ABC">
+                     <label class="icon-box" for="ABC">
+                      <span class="icon ABC" title="中国农业银行">中国农业银行</span><span class="coner"></span>
+                     </label>
+                   </li>
+                   <li>
+                     <input type="radio" name="channelToken" id="BOCB2C" value="BOCB2C">
+                     <label class="icon-box" for="BOCB2C">
+                      <span class="icon BOC" title="中国银行">中国银行</span><span class="coner"></span>
+                     </label>
+                   </li>
+                   <li>
+                     <input type="radio" name="channelToken" id="CMB" value="CMB">
+                     <label class="icon-box" for="CMB">
+                      <span class="icon CMB" title="招商银行">招商银行</span><span class="coner"></span>
+                     </label>
+                   </li>
+                   <li>
+                     <input type="radio" name="channelToken" id="COMM" value="COMM">
+                     <label class="icon-box" for="COMM">
+                      <span class="icon COMM" title="交通银行">交通银行</span><span class="coner"></span>
+                     </label>
+                   </li>
+                   <li>
+                     <input type="radio" name="channelToken" id="PSBC-DEBIT" value="PSBC-DEBIT">
+                     <label class="icon-box" for="PSBC-DEBIT">
+                      <span class="icon PSBC" title="中国邮政储蓄银行">中国邮政储蓄银行</span><span class="coner"></span>
+                     </label>
+                   </li>
+                   <li>
+                     <input type="radio" name="channelToken" id="SPDB" value="SPDB">
+                     <label class="icon-box" for="SPDB">
+                      <span class="icon SPDB" title="上海浦东发展银行">上海浦东发展银行</span><span class="coner"></span>
+                     </label>
+                   </li>
+                   <li>
+                     <input type="radio" name="channelToken" id="SPABANK" value="SPABANK">
+                     <label class="icon-box" for="SPABANK">
+                      <span class="icon SPABANK" title="平安银行">平安银行</span><span class="coner"></span>
+                     </label>
+                   </li>
+                   <li>
+                     <input type="radio" name="channelToken" id="CIB" value="CIB">
+                     <label class="icon-box" for="CIB">
+                      <span class="icon CIB" title="兴业银行">兴业银行</span><span class="coner"></span>
+                     </label>
+                   </li>
+                  
+                   <li>
+                     <input type="radio" name="channelToken" id="CITIC" value="CITIC">
+                     <label class="icon-box" for="CITIC">
+                      <span class="icon CITIC" title="中信银行">中信银行</span><span class="coner"></span>
+                     </label>
+                   </li>
+                 
+                   <li>
+                     <input type="radio" name="channelToken" id="CEB-DEBIT" value="CEB-DEBIT">
+                     <label class="icon-box" for="CEB-DEBIT">
+                      <span class="icon CEB" title="中国光大银行">中国光大银行</span>
+                     </label>
+                   </li> -->
+                 </ul>
+                <a href="javascript:void(0)" onclick="return false;" class="more" id="tipmore">+ 更多银行</a>
+                <ul class="hidden" id="morebank">
+                  <!--  <li>
+                     <input type="radio" name="channelToken" id="CMBC" value="CMBC">
+                     <label class="icon-box" for="CMBC">
+                      <span class="icon CMBC" title="中国民生银行">中国民生银行</span>
+                     </label>
+                   </li>
+                   <li>
+                     <input type="radio" name="channelToken" id="NBBANK" value="NBBANK">
+                     <label class="icon-box" for="NBBANK">
+                      <span class="icon NBBANK" title="宁波银行">宁波银行</span>
+                     </label>
+                   </li>
+                   <li>
+                     <input type="radio" name="channelToken" id="BJRCB" value="BJRCB">
+                     <label class="icon-box" for="BJRCB">
+                      <span class="icon BJRCB" title="北京农村商业银行">北京农村商业银行</span>
+                     </label>
+                   </li>
+                   <li>
+                     <input type="radio" name="channelToken" id="HZCBB2C" value="HZCBB2C">
+                     <label class="icon-box" for="HZCBB2C">
+                      <span class="icon HZCB" title="杭州银行">杭州银行</span>
+                     </label>
+                   </li>
+                   <li>
+                     <input type="radio" name="channelToken" id="SHBANK" value="SHBANK">
+                     <label class="icon-box" for="SHBANK">
+                      <span class="icon SHBANK" title="上海银行">上海银行</span>
+                     </label>
+                   </li>
+                    <li>
+                     <input type="radio" name="channelToken" id="FDB" value="FDB">
+                     <label class="icon-box" for="FDB">
+                      <span class="icon FDB" title="富滇银行">富滇银行</span>
+                     </label>
+                   </li> -->
+                </ul>
+			</div>
+            <div class="nobank_tips"><a class="close" title="关闭" href="javascript:void(0)" onclick="return false;">×</a>没有开通网银/上面没有想要的银行，请选择<a id="unionPay" href="javascript:void(0)" onclick="return false;">银联支付</a>。</div>
+            <a class="btn_pay" href="javascript:void(0)" onclick="return false;" title="开始支付">开始支付</a>
+        </div>
+        <!--网上银行结束-->
+        <!--支付宝begin-->
+    	<div id="zfbField" class="itemsfield" style="display: none;">
+        	<span class="btn_zfb"></span><span class="txt1">国内最大的第三方支付公司，实时到账，安全稳定。</span>
+            <a class="btn_pay" href="javascript:void(0)" onclick="return false;" title="开始支付">开始支付</a>
+            <dl class="intro">
+            	<dt>可支持：</dt>
+                	<dd>1. 支付宝余额支付。</dd>
+                    <dd>2. 支持二十多家主流银行的储蓄卡（即借记卡）和信用卡，无需开通网银，没有支付宝也可支付。</dd>
+            </dl>
+            <p class="txt3" style="">支付宝扫码支付<img id="qrcodeImg" style="height:120px;width:120px;" src="__CSS__/Home/Img/pay/show.htm?code=gdbrzjm6nnuhgnst35&amp;picSize=S"></p>
+        </div>
+        <!--支付宝结束-->
+       <!--  <!--支付平台开始-->
+    	<!-- <div id="platformField" class="itemsfield" style="display: none;">
+        	<h3>选择银行（支持储蓄卡和信用卡）：</h3>
+        	<div class="bankList clearfix">
+                <ul>
+                   <li>
+                     <input type="radio" name="platformPay" checked="checked" id="pUPOL" value="pUPOL">
+                     <label class="icon-box current" for="pUPOL">
+                      <span class="icon pUPOL" title="银联在线支付">银联在线支付</span><span class="coner"></span>
+                     </label>
+                   </li>
+                   
+                   <li>
+                     <input type="radio" name="platformPay" id="pZFB" value="pZFB">
+                     <label class="icon-box" for="pZFB">
+                      <span class="icon pZFB" title="支付宝">支付宝</span><span class="coner"></span>
+                     </label>
+                   </li>
+                   
+                   <li>
+                     <input type="radio" name="platformPay" id="pCFT" value="pCFT">
+                     <label class="icon-box" for="pCFT">
+                      <span class="icon pCFT" title="财付通">财付通</span><span class="coner"></span>
+                     </label>
+                   </li>
+                   
+                   <li>
+                     <input type="radio" name="platformPay" id="pBDQB" value="pBDQB">
+                     <label class="icon-box" for="pBDQB">
+                      <span class="icon pBDQB" title="百度钱包">百度钱包</span><span class="coner"></span>
+                     </label>
+                   </li>
+               </ul>
+           </div>
+           <div class="ZaPayTips"><div class="content">支持两百多家银行。</div><span class="arrow"><i class="outer"></i><i class="inner"></i></span><span class="close"></span></div>
+           <a class="btn_pay" href="javascript:void(0)" onclick="return false;" title="开始支付">开始支付</a>
+        </div> -->
+        <!-- 支付平台结束-->
+        
+        
+       <!--  手机话费begin -->
+    <!-- 	<div id="mobileField" class="itemsfield" style="display: none;">
+        	<div id="mobilePayTips" class="ZaPayTips"><div class="content">温馨提示：当扣费金额大于所购服务时，剩余的金额将折算为相应的珍爱币，方便下次使用。</div><span class="close">×</span></div>
+            <div class="mpay_table mpay_main">
+            	<div class="mpay_th">付款方式：</div>
+                <div id="jaMobileSelect" class="mpay_td">
+                	<input type="radio" name="mb_c" checked="checked" id="mb_c1"><label for="mb_c1">手机充值卡</label>
+                	
+                    <input type="radio" name="mb_c" id="mb_c2"><label class="la2" for="mb_c2">话费支付（移动）</label>
+                    
+                </div>
+            </div>
+            <div class="mobile_container"> -->
+            	<!-- 手机充值卡结束 -->
+                <!-- <div id="jcMobileCard" class="mobile_card">
+                	<form id="phoneCardForm" action="http://211.100.37.200/zhenaios/yeePayRequest.action" target="_blank">
+                	<input type="hidden" value="114912112" name="paycenterYeePayPayId">
+					<input type="hidden" value="000003" name="bussinessId">
+					<input type="hidden" value="35" name="channelType">
+                	<div class="mpay_table">
+                        <div class="mpay_th">充值卡类型：</div>
+                        <div class="mpay_td">
+                            <input type="radio" name="pd_FrpId" value="SZX" id="mb_card1" checked="checked"><label for="mb_card1">移动充值卡</label>
+                            <input type="radio" name="pd_FrpId" value="UNICOM" id="mb_card2"><label for="mb_card2">联通充值卡</label>
+                            <input type="radio" name="pd_FrpId" value="TELECOM" id="mb_card3"><label for="mb_card3">电信充值卡</label>
+                        </div>
+                    </div>
+                    
+                    <div class="mpay_table">
+                        <div class="mpay_th">充值卡金额：</div>
+                        <div class="mpay_td">
+                            <input type="radio" name="pa7_cardAmt" value="300" checked="checked" id="mb_cost1"><label for="mb_cost1">300元</label>
+                            <input type="radio" name="pa7_cardAmt" value="200" id="mb_cost2"><label for="mb_cost2">200元</label>
+                            <input type="radio" name="pa7_cardAmt" value="100" id="mb_cost3"><label for="mb_cost3">100元</label>
+                            <input type="radio" name="pa7_cardAmt" value="50" id="mb_cost4"><label for="mb_cost4">50元</label>
+                            <input type="radio" name="pa7_cardAmt" value="30" id="mb_cost5"><label for="mb_cost5">30元</label>
+                            <input type="radio" name="pa7_cardAmt" value="20" id="mb_cost6"><label for="mb_cost6">20元</label>
+                        </div>
+                    </div>
+                    
+                    <div class="mpay_table">
+                        <div class="mpay_th">充值卡序列号：</div>
+                        <div class="mpay_td"><input id="cardNo" class="input_text" type="text" name="pa8_cardNo"><p style="display:none" class="ban_tips">卡号格式错误</p></div>
+                    </div>
+                    
+                    <div class="mpay_table">
+                        <div class="mpay_th">充值卡密码：</div>
+                        <div class="mpay_td"><input id="cardPwd" class="input_text" type="text" name="pa9_cardPwd"><p style="display:none" class="ban_tips">密码格式错误</p></div>
+                    </div>
+                    
+                    <div class="mpay_table">
+                        <div class="mpay_th"></div>
+                        <div class="mpay_td"><a class="btn_pay" href="javascript:void(0)" onclick="return false;" title="开始支付">开始支付</a></div>
+                    </div>
+                    </form>
+                    
+                    <dl class="intro">
+                        <dt>移动充值卡注意事项：</dt>
+                        <dd>1. 支持卡种：全国卡(卡号17位、密码18位)、浙江地方卡（卡号10位、密码8位）、福建地方卡（卡号16位、密码17位）、广东地方卡（卡号17位、密码18位）、辽宁地方卡（卡号16位、密码21位，不支持彩铃充值卡和短信充值卡）</dd>
+                        <dd>2. 请到固定网点购买充值卡，最好避免在流动摊点购买，以免出现纠纷。</dd>
+                        <dd>3. 购买时请注意充值卡的密封完整性及截止使用日期。</dd>
+                        <dd>4. 由于月末月初充值用户较多，运营商系统繁忙导致充值到账时间会有延迟，敬请谅解！</dd>
+                    </dl>
+								
+					<dl class="intro" style="display: none">
+						<dt>联通充值卡注意事项：</dt>
+						<dd>1.支持联通全国卡（卡号15位，密码19位）。</dd>
+						<dd>2.请到固定网点购买充值卡，最好避免在流动摊点购买，以免出现纠纷。</dd>
+						<dd>3.购买时请注意充值卡的密封完整性及截止使用日期。</dd>
+						<dd>4.由于月末月初充值用户较多，运营商系统繁忙导致充值到账时间会有延迟，敬请谅解！</dd>
+					</dl>
+								
+								
+					<dl class="intro" style="display: none">
+						<dt>电信充值卡注意事项：</dt>
+						<dd>1.支持电信发行的全国卡，卡号为19位、密码18位。目前仅支持50元、100元两种面值充值卡。</dd>
+						<dd>2.请到固定网点购买充值卡，最好避免在流动摊点购买，以免出现纠纷。</dd>
+						<dd>3.购买时请注意充值卡的密封完整性及截止使用日期。</dd>
+						<dd>4.由于月末月初充值用户较多，运营商系统繁忙导致充值到账时间会有延迟，敬请谅解！</dd>
+					</dl>
+                </div> -->
+                <!-- 手机充值卡end -->
+                
+             <!--    话费支付begin -->
+               <!--  
+                <div id="jcMobileMoney" class="mobile_money">
+                	<div class="mpay_table">
+                        <div class="mpay_th">金额：</div>
+                        <div class="mpay_td">
+                            <input type="radio" name="mb_price" value="300" checked="checked"><label for="mb_price1">30元</label>
+                            <input type="radio" name="mb_price" value="200"><label for="mb_price2">20元</label>
+                            
+                        </div>
+                    </div>
+                    <div class="mpay_table">
+                        <div class="mpay_th">手机号：</div>
+                        <div class="mpay_td"><input id="phoneNum" class="input_text" value="" type="text"><p style="display:none" class="ban_tips">手机号码格式错误</p></div>
+                    </div>
+                    
+                    <div class="mpay_table">
+                        <div class="mpay_th"></div>
+                        <div class="mpay_td"><a class="btn_pay" href="javascript:void(0)" onclick="return false;" title="开始支付">开始支付</a></div>
+                    </div>
+                    <dl class="intro">
+                        <dt>话费支付温馨提示：</dt>
+                            <dd>1. 暂只支持移动手机，直接从手机话费余额中扣除相应费用，方便快捷。</dd>
+                            <dd>2. 手机扣费最大日交易额50元，月交易额100元，若超额建议您使用其他方式或隔月购买。</dd>
+                    </dl>
+                </div> -->
+                <!-- 话费支付end -->
+      <!--       </div>
+        </div> -->
+       <!--  手机话费begin --> -->
+    </div>
+<!-- 提交表单 
+<form id="payForm"  method="get" action="http://211.100.37.26:8090/zhenaios_production/requestBank.action" target="_blank">-->
+<form id="payForm" method="get" action="http://211.100.37.200/zhenaios/requestBank.action" target="_blank">
+	<input type="hidden" name="messPay.orderId" value="114912112">
+	<input type="hidden" name="messPay.channelType">
+	<input type="hidden" name="subjectType" value="zheanaiMessenger">
+	<input type="hidden" name="channelToken">
+</form>
+
+<!-- 提示div -->
+
+<div id="jcPayBox1" style="display:none" class="payBox payBox_ban">
+	<h3>请您在新打开的页面完成付款！</h3>
+    <p>支付完成前请不要关闭此页面。<br></p>
+    <div class="action"><a class="btn_O" href="javascript:void(0)" onclick="return false;">已完成支付</a><a class="btn_G" href="javascript:void(0)" onclick="return false;">支付失败，重新支付</a></div>
+</div>
+
+<div id="jcPayBox2" style="display:none" class="payBox payBox_ban">
+	<h3>真遗憾！支付未成功，再试一次？</h3>
+    <div class="action"><a class="btn_O" href="javascript:void(0)" onclick="return false;">再试一次</a><a class="btn_G" target="_blank" href="http://profile.zhenai.com/payment/reCollection.jsps">支付遇到问题</a></div>
+</div>
+
+<div id="jcPayBox4" style="display:none" class="payBox payBox_success">
+	<h3>购买成功！</h3>
+    <div class="action"><a class="btn_O" href="javascript:void(0)" onclick="return false;">确定</a></div>
+</div>
+<script>
+seajs.config({
+	charset:'GBK',
+	alias:{
+		"dialog":"http://i4.zastatic.com/zhenai3/zhenai2012/js/lib/artDialog.v6/src/dialog.js",
+		"zhenaiPay":"http://i2.zastatic.com/zhenai3/zhenai2012/js/paycenter/zhenaiPay.js?v=20140918"
+	}
+});
+$LAB.script("http://i4.zastatic.com/zhenai3/zhenai2012/js/lib/jquery-1.8.3.min.js")
+	.wait(function(){
+		seajs.use("http://i2.zastatic.com/zhenai3/zhenai2012/js/paycenter/paycenterIndex.js?v=20140918",function(main){
+			main.init({
+				messPay : $.parseJSON('{"bussinessId":48642912,"count":10,"isUse":0,"memberId":70270058,"orderAmount":20,"orderDate":1412519831000,"orderId":114912112,"orderSrc":"web","paymentChannel":1,"paymentIP":"221.205.190.128","paymentStatus":0,"productFullName":"珍爱币10个","productId":9,"productTypeDes":"珍爱币","subjectType":"zheanaiMessenger","type":3}'),
+				balance : 0.0,
+				alipaySignDiscount : true,
+			    alipaySignOrderid : 114912113,
+			    isChanged : true
+			});
+		});
+	});
+</script>
+<script>
+
+</script>
+
+
+<div class="sogoutip" style="z-index: 2147483645; visibility: hidden;"></div><div class="sogoubottom" id="sougou_bottom" style="display: none;"></div><div id="ext_stophi" style="z-index: 2147483647;"><div class="extnoticebg"></div><div class="extnotice"><h2>关闭提示 <a href="#" title="关闭提示" id="closenotice" class="closenotice">关闭</a></h2><p id="sogouconfirmtxt"></p>  <a id="sogouconfirm" href="#" class="extconfirm">确 认</a> <a id="sogoucancel" href="#" class="extconfirm">取 消</a></div></div><div id="ext_overlay" class="ext_overlayBG" style="display: none; z-index: 2147483646;"></div><iframe class="sogou_sugg_feedbackquan" frameborder="0" scrolling="no" src="http://ht.www.sogou.com/websearch/features/yun1.jsp?pid=sogou-brse-596dedf4498e258e&amp;w=1366&amp;v=1423&amp;st=1412519831563&amp;od=2408&amp;ls=1409624422355&amp;lc=1404377075664&amp;lk=1404962826329&amp;sd=0&amp;cd=0&amp;kd=0&amp;u=1394680601213364&amp;y=132B1B1C8C6FFB3EFB1710223D21D057&amp;query=%E6%94%AF%E4%BB%98%E4%B8%AD%E5%BF%83|http%3A%2F%2Fprofile.zhenai.com%2Fpayment%2FpaycenterIndex.jsps%3FmessPayid%3D114912112%26visitId%3Dundefined&amp;r=http%3A%2F%2Fprofile.zhenai.com%2Fpersonal%2FzhenaicoinInfo.jsps%3Fr%3D1412519617359" style="border: none; display: none; z-index: 2147483645; background: transparent;"></iframe><script src="http://pb.sogou.com/pv.gif?hintbl=-1&amp;uigs_productid=webext&amp;type=ext_sugg&amp;uigs_t=1412519832571&amp;lt=765&amp;ie=0&amp;v=1423&amp;y=132B1B1C8C6FFB3EFB1710223D21D057&amp;query=%E6%94%AF%E4%BB%98%E4%B8%AD%E5%BF%83|http%3A%2F%2Fprofile.zhenai.com%2Fpayment%2FpaycenterIndex.jsps%3FmessPayid%3D114912112%26visitId%3Dundefined"></script>
+</div>
+</body>
+</html>
