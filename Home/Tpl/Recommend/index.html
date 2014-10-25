@@ -12,88 +12,25 @@
 <div id="city-centre">
 <div id="city-left" class="pull-left">
 		<div>
-		您当前的位置：-> 同城恋情
+		您当前的位置：-> 站长推荐
 		</div>
 			<div class="panel top10">
 						<div class="panel-heading">站长推荐<span><a href="#">换一换</a></span></div>						  
 			<div class="panel-body">
 			<div>
-					<div class="city-people">
+					<volist name="Recommend" id="vo">
+						<div class="boxgrid thecombo">
+							<img class="cover" <empty name="$vo.headphoto"> src="__IMG__/Home/001.jpg"
+							<else/>src="__ROOT__/{$vo.headphoto}"
+							</empty> />
+							<h3>{$vo.username}</h3>
+							<p>{$vo.schoolName}|{$vo.nationName}|{$vo.age}|{$vo.height}|{$vo.cPoint}</p>
+							<p><a href="{:U('Member/detail/',array('id'=>$vo['member_id']))}"target="_BLANK">详细</a>
+						</div>
+					</volist>
+					<!-- <div class="city-people">
 					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="city-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="city-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="city-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="city-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="city-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="city-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					
-					<div class="city-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="city-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="city-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="city-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="city-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="city-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="city-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="city-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="city-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="city-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="city-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="city-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="city-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="city-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-						<div class="city-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-						<div class="city-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-						<div class="city-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-						<div class="city-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
+					</div> -->
 			</div>
 		  <include file="Common:pagination" />
 		</div>

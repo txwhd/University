@@ -1,10 +1,13 @@
 <include file="Common:intoHead" />
 <body>
- <div class="panel panel-info">
+ <div class="panel panel-info Term-content">
 	<ul class="nav nav-tabs" id="myTab">
 	  <li ><a href="#myArticle" data-toggle="tab">我的爱情之语 </a></li>
-	  <li><a href="#addArticle" data-toggle="tab">发布爱情之语</a></li>
-	  <li ><a href="__APP__/Article/Index" data-toggle="tab">看看其他的人的爱情之语 </a></li>
+	  <li><a href="#addArticle" data-toggle="tab">写一写</a>  </li>
+	<li id="seesee">
+		<span class="glyphicon glyphicon-hand-right"></span>
+		<a href="__APP__/Article/index" target="_blank"><small>看看其他的人的爱情之语 </small></a>
+	  </li>
 	</ul>
 	<div class="tab-content">
 	  <div class="tab-pane fade in active" id="myArticle">
@@ -22,25 +25,8 @@
         </volist>
 	  </div>
 	  <div class="tab-pane fade" id="addArticle">
-	   <div  class="tablestyle">
-	   <div class="mail_subnav">
-		                    <span>
-		                    </span>
-		                    <p>
-		                    </p>
-                		</div>
-	  			 <form>
-                    	<input type="hidden" name="article_id" value="{$info.article_id}"></input>
-                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-hover " >
-                            <tr>
-                                <th>爱情之语标题：</th>
-                                <td><input id="title" type="text" class="input" size="60" name="title" value="{$info.title}"/> <a href="javascript:void(0)" id="checkNewsTitle">检测是否重复</a></td>
-                            </tr>
-                            <tr>
-                                <th width="100">发布状态：</th>
-                                <td><label><input type="radio" name="status" value="0" <if condition="$info.status eq 0"> checked="checked"</if> /> 文章审核状态</label> &nbsp; <label><input type="radio" name="status" value="1" <if condition="$info.status eq 1"> checked="checked"</if> /> 文章已发布状态</label> </td>
-                            </tr>
-                            <tr>
+	  <div class="addArticle-list">
+                          <!--   <tr>
                                 <th>爱情之语所属分类：</th>
                                 <td>
                                     <select name="cid">
@@ -52,28 +38,41 @@
                                             </if>
                                         </volist>
                                     </select></td>
-                            </tr>
-                            <tr>
-                                <th>爱情之语关键词：</th>
-                                <td><input type="text" class="input" size="60" name="keywords" value="{$info.keywords}"/> 多关键词间用半角逗号（,）分开，可用于做爱情之语关联阅读条件</td>
-                            </tr>
-                            <tr>
-                                <th>爱情之语描述：</th>
-                                <td><textarea class="input" style="height: 60px; width: 600px;" name="description">{$info.description}</textarea> 用于SEO的description</td>
-                            </tr>
-                            <tr>
-                                <th>爱情之语摘要：</th>
-                                <td><textarea class="input" style="height: 60px; width: 600px;" name="summary">{$info.summary}</textarea> 如果不填写则系统自动截取爱情之语前200个字符</td>
-                            </tr>
-                            <tr>
-                                <th>爱情之语内容：</th>
-                                <td><textarea id="content" class="input" style="height: 300px; width: 100%;" name="content">{$info.content}</textarea></td>
-                            </tr>
-                        </table>
-                         <button class="btn submit">提交</button>
-                    </form>
+                            </tr> -->
+                    <form class="form-horizontal" role="form" method="post" action="{:U('Article/add/',array('id'=>$list['article_id']))}">
+                     <div class="form-group">
+					    <label for="input" class="col-sm-4 control-label">标题</label>
+					    <div class="col-sm-8">
+					      <input type="text" class="form-control" size="20" name="title" id="" placeholder="">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="input" class="col-sm-2 control-label">关键字</label>
+					    <div class="col-sm-10">
+					      <input type="text" class="form-control" id="" name="keywords" placeholder="">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="input" class="col-sm-2 control-label">概要阐述</label>
+					    <div class="col-sm-10">
+					      <textarea class="input" cols="40"name="description">{$info.description}</textarea>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="input" class="col-sm-2 control-label">内容</label>
+					    <div class="col-sm-10">
+					      <textarea name="content"  cols="50"></textarea>
+					    </div>
+					  </div>
+					   <input type="hidden" name="status" value="0" />
+                        <input type="hidden" name="article_id" value="{$info.article_id}"></input>
+                              <div class="form-group">
+					    <div class="col-sm-offset-2 col-sm-10">
+					      <button type="submit" class=" btn btn-danger btn-lg" >提交</button>
+					    </div>
+					  </div>
+					</form>
                     </div>
 	  </div>
 	</div>
-</div>
 </body>

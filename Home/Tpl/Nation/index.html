@@ -7,7 +7,6 @@
 <body>
 <include file="Common:head" />
 <include file="Common:search" />
-
 <div class="container">
 <div id="nation-centre">
 <div id="nation-left" class="pull-left">
@@ -27,111 +26,45 @@
 							<p>Riot设计师：细谈联盟系统及MMR系统的优缺点</p>
 						</div>
 					</div>
-					
 					<div class="item">
 						<img src="__IMG__/Home/photojs/02.jpg" alt="" />
 						<div class="carousel-caption">
 							<div><p>Riot设计师：细谈联盟系统及MMR系统的优缺点</p></div>
 						</div>
 					</div>
-				
 					<div class="item">
 						<img src="__IMG__/Home/photojs/03.jpg" alt="" />
 						<div class="carousel-caption">
 							<p>Riot设计师：细谈联盟系统及MMR系统的优缺点</p>
 						</div>
 					</div>				
- 
 				</div>
-  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left">&lsaquo;</span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right">&rsaquo;</span>
-  </a>
+				  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+				    <span class="glyphicon glyphicon-chevron-left">&lsaquo;</span>
+				  </a>
+				  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+				    <span class="glyphicon glyphicon-chevron-right">&rsaquo;</span>
+				  </a>
 			</div>
-
-
-
-
 			<div class="panel top10">
 						<div class="panel-heading">民族恋情<span><a href="#">换一换</a></span></div>						  
 			<div class="panel-body">
 			<div>
-					
-					<div class="nation-people">
-					<img  src="__IMG__/Home/001.jpg">
+					<volist name="nation" id="vo">
+					<div class="boxgrid thecombo">
+						<img class="cover" <empty name="$vo.headphoto"> src="__IMG__/Home/001.jpg"
+						<else/>src="__ROOT__/{$vo.headphoto}"
+						</empty> />
+						<h3>{$vo.username}</h3>
+						<p>{$vo.schoolName}|{$vo.nationName}|{$vo.age}|{$vo.height}|{$vo.cPoint}</p>
+						<p><a href="{:U('Member/detail/',array('id'=>$vo['member_id']))}"target="_BLANK">详细</a>
 					</div>
-					<div class="nation-people">
+				</volist>
+					<!-- <div class="nation-people">
 					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					
-					<div class="nation-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="nation-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="nation-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="nation-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="nation-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="nation-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="nation-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="nation-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="nation-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="nation-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="nation-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="nation-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-					<div class="nation-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-	<div class="nation-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-						<div class="nation-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-						<div class="nation-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-						<div class="nation-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
-						<div class="nation-people">
-					<img  src="__IMG__/Home/001.jpg">
-					</div>
+					</div> -->
 			</div>
-			<div>
-				<ul class="pagination">
-				  <li><a href="#">&laquo;</a></li>
-				  <li><a href="#">1</a></li>
-				  <li><a href="#">2</a></li>
-				  <li><a href="#">3</a></li>
-				  <li><a href="#">4</a></li>
-				  <li><a href="#">5</a></li>
-				  <li><a href="#">&raquo;</a></li>
-				</ul>
-			</div>
+			    <include file="Common:pagination" />
 		</div>
 		</div>
 </div><!-- ./nation-left -->

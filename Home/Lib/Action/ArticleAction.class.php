@@ -72,10 +72,10 @@ class ArticleAction extends CommonAction{
 			$data = $_POST;
 			$data['ip'] = get_client_ip();
 			$data['add_time'] = time();
-			if(D('Message')->add($data)){
-				echo '<div class="pop">发表成功，请等待审核！</div>';
+			if(D('Article')->add($data)){
+				$this->success('发表成功！');
 			}else{
-				echo '<div class="pop">发表失败！</div>';
+				$this->error('发表失败，请重新填写吧！');
 			}
 		}
 }

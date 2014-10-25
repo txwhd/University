@@ -819,6 +819,29 @@ float:left;
 }
 .article-detail-foot{margin-left:20px;margin-top:20px;}
 .bottom-20{margin-bottom:20px;}
+/*个人中心的爱情之语  开始*/
+#seesee{
+	margin-left:370px;
+}
+#seesee a{
+	float: right;
+}
+#seesee span{
+	margin-right:10px;
+	float: left;
+}
+#addArticle form{
+	padding-left:20px;
+	padding-top:10px;
+}
+.addArticle-list{
+	width:733px;
+	margin-left:20px;
+}
+#addArticle form input{
+	width:350px;
+}
+/*个人中心的爱情之语  结束*/
 /* 爱情之语 end*/
 /*-------------个人中心开始---------------*/
 #person-head{
